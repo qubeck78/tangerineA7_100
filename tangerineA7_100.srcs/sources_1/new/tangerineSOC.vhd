@@ -174,6 +174,49 @@ port(
 );
 end component;
 
+component vga is
+port( 
+
+   --cpu interface ( registers )
+   reset:            in    std_logic;
+   clock:            in    std_logic;
+   a:                in    std_logic_vector( 15 downto 0 );
+   din:              in    std_logic_vector( 31 downto 0 );
+   dout:             out   std_logic_vector( 31 downto 0 );
+   
+   ce:               in    std_logic;
+   wr:               in    std_logic;
+   dataMask:         in    std_logic_vector( 3 downto 0 );
+   
+   ready:            out   std_logic;
+
+   --pixel clock
+   pixelClock:       in    std_logic;
+
+   --block ram interface ( text mode frame buffer ram )
+   txtFbRamClock:    out   std_logic;
+   txtFbRamA:        out   std_logic_vector( 12 downto 0 );
+   txtFbRamDIn:      in    std_logic_vector( 31 downto 0 );
+
+   --dma interface ( gfx mode line data buffer, dma requests )
+   gfxFbRamClock:    out   std_logic;
+   gfxFbRamDIn:      in  std_logic_vector( 31 downto 0 );
+   gfxFbRamA:        out std_logic_vector( 8 downto 0 );    --2 buffers, 256 long words each
+
+    --2 dma requests
+   vgaDMARequest:    out std_logic_vector( 1 downto 0 );
+
+   --video output ( VGA )
+   vgaRed:           out   std_logic_vector( 7 downto 0 );
+   vgaGreen:         out   std_logic_vector( 7 downto 0 );
+   vgaBlue:          out   std_logic_vector( 7 downto 0 );
+   vgaHS:            out   std_logic;
+   vgaVS:            out   std_logic;
+   vgaDE:            out   std_logic 
+     
+);
+end component;
+
 --risc-v cpu :)
 component nekoRv is
 port( 
@@ -194,6 +237,36 @@ port(
     
    instrFetchCycle:    out std_logic
     
+);
+end component;
+
+component rootRegisters is
+port(
+   --cpu interface
+   reset:            in    std_logic;
+   clock:            in    std_logic;
+   a:                in    std_logic_vector( 15 downto 0 );
+   din:              in    std_logic_vector( 31 downto 0 );
+   dout:             out   std_logic_vector( 31 downto 0 );
+   
+   ce:               in    std_logic;
+   wr:               in    std_logic;
+   dataMask:         in    std_logic_vector( 3 downto 0 );
+   
+   ready:            out   std_logic;
+  
+   --video mode ( to be moved to vga regs )
+   vmMode:           out   std_logic_vector( 15 downto 0 );
+   
+   --gpio
+   gpi:              in    std_logic_vector( 31 downto 0 );
+   gpo:              out   std_logic_vector( 31 downto 0 );
+      
+   --vsync for frame timer
+   vsync:            in    std_logic;
+   
+   --mtime irq out
+   mtimeIrq:         out   std_logic
 );
 end component;
 
@@ -287,24 +360,31 @@ signal gfxBufRamDOut:         std_logic_vector( 31 downto 0 );
 signal gfxBufRamRdA:          std_logic_vector( 8 downto 0 );
 
 --cpu signals
-signal cpuReset:       std_logic;
-signal cpuMtimeIrq:     std_logic;
+signal cpuReset:     std_logic;
+signal cpuMtimeIrq:  std_logic;
 
-signal cpuAOut:         std_logic_vector( 29 downto 0 );
-signal cpuDOut:         std_logic_vector( 31 downto 0 );
+signal cpuAOut:      std_logic_vector( 29 downto 0 );
+signal cpuDOut:      std_logic_vector( 31 downto 0 );
 
-signal cpuMemValid:		std_logic;
-signal cpuMemInstr:		std_logic; 
-signal cpuMemReady:		std_logic;
-signal cpuAOutFull:		std_logic_vector( 31 downto 0 );
-signal cpuWrStrobe:		std_logic_vector( 3 downto 0 );
-signal cpuDin:			    std_logic_vector( 31 downto 0 );
+signal cpuMemValid:  std_logic;
+signal cpuMemInstr:  std_logic; 
+signal cpuMemReady:  std_logic;
+signal cpuAOutFull:  std_logic_vector( 31 downto 0 );
+signal cpuWrStrobe:  std_logic_vector( 3 downto 0 );
+signal cpuDin:       std_logic_vector( 31 downto 0 );
 
-signal cpuWr:			  std_logic;
-signal cpuDataMask:		std_logic_vector( 3 downto 0 );
+signal cpuWr:			std_logic;
+signal cpuDataMask:  std_logic_vector( 3 downto 0 );
 
 --cpu resetgen
 signal cpuResetGenCounter:  std_logic_vector( 15 downto 0 ); 
+
+--root registers signals
+signal rootRegsCE:            std_logic;
+signal rootRegsDoutForCPU:    std_logic_vector( 31 downto 0 );
+signal rootRegsReady:         std_logic;
+signal gpi:                   std_logic_vector( 31 downto 0 );
+signal gpo:                   std_logic_vector( 31 downto 0 );
 
 --uart signals
 signal uartCE:              std_logic;
@@ -320,7 +400,6 @@ reset    <= not resetn;
 
 --drive unused signals, ports
 
-vmMode      <= x"0004";
 pgCursorX   <= x"00";
 pgCursorY   <= x"00";
 pggR        <= ( others => '0' );
@@ -332,7 +411,11 @@ sdMciDat    <= ( others => 'Z' );
 sdMciCmd    <= '1';
 sdMciClk    <= '1';
 
-leds        <= "00";
+-- assign gpi/gpo
+
+gpi         <= ( others => '0' );
+leds        <= gpo( 31 downto 30 );
+
 
 -- sync VSync to main clock
 
@@ -348,6 +431,7 @@ port map(
    signalOutput(0)   => pgVSyncMainClock
    
 );
+
 
 
 
@@ -423,7 +507,7 @@ port map(
     web        => "0000",
     addrb      => ( others => '0' ),
     dinb       => ( others => '0' )
---    doutb      => systemRamDoutForPixelGen
+--    doutb      => 
 
 );
 
@@ -543,22 +627,19 @@ port map(
 
 
 -- place nekoRv
-   
-   cpuMtimeIrq       <= '0';
-   
+      
 -- bus signals
     cpuAOut           <= cpuAOutFull( 31 downto 2 );
 
 -- chip selects
    systemRAMCE    <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"0" else '0';
    txtfbRAMCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"1" else '0';
-   
-   uartCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f04" else '0';
+   rootRegsCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f00" else '0';   
+   uartCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f04" else '0';
 
 --    sdramDMACE      <= '1' when ( cpuMemValid = '1'  ) and cpuAOutFull( 31 downto 28 ) = x"2" else '0';
 --    fastRamCE       <= '1' when ( cpuMemValid = '1'  ) and cpuAOutFull( 31 downto 28 ) = x"3" else '0';
          
---    registersCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f00" else '0';
 
 --    spriteGenCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f01" else '0';
    
@@ -582,6 +663,7 @@ port map(
 -- bus slaves ready signals mux
    cpuMemReady       <= systemRamReady when systemRAMCE = '1'
                         else txtfbRamReady when txtfbRamCE = '1'
+                        else rootRegsReady when rootRegsCE = '1' 
                         else uartReady when uartCE = '1' 
 --                        else spiReady when spiCE = '1' 
 --                        else usbHostReady when usbHostCE = '1' 
@@ -601,6 +683,7 @@ port map(
 -- bus slaves data outputs mux
    cpuDin            <= systemRamDoutForCPU                       when cpuAOutFull( 31 downto 28 ) = x"0" else 
                         txtfbRamDoutForCPU                        when cpuAOutFull( 31 downto 28 ) = x"1" else
+                        rootRegsDoutForCPU                        when cpuAOutFull( 31 downto 20 ) = x"f00" else 
                         uartDoutForCPU                            when cpuAOutFull( 31 downto 20 ) = x"f04" else
 --                        registersDoutForCPU                       when cpuAOutFull( 31 downto 20 ) = x"f00" else
 --                        sdramDMADoutForCPU                        when cpuAOutFull( 31 downto 28 ) = x"2"  else
@@ -674,8 +757,38 @@ begin
    
 end process;
 
---Place UART
+-- place root regs
+rootRegistersInst:rootRegisters
+port map(
+   --cpu interface
+   reset       => reset,
+   clock       => mainClock,
+   a           => cpuAOut( 15 downto 0 ),
+   din         => cpuDOut,
+   dout        => rootRegsDOutForCPU,
+   
+   ce          => rootRegsCE,
+   wr          => cpuWr,
+   dataMask    => cpuDataMask,
+   
+   ready       => rootRegsReady,
+  
+   --video mode ( to be moved to vga regs )
+   vmMode      => vmMode,
+   
+   --gpio
+   gpi         => gpi,
+   gpo         => gpo,
+      
+   --vsync for frame timer
+   vsync       => pgVSyncMainClock,
+   
+   --mtime irq out
+   mtimeIrq    => cpuMtimeIrq
+);
 
+
+-- place UART
 
 UARTInst: UART
 port map(

@@ -68,8 +68,8 @@ int main()
    uint32_t          k;
 
    
-   //80 column txt mode only
-   bsp->videoMuxMode = 0x04; 
+   //160x45 column txt mode only
+   bsp->videoMuxMode = _VIDEOMODE_TEXT160_ONLY; 
 
    displayRam           = ( unsigned short * )0x10000000;
    

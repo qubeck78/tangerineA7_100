@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tfgg676-1" LaunchTime="1739174008">
+<GenRun Id="impl_1" LaunchPart="xc7a100tfgg676-1" LaunchTime="1739205455">
   <File Type="ROUTE-PWR" Name="tangerineA7_100_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="tangerineA7_100_wrapper.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="tangerineA7_100_wrapper_power_summary_routed.pb"/>
@@ -122,6 +122,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/rootRegisters.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/uart/uart.vhd">
       <FileInfo SFType="VHDL2019">
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -161,6 +167,13 @@
     </File>
     <File Path="$PPRDIR/Software/bootloader/boot.coe">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/vga/vga.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>

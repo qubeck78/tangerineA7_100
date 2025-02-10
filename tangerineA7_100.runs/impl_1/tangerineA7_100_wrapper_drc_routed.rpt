@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Mon Feb 10 08:55:48 2025
+| Date         : Mon Feb 10 17:40:16 2025
 | Host         : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 | Command      : report_drc -file tangerineA7_100_wrapper_drc_routed.rpt -pb tangerineA7_100_wrapper_drc_routed.pb -rpx tangerineA7_100_wrapper_drc_routed.rpx
 | Design       : tangerineA7_100_wrapper
@@ -24,11 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 111
+             Violations found: 119
 +-----------+----------+----------------------------+------------+
 | Rule      | Severity | Description                | Violations |
 +-----------+----------+----------------------------+------------+
 | CHECK-3   | Warning  | Report rule limit reached  | 1          |
+| DPIP-1    | Warning  | Input pipelining           | 8          |
 | DPOP-1    | Warning  | PREG Output pipelining     | 6          |
 | DPOP-2    | Warning  | MREG Output pipelining     | 12         |
 | DPOR-1    | Warning  | Asynchronous load check    | 70         |
@@ -42,6 +43,46 @@ Table of Contents
 CHECK-3#1 Warning
 Report rule limit reached  
 REQP-1839 rule limit reached: 20 violations have been found.
+Related violations: <none>
+
+DPIP-1#1 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMul0__0 input tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMul0__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#2 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMul0__2 input tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMul0__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#3 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMulsu0 input tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMulsu0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#4 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMulsu0__0 input tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMulsu0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#5 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMuluu0 input tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMuluu0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#6 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMuluu0__0 input tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMuluu0__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#7 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMuluu0__1 input tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMuluu0__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#8 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMuluu0__2 input tangerineA7_100_i/tangerineSOC_0/U0/nekoRvInst/resultMuluu0__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPOP-1#1 Warning
@@ -486,7 +527,7 @@ Related violations: <none>
 
 PDCN-1569#1 Warning
 LUT equation term check  
-Used physical LUT pin 'A6' of cell tangerineA7_100_i/tangerineSOC_0/U0/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin tangerineA7_100_i/tangerineSOC_0/U0/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A4)+((~A4)*(~A3)*A2)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Used physical LUT pin 'A1' of cell tangerineA7_100_i/tangerineSOC_0/U0/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin tangerineA7_100_i/tangerineSOC_0/U0/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A5)+((~A5)*(~A4)*A3)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
 Related violations: <none>
 
 REQP-1839#1 Warning

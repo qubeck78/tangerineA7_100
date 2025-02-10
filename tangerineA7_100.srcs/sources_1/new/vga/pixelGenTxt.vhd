@@ -19,6 +19,7 @@ generic(
 );
 
 port(
+
    --reset
     reset:          in  std_logic;
     pgClock:        in  std_logic;

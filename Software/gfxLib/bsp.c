@@ -64,22 +64,22 @@ uint32_t bspInit()
     randomSeed = 3242323459 + ( bsp->tickTimerValue << 16 ) ^ ( bsp->tickTimerValue ^ 0xef122333 );
 
     osAllocInit();
-    osAllocAddNode( 0, ( void* )_SYSTEM_MEMORY_BASE, _SYSTEM_MEMORY_SIZE, OS_ALLOC_MEMF_CHIP );
+ //   osAllocAddNode( 0, ( void* )_SYSTEM_MEMORY_BASE, _SYSTEM_MEMORY_SIZE, OS_ALLOC_MEMF_CHIP );
     
 	//osAllocAddNode( 1, ( void* )_SDRAM_MEMORY_BASE, _SDRAM_MEMORY_SIZE, OS_ALLOC_MEMF_FAST );
 
-    bsp->videoMuxMode       = _VIDEOMODE_320_TEXT40_OVER_GFX; //text over gfx, 320x240
+    bsp->videoMuxMode       = _VIDEOMODE_TEXT160_ONLY; //text mode: 160x45, 720p 
     
     //connect gfxlib con to hardware text overlay   
     con.type                = GF_TEXT_OVERLAY_TYPE_HARDWARE;
     con.flags               = 0;
-    con.width               = 80;               //clear whole buffer
-    con.height              = 30;
+    con.width               = 160;               //clear whole buffer
+    con.height              = 45;
     con.cursX               = 0;
     con.cursY               = 0;
     con.textAttributes      = 0x0f;
     con.font                = NULL;
-    con.textBuffer          = (uint8_t*) 0x5a80; //hw text mode buffer address
+    con.textBuffer          = (uint8_t*) 0x10000000; //hw text mode buffer address
 
     toCls( &con );
 
@@ -167,16 +167,16 @@ void itoaHex8Digits( uint32_t value, char* str )
 
 uint32_t getTicks()
 {
-    return bsp->tickTimerValue;
+    return bsp->tickTimerCounter;
 }
 
 void delayMs( uint32_t delay )
 {
     uint32_t startMs;
     
-    startMs = bsp->tickTimerValue;
+    startMs = bsp->tickTimerCounter;
     
-    while( bsp->tickTimerValue < ( startMs + delay ) );
+    while( bsp->tickTimerCounter < ( startMs + delay ) );
     
 }
 
