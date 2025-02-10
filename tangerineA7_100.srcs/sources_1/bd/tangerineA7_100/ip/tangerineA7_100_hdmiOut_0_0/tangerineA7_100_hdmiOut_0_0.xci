@@ -1,0 +1,70 @@
+{
+  "schema": "xilinx.com:schema:json_instance:1.0",
+  "ip_inst": {
+    "xci_name": "tangerineA7_100_hdmiOut_0_0",
+    "cell_name": "hdmiOut_0",
+    "component_reference": "xilinx.com:module_ref:hdmiOut:1.0",
+    "ip_revision": "1",
+    "gen_directory": "../../../../../../tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_hdmiOut_0_0",
+    "parameters": {
+      "component_parameters": {
+        "Component_Name": [ { "value": "tangerineA7_100_hdmiOut_0_0", "resolve_type": "user", "usage": "all" } ]
+      },
+      "project_parameters": {
+        "ARCHITECTURE": [ { "value": "artix7" } ],
+        "BASE_BOARD_PART": [ { "value": "" } ],
+        "BOARD_CONNECTIONS": [ { "value": "" } ],
+        "DEVICE": [ { "value": "xc7a100t" } ],
+        "PACKAGE": [ { "value": "fgg676" } ],
+        "PREFHDL": [ { "value": "VHDL" } ],
+        "SILICON_REVISION": [ { "value": "" } ],
+        "SIMULATOR_LANGUAGE": [ { "value": "MIXED" } ],
+        "SPEEDGRADE": [ { "value": "-1" } ],
+        "STATIC_POWER": [ { "value": "" } ],
+        "TEMPERATURE_GRADE": [ { "value": "" } ]
+      },
+      "runtime_parameters": {
+        "IPCONTEXT": [ { "value": "IP_Integrator" } ],
+        "IPREVISION": [ { "value": "1" } ],
+        "MANAGED": [ { "value": "TRUE" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_hdmiOut_0_0" } ],
+        "SELECTEDSIMMODEL": [ { "value": "" } ],
+        "SHAREDDIR": [ { "value": "../../ipshared" } ],
+        "SWVERSION": [ { "value": "2023.1" } ],
+        "SYNTHESISFLOW": [ { "value": "GLOBAL" } ]
+      }
+    },
+    "boundary": {
+      "ports": {
+        "resetn": [ { "direction": "in" } ],
+        "pixelClk": [ { "direction": "in" } ],
+        "pixelClkx5": [ { "direction": "in" } ],
+        "pixelClkx5Ps": [ { "direction": "in" } ],
+        "vgaRed": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
+        "vgaGreen": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
+        "vgaBlue": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
+        "vgaHS": [ { "direction": "in" } ],
+        "vgaVS": [ { "direction": "in" } ],
+        "vgaDE": [ { "direction": "in" } ],
+        "hdmiClkP": [ { "direction": "out" } ],
+        "hdmiClkN": [ { "direction": "out" } ],
+        "hdmiDP": [ { "direction": "out", "size_left": "2", "size_right": "0" } ],
+        "hdmiDN": [ { "direction": "out", "size_left": "2", "size_right": "0" } ]
+      },
+      "interfaces": {
+        "resetn": {
+          "vlnv": "xilinx.com:signal:reset:1.0",
+          "abstraction_type": "xilinx.com:signal:reset_rtl:1.0",
+          "mode": "slave",
+          "parameters": {
+            "POLARITY": [ { "value": "ACTIVE_LOW", "value_src": "constant", "value_permission": "bd_and_user", "usage": "all" } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "RST": [ { "physical_name": "resetn" } ]
+          }
+        }
+      }
+    }
+  }
+}

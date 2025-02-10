@@ -1,0 +1,775 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x8320560381CA8632",
+      "device": "xc7a100tfgg676-1",
+      "gen_directory": "../../../../tangerineA7_100.gen/sources_1/bd/tangerineA7_100",
+      "name": "tangerineA7_100",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "None",
+      "tool_version": "2023.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "clk_wiz_0": "",
+      "hdmiOut_0": "",
+      "clk_wiz_1": "",
+      "xlslice_0": "",
+      "tangerineSOC_0": ""
+    },
+    "ports": {
+      "sysClk50": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "tangerineA7_100_sysClk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "50000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "uartTxd": {
+        "direction": "O"
+      },
+      "uartRxd": {
+        "direction": "I"
+      },
+      "button0": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "button1": {
+        "direction": "I"
+      },
+      "led0": {
+        "direction": "O"
+      },
+      "led1": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
+      },
+      "hdmiClkP": {
+        "direction": "O"
+      },
+      "hdmiClkN": {
+        "direction": "O"
+      },
+      "hdmiDP": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "hdmiDN": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "sdMciDat": {
+        "direction": "IO",
+        "left": "3",
+        "right": "0"
+      },
+      "sdMciCmd": {
+        "direction": "O"
+      },
+      "sdMciClk": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "tangerineA7_100_clk_wiz_0_0",
+        "xci_path": "ip\\tangerineA7_100_clk_wiz_0_0\\tangerineA7_100_clk_wiz_0_0.xci",
+        "inst_hier_path": "clk_wiz_0",
+        "parameters": {
+          "CLKIN1_JITTER_PS": {
+            "value": "200.0"
+          },
+          "CLKOUT1_JITTER": {
+            "value": "651.823"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "919.522"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "64"
+          },
+          "CLKOUT1_USED": {
+            "value": "true"
+          },
+          "CLKOUT2_JITTER": {
+            "value": "523.758"
+          },
+          "CLKOUT2_PHASE_ERROR": {
+            "value": "919.522"
+          },
+          "CLKOUT2_REQUESTED_OUT_FREQ": {
+            "value": "320"
+          },
+          "CLKOUT2_USED": {
+            "value": "true"
+          },
+          "CLKOUT3_JITTER": {
+            "value": "523.758"
+          },
+          "CLKOUT3_PHASE_ERROR": {
+            "value": "919.522"
+          },
+          "CLKOUT3_REQUESTED_OUT_FREQ": {
+            "value": "320"
+          },
+          "CLKOUT3_REQUESTED_PHASE": {
+            "value": "180"
+          },
+          "CLKOUT3_USED": {
+            "value": "true"
+          },
+          "CLKOUT4_JITTER": {
+            "value": "162.035"
+          },
+          "CLKOUT4_PHASE_ERROR": {
+            "value": "164.985"
+          },
+          "CLKOUT4_USED": {
+            "value": "false"
+          },
+          "CLK_OUT1_PORT": {
+            "value": "clk64"
+          },
+          "CLK_OUT2_PORT": {
+            "value": "clk320"
+          },
+          "CLK_OUT3_PORT": {
+            "value": "clk320ps"
+          },
+          "CLK_OUT4_PORT": {
+            "value": "clk100"
+          },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "64.000"
+          },
+          "MMCM_CLKIN1_PERIOD": {
+            "value": "20.000"
+          },
+          "MMCM_CLKIN2_PERIOD": {
+            "value": "10.0"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "10.000"
+          },
+          "MMCM_CLKOUT1_DIVIDE": {
+            "value": "2"
+          },
+          "MMCM_CLKOUT2_DIVIDE": {
+            "value": "2"
+          },
+          "MMCM_CLKOUT2_PHASE": {
+            "value": "180.000"
+          },
+          "MMCM_CLKOUT3_DIVIDE": {
+            "value": "1"
+          },
+          "MMCM_DIVCLK_DIVIDE": {
+            "value": "5"
+          },
+          "NUM_OUT_CLKS": {
+            "value": "3"
+          },
+          "PRIM_IN_FREQ": {
+            "value": "50.000"
+          },
+          "PRIM_SOURCE": {
+            "value": "Global_buffer"
+          },
+          "RESET_PORT": {
+            "value": "resetn"
+          },
+          "RESET_TYPE": {
+            "value": "ACTIVE_LOW"
+          }
+        }
+      },
+      "hdmiOut_0": {
+        "vlnv": "xilinx.com:module_ref:hdmiOut:1.0",
+        "xci_name": "tangerineA7_100_hdmiOut_0_0",
+        "xci_path": "ip\\tangerineA7_100_hdmiOut_0_0\\tangerineA7_100_hdmiOut_0_0.xci",
+        "inst_hier_path": "hdmiOut_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "hdmiOut",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "resetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "pixelClk": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "64000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "pixelClkx5": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "320000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "pixelClkx5Ps": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "320000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "180.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "vgaRed": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "vgaGreen": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "vgaBlue": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "vgaHS": {
+            "direction": "I"
+          },
+          "vgaVS": {
+            "direction": "I"
+          },
+          "vgaDE": {
+            "direction": "I"
+          },
+          "hdmiClkP": {
+            "direction": "O"
+          },
+          "hdmiClkN": {
+            "direction": "O"
+          },
+          "hdmiDP": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "hdmiDN": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          }
+        }
+      },
+      "clk_wiz_1": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "tangerineA7_100_clk_wiz_1_0",
+        "xci_path": "ip\\tangerineA7_100_clk_wiz_1_0\\tangerineA7_100_clk_wiz_1_0.xci",
+        "inst_hier_path": "clk_wiz_1",
+        "parameters": {
+          "CLKIN1_JITTER_PS": {
+            "value": "200.0"
+          },
+          "CLKOUT1_JITTER": {
+            "value": "175.200"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "161.614"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "100.000"
+          },
+          "CLKOUT2_JITTER": {
+            "value": "175.200"
+          },
+          "CLKOUT2_PHASE_ERROR": {
+            "value": "161.614"
+          },
+          "CLKOUT2_REQUESTED_PHASE": {
+            "value": "190"
+          },
+          "CLKOUT2_USED": {
+            "value": "true"
+          },
+          "CLKOUT3_JITTER": {
+            "value": "210.144"
+          },
+          "CLKOUT3_PHASE_ERROR": {
+            "value": "161.614"
+          },
+          "CLKOUT3_REQUESTED_OUT_FREQ": {
+            "value": "50"
+          },
+          "CLKOUT3_USED": {
+            "value": "true"
+          },
+          "CLKOUT4_JITTER": {
+            "value": "286.482"
+          },
+          "CLKOUT4_PHASE_ERROR": {
+            "value": "161.614"
+          },
+          "CLKOUT4_REQUESTED_OUT_FREQ": {
+            "value": "12"
+          },
+          "CLKOUT4_USED": {
+            "value": "false"
+          },
+          "CLK_OUT1_PORT": {
+            "value": "clk100"
+          },
+          "CLK_OUT2_PORT": {
+            "value": "clk100ps"
+          },
+          "CLK_OUT3_PORT": {
+            "value": "clk50"
+          },
+          "CLK_OUT4_PORT": {
+            "value": "clk12"
+          },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "18.000"
+          },
+          "MMCM_CLKIN1_PERIOD": {
+            "value": "20.000"
+          },
+          "MMCM_CLKIN2_PERIOD": {
+            "value": "10.0"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "9.000"
+          },
+          "MMCM_CLKOUT1_DIVIDE": {
+            "value": "9"
+          },
+          "MMCM_CLKOUT1_PHASE": {
+            "value": "190.000"
+          },
+          "MMCM_CLKOUT2_DIVIDE": {
+            "value": "18"
+          },
+          "MMCM_CLKOUT3_DIVIDE": {
+            "value": "1"
+          },
+          "NUM_OUT_CLKS": {
+            "value": "3"
+          },
+          "PRIM_IN_FREQ": {
+            "value": "50"
+          },
+          "PRIM_SOURCE": {
+            "value": "Global_buffer"
+          },
+          "RESET_PORT": {
+            "value": "resetn"
+          },
+          "RESET_TYPE": {
+            "value": "ACTIVE_LOW"
+          }
+        }
+      },
+      "xlslice_0": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "tangerineA7_100_xlslice_0_0",
+        "xci_path": "ip\\tangerineA7_100_xlslice_0_0\\tangerineA7_100_xlslice_0_0.xci",
+        "inst_hier_path": "xlslice_0",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "1"
+          },
+          "DIN_TO": {
+            "value": "1"
+          },
+          "DIN_WIDTH": {
+            "value": "2"
+          }
+        }
+      },
+      "tangerineSOC_0": {
+        "vlnv": "xilinx.com:module_ref:tangerineSOC:1.0",
+        "xci_name": "tangerineA7_100_tangerineSOC_0_0",
+        "xci_path": "ip\\tangerineA7_100_tangerineSOC_0_0\\tangerineA7_100_tangerineSOC_0_0.xci",
+        "inst_hier_path": "tangerineSOC_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "tangerineSOC",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "resetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "mainClock": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_1_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "mainClockPs": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "190.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_1_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "mainClockD2": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_1_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "pixelClock": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "64000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "vgaRed": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "vgaGreen": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "vgaBlue": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "vgaHS": {
+            "direction": "O"
+          },
+          "vgaVS": {
+            "direction": "O"
+          },
+          "vgaDE": {
+            "direction": "O"
+          },
+          "uartTX": {
+            "direction": "O"
+          },
+          "uartRX": {
+            "direction": "I"
+          },
+          "sdMciDat": {
+            "direction": "IO",
+            "left": "3",
+            "right": "0"
+          },
+          "sdMciCmd": {
+            "direction": "O"
+          },
+          "sdMciClk": {
+            "direction": "O"
+          },
+          "buttons": {
+            "direction": "I",
+            "left": "0",
+            "right": "0"
+          },
+          "leds": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "Net": {
+        "ports": [
+          "sdMciDat",
+          "tangerineSOC_0/sdMciDat"
+        ]
+      },
+      "button0_1": {
+        "ports": [
+          "button0",
+          "clk_wiz_0/resetn",
+          "clk_wiz_1/resetn"
+        ]
+      },
+      "button1_1": {
+        "ports": [
+          "button1",
+          "tangerineSOC_0/buttons"
+        ]
+      },
+      "clk_wiz_0_clk25": {
+        "ports": [
+          "clk_wiz_0/clk64",
+          "hdmiOut_0/pixelClk",
+          "tangerineSOC_0/pixelClock"
+        ]
+      },
+      "clk_wiz_0_clk320": {
+        "ports": [
+          "clk_wiz_0/clk320",
+          "hdmiOut_0/pixelClkx5"
+        ]
+      },
+      "clk_wiz_0_clk320ps": {
+        "ports": [
+          "clk_wiz_0/clk320ps",
+          "hdmiOut_0/pixelClkx5Ps"
+        ]
+      },
+      "clk_wiz_0_locked": {
+        "ports": [
+          "clk_wiz_0/locked",
+          "led0",
+          "hdmiOut_0/resetn"
+        ]
+      },
+      "clk_wiz_1_clk100": {
+        "ports": [
+          "clk_wiz_1/clk100",
+          "tangerineSOC_0/mainClock"
+        ]
+      },
+      "clk_wiz_1_clk100ps": {
+        "ports": [
+          "clk_wiz_1/clk100ps",
+          "tangerineSOC_0/mainClockPs"
+        ]
+      },
+      "clk_wiz_1_clk50": {
+        "ports": [
+          "clk_wiz_1/clk50",
+          "tangerineSOC_0/mainClockD2"
+        ]
+      },
+      "clk_wiz_1_locked": {
+        "ports": [
+          "clk_wiz_1/locked",
+          "tangerineSOC_0/resetn"
+        ]
+      },
+      "hdmiOut_0_hdmiClkN": {
+        "ports": [
+          "hdmiOut_0/hdmiClkN",
+          "hdmiClkN"
+        ]
+      },
+      "hdmiOut_0_hdmiClkP": {
+        "ports": [
+          "hdmiOut_0/hdmiClkP",
+          "hdmiClkP"
+        ]
+      },
+      "hdmiOut_0_hdmiDN": {
+        "ports": [
+          "hdmiOut_0/hdmiDN",
+          "hdmiDN"
+        ]
+      },
+      "hdmiOut_0_hdmiDP": {
+        "ports": [
+          "hdmiOut_0/hdmiDP",
+          "hdmiDP"
+        ]
+      },
+      "sysClk50_1": {
+        "ports": [
+          "sysClk50",
+          "clk_wiz_0/clk_in1",
+          "clk_wiz_1/clk_in1"
+        ]
+      },
+      "tangerineSOC_0_leds": {
+        "ports": [
+          "tangerineSOC_0/leds",
+          "xlslice_0/Din"
+        ]
+      },
+      "tangerineSOC_0_sdMciClk": {
+        "ports": [
+          "tangerineSOC_0/sdMciClk",
+          "sdMciClk"
+        ]
+      },
+      "tangerineSOC_0_sdMciCmd": {
+        "ports": [
+          "tangerineSOC_0/sdMciCmd",
+          "sdMciCmd"
+        ]
+      },
+      "tangerineSOC_0_uartTX": {
+        "ports": [
+          "tangerineSOC_0/uartTX",
+          "uartTxd"
+        ]
+      },
+      "tangerineSOC_0_vgaBlue": {
+        "ports": [
+          "tangerineSOC_0/vgaBlue",
+          "hdmiOut_0/vgaBlue"
+        ]
+      },
+      "tangerineSOC_0_vgaDE": {
+        "ports": [
+          "tangerineSOC_0/vgaDE",
+          "hdmiOut_0/vgaDE"
+        ]
+      },
+      "tangerineSOC_0_vgaGreen": {
+        "ports": [
+          "tangerineSOC_0/vgaGreen",
+          "hdmiOut_0/vgaGreen"
+        ]
+      },
+      "tangerineSOC_0_vgaHS": {
+        "ports": [
+          "tangerineSOC_0/vgaHS",
+          "hdmiOut_0/vgaHS"
+        ]
+      },
+      "tangerineSOC_0_vgaRed": {
+        "ports": [
+          "tangerineSOC_0/vgaRed",
+          "hdmiOut_0/vgaRed"
+        ]
+      },
+      "tangerineSOC_0_vgaVS": {
+        "ports": [
+          "tangerineSOC_0/vgaVS",
+          "hdmiOut_0/vgaVS"
+        ]
+      },
+      "uartRxd_1": {
+        "ports": [
+          "uartRxd",
+          "tangerineSOC_0/uartRX"
+        ]
+      },
+      "xlslice_0_Dout": {
+        "ports": [
+          "xlslice_0/Dout",
+          "led1"
+        ]
+      }
+    }
+  }
+}

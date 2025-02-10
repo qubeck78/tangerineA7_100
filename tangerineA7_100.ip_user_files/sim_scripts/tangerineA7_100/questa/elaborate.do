@@ -1,0 +1,1 @@
+vopt +acc=npr -l elaborate.log +acc=npr -suppress 10016  -L xil_defaultlib -L xpm -L xlslice_v1_0_2 -L unisims_ver -L unimacro_ver -L secureip -work xil_defaultlib xil_defaultlib.tangerineA7_100 xil_defaultlib.glbl -o tangerineA7_100_opt

@@ -1,0 +1,51 @@
+############## NET - IOSTANDARD ##################
+set_property CFGBVS VCCO [current_design]
+set_property CONFIG_VOLTAGE 3.3 [current_design]
+set_property BITSTREAM.CONFIG.UNUSEDPIN PULLUP [current_design]
+
+#############SPI Configurate Setting##################
+set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]
+set_property CONFIG_MODE SPIx4 [current_design]
+set_property BITSTREAM.CONFIG.CONFIGRATE 50 [current_design]
+
+# Clock
+create_clock -period 20.000 [get_ports sysClk50]
+set_property IOSTANDARD LVCMOS33 [get_ports sysClk50]
+set_property PACKAGE_PIN M21 [get_ports sysClk50]
+#set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets {video_pll_m0/inst/clk_in1_video_pll}]
+
+
+set_property PACKAGE_PIN H7 [get_ports button0]
+set_property IOSTANDARD LVCMOS33 [get_ports button0]
+set_property PACKAGE_PIN M6 [get_ports button1]
+set_property PACKAGE_PIN G21 [get_ports led0]
+set_property IOSTANDARD LVCMOS33 [get_ports led0]
+set_property IOSTANDARD LVCMOS33 [get_ports button1]
+set_property PACKAGE_PIN G20 [get_ports {led1[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {led1[0]}]
+set_property PACKAGE_PIN F3 [get_ports uartRxd]
+set_property IOSTANDARD LVCMOS33 [get_ports uartRxd]
+set_property PACKAGE_PIN E3 [get_ports uartTxd]
+set_property IOSTANDARD LVCMOS33 [get_ports uartTxd]
+
+set_property PACKAGE_PIN D4 [get_ports hdmiClkP]
+set_property IOSTANDARD TMDS_33 [get_ports hdmiClkP]
+set_property PACKAGE_PIN E1 [get_ports {hdmiDP[0]}]
+set_property IOSTANDARD TMDS_33 [get_ports {hdmiDP[0]}]
+set_property PACKAGE_PIN F2 [get_ports {hdmiDP[1]}]
+set_property IOSTANDARD TMDS_33 [get_ports {hdmiDP[1]}]
+set_property PACKAGE_PIN G2 [get_ports {hdmiDP[2]}]
+set_property IOSTANDARD TMDS_33 [get_ports {hdmiDP[2]}]
+
+set_property PACKAGE_PIN J6 [get_ports {sdMciDat[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sdMciDat[3]}]
+set_property PACKAGE_PIN H6 [get_ports {sdMciDat[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sdMciDat[2]}]
+set_property PACKAGE_PIN M7 [get_ports {sdMciDat[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sdMciDat[1]}]
+set_property PACKAGE_PIN M5 [get_ports {sdMciDat[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {sdMciDat[0]}]
+set_property PACKAGE_PIN L4 [get_ports sdMciClk]
+set_property IOSTANDARD LVCMOS33 [get_ports sdMciClk]
+set_property PACKAGE_PIN J8 [get_ports sdMciCmd]
+set_property IOSTANDARD LVCMOS33 [get_ports sdMciCmd]

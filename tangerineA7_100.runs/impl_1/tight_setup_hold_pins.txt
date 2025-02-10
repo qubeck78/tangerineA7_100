@@ -1,0 +1,34 @@
++====================================+===================================+==============================================================+
+| Launch Setup Clock                 | Launch Hold Clock                 | Pin                                                          |
++====================================+===================================+==============================================================+
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_red_reg[3]/D   |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_red_reg[2]/D   |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_blue_reg[1]/D  |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_red_reg[5]/D   |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_blue_reg[3]/D  |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_red_reg[6]/D   |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_red_reg[0]/D   |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_blue_reg[5]/D  |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_green_reg[3]/D |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_red_reg[4]/D   |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_blue_reg[6]/D  |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_red_reg[7]/D   |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_green_reg[5]/D |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_blue_reg[7]/D  |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_green_reg[7]/D |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_red_reg[1]/D   |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_green_reg[0]/D |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_green_reg[1]/D |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_green_reg[2]/D |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_blue_reg[4]/D  |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_green_reg[4]/D |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_blue_reg[2]/D  |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_blue_reg[0]/D  |
+| clk320_tangerineA7_100_clk_wiz_0_0 | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_green_reg[6]/D |
+| clk64_tangerineA7_100_clk_wiz_0_0  | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_green_reg[9]/D |
+| clk64_tangerineA7_100_clk_wiz_0_0  | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_red_reg[8]/D   |
+| clk64_tangerineA7_100_clk_wiz_0_0  | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_red_reg[9]/D   |
+| clk64_tangerineA7_100_clk_wiz_0_0  | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_green_reg[8]/D |
+| clk64_tangerineA7_100_clk_wiz_0_0  | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_blue_reg[8]/D  |
+| clk64_tangerineA7_100_clk_wiz_0_0  | clk64_tangerineA7_100_clk_wiz_0_0 | tangerineA7_100_i/hdmiOut_0/U0/dvidInst/shift_blue_reg[9]/D  |
++------------------------------------+-----------------------------------+--------------------------------------------------------------+
