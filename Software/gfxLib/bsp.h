@@ -18,11 +18,11 @@ extern "C"
 #define _SYSTEM_MEMORY_BASE		0x20000000
 
 
-#define _VIDEOMODE_TEXT40_ONLY                  0x00
-#define _VIDEOMODE_TEXT80_ONLY                  0x04
-#define _VIDEOMODE_TEXT80_60_ONLY               0x0c
+#define _VIDEOMODE_TEXT80_ONLY                  0x00
+#define _VIDEOMODE_TEXT160_ONLY                 0x04
+#define _VIDEOMODE_TEXT160_90_ONLY              0x0c
 
-#define _VIDEOMODE_320_TEXT40_OVER_GFX          0x02
+/*#define _VIDEOMODE_320_TEXT40_OVER_GFX          0x02
 #define _VIDEOMODE_320_TEXT80_OVER_GFX          0x06
 #define _VIDEOMODE_320_TEXT80_60_OVER_GFX       0x0e
 
@@ -33,6 +33,7 @@ extern "C"
 #define _VIDEOMODE_320_8BPP_TEXT40_OVER_GFX     0x22
 #define _VIDEOMODE_320_8BPP_TEXT80_OVER_GFX     0x26
 #define _VIDEOMODE_320_8BPP_TEXT80_60_OVER_GFX  0x2e
+*/
 
 #include "gfTypes.h"
 
@@ -58,53 +59,55 @@ extern "C"
 //x"80000007";   -- i2s id
 //x"80000008";   -- gfx pixel gen id
 //x"80000009";   -- fpalu id
+//x"8000000a";   -- ps2 host id
+//x"8000000b";   -- vga id
 
 typedef struct _BSP_T
 {
-    volatile uint32_t id;
-    volatile uint32_t version;
+    volatile uint32_t   id;
+    volatile uint32_t   version;
 
-    //txt/gfx/mux mode
-    volatile uint32_t   videoMuxMode;
-    
-    //b0 - vsync (positive)
-    volatile uint32_t   videoVSync;
-    
-    volatile uint32_t   unused0;
-        
-    //wr b7, b6, b5, b4 - LEDS, b0 - spi0SSel
-    volatile uint32_t   gpoPort;
-    
-    //wr b0 - tickTimerReset
-    volatile uint32_t   tickTimerConfig;
-    
+    //wr tickTimerReset
+    volatile uint32_t   tickTimerReset;
+
     //rd - tickTimerValue
-    volatile uint32_t   tickTimerValue;
-    
-    //counts frames (up), write resets timer
-    volatile uint32_t   frameTimer;
-    
-    volatile uint32_t   unused1;
+    volatile uint32_t   tickTimerCounter;
+
+    //rw counts frames (up), write resets timer
+    volatile uint32_t   frameTimerCounter;
+
+    //rw
+    volatile uint32_t   gpo;
+
+    //r-
+    volatile uint32_t   gpi;
+
+    volatile uint32_t   unused0;
 
     //counts up, clocked by cpu clock
     volatile uint64_t   mtime;
 
     //mtime compare, generates interrupt on match
     volatile uint64_t   mtimeCmp;
+    
 
 }BSP_T;
 
 extern BSP_T *bsp;
 
-
-typedef struct __GFXPIXELGEN_REGISTERS_T
+typedef struct __VGA_REGISTERS_T
 {
-    volatile uint32_t id;
-    volatile uint32_t version;
+    volatile uint32_t   id;
+    volatile uint32_t   version;
     
-}_GFXPIXELGEN_REGISTERS_T;
+    volatile uint32_t   vmMode;
+    volatile uint32_t   pgCursorX;    
+    volatile uint32_t   pgCursorY;
+    volatile uint32_t   pgVSync;
 
-extern _GFXPIXELGEN_REGISTERS_T *gfxPixelGen;
+}_VGA_REGISTERS_T;
+
+extern _VGA_REGISTERS_T *vga;
 
 
 typedef struct __SPRITEGEN_REGISTERS_T

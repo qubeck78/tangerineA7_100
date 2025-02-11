@@ -4,7 +4,9 @@
 
 BSP_T                   *bsp     = ( BSP_T *)                  0xf0000000; //registers base address
 _UART_REGISTERS_T       *uart0   = ( _UART_REGISTERS_T *)      0xf0400000; //uart 0 base address
-_SPRITEGEN_REGISTERS_T  *spriteGen   = ( _SPRITEGEN_REGISTERS_T *)   0xf0100000; //hw sprite generator base address
+_VGA_REGISTERS_T        *vga     = ( _VGA_REGISTERS_T * )      0xf0100000; //vga registers base address
+
+//_SPRITEGEN_REGISTERS_T  *spriteGen   = ( _SPRITEGEN_REGISTERS_T *)   0xf0100000; //hw sprite generator base address
 
 
 /*
@@ -420,12 +422,16 @@ int main()
    uint32_t          uartData;
    volatile uint32_t j;
 
-   //80 column txt mode only
-   bsp->videoMuxMode    = 0x0004;
+   //160x45 txt mode only
+   vga->vmMode    = _VIDEOMODE_TEXT160_ONLY;
 
-   displayRam           = ( unsigned short * )0x10000000;
+   //hide cursor
+   vga->pgCursorX = 255;
+   vga->pgCursorY = 255;
+
+   displayRam  = ( unsigned short * )0x10000000;
       
-   screenIndex          = 0;  
+   screenIndex = 0;  
 
    for( i = 0; i < 7200 ; i++ )
    {
@@ -433,31 +439,24 @@ int main()
    }
 
 
-   print( (char*) "\n\n" );  
+   print( (char*) "\n" );  
 
    itoaHex8Digits( bsp->version, buf );
 
-   i = 80 - 10;
+   i = 2;
 
-   spaceDistance( i ); print( (char*) "     |.\\__/.|    (~\\\n" );
-   spaceDistance( i ); print( (char*) "     | O O  |     ) )\n" );
-   spaceDistance( i ); print( (char*) "   _.|  T   |_   ( ( \n" );   
-   spaceDistance( i ); print( (char*) ".-- ((---- ((-------.\n" );
-   spaceDistance( i ); print( (char*) "|                   |\n" );
-   spaceDistance( i ); print( (char*) "|   tangerineSOC    |\n" );
-   spaceDistance( i ); print( (char*) "|   A7_100 Wukong   |\n" );
-   spaceDistance( i ); print( (char*) "| Powered by nekoRV |\n" );
-   spaceDistance( i ); print( (char*) "|                   |\n" );
-   spaceDistance( i ); print( (char*) "|   Bootloader32IM  |\n" );
-   spaceDistance( i ); print( (char*) "|   B20250210       |\n" );
-   spaceDistance( i ); print( (char*) "|                   |\n" );
-   spaceDistance( i ); print( (char*) "|   SOC             |\n" );
-   spaceDistance( i ); print( (char*) "|   B" );
+   spaceDistance( i ); print( (char*) "       |.\\__/.|    (~\\\n" );
+   spaceDistance( i ); print( (char*) "       | O O  |     ) )\n" );
+   spaceDistance( i ); print( (char*) "     _.|  T   |_   ( ( \n" );   
+   spaceDistance( i ); print( (char*) ".---- ((---- ((------------.\n" );
+   spaceDistance( i ); print( (char*) "| tangerineA7_100 Wukong   |\n" );
+   spaceDistance( i ); print( (char*) "| Powered by nekoRV        |\n" );
+   spaceDistance( i ); print( (char*) "| Bootloader32IM B20250210 |\n" );
+   spaceDistance( i ); print( (char*) "| SOC B" );
    print( buf);
-   print( (char*)"       |\n" );
+   print( (char*)"            |\n" );
 
-   spaceDistance( i ); print( (char*) "|                   |\n" );
-   spaceDistance( i ); print( (char*) "`-------------------`\n\n" );
+   spaceDistance( i ); print( (char*) "`--------------------------`\n\n" );
 
 
    //stop audio dma
@@ -476,12 +475,19 @@ int main()
    spriteGen->spriteY = 0;
   */ 
    
+
    //clear uart rx fifo
    while( uartGetC() != -1 );
 
-   for( i = 0; i < 16; i++ )
+
+   //color bars
+   for( i = 0; i < 4; i++ )
    {
-      displayRam[ i ] = i << 12;
+      for( k = 0; k < 4; k++ )
+      {
+         displayRam[ ( 160 * ( i + 1 ) ) + 150 + k * 2 ] = ( k + ( i * 4 ) ) << 12;
+         displayRam[ ( 160 * ( i + 1 ) ) + 151 + k * 2 ] = ( k + ( i * 4 ) ) << 12;
+      }
    }
 
       
@@ -491,7 +497,7 @@ int main()
    do
    {
       
-      screenIndex = 160 * 19 + 50;
+      screenIndex = 160 * 22 + 50;
 
       for( i = 0; i < 60; i++ )
       {

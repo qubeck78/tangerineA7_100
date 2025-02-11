@@ -60,6 +60,42 @@ ENTITY tangerineA7_100_tangerineSOC_0_0 IS
     mainClockPs : IN STD_LOGIC;
     mainClockD2 : IN STD_LOGIC;
     pixelClock : IN STD_LOGIC;
+    m00_axi_aclk : IN STD_LOGIC;
+    m00_axi_aresetn : IN STD_LOGIC;
+    m00_axi_awaddr : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    m00_axi_awprot : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    m00_axi_awvalid : OUT STD_LOGIC;
+    m00_axi_awready : IN STD_LOGIC;
+    m00_axi_wdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    m00_axi_wstrb : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    m00_axi_wvalid : OUT STD_LOGIC;
+    m00_axi_wready : IN STD_LOGIC;
+    m00_axi_bresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+    m00_axi_bvalid : IN STD_LOGIC;
+    m00_axi_bready : OUT STD_LOGIC;
+    m00_axi_araddr : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    m00_axi_arprot : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    m00_axi_arvalid : OUT STD_LOGIC;
+    m00_axi_arready : IN STD_LOGIC;
+    m00_axi_rdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    m00_axi_rresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+    m00_axi_rvalid : IN STD_LOGIC;
+    m00_axi_rready : OUT STD_LOGIC;
+    m00_axi_arid : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    m00_axi_arlen : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    m00_axi_arsize : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    m00_axi_arburst : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+    m00_axi_arlock : OUT STD_LOGIC;
+    m00_axi_arcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    m00_axi_rid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    m00_axi_rlast : IN STD_LOGIC;
+    m00_axi_awid : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+    m00_axi_awlen : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+    m00_axi_awsize : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    m00_axi_awburst : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+    m00_axi_awlock : OUT STD_LOGIC;
+    m00_axi_wlast : OUT STD_LOGIC;
+    m00_axi_awcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     vgaRed : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     vgaGreen : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     vgaBlue : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -86,6 +122,42 @@ ARCHITECTURE tangerineA7_100_tangerineSOC_0_0_arch OF tangerineA7_100_tangerineS
       mainClockPs : IN STD_LOGIC;
       mainClockD2 : IN STD_LOGIC;
       pixelClock : IN STD_LOGIC;
+      m00_axi_aclk : IN STD_LOGIC;
+      m00_axi_aresetn : IN STD_LOGIC;
+      m00_axi_awaddr : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      m00_axi_awprot : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      m00_axi_awvalid : OUT STD_LOGIC;
+      m00_axi_awready : IN STD_LOGIC;
+      m00_axi_wdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      m00_axi_wstrb : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      m00_axi_wvalid : OUT STD_LOGIC;
+      m00_axi_wready : IN STD_LOGIC;
+      m00_axi_bresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+      m00_axi_bvalid : IN STD_LOGIC;
+      m00_axi_bready : OUT STD_LOGIC;
+      m00_axi_araddr : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+      m00_axi_arprot : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      m00_axi_arvalid : OUT STD_LOGIC;
+      m00_axi_arready : IN STD_LOGIC;
+      m00_axi_rdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      m00_axi_rresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+      m00_axi_rvalid : IN STD_LOGIC;
+      m00_axi_rready : OUT STD_LOGIC;
+      m00_axi_arid : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      m00_axi_arlen : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+      m00_axi_arsize : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      m00_axi_arburst : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+      m00_axi_arlock : OUT STD_LOGIC;
+      m00_axi_arcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      m00_axi_rid : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+      m00_axi_rlast : IN STD_LOGIC;
+      m00_axi_awid : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+      m00_axi_awlen : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+      m00_axi_awsize : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+      m00_axi_awburst : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+      m00_axi_awlock : OUT STD_LOGIC;
+      m00_axi_wlast : OUT STD_LOGIC;
+      m00_axi_awcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
       vgaRed : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
       vgaGreen : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
       vgaBlue : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -111,6 +183,46 @@ ARCHITECTURE tangerineA7_100_tangerineSOC_0_0_arch OF tangerineA7_100_tangerineS
   ATTRIBUTE IP_DEFINITION_SOURCE OF tangerineA7_100_tangerineSOC_0_0_arch: ARCHITECTURE IS "module_ref";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER OF m00_axi_aclk: SIGNAL IS "XIL_INTERFACENAME m00_axi_aclk, ASSOCIATED_BUSIF m00_axi, ASSOCIATED_RESET m00_axi_aresetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 m00_axi_aclk CLK";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_araddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi ARADDR";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_arburst: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi ARBURST";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_arcache: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi ARCACHE";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF m00_axi_aresetn: SIGNAL IS "XIL_INTERFACENAME m00_axi_aresetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_aresetn: SIGNAL IS "xilinx.com:signal:reset:1.0 m00_axi_aresetn RST";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_arid: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi ARID";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_arlen: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi ARLEN";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_arlock: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi ARLOCK";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_arprot: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi ARPROT";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_arready: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi ARREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_arsize: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi ARSIZE";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_arvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi ARVALID";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF m00_axi_awaddr: SIGNAL IS "XIL_INTERFACENAME m00_axi, DATA_WIDTH 32, PROTOCOL AXI4, FREQ_HZ 100000000, ID_WIDTH 4, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1" & 
+", RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_awaddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi AWADDR";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_awburst: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi AWBURST";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_awcache: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi AWCACHE";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_awid: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi AWID";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_awlen: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi AWLEN";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_awlock: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi AWLOCK";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_awprot: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi AWPROT";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_awready: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi AWREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_awsize: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi AWSIZE";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_awvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi AWVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_bready: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi BREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_bresp: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi BRESP";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_bvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi BVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_rdata: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi RDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_rid: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi RID";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_rlast: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi RLAST";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_rready: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi RREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_rresp: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi RRESP";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_rvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi RVALID";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_wdata: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi WDATA";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_wlast: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi WLAST";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_wready: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi WREADY";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_wstrb: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi WSTRB";
+  ATTRIBUTE X_INTERFACE_INFO OF m00_axi_wvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 m00_axi WVALID";
   ATTRIBUTE X_INTERFACE_PARAMETER OF resetn: SIGNAL IS "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF resetn: SIGNAL IS "xilinx.com:signal:reset:1.0 resetn RST";
 BEGIN
@@ -121,6 +233,42 @@ BEGIN
       mainClockPs => mainClockPs,
       mainClockD2 => mainClockD2,
       pixelClock => pixelClock,
+      m00_axi_aclk => m00_axi_aclk,
+      m00_axi_aresetn => m00_axi_aresetn,
+      m00_axi_awaddr => m00_axi_awaddr,
+      m00_axi_awprot => m00_axi_awprot,
+      m00_axi_awvalid => m00_axi_awvalid,
+      m00_axi_awready => m00_axi_awready,
+      m00_axi_wdata => m00_axi_wdata,
+      m00_axi_wstrb => m00_axi_wstrb,
+      m00_axi_wvalid => m00_axi_wvalid,
+      m00_axi_wready => m00_axi_wready,
+      m00_axi_bresp => m00_axi_bresp,
+      m00_axi_bvalid => m00_axi_bvalid,
+      m00_axi_bready => m00_axi_bready,
+      m00_axi_araddr => m00_axi_araddr,
+      m00_axi_arprot => m00_axi_arprot,
+      m00_axi_arvalid => m00_axi_arvalid,
+      m00_axi_arready => m00_axi_arready,
+      m00_axi_rdata => m00_axi_rdata,
+      m00_axi_rresp => m00_axi_rresp,
+      m00_axi_rvalid => m00_axi_rvalid,
+      m00_axi_rready => m00_axi_rready,
+      m00_axi_arid => m00_axi_arid,
+      m00_axi_arlen => m00_axi_arlen,
+      m00_axi_arsize => m00_axi_arsize,
+      m00_axi_arburst => m00_axi_arburst,
+      m00_axi_arlock => m00_axi_arlock,
+      m00_axi_arcache => m00_axi_arcache,
+      m00_axi_rid => m00_axi_rid,
+      m00_axi_rlast => m00_axi_rlast,
+      m00_axi_awid => m00_axi_awid,
+      m00_axi_awlen => m00_axi_awlen,
+      m00_axi_awsize => m00_axi_awsize,
+      m00_axi_awburst => m00_axi_awburst,
+      m00_axi_awlock => m00_axi_awlock,
+      m00_axi_wlast => m00_axi_wlast,
+      m00_axi_awcache => m00_axi_awcache,
       vgaRed => vgaRed,
       vgaGreen => vgaGreen,
       vgaBlue => vgaBlue,

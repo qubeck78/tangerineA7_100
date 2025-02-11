@@ -8,6 +8,8 @@
 #include "osAlloc.h"
 
 BSP_T *bsp                              = ( BSP_T *)                        0xf0000000; //registers base address
+_VGA_REGISTERS_T *vga                   = ( _VGA_REGISTERS_T * )            0xf0100000; //vga registers base address
+
 
 _BLITTER_REGISTERS_T *blt               = ( _BLITTER_REGISTERS_T *)         0xf0200000; //blitter base address
 _SPRITEGEN_REGISTERS_T *spriteGen       = ( _SPRITEGEN_REGISTERS_T *)       0xf0100000; //hw sprite generator base address
@@ -17,7 +19,7 @@ _SPI_REGISTERS_T *spi0                  = ( _SPI_REGISTERS_T *)             0xf0
 _AUDIO_REGISTERS_T *aud                 = ( _AUDIO_REGISTERS_T*)            0xf0600000; //i2s audio base address
 _SPI_REGISTERS_T *spi1                  = ( _SPI_REGISTERS_T *)             0xf0700000; //spi 1 base address
 _SDRAMDMA_REGISTERS_T *sdrdma           = ( _SDRAMDMA_REGISTERS_T *)        0xf0800000; //sdram dma base address
-_GFXPIXELGEN_REGISTERS_T *gfxPixelGen   = ( _GFXPIXELGEN_REGISTERS_T * )    0xf0900000; //gfx pixel gen base address
+
 _FPALU_REGISTERS_T *fpalu               = ( _FPALU_REGISTERS_T * )          0xf0a00000; //fpalu base address
 
 void (*bootLoaderEntry)(void) = (void(*)())0x0; 
@@ -64,22 +66,22 @@ uint32_t bspInit()
     randomSeed = 3242323459 + ( bsp->tickTimerValue << 16 ) ^ ( bsp->tickTimerValue ^ 0xef122333 );
 
     osAllocInit();
-    osAllocAddNode( 0, ( void* )_SYSTEM_MEMORY_BASE, _SYSTEM_MEMORY_SIZE, OS_ALLOC_MEMF_CHIP );
+ //   osAllocAddNode( 0, ( void* )_SYSTEM_MEMORY_BASE, _SYSTEM_MEMORY_SIZE, OS_ALLOC_MEMF_CHIP );
     
 	//osAllocAddNode( 1, ( void* )_SDRAM_MEMORY_BASE, _SDRAM_MEMORY_SIZE, OS_ALLOC_MEMF_FAST );
 
-    bsp->videoMuxMode       = _VIDEOMODE_320_TEXT40_OVER_GFX; //text over gfx, 320x240
+    bsp->videoMuxMode       = _VIDEOMODE_TEXT160_ONLY; //text mode: 160x45, 720p 
     
     //connect gfxlib con to hardware text overlay   
     con.type                = GF_TEXT_OVERLAY_TYPE_HARDWARE;
     con.flags               = 0;
-    con.width               = 80;               //clear whole buffer
-    con.height              = 30;
+    con.width               = 160;               //clear whole buffer
+    con.height              = 45;
     con.cursX               = 0;
     con.cursY               = 0;
     con.textAttributes      = 0x0f;
     con.font                = NULL;
-    con.textBuffer          = (uint8_t*) 0x5a80; //hw text mode buffer address
+    con.textBuffer          = (uint8_t*) 0x10000000; //hw text mode buffer address
 
     toCls( &con );
 
@@ -167,16 +169,16 @@ void itoaHex8Digits( uint32_t value, char* str )
 
 uint32_t getTicks()
 {
-    return bsp->tickTimerValue;
+    return bsp->tickTimerCounter;
 }
 
 void delayMs( uint32_t delay )
 {
     uint32_t startMs;
     
-    startMs = bsp->tickTimerValue;
+    startMs = bsp->tickTimerCounter;
     
-    while( bsp->tickTimerValue < ( startMs + delay ) );
+    while( bsp->tickTimerCounter < ( startMs + delay ) );
     
 }
 
