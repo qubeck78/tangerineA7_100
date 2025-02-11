@@ -24,11 +24,11 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7
 # IP: ip/uartFiFo/uartFiFo.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==uartFiFo || ORIG_REF_NAME==uartFiFo} -quiet] -quiet
 
-# IP: ip/systemRam/systemRam.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==systemRam || ORIG_REF_NAME==systemRam} -quiet] -quiet
-
 # IP: ip/fontPROM/fontPROM.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fontPROM || ORIG_REF_NAME==fontPROM} -quiet] -quiet
+
+# IP: ip/systemRam/systemRam.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==systemRam || ORIG_REF_NAME==systemRam} -quiet] -quiet
 
 # XDC: c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_0_0/tangerineA7_100_clk_wiz_0_0_board.xdc
 set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==tangerineA7_100_clk_wiz_0_0 || ORIG_REF_NAME==tangerineA7_100_clk_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet

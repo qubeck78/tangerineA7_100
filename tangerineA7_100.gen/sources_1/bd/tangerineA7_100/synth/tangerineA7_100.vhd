@@ -2,7 +2,7 @@
 --Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
---Date        : Mon Feb 10 17:37:32 2025
+--Date        : Tue Feb 11 09:28:40 2025
 --Host        : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 --Command     : generate_target tangerineA7_100.bd
 --Design      : tangerineA7_100
@@ -87,6 +87,42 @@ architecture STRUCTURE of tangerineA7_100 is
     mainClockPs : in STD_LOGIC;
     mainClockD2 : in STD_LOGIC;
     pixelClock : in STD_LOGIC;
+    m00_axi_aclk : in STD_LOGIC;
+    m00_axi_aresetn : in STD_LOGIC;
+    m00_axi_awaddr : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m00_axi_awprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    m00_axi_awvalid : out STD_LOGIC;
+    m00_axi_awready : in STD_LOGIC;
+    m00_axi_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m00_axi_wstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m00_axi_wvalid : out STD_LOGIC;
+    m00_axi_wready : in STD_LOGIC;
+    m00_axi_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    m00_axi_bvalid : in STD_LOGIC;
+    m00_axi_bready : out STD_LOGIC;
+    m00_axi_araddr : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m00_axi_arprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    m00_axi_arvalid : out STD_LOGIC;
+    m00_axi_arready : in STD_LOGIC;
+    m00_axi_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    m00_axi_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    m00_axi_rvalid : in STD_LOGIC;
+    m00_axi_rready : out STD_LOGIC;
+    m00_axi_arid : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m00_axi_arlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m00_axi_arsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    m00_axi_arburst : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    m00_axi_arlock : out STD_LOGIC;
+    m00_axi_arcache : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m00_axi_rid : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    m00_axi_rlast : in STD_LOGIC;
+    m00_axi_awid : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m00_axi_awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m00_axi_awsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    m00_axi_awburst : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    m00_axi_awlock : out STD_LOGIC;
+    m00_axi_wlast : out STD_LOGIC;
+    m00_axi_awcache : out STD_LOGIC_VECTOR ( 3 downto 0 );
     vgaRed : out STD_LOGIC_VECTOR ( 7 downto 0 );
     vgaGreen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     vgaBlue : out STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -130,6 +166,30 @@ architecture STRUCTURE of tangerineA7_100 is
   signal tangerineSOC_0_vgaVS : STD_LOGIC;
   signal uartRxd_1 : STD_LOGIC;
   signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_tangerineSOC_0_m00_axi_arlock_UNCONNECTED : STD_LOGIC;
+  signal NLW_tangerineSOC_0_m00_axi_arvalid_UNCONNECTED : STD_LOGIC;
+  signal NLW_tangerineSOC_0_m00_axi_awlock_UNCONNECTED : STD_LOGIC;
+  signal NLW_tangerineSOC_0_m00_axi_awvalid_UNCONNECTED : STD_LOGIC;
+  signal NLW_tangerineSOC_0_m00_axi_bready_UNCONNECTED : STD_LOGIC;
+  signal NLW_tangerineSOC_0_m00_axi_rready_UNCONNECTED : STD_LOGIC;
+  signal NLW_tangerineSOC_0_m00_axi_wlast_UNCONNECTED : STD_LOGIC;
+  signal NLW_tangerineSOC_0_m00_axi_wvalid_UNCONNECTED : STD_LOGIC;
+  signal NLW_tangerineSOC_0_m00_axi_araddr_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_arburst_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_arcache_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_arid_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_arlen_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_arprot_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_arsize_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_awaddr_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_awburst_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_awcache_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_awid_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_awlen_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_awprot_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_awsize_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_wdata_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_tangerineSOC_0_m00_axi_wstrb_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of button0 : signal is "xilinx.com:signal:reset:1.0 RST.BUTTON0 RST";
   attribute X_INTERFACE_PARAMETER : string;
@@ -189,6 +249,42 @@ tangerineSOC_0: component tangerineA7_100_tangerineSOC_0_0
      port map (
       buttons(0) => button1_1,
       leds(1 downto 0) => tangerineSOC_0_leds(1 downto 0),
+      m00_axi_aclk => clk_wiz_1_clk100,
+      m00_axi_araddr(31 downto 0) => NLW_tangerineSOC_0_m00_axi_araddr_UNCONNECTED(31 downto 0),
+      m00_axi_arburst(1 downto 0) => NLW_tangerineSOC_0_m00_axi_arburst_UNCONNECTED(1 downto 0),
+      m00_axi_arcache(3 downto 0) => NLW_tangerineSOC_0_m00_axi_arcache_UNCONNECTED(3 downto 0),
+      m00_axi_aresetn => clk_wiz_1_locked,
+      m00_axi_arid(3 downto 0) => NLW_tangerineSOC_0_m00_axi_arid_UNCONNECTED(3 downto 0),
+      m00_axi_arlen(7 downto 0) => NLW_tangerineSOC_0_m00_axi_arlen_UNCONNECTED(7 downto 0),
+      m00_axi_arlock => NLW_tangerineSOC_0_m00_axi_arlock_UNCONNECTED,
+      m00_axi_arprot(2 downto 0) => NLW_tangerineSOC_0_m00_axi_arprot_UNCONNECTED(2 downto 0),
+      m00_axi_arready => '0',
+      m00_axi_arsize(2 downto 0) => NLW_tangerineSOC_0_m00_axi_arsize_UNCONNECTED(2 downto 0),
+      m00_axi_arvalid => NLW_tangerineSOC_0_m00_axi_arvalid_UNCONNECTED,
+      m00_axi_awaddr(31 downto 0) => NLW_tangerineSOC_0_m00_axi_awaddr_UNCONNECTED(31 downto 0),
+      m00_axi_awburst(1 downto 0) => NLW_tangerineSOC_0_m00_axi_awburst_UNCONNECTED(1 downto 0),
+      m00_axi_awcache(3 downto 0) => NLW_tangerineSOC_0_m00_axi_awcache_UNCONNECTED(3 downto 0),
+      m00_axi_awid(3 downto 0) => NLW_tangerineSOC_0_m00_axi_awid_UNCONNECTED(3 downto 0),
+      m00_axi_awlen(7 downto 0) => NLW_tangerineSOC_0_m00_axi_awlen_UNCONNECTED(7 downto 0),
+      m00_axi_awlock => NLW_tangerineSOC_0_m00_axi_awlock_UNCONNECTED,
+      m00_axi_awprot(2 downto 0) => NLW_tangerineSOC_0_m00_axi_awprot_UNCONNECTED(2 downto 0),
+      m00_axi_awready => '0',
+      m00_axi_awsize(2 downto 0) => NLW_tangerineSOC_0_m00_axi_awsize_UNCONNECTED(2 downto 0),
+      m00_axi_awvalid => NLW_tangerineSOC_0_m00_axi_awvalid_UNCONNECTED,
+      m00_axi_bready => NLW_tangerineSOC_0_m00_axi_bready_UNCONNECTED,
+      m00_axi_bresp(1 downto 0) => B"00",
+      m00_axi_bvalid => '0',
+      m00_axi_rdata(31 downto 0) => B"00000000000000000000000000000000",
+      m00_axi_rid(3 downto 0) => B"0000",
+      m00_axi_rlast => '0',
+      m00_axi_rready => NLW_tangerineSOC_0_m00_axi_rready_UNCONNECTED,
+      m00_axi_rresp(1 downto 0) => B"00",
+      m00_axi_rvalid => '0',
+      m00_axi_wdata(31 downto 0) => NLW_tangerineSOC_0_m00_axi_wdata_UNCONNECTED(31 downto 0),
+      m00_axi_wlast => NLW_tangerineSOC_0_m00_axi_wlast_UNCONNECTED,
+      m00_axi_wready => '0',
+      m00_axi_wstrb(3 downto 0) => NLW_tangerineSOC_0_m00_axi_wstrb_UNCONNECTED(3 downto 0),
+      m00_axi_wvalid => NLW_tangerineSOC_0_m00_axi_wvalid_UNCONNECTED,
       mainClock => clk_wiz_1_clk100,
       mainClockD2 => clk_wiz_1_clk50,
       mainClockPs => clk_wiz_1_clk100ps,

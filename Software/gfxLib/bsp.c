@@ -8,6 +8,8 @@
 #include "osAlloc.h"
 
 BSP_T *bsp                              = ( BSP_T *)                        0xf0000000; //registers base address
+_VGA_REGISTERS_T *vga                   = ( _VGA_REGISTERS_T * )            0xf0100000; //vga registers base address
+
 
 _BLITTER_REGISTERS_T *blt               = ( _BLITTER_REGISTERS_T *)         0xf0200000; //blitter base address
 _SPRITEGEN_REGISTERS_T *spriteGen       = ( _SPRITEGEN_REGISTERS_T *)       0xf0100000; //hw sprite generator base address
@@ -17,7 +19,7 @@ _SPI_REGISTERS_T *spi0                  = ( _SPI_REGISTERS_T *)             0xf0
 _AUDIO_REGISTERS_T *aud                 = ( _AUDIO_REGISTERS_T*)            0xf0600000; //i2s audio base address
 _SPI_REGISTERS_T *spi1                  = ( _SPI_REGISTERS_T *)             0xf0700000; //spi 1 base address
 _SDRAMDMA_REGISTERS_T *sdrdma           = ( _SDRAMDMA_REGISTERS_T *)        0xf0800000; //sdram dma base address
-_GFXPIXELGEN_REGISTERS_T *gfxPixelGen   = ( _GFXPIXELGEN_REGISTERS_T * )    0xf0900000; //gfx pixel gen base address
+
 _FPALU_REGISTERS_T *fpalu               = ( _FPALU_REGISTERS_T * )          0xf0a00000; //fpalu base address
 
 void (*bootLoaderEntry)(void) = (void(*)())0x0; 

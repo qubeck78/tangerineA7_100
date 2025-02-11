@@ -28,10 +28,7 @@ port(
    dataMask:         in    std_logic_vector( 3 downto 0 );
    
    ready:            out   std_logic;
-  
-   --video mode ( to be moved to vga regs )
-   vmMode:           out   std_logic_vector( 15 downto 0 );
-   
+     
    --gpio
    gpi:              in    std_logic_vector( 31 downto 0 );
    gpo:              out   std_logic_vector( 31 downto 0 );
@@ -82,7 +79,6 @@ begin
    
       if reset = '1' then
       
-         vmMode            <= x"0004";
          gpo               <= ( others => '1' );
          mtimeIrq          <= '0';
          
@@ -181,16 +177,11 @@ begin
                      
                         dout  <= gpi;
                                   
-                     --0x1c rw videoMuxMode
+                     --0x1c -- unused0
                      when x"07" =>
                      
-                        dout  <= x"0000" & vmMode;
+                        dout  <= ( others => '0' );
                         
-                        if wr = '1' then
-                           
-                           vmMode   <= din( 15 downto 0 );
-                        
-                        end if;
 
                      --0x20 rw mtime low                                             
                      when x"08" => 

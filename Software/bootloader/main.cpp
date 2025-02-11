@@ -4,7 +4,9 @@
 
 BSP_T                   *bsp     = ( BSP_T *)                  0xf0000000; //registers base address
 _UART_REGISTERS_T       *uart0   = ( _UART_REGISTERS_T *)      0xf0400000; //uart 0 base address
-_SPRITEGEN_REGISTERS_T  *spriteGen   = ( _SPRITEGEN_REGISTERS_T *)   0xf0100000; //hw sprite generator base address
+_VGA_REGISTERS_T        *vga     = ( _VGA_REGISTERS_T * )      0xf0100000; //vga registers base address
+
+//_SPRITEGEN_REGISTERS_T  *spriteGen   = ( _SPRITEGEN_REGISTERS_T *)   0xf0100000; //hw sprite generator base address
 
 
 /*
@@ -421,11 +423,15 @@ int main()
    volatile uint32_t j;
 
    //160x45 txt mode only
-   bsp->videoMuxMode    = 0x0004;
+   vga->vmMode    = _VIDEOMODE_TEXT160_ONLY;
 
-   displayRam           = ( unsigned short * )0x10000000;
+   //hide cursor
+   vga->pgCursorX = 255;
+   vga->pgCursorY = 255;
+
+   displayRam  = ( unsigned short * )0x10000000;
       
-   screenIndex          = 0;  
+   screenIndex = 0;  
 
    for( i = 0; i < 7200 ; i++ )
    {

@@ -4,7 +4,8 @@
 
 #include "../gfxLib/bsp.h"
 
-BSP_T             *bsp     = ( BSP_T *)            0xf0000000; //registers base address 
+BSP_T                   *bsp     = ( BSP_T *)                  0xf0000000; //registers base address 
+_VGA_REGISTERS_T        *vga     = ( _VGA_REGISTERS_T * )      0xf0100000; //vga registers base address
 
 #define TEXTATTR 0x7f00
 
@@ -67,10 +68,13 @@ int main()
    volatile uint32_t j;
    uint32_t          k;
 
-   
-   //160x45 column txt mode only
-   bsp->videoMuxMode = _VIDEOMODE_TEXT160_ONLY; 
 
+   //160x45 column txt mode only
+   vga->vmMode    = _VIDEOMODE_TEXT160_ONLY; 
+
+   vga->pgCursorX = 0;
+   vga->pgCursorY = 12;
+    
    displayRam           = ( unsigned short * )0x10000000;
    
    screenIndex = 0;  
@@ -92,6 +96,8 @@ int main()
    print( (char*) "   |                   | \n" );
    print( (char*) "   |  Bootloader test  | \n" );
    print( (char*) "   `-------------------` \n" );
+
+
 
    k = 0;
    do
@@ -141,7 +147,7 @@ int main()
 
       if( k == 0 )
       {
-         for( i = 160 * 20; i < 160 * 45 ; i++ )
+         for( i = 160 * 15; i < 160 * 45 ; i++ )
          {
             displayRam[i] = randomNumber();
          }

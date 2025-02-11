@@ -17,6 +17,50 @@ port(
    mainClockPs:   in    std_logic;
    mainClockD2:   in    std_logic;    
    pixelClock:    in    std_logic;
+   
+   --axi master bus
+   m00_axi_aclk:     in  std_logic;
+   m00_axi_aresetn:  in  std_logic;
+
+   m00_axi_awaddr:   out std_logic_vector( 31 downto 0 );
+   m00_axi_awprot:   out std_logic_vector( 2 downto 0 );
+   m00_axi_awvalid:  out std_logic;
+   m00_axi_awready:  in  std_logic;
+   m00_axi_wdata:    out std_logic_vector( 31 downto 0 );
+   m00_axi_wstrb:    out std_logic_vector( 3 downto 0 );
+   m00_axi_wvalid:   out std_logic;
+   m00_axi_wready:   in  std_logic;
+   m00_axi_bresp:    in  std_logic_vector( 1 downto 0) ;
+   m00_axi_bvalid:   in  std_logic;
+   m00_axi_bready:   out std_logic;
+   
+   m00_axi_araddr:   out std_logic_vector( 31 downto 0 );
+   m00_axi_arprot:   out std_logic_vector( 2 downto 0 );
+   m00_axi_arvalid:  out std_logic;
+   m00_axi_arready:  in  std_logic;
+   m00_axi_rdata:    in  std_logic_vector( 31 downto 0 );
+   m00_axi_rresp:    in  std_logic_vector( 1 downto 0 );
+   m00_axi_rvalid:   in  std_logic;
+   m00_axi_rready:   out std_logic;
+   
+   -- Extended AXI Master Signals
+   m00_axi_arid:     out std_logic_vector ( 3 downto 0 );
+   m00_axi_arlen:    out std_logic_vector ( 7 downto 0 );
+   m00_axi_arsize:   out std_logic_vector ( 2 downto 0 );
+   m00_axi_arburst:  out std_logic_vector ( 1 downto 0 );
+   m00_axi_arlock:   out std_logic;
+   m00_axi_arcache:  out std_logic_vector ( 3 downto 0 );
+   m00_axi_rid:      in  std_logic_vector ( 3 downto 0 );
+   m00_axi_rlast:    in  std_logic;
+   
+   m00_axi_awid:     out std_logic_vector ( 3 downto 0 );
+   m00_axi_awlen:    out std_logic_vector ( 7 downto 0 );
+   m00_axi_awsize:   out std_logic_vector ( 2 downto 0 );
+   m00_axi_awburst:  out std_logic_vector ( 1 downto 0 );
+   m00_axi_awlock:   out std_logic;
+   m00_axi_wlast:    out std_logic;
+   m00_axi_awcache:  out std_logic_vector ( 3 downto 0 );
+   
     
    --vga
    vgaRed:        out   std_logic_vector( 7 downto 0 );
@@ -64,15 +108,6 @@ component inputSync
 
 end component;
 
--- font rom
-component fontPROM
-port(
-   clka:    in    std_logic;
-   addra:   in    std_logic_vector( 10 downto 0 );
-   douta:   out   std_logic_vector( 7 downto 0 ) 
-);
-end component;
-
 -- system RAM: bootloader, stack, text mode video memory
 component systemRam
 port (
@@ -89,90 +124,7 @@ port (
 );
 end component; 
 
--- text mode pixel and sync gen
-component pixelGenTxt
-port(
-   --reset
-   reset:          in  std_logic;
-   pgClock:        in  std_logic;
-   pgVSync:        out std_logic;
-   pgHSync:        out std_logic;
-   pgDe:           out std_logic;
-   pgR:            out std_logic_vector( 7 downto 0 );
-   pgG:            out std_logic_vector( 7 downto 0 );
-   pgB:            out std_logic_vector( 7 downto 0 );
-   
-   fontRomA:       out std_logic_vector( 10 downto 0 );
-   fontRomDout:    in  std_logic_vector( 7 downto 0 );
-   
-   videoRamBA:     out std_logic_vector( 13 downto 0 );
-   videoRamBDout:  in  std_logic_vector( 15 downto 0 );
-   
-   pgXCount:       out std_logic_vector( 11 downto 0 );
-   pgYCount:       out std_logic_vector( 11 downto 0 );
-   pgDeX:          out std_logic;
-   pgDeY:          out std_logic;
-   pgPreFetchLine: out std_logic;
-   pgFetchEnable:  out std_logic;
-   
-   pgVideoMode:      in  std_logic_vector( 1 downto 0 );
-   pgCursorX:        in  std_logic_vector( 7 downto 0 );
-   pgCursorY:        in  std_logic_vector( 7 downto 0 );
-
-   --sync registers
-   hBackPorch:       in std_logic_vector( 11 downto 0 );
-   hActive:          in std_logic_vector( 11 downto 0 );
-   hFrontPorch:      in std_logic_vector( 11 downto 0 );
-   hSyncPulse:       in std_logic_vector( 11 downto 0 );
-
-   vBackPorch:       in std_logic_vector( 11 downto 0 );
-   vActive:          in std_logic_vector( 11 downto 0 );
-   vFrontPorch:      in std_logic_vector( 11 downto 0 );
-   vSyncPulse:       in std_logic_vector( 11 downto 0 )
-
-);
-end component;
-
---video mux ( mixes text, graphics )
-component videoMux is
-port( 
-
-   --reset, clock
-   resetn:     in    std_logic;
-   pixelClock: in    std_logic;
-   
-   --mux mode
-   muxMode:    in    std_logic_vector( 1 downto 0 );
-   
-   --video inputs
-   
-   --text / sync
-   
-   pgHSync:    in    std_logic;
-   pgVSync:    in    std_logic;
-   pgDe:       in    std_logic; 
-   
-   pgR:        in    std_logic_vector( 7 downto 0 );
-   pgG:        in    std_logic_vector( 7 downto 0 );
-   pgB:        in    std_logic_vector( 7 downto 0 );
-   
-   --gfx
-   pggR:       in    std_logic_vector( 7 downto 0 );
-   pggG:       in    std_logic_vector( 7 downto 0 );
-   pggB:       in    std_logic_vector( 7 downto 0 );
-   
-   --video output
-  
-   vgaHS:      out   std_logic;
-   vgaVS:      out   std_logic;
-   vgaDE:      out   std_logic;
-                
-   vgaR:       out   std_logic_vector( 7 downto 0 );
-   vgaG:       out   std_logic_vector( 7 downto 0 );
-   vgaB:       out   std_logic_vector( 7 downto 0 )
-   
-);
-end component;
+-- vga
 
 component vga is
 port( 
@@ -254,10 +206,7 @@ port(
    dataMask:         in    std_logic_vector( 3 downto 0 );
    
    ready:            out   std_logic;
-  
-   --video mode ( to be moved to vga regs )
-   vmMode:           out   std_logic_vector( 15 downto 0 );
-   
+     
    --gpio
    gpi:              in    std_logic_vector( 31 downto 0 );
    gpo:              out   std_logic_vector( 31 downto 0 );
@@ -294,70 +243,25 @@ end component;
 
 --signals
 
-signal reset:           std_logic;
-
---font rom signals
-signal fontRomA:        std_logic_vector( 10 downto 0 );
-signal fontRomDout:     std_logic_vector( 7 downto 0 );
+signal reset:  std_logic;
 
 --system ram signals
-signal systemRAMCE:                std_logic;
-signal systemRamReady:             std_logic;
-signal systemRamDoutForCPU:        std_logic_vector( 31 downto 0 );
-signal systemRamWr:                std_logic_vector( 3 downto 0 ); 
+signal systemRAMCE:              std_logic;
+signal systemRamReady:           std_logic;
+signal systemRamDoutForCPU:      std_logic_vector( 31 downto 0 );
+signal systemRamWr:              std_logic_vector( 3 downto 0 ); 
 
 --text framebuffer signals
-signal txtfbRAMCE:                std_logic;
-signal txtfbRamReady:             std_logic;
-signal txtfbRamDoutForCPU:        std_logic_vector( 31 downto 0 );
-signal txtfbRamDoutForPixelGen:   std_logic_vector( 31 downto 0 );
-signal txtfbRamWr:                std_logic_vector( 3 downto 0 ); 
+signal txtfbRAMCE:               std_logic;
+signal txtfbRamReady:            std_logic;
+signal txtfbRamDoutForCPU:       std_logic_vector( 31 downto 0 );
+signal txtfbRamDoutForPixelGen:  std_logic_vector( 31 downto 0 );
+signal txtfbRamWr:               std_logic_vector( 3 downto 0 ); 
 
+signal txtFbRamBClock:           std_logic;
+signal txtFbRamBA:               std_logic_vector( 12 downto 0 );
+signal txtFbRamBDOut:            std_logic_vector( 31 downto 0 );
 
--- video mux signals
-signal vmMode:          std_logic_vector( 15 downto 0 );
-
--- txt pixel gen signals
-signal pgVSync:         std_logic;
-signal pgHSync:         std_logic;
-signal pgDe:            std_logic;
-signal pgR:             std_logic_vector( 7 downto 0 );
-signal pgG:             std_logic_vector( 7 downto 0 );
-signal pgB:             std_logic_vector( 7 downto 0 ); 
-signal pgXCount:        std_logic_vector( 11 downto 0 );
-signal pgYCount:        std_logic_vector( 11 downto 0 );
-signal pgDeX:           std_logic;
-signal pgDeY:           std_logic;
-signal pgPreFetchLine:  std_logic;
-signal pgFetchEnable:   std_logic;
-signal videoRamBDout:   std_logic_vector( 15 downto 0 );
-signal videoRamBA:      std_logic_vector( 13 downto 0 ); 
-signal pgCursorX:       std_logic_vector( 7 downto 0 );
-signal pgCursorY:       std_logic_vector( 7 downto 0 );
-
---vsync signal synchronised to cpu clock domain
-signal pgVSyncMainClock:   std_logic;
-
---gfx pixel gen signals
-
-signal pggRegsClock:          std_logic;
-signal pggRegsDoutForCPU:     std_logic_vector( 31 downto 0 );
-signal pggRegsCE:             std_logic;
-signal pggRegsWr:             std_logic;
-signal pggRegsReady:          std_logic;
-signal pggRegsA:              std_logic_vector( 15 downto 0 );
-signal pggRegsDIn:            std_logic_vector( 31 downto 0 );
-signal pggRegsDOut:           std_logic_vector( 31 downto 0 );
-
-signal pgEnabled:             std_logic;
-signal pggR:                  std_logic_vector( 7 downto 0 );
-signal pggG:                  std_logic_vector( 7 downto 0 );
-signal pggB:                  std_logic_vector( 7 downto 0 ); 
-signal pggDMARequest:         std_logic_vector( 1 downto 0 );
-
-signal gfxBufRamClock:        std_logic;
-signal gfxBufRamDOut:         std_logic_vector( 31 downto 0 );
-signal gfxBufRamRdA:          std_logic_vector( 8 downto 0 );
 
 --cpu signals
 signal cpuReset:     std_logic;
@@ -377,20 +281,29 @@ signal cpuWr:			std_logic;
 signal cpuDataMask:  std_logic_vector( 3 downto 0 );
 
 --cpu resetgen
-signal cpuResetGenCounter:  std_logic_vector( 15 downto 0 ); 
+signal cpuResetGenCounter: std_logic_vector( 15 downto 0 ); 
 
 --root registers signals
-signal rootRegsCE:            std_logic;
-signal rootRegsDoutForCPU:    std_logic_vector( 31 downto 0 );
-signal rootRegsReady:         std_logic;
-signal gpi:                   std_logic_vector( 31 downto 0 );
-signal gpo:                   std_logic_vector( 31 downto 0 );
+signal rootRegsCE:         std_logic;
+signal rootRegsDoutForCPU: std_logic_vector( 31 downto 0 );
+signal rootRegsReady:      std_logic;
+signal gpi:                std_logic_vector( 31 downto 0 );
+signal gpo:                std_logic_vector( 31 downto 0 );
 
 --uart signals
-signal uartCE:              std_logic;
-signal uartDoutForCPU:      std_logic_vector( 31 downto 0 );
-signal uartReady:           std_logic;
+signal uartCE:          std_logic;
+signal uartDoutForCPU:  std_logic_vector( 31 downto 0 );
+signal uartReady:       std_logic;
 
+--vga signals
+signal vgaCE:           std_logic;
+signal vgaDOutForCPU:   std_logic_vector( 31 downto 0 );
+signal vgaReady:        std_logic;
+
+signal vgaVSync:        std_logic;
+
+--vsync signal synchronised to cpu clock domain
+signal vgaVSyncMainClock:   std_logic;
 
 begin
 
@@ -400,16 +313,40 @@ reset    <= not resetn;
 
 --drive unused signals, ports
 
-pgCursorX   <= x"00";
-pgCursorY   <= x"00";
-pggR        <= ( others => '0' );
-pggG        <= ( others => '0' );
-pggB        <= ( others => '0' );
-
 
 sdMciDat    <= ( others => 'Z' );
 sdMciCmd    <= '1';
 sdMciClk    <= '1';
+
+--axi master
+--read channel
+m00_axi_araddr    <= ( others => '0' );
+m00_axi_arprot    <= ( others => '0' );
+m00_axi_arvalid   <= '0';
+m00_axi_rready    <= '0';
+m00_axi_arid      <= ( others => '0' );
+m00_axi_arlen     <= ( others => '0' );
+m00_axi_arsize    <= ( others => '0' );
+m00_axi_arburst   <= ( others => '0' );
+m00_axi_arlock    <= '0';
+m00_axi_arcache   <= ( others => '0' );
+    
+--write channel 
+m00_axi_awvalid   <= '0';
+m00_axi_awaddr    <= ( others => '0' );
+m00_axi_awprot    <= ( others => '0' );
+m00_axi_awcache   <= ( others => '0' );
+m00_axi_wvalid    <= '0';
+m00_axi_wdata     <= ( others => '0' );
+m00_axi_wstrb     <= ( others => '0' );
+m00_axi_bready    <= '0';
+m00_axi_awid      <= ( others => '0' );
+m00_axi_awlen     <= ( others => '0' );
+m00_axi_awsize    <= ( others => '0' );
+m00_axi_awburst   <= ( others => '0' );
+m00_axi_awlock    <= '0';
+m00_axi_wlast     <= '0';
+
 
 -- assign gpi/gpo
 
@@ -427,22 +364,12 @@ generic map
 port map(
    
    clock             => mainClock,
-   signalInput(0)    => pgVSync,
-   signalOutput(0)   => pgVSyncMainClock
+   signalInput(0)    => vgaVSync,
+   signalOutput(0)   => vgaVSyncMainClock
    
 );
 
 
-
-
--- place text mode font rom ( 2048 x 8 )
-
-fontPromInst: fontProm 
-port map(
-    clka    => pixelClock,
-    addra   => fontRomA,
-    douta   => fontRomDout
-);
 
 -- place text mode framebuffer ram ( 8192 x 32 )
 
@@ -461,15 +388,14 @@ port map(
     dina       => cpuDOut,
     douta      => txtfbRamDoutForCPU,
     
-    clkb       => pixelClock,
+    clkb       => txtFbRamBClock,
     web        => "0000",
-    addrb      => videoRamBA( 13 downto 1 ),
+    addrb      => txtFbRamBA,
     dinb       => ( others => '0' ),
-    doutb      => txtfbRamDoutForPixelGen
+    doutb      => txtFbRamBDOut
 
 );
 
-videoRamBDout   <= txtfbRamDoutForPixelGen( 15 downto 0 ) when videoRamBA( 0 ) = '0' else txtfbRamDoutForPixelGen( 31 downto 16 ); 
 
 txtfbRamAccess:process( reset, mainClock )
 begin
@@ -526,104 +452,53 @@ begin
 
 end process;
 
+-- place vga
 
---Place txt pixel gen
+-- buffer vsync in signal, which is passed to frame timer after sync with main clock
+vgaVS <= vgaVSync;
 
-pixelGenInst: pixelGenTxt
-port map(
-   reset           => reset,
-   pgClock         => pixelClock,
-
-   pgVSync         => pgVSync,
-   pgHSync         => pgHSync,
-   pgDe            => pgDe,
-   pgR             => pgR,
-   pgG             => pgG,
-   pgB             => pgB,
-
-   fontRomA        => fontRomA,
-   fontRomDout     => fontRomDout,
-
-   videoRamBA      => videoRamBA,
-   videoRamBDout   => videoRamBDout,
-        
-   pgXCount          => pgXCount,
-   pgYCount          => pgYCount,
-   pgDeX             => pgDeX,
-   pgDeY             => pgDeY,
-   pgPreFetchLine    => pgPreFetchLine,
-   pgFetchEnable     => pgFetchEnable,
-      
-   pgVideoMode       => vmMode( 3 downto 2 ),
-   pgCursorX         => pgCursorX,        
-   pgCursorY         => pgCursorY,
-   
-   --640 x 480 ( 25 / 125 MHz )
-
---   hBackPorch        => x"030",        --48
---   hActive           => x"280",        --640
---   hFrontPorch       => x"010",        --16
---   hSyncPulse        => x"060",        --96
-   
---   vBackPorch        => x"021",        --33
---   vActive           => x"1e0",        --480
---   vFrontPorch       => x"00a",        --10
---   vSyncPulse        => x"002"         --2
-
-   --1280 x 720 ( 64 / 320 MHz )
-   
-   hBackPorch        => x"050",        --80
-   hActive           => x"500",        --1280
-   hFrontPorch       => x"030",        --48
-   hSyncPulse        => x"020",        --32
-   
-   vBackPorch        => x"00d",        --13
-   vActive           => x"2d0",        --720
-   vFrontPorch       => x"003",        --3
-   vSyncPulse        => x"005"         --5
-   
-        
-);   
-
--- place videomux
-
-videoMuxInst:videoMux
+vgaInst:vga
 port map( 
 
-   --reset, clock
-   resetn         => resetn,
+   --cpu interface ( registers )
+   reset          => reset,
+   clock          => mainClock,
+   a              => cpuAOut( 15 downto 0 ),
+   din            => cpuDOut,
+   dout           => vgaDOutForCPU,
+   
+   ce             => vgaCE,
+   wr             => cpuWr,
+   dataMask       => cpuDataMask,
+   
+   ready          => vgaReady,
+
+   --pixel clock
    pixelClock     => pixelClock,
-   
-   --mux mode
-   muxMode        => vmMode( 1 downto 0 ),
-   
-   --video inputs
-   
-   --text / sync
-   
-   pgHSync        => pgHSync,
-   pgVSync        => pgVSync,
-   pgDe           => pgDE,
-   
-   pgR            => pgR,
-   pgG            => pgG,
-   pgB            => pgB,
-   
-   --gfx
-   pggR           => pggR,
-   pggG           => pggG,
-   pggB           => pggB,
-   
-   --video output
+
+   --block ram interface ( text mode frame buffer ram )
+   txtFbRamClock  => txtFbRamBClock,
+   txtFbRamA      => txtFbRamBA,
+   txtFbRamDIn    => txtFbRamBDOut,
+
+   --dma interface ( gfx mode line data buffer, dma requests )
+--   gfxFbRamClock:    out   std_logic;
+   gfxFbRamDIn    => ( others => '0' ),
+--   gfxFbRamA:        out std_logic_vector( 8 downto 0 );    --2 buffers, 256 long words each
+
+    --2 dma requests
+--   vgaDMARequest:    out std_logic_vector( 1 downto 0 );
+
+   --video output ( VGA )
+   vgaRed         => vgaRed,
+   vgaGreen       => vgaGreen,
+   vgaBlue        => vgaBlue,
    vgaHS          => vgaHS,
-   vgaVS          => vgaVS,
-   vgaDE          => vgaDE,
-                
-   vgaR           => vgaRed,
-   vgaG           => vgaGreen,
-   vgaB           => vgaBlue
-   
+   vgaVS          => vgaVSync,
+   vgaDE          => vgaDE
+     
 );
+
 
 
 -- place nekoRv
@@ -635,6 +510,7 @@ port map(
    systemRAMCE    <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"0" else '0';
    txtfbRAMCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"1" else '0';
    rootRegsCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f00" else '0';   
+   vgaCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f01" else '0';   
    uartCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f04" else '0';
 
 --    sdramDMACE      <= '1' when ( cpuMemValid = '1'  ) and cpuAOutFull( 31 downto 28 ) = x"2" else '0';
@@ -664,6 +540,7 @@ port map(
    cpuMemReady       <= systemRamReady when systemRAMCE = '1'
                         else txtfbRamReady when txtfbRamCE = '1'
                         else rootRegsReady when rootRegsCE = '1' 
+                        else vgaReady  when vgaCE = '1' 
                         else uartReady when uartCE = '1' 
 --                        else spiReady when spiCE = '1' 
 --                        else usbHostReady when usbHostCE = '1' 
@@ -684,6 +561,7 @@ port map(
    cpuDin            <= systemRamDoutForCPU                       when cpuAOutFull( 31 downto 28 ) = x"0" else 
                         txtfbRamDoutForCPU                        when cpuAOutFull( 31 downto 28 ) = x"1" else
                         rootRegsDoutForCPU                        when cpuAOutFull( 31 downto 20 ) = x"f00" else 
+                        vgaDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f01" else 
                         uartDoutForCPU                            when cpuAOutFull( 31 downto 20 ) = x"f04" else
 --                        registersDoutForCPU                       when cpuAOutFull( 31 downto 20 ) = x"f00" else
 --                        sdramDMADoutForCPU                        when cpuAOutFull( 31 downto 28 ) = x"2"  else
@@ -772,16 +650,13 @@ port map(
    dataMask    => cpuDataMask,
    
    ready       => rootRegsReady,
-  
-   --video mode ( to be moved to vga regs )
-   vmMode      => vmMode,
-   
+     
    --gpio
    gpi         => gpi,
    gpo         => gpo,
       
    --vsync for frame timer
-   vsync       => pgVSyncMainClock,
+   vsync       => vgaVSyncMainClock,
    
    --mtime irq out
    mtimeIrq    => cpuMtimeIrq

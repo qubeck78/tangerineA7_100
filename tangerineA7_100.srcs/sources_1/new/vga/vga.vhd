@@ -52,6 +52,24 @@ architecture behavior of vga is
 
 --components
 
+component inputSync
+
+    generic(
+        inputWidth              : integer := 1
+    );
+
+    port(
+
+        clock:                          in  std_logic;
+
+        signalInput:                    in  std_logic_vector( inputWidth - 1 downto 0 );
+        signalOutput:                   out std_logic_vector( inputWidth - 1 downto 0 )
+
+    );
+
+end component;
+
+
 -- font rom
 component fontPROM
 port(
@@ -154,6 +172,7 @@ signal resetn:          std_logic;
 
 type   regState_T is ( rsWaitForRegAccess, rsWaitForBusCycleEnd );
 signal registerState:       regState_T;
+signal pgVSyncSynClock: std_logic;
 
 --font rom signals
 signal fontRomA:        std_logic_vector( 10 downto 0 );
@@ -186,6 +205,22 @@ begin
 -- negative reset
 resetn   <= not reset;
 
+-- sync VSync to main clock
+
+inputSyncVSInst:inputSync
+generic map
+(
+   inputWidth  => 1
+)
+port map(
+   
+   clock             => clock,
+   signalInput(0)    => pgVSync,
+   signalOutput(0)   => pgVSyncSynClock
+   
+);
+
+
 -- place text mode font rom ( 2048 x 8 )
 
 fontPromInst: fontProm 
@@ -197,16 +232,10 @@ port map(
 
 --Place txt pixel gen
 
---videoRamBDout   <= txtfbRamDoutForPixelGen( 15 downto 0 ) when videoRamBA( 0 ) = '0' else txtfbRamDoutForPixelGen( 31 downto 16 ); 
---signal videoRamBDout:   std_logic_vector( 15 downto 0 );
---signal videoRamBA:      std_logic_vector( 13 downto 0 ); 
-
---block ram interface ( text mode frame buffer ram )
---   txtFbRamClock:    out   std_logic;
---   txtFbRamA:        out   std_logic_vector( 12 downto 0 );
---   txtFbRamDIn:      in    std_logic_vector( 31 downto 0 );
 
 txtFbRamClock  <= pixelClock;
+
+--external block ram is 32-bit, convert to 16
 
 videoRamBDout  <= txtFbRamDIn( 15 downto 0 ) when videoRamBA( 0 ) = '0' else txtFbRamDIn( 31 downto 16 ); 
 txtFbRamA      <= videoRamBA( 13 downto 1 );
@@ -349,7 +378,44 @@ begin
                      
                         dout  <= x"20250210";
 
+                     --0x08 rw vmMode
+                     when x"02" =>
+                     
+                        dout  <= x"0000" & vmMode;
+                        
+                        if wr = '1' then
+                        
+                           vmMode   <= din( 15 downto 0 );
+                           
+                        end if;
 
+                     --0x0c rw pgCursorX
+                     when x"03" =>
+                     
+                        dout  <= x"000000" & pgCursorX;
+                        
+                        if wr = '1' then
+                        
+                           pgCursorX   <= din( 7 downto 0 );
+                           
+                        end if;
+
+                     --0x10 rw pgCursorY
+                     when x"04" =>
+                     
+                        dout  <= x"000000" & pgCursorY;
+                        
+                        if wr = '1' then
+                        
+                           pgCursorY   <= din( 7 downto 0 );
+                           
+                        end if;
+
+                     --0x14 rw pgVSync
+                     when x"05" =>
+                     
+                        dout  <= x"0000000" & "000" & pgVSyncSynClock;
+                        
                      when others =>
                      
                         dout  <= ( others => '0' );

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Mon Feb 10 17:40:18 2025
+| Date         : Tue Feb 11 09:31:55 2025
 | Host         : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 | Command      : report_methodology -file tangerineA7_100_wrapper_methodology_drc_routed.rpt -pb tangerineA7_100_wrapper_methodology_drc_routed.pb -rpx tangerineA7_100_wrapper_methodology_drc_routed.rpx
 | Design       : tangerineA7_100_wrapper
@@ -23,13 +23,13 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 59
+             Violations found: 82
 +-----------+------------------+-----------------------------------------------------------+------------+
 | Rule      | Severity         | Description                                               | Violations |
 +-----------+------------------+-----------------------------------------------------------+------------+
 | TIMING-51 | Critical Warning | No common phase between related clocks from parallel CMBs | 2          |
 | PDRC-190  | Warning          | Suboptimally placed synchronized register chain           | 1          |
-| TIMING-16 | Warning          | Large setup violation                                     | 56         |
+| TIMING-16 | Warning          | Large setup violation                                     | 79         |
 +-----------+------------------+-----------------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -46,287 +46,402 @@ Related violations: <none>
 
 PDRC-190#1 Warning
 Suboptimally placed synchronized register chain  
-The FDRE cell tangerineA7_100_i/tangerineSOC_0/U0/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X72Y21 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell tangerineA7_100_i/tangerineSOC_0/U0/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
+The FDRE cell tangerineA7_100_i/tangerineSOC_0/U0/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X76Y36 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell tangerineA7_100_i/tangerineSOC_0/U0/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
 Related violations: <none>
 
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -4.979 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[9]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.279 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/FSM_sequential_pgState_reg[1]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#2 Warning
 Large setup violation  
-There is a large setup violation of -5.052 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[3]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.407 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[0]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#3 Warning
 Large setup violation  
-There is a large setup violation of -5.103 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[8]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.411 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/fontRomA_reg[0]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#4 Warning
 Large setup violation  
-There is a large setup violation of -5.149 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/fontRomA_reg[0]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.437 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/fontRomA_reg[2]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#5 Warning
 Large setup violation  
-There is a large setup violation of -5.160 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[1]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.444 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/fontRomA_reg[1]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#6 Warning
 Large setup violation  
-There is a large setup violation of -5.179 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[7]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.539 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgVSync_reg_replica/C (clocked by clk64_tangerineA7_100_clk_wiz_0_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/inputSyncVSInst/stage2Reg_reg[0]_srl2/D (clocked by clk100_tangerineA7_100_clk_wiz_1_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#7 Warning
 Large setup violation  
-There is a large setup violation of -5.181 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[13]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.544 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/FSM_sequential_pgState_reg[4]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#8 Warning
 Large setup violation  
-There is a large setup violation of -5.181 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[4]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.564 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[10]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#9 Warning
 Large setup violation  
-There is a large setup violation of -5.192 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[6]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.593 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[0]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#10 Warning
 Large setup violation  
-There is a large setup violation of -5.196 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[10]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.593 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[1]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#11 Warning
 Large setup violation  
-There is a large setup violation of -5.197 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[5]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.593 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[2]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#12 Warning
 Large setup violation  
-There is a large setup violation of -5.198 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[11]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.593 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[3]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#13 Warning
 Large setup violation  
-There is a large setup violation of -5.203 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[12]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.593 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[4]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#14 Warning
 Large setup violation  
-There is a large setup violation of -5.219 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/fontRomA_reg[2]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.593 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[5]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#15 Warning
 Large setup violation  
-There is a large setup violation of -5.242 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/fontRomA_reg[1]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.613 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[12]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#16 Warning
 Large setup violation  
-There is a large setup violation of -5.339 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[2]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.616 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[5]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#17 Warning
 Large setup violation  
-There is a large setup violation of -5.375 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/FSM_sequential_pgState_reg[0]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.632 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[7]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#18 Warning
 Large setup violation  
-There is a large setup violation of -5.375 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/FSM_sequential_pgState_reg[1]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.637 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[4]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#19 Warning
 Large setup violation  
-There is a large setup violation of -5.375 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/FSM_sequential_pgState_reg[2]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.653 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/FSM_sequential_pgState_reg[1]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#20 Warning
 Large setup violation  
-There is a large setup violation of -5.375 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/FSM_sequential_pgState_reg[3]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.653 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/FSM_sequential_pgState_reg[3]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#21 Warning
 Large setup violation  
-There is a large setup violation of -5.389 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[0]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.653 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/FSM_sequential_pgState_reg[4]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#22 Warning
 Large setup violation  
-There is a large setup violation of -5.389 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[1]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.658 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[2]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#23 Warning
 Large setup violation  
-There is a large setup violation of -5.389 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[2]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.667 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[0]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#24 Warning
 Large setup violation  
-There is a large setup violation of -5.389 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[3]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.667 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[7]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#25 Warning
 Large setup violation  
-There is a large setup violation of -5.389 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[4]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.668 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[13]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#26 Warning
 Large setup violation  
-There is a large setup violation of -5.389 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[5]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.669 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[3]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#27 Warning
 Large setup violation  
-There is a large setup violation of -5.389 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[6]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.673 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[9]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#28 Warning
 Large setup violation  
-There is a large setup violation of -5.389 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[7]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.687 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/FSM_sequential_pgState_reg[0]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#29 Warning
 Large setup violation  
-There is a large setup violation of -5.421 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/FSM_sequential_pgState_reg[4]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.687 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/FSM_sequential_pgState_reg[2]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#30 Warning
 Large setup violation  
-There is a large setup violation of -5.570 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/FSM_sequential_pgState_reg[4]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.687 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/FSM_sequential_pgState_reg[5]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#31 Warning
 Large setup violation  
-There is a large setup violation of -5.570 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/FSM_sequential_pgState_reg[5]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.701 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[6]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#32 Warning
 Large setup violation  
-There is a large setup violation of -5.611 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[2]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/FSM_sequential_pgState_reg[1]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.709 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[6]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#33 Warning
 Large setup violation  
-There is a large setup violation of -5.628 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[0]/R (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.738 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[11]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#34 Warning
 Large setup violation  
-There is a large setup violation of -5.628 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[1]/R (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.754 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[8]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#35 Warning
 Large setup violation  
-There is a large setup violation of -5.628 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[2]/R (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.777 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/videoMuxInst/vgaVS_reg/C (clocked by clk64_tangerineA7_100_clk_wiz_0_0) and tangerineA7_100_i/tangerineSOC_0/U0/inputSyncVSInst/stage2Reg_reg[0]_srl2/D (clocked by clk100_tangerineA7_100_clk_wiz_1_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#36 Warning
 Large setup violation  
-There is a large setup violation of -5.628 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[3]/R (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -5.810 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[1]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#37 Warning
 Large setup violation  
-There is a large setup violation of -5.628 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[4]/R (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.126 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[13]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#38 Warning
 Large setup violation  
-There is a large setup violation of -5.628 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[5]/R (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.126 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[9]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#39 Warning
 Large setup violation  
-There is a large setup violation of -5.628 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[6]/R (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.137 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[0]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#40 Warning
 Large setup violation  
-There is a large setup violation of -5.628 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgLetterY_reg[7]/R (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.137 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[1]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#41 Warning
 Large setup violation  
-There is a large setup violation of -5.631 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[13]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.137 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[2]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#42 Warning
 Large setup violation  
-There is a large setup violation of -5.631 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[1]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.137 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[3]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#43 Warning
 Large setup violation  
-There is a large setup violation of -5.631 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[4]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.274 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[10]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#44 Warning
 Large setup violation  
-There is a large setup violation of -5.631 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[7]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.274 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[4]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#45 Warning
 Large setup violation  
-There is a large setup violation of -5.637 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[0]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.274 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[5]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#46 Warning
 Large setup violation  
-There is a large setup violation of -5.643 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[0]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.274 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[8]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#47 Warning
 Large setup violation  
-There is a large setup violation of -5.644 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[8]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.283 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[11]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#48 Warning
 Large setup violation  
-There is a large setup violation of -5.644 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[9]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.283 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[12]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#49 Warning
 Large setup violation  
-There is a large setup violation of -5.705 ns between tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgVSync_reg/C (clocked by clk64_tangerineA7_100_clk_wiz_0_0) and tangerineA7_100_i/tangerineSOC_0/U0/inputSyncVSInst/stage2Reg_reg[0]_srl2/D (clocked by clk100_tangerineA7_100_clk_wiz_1_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.283 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[6]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#50 Warning
 Large setup violation  
-There is a large setup violation of -5.717 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[10]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.283 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgDisplayPtr_reg[7]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#51 Warning
 Large setup violation  
-There is a large setup violation of -5.717 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[2]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -6.369 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[0]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutBackgroundColor_reg[8]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#52 Warning
 Large setup violation  
-There is a large setup violation of -5.717 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[3]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -7.056 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutBackgroundColor_reg[16]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#53 Warning
 Large setup violation  
-There is a large setup violation of -5.717 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[6]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -7.060 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutBackgroundColor_reg[0]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#54 Warning
 Large setup violation  
-There is a large setup violation of -5.779 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[11]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -7.146 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutBackgroundColor_reg[15]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#55 Warning
 Large setup violation  
-There is a large setup violation of -5.779 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[12]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -7.157 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutLetterColor_reg[23]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#56 Warning
 Large setup violation  
-There is a large setup violation of -5.779 ns between tangerineA7_100_i/tangerineSOC_0/U0/rootRegistersInst/vmMode_reg[3]_replica/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/pixelGenInst/pgDisplayPtr_reg[5]/CE (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -7.183 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutBackgroundColor_reg[13]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#57 Warning
+Large setup violation  
+There is a large setup violation of -7.193 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutLetterColor_reg[21]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#58 Warning
+Large setup violation  
+There is a large setup violation of -7.198 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutBackgroundColor_reg[14]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#59 Warning
+Large setup violation  
+There is a large setup violation of -7.199 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutLetterColor_reg[6]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#60 Warning
+Large setup violation  
+There is a large setup violation of -7.200 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutLetterColor_reg[0]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#61 Warning
+Large setup violation  
+There is a large setup violation of -7.225 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutLetterColor_reg[16]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#62 Warning
+Large setup violation  
+There is a large setup violation of -7.227 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutBackgroundColor_reg[21]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#63 Warning
+Large setup violation  
+There is a large setup violation of -7.243 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutLetterColor_reg[5]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#64 Warning
+Large setup violation  
+There is a large setup violation of -7.248 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutBackgroundColor_reg[6]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#65 Warning
+Large setup violation  
+There is a large setup violation of -7.268 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutLetterColor_reg[8]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#66 Warning
+Large setup violation  
+There is a large setup violation of -7.317 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutLetterColor_reg[14]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#67 Warning
+Large setup violation  
+There is a large setup violation of -7.319 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutBackgroundColor_reg[23]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#68 Warning
+Large setup violation  
+There is a large setup violation of -7.400 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[1]/R (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#69 Warning
+Large setup violation  
+There is a large setup violation of -7.400 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[2]/R (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#70 Warning
+Large setup violation  
+There is a large setup violation of -7.400 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[3]/R (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#71 Warning
+Large setup violation  
+There is a large setup violation of -7.400 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[4]/R (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#72 Warning
+Large setup violation  
+There is a large setup violation of -7.400 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/vmMode_reg[3]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLetterY_reg[5]/R (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#73 Warning
+Large setup violation  
+There is a large setup violation of -7.567 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutBackgroundColor_reg[5]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#74 Warning
+Large setup violation  
+There is a large setup violation of -7.594 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutLetterColor_reg[15]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#75 Warning
+Large setup violation  
+There is a large setup violation of -7.599 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutLetterColor_reg[22]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#76 Warning
+Large setup violation  
+There is a large setup violation of -7.613 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorY_reg[7]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutLetterColor_reg[13]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#77 Warning
+Large setup violation  
+There is a large setup violation of -7.702 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorX_reg[1]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutBackgroundColor_reg[22]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#78 Warning
+Large setup violation  
+There is a large setup violation of -8.084 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorX_reg[1]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutLetterColor_reg[7]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#79 Warning
+Large setup violation  
+There is a large setup violation of -9.028 ns between tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pgCursorX_reg[1]/C (clocked by clk100_tangerineA7_100_clk_wiz_1_0) and tangerineA7_100_i/tangerineSOC_0/U0/vgaInst/pixelGenInst/pgLutBackgroundColor_reg[7]/D (clocked by clk64_tangerineA7_100_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 

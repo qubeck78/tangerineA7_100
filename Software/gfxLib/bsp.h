@@ -82,8 +82,7 @@ typedef struct _BSP_T
     //r-
     volatile uint32_t   gpi;
 
-    //txt/gfx/mux mode
-    volatile uint32_t   videoMuxMode;
+    volatile uint32_t   unused0;
 
     //counts up, clocked by cpu clock
     volatile uint64_t   mtime;
@@ -96,15 +95,19 @@ typedef struct _BSP_T
 
 extern BSP_T *bsp;
 
-
-typedef struct __GFXPIXELGEN_REGISTERS_T
+typedef struct __VGA_REGISTERS_T
 {
-    volatile uint32_t id;
-    volatile uint32_t version;
+    volatile uint32_t   id;
+    volatile uint32_t   version;
     
-}_GFXPIXELGEN_REGISTERS_T;
+    volatile uint32_t   vmMode;
+    volatile uint32_t   pgCursorX;    
+    volatile uint32_t   pgCursorY;
+    volatile uint32_t   pgVSync;
 
-extern _GFXPIXELGEN_REGISTERS_T *gfxPixelGen;
+}_VGA_REGISTERS_T;
+
+extern _VGA_REGISTERS_T *vga;
 
 
 typedef struct __SPRITEGEN_REGISTERS_T
