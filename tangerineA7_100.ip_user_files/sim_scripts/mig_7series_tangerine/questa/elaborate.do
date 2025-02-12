@@ -1,0 +1,1 @@
+vopt +acc=npr -l elaborate.log +acc=npr -suppress 10016  -L xil_defaultlib -L xpm -L unisims_ver -L unimacro_ver -L secureip -work xil_defaultlib xil_defaultlib.mig_7series_tangerine xil_defaultlib.glbl -o mig_7series_tangerine_opt

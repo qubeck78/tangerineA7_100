@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x8320560381CA8632",
+      "boundary_crc": "0x6D31A7B1BD4FE8EE",
       "device": "xc7a100tfgg676-1",
       "gen_directory": "../../../../tangerineA7_100.gen/sources_1/bd/tangerineA7_100",
       "name": "tangerineA7_100",
@@ -15,6 +15,9 @@
       "hdmiOut_0": "",
       "clk_wiz_1": "",
       "xlslice_0": "",
+      "xlconstant_0": "",
+      "tangerineMIGWrapper_0": "",
+      "system_ila_0": "",
       "tangerineSOC_0": ""
     },
     "ports": {
@@ -23,7 +26,7 @@
         "direction": "I",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "tangerineA7_100_sysClk",
+            "value": "tangerineA7_100_sysClk50",
             "value_src": "default"
           },
           "FREQ_HZ": {
@@ -100,6 +103,68 @@
       },
       "sdMciClk": {
         "direction": "O"
+      },
+      "ddr3_addr": {
+        "direction": "O",
+        "left": "13",
+        "right": "0"
+      },
+      "ddr3_ba": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "ddr3_cas_n": {
+        "direction": "O"
+      },
+      "ddr3_ck_n": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
+      },
+      "ddr3_ck_p": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
+      },
+      "ddr3_cke": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
+      },
+      "ddr3_ras_n": {
+        "direction": "O"
+      },
+      "ddr3_reset_n": {
+        "direction": "O"
+      },
+      "ddr3_we_n": {
+        "direction": "O"
+      },
+      "ddr3_dq": {
+        "direction": "IO",
+        "left": "15",
+        "right": "0"
+      },
+      "ddr3_dqs_n": {
+        "direction": "IO",
+        "left": "1",
+        "right": "0"
+      },
+      "ddr3_dqs_p": {
+        "direction": "IO",
+        "left": "1",
+        "right": "0"
+      },
+      "ddr3_dm": {
+        "direction": "O",
+        "left": "1",
+        "right": "0"
+      },
+      "ddr3_odt": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
       }
     },
     "components": {
@@ -340,19 +405,19 @@
             "value": "200.0"
           },
           "CLKOUT1_JITTER": {
-            "value": "175.200"
+            "value": "162.035"
           },
           "CLKOUT1_PHASE_ERROR": {
-            "value": "161.614"
+            "value": "164.985"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
             "value": "100.000"
           },
           "CLKOUT2_JITTER": {
-            "value": "175.200"
+            "value": "162.035"
           },
           "CLKOUT2_PHASE_ERROR": {
-            "value": "161.614"
+            "value": "164.985"
           },
           "CLKOUT2_REQUESTED_PHASE": {
             "value": "190"
@@ -361,10 +426,10 @@
             "value": "true"
           },
           "CLKOUT3_JITTER": {
-            "value": "210.144"
+            "value": "192.113"
           },
           "CLKOUT3_PHASE_ERROR": {
-            "value": "161.614"
+            "value": "164.985"
           },
           "CLKOUT3_REQUESTED_OUT_FREQ": {
             "value": "50"
@@ -373,16 +438,16 @@
             "value": "true"
           },
           "CLKOUT4_JITTER": {
-            "value": "286.482"
+            "value": "142.107"
           },
           "CLKOUT4_PHASE_ERROR": {
-            "value": "161.614"
+            "value": "164.985"
           },
           "CLKOUT4_REQUESTED_OUT_FREQ": {
-            "value": "12"
+            "value": "200"
           },
           "CLKOUT4_USED": {
-            "value": "false"
+            "value": "true"
           },
           "CLK_OUT1_PORT": {
             "value": "clk100"
@@ -394,10 +459,10 @@
             "value": "clk50"
           },
           "CLK_OUT4_PORT": {
-            "value": "clk12"
+            "value": "clk200"
           },
           "MMCM_CLKFBOUT_MULT_F": {
-            "value": "18.000"
+            "value": "20.000"
           },
           "MMCM_CLKIN1_PERIOD": {
             "value": "20.000"
@@ -406,22 +471,22 @@
             "value": "10.0"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "9.000"
+            "value": "10.000"
           },
           "MMCM_CLKOUT1_DIVIDE": {
-            "value": "9"
+            "value": "10"
           },
           "MMCM_CLKOUT1_PHASE": {
-            "value": "190.000"
+            "value": "189.000"
           },
           "MMCM_CLKOUT2_DIVIDE": {
-            "value": "18"
+            "value": "20"
           },
           "MMCM_CLKOUT3_DIVIDE": {
-            "value": "1"
+            "value": "5"
           },
           "NUM_OUT_CLKS": {
-            "value": "3"
+            "value": "4"
           },
           "PRIM_IN_FREQ": {
             "value": "50"
@@ -454,6 +519,479 @@
           }
         }
       },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "tangerineA7_100_xlconstant_0_0",
+        "xci_path": "ip\\tangerineA7_100_xlconstant_0_0\\tangerineA7_100_xlconstant_0_0.xci",
+        "inst_hier_path": "xlconstant_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          }
+        }
+      },
+      "tangerineMIGWrapper_0": {
+        "vlnv": "xilinx.com:module_ref:tangerineMIGWrapper:1.0",
+        "xci_name": "tangerineA7_100_tangerineMIGWrapper_0_0",
+        "xci_path": "ip\\tangerineA7_100_tangerineMIGWrapper_0_0\\tangerineA7_100_tangerineMIGWrapper_0_0.xci",
+        "inst_hier_path": "tangerineMIGWrapper_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "tangerineMIGWrapper",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "s_axi": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "parameters": {
+              "DATA_WIDTH": {
+                "value": "128",
+                "value_src": "constant"
+              },
+              "PROTOCOL": {
+                "value": "AXI4",
+                "value_src": "constant"
+              },
+              "ID_WIDTH": {
+                "value": "4",
+                "value_src": "constant"
+              },
+              "ADDR_WIDTH": {
+                "value": "28",
+                "value_src": "constant"
+              },
+              "AWUSER_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "ARUSER_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "WUSER_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "RUSER_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "BUSER_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "READ_WRITE_MODE": {
+                "value": "READ_WRITE",
+                "value_src": "constant"
+              },
+              "HAS_BURST": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "HAS_LOCK": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "HAS_PROT": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "HAS_CACHE": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "HAS_QOS": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "HAS_REGION": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "HAS_WSTRB": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "HAS_BRESP": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "HAS_RRESP": {
+                "value": "1",
+                "value_src": "constant"
+              },
+              "SUPPORTS_NARROW_BURST": {
+                "value": "1",
+                "value_src": "auto"
+              },
+              "NUM_READ_OUTSTANDING": {
+                "value": "2",
+                "value_src": "auto"
+              },
+              "NUM_WRITE_OUTSTANDING": {
+                "value": "2",
+                "value_src": "auto"
+              },
+              "MAX_BURST_LENGTH": {
+                "value": "256",
+                "value_src": "auto"
+              }
+            },
+            "memory_map_ref": "s_axi",
+            "port_maps": {
+              "AWID": {
+                "physical_name": "s_axi_awid",
+                "direction": "I",
+                "left": "3",
+                "right": "0"
+              },
+              "AWADDR": {
+                "physical_name": "s_axi_awaddr",
+                "direction": "I",
+                "left": "27",
+                "right": "0"
+              },
+              "AWLEN": {
+                "physical_name": "s_axi_awlen",
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "AWSIZE": {
+                "physical_name": "s_axi_awsize",
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              },
+              "AWBURST": {
+                "physical_name": "s_axi_awburst",
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "AWLOCK": {
+                "physical_name": "s_axi_awlock",
+                "direction": "I",
+                "left": "0",
+                "right": "0"
+              },
+              "AWCACHE": {
+                "physical_name": "s_axi_awcache",
+                "direction": "I",
+                "left": "3",
+                "right": "0"
+              },
+              "AWPROT": {
+                "physical_name": "s_axi_awprot",
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              },
+              "AWQOS": {
+                "physical_name": "s_axi_awqos",
+                "direction": "I",
+                "left": "3",
+                "right": "0"
+              },
+              "AWVALID": {
+                "physical_name": "s_axi_awvalid",
+                "direction": "I"
+              },
+              "AWREADY": {
+                "physical_name": "s_axi_awready",
+                "direction": "O"
+              },
+              "WDATA": {
+                "physical_name": "s_axi_wdata",
+                "direction": "I",
+                "left": "127",
+                "right": "0"
+              },
+              "WSTRB": {
+                "physical_name": "s_axi_wstrb",
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "WLAST": {
+                "physical_name": "s_axi_wlast",
+                "direction": "I"
+              },
+              "WVALID": {
+                "physical_name": "s_axi_wvalid",
+                "direction": "I"
+              },
+              "WREADY": {
+                "physical_name": "s_axi_wready",
+                "direction": "O"
+              },
+              "BID": {
+                "physical_name": "s_axi_bid",
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              },
+              "BRESP": {
+                "physical_name": "s_axi_bresp",
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "BVALID": {
+                "physical_name": "s_axi_bvalid",
+                "direction": "O"
+              },
+              "BREADY": {
+                "physical_name": "s_axi_bready",
+                "direction": "I"
+              },
+              "ARID": {
+                "physical_name": "s_axi_arid",
+                "direction": "I",
+                "left": "3",
+                "right": "0"
+              },
+              "ARADDR": {
+                "physical_name": "s_axi_araddr",
+                "direction": "I",
+                "left": "27",
+                "right": "0"
+              },
+              "ARLEN": {
+                "physical_name": "s_axi_arlen",
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "ARSIZE": {
+                "physical_name": "s_axi_arsize",
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              },
+              "ARBURST": {
+                "physical_name": "s_axi_arburst",
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "ARLOCK": {
+                "physical_name": "s_axi_arlock",
+                "direction": "I",
+                "left": "0",
+                "right": "0"
+              },
+              "ARCACHE": {
+                "physical_name": "s_axi_arcache",
+                "direction": "I",
+                "left": "3",
+                "right": "0"
+              },
+              "ARPROT": {
+                "physical_name": "s_axi_arprot",
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              },
+              "ARQOS": {
+                "physical_name": "s_axi_arqos",
+                "direction": "I",
+                "left": "3",
+                "right": "0"
+              },
+              "ARVALID": {
+                "physical_name": "s_axi_arvalid",
+                "direction": "I"
+              },
+              "ARREADY": {
+                "physical_name": "s_axi_arready",
+                "direction": "O"
+              },
+              "RID": {
+                "physical_name": "s_axi_rid",
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              },
+              "RDATA": {
+                "physical_name": "s_axi_rdata",
+                "direction": "O",
+                "left": "127",
+                "right": "0"
+              },
+              "RRESP": {
+                "physical_name": "s_axi_rresp",
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "RLAST": {
+                "physical_name": "s_axi_rlast",
+                "direction": "O"
+              },
+              "RVALID": {
+                "physical_name": "s_axi_rvalid",
+                "direction": "O"
+              },
+              "RREADY": {
+                "physical_name": "s_axi_rready",
+                "direction": "I"
+              }
+            }
+          }
+        },
+        "ports": {
+          "init_calib_complete": {
+            "direction": "O"
+          },
+          "ddr3_addr": {
+            "direction": "O",
+            "left": "13",
+            "right": "0"
+          },
+          "ddr3_ba": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "ddr3_cas_n": {
+            "direction": "O"
+          },
+          "ddr3_ck_n": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "ddr3_ck_p": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "ddr3_cke": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "ddr3_ras_n": {
+            "direction": "O"
+          },
+          "ddr3_reset_n": {
+            "direction": "O"
+          },
+          "ddr3_we_n": {
+            "direction": "O"
+          },
+          "ddr3_dq": {
+            "direction": "IO",
+            "left": "15",
+            "right": "0"
+          },
+          "ddr3_dqs_n": {
+            "direction": "IO",
+            "left": "1",
+            "right": "0"
+          },
+          "ddr3_dqs_p": {
+            "direction": "IO",
+            "left": "1",
+            "right": "0"
+          },
+          "ddr3_dm": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
+          },
+          "ddr3_odt": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "ui_clk": {
+            "type": "clk",
+            "direction": "O",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "ui_clk_sync_rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "81250000"
+              }
+            }
+          },
+          "ui_clk_sync_rst": {
+            "type": "rst",
+            "direction": "O"
+          },
+          "mmcm_locked": {
+            "direction": "O"
+          },
+          "aresetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "app_sr_req": {
+            "direction": "I"
+          },
+          "app_ref_req": {
+            "direction": "I"
+          },
+          "app_zq_req": {
+            "direction": "I"
+          },
+          "app_sr_active": {
+            "direction": "O"
+          },
+          "app_ref_ack": {
+            "direction": "O"
+          },
+          "app_zq_ack": {
+            "direction": "O"
+          },
+          "sys_clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "200000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_1_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "sys_rst": {
+            "type": "rst",
+            "direction": "I"
+          }
+        }
+      },
+      "system_ila_0": {
+        "vlnv": "xilinx.com:ip:system_ila:1.1",
+        "xci_name": "tangerineA7_100_system_ila_0_0",
+        "xci_path": "ip\\tangerineA7_100_system_ila_0_0\\tangerineA7_100_system_ila_0_0.xci",
+        "inst_hier_path": "system_ila_0",
+        "interface_ports": {
+          "SLOT_0_AXI": {
+            "mode": "Monitor",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+          }
+        }
+      },
       "tangerineSOC_0": {
         "vlnv": "xilinx.com:module_ref:tangerineSOC:1.0",
         "xci_name": "tangerineA7_100_tangerineSOC_0_0",
@@ -471,7 +1009,7 @@
             "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
             "parameters": {
               "DATA_WIDTH": {
-                "value": "32",
+                "value": "128",
                 "value_src": "constant"
               },
               "PROTOCOL": {
@@ -479,8 +1017,8 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "ip_prop"
+                "value": "81250000",
+                "value_src": "user_prop"
               },
               "ID_WIDTH": {
                 "value": "4",
@@ -566,13 +1104,9 @@
                 "value": "256",
                 "value_src": "auto"
               },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              },
               "CLK_DOMAIN": {
-                "value": "/clk_wiz_1_clk_out1",
-                "value_src": "ip_prop"
+                "value": "tangerineA7_100_tangerineMIGWrapper_0_0_ui_clk",
+                "value_src": "default_prop"
               }
             },
             "address_space_ref": "m00_axi",
@@ -639,13 +1173,13 @@
               "WDATA": {
                 "physical_name": "m00_axi_wdata",
                 "direction": "O",
-                "left": "31",
+                "left": "127",
                 "right": "0"
               },
               "WSTRB": {
                 "physical_name": "m00_axi_wstrb",
                 "direction": "O",
-                "left": "3",
+                "left": "15",
                 "right": "0"
               },
               "WLAST": {
@@ -737,7 +1271,7 @@
               "RDATA": {
                 "physical_name": "m00_axi_rdata",
                 "direction": "I",
-                "left": "31",
+                "left": "127",
                 "right": "0"
               },
               "RRESP": {
@@ -776,16 +1310,16 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "ip_prop"
+                "value": "81250000",
+                "value_src": "user_prop"
               },
               "PHASE": {
                 "value": "0.0",
-                "value_src": "ip_prop"
+                "value_src": "default_prop"
               },
               "CLK_DOMAIN": {
-                "value": "/clk_wiz_1_clk_out1",
-                "value_src": "ip_prop"
+                "value": "tangerineA7_100_tangerineMIGWrapper_0_0_ui_clk",
+                "value_src": "default_prop"
               }
             }
           },
@@ -853,16 +1387,12 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
+                "value": "81250000",
+                "value_src": "user_prop"
               },
               "CLK_DOMAIN": {
-                "value": "/clk_wiz_1_clk_out1",
-                "value_src": "ip_prop"
+                "value": "tangerineA7_100_tangerineMIGWrapper_0_0_ui_clk",
+                "value_src": "default_prop"
               }
             }
           },
@@ -938,11 +1468,46 @@
         }
       }
     },
+    "interface_nets": {
+      "tangerineSOC_0_m00_axi": {
+        "interface_ports": [
+          "tangerineSOC_0/m00_axi",
+          "tangerineMIGWrapper_0/s_axi",
+          "system_ila_0/SLOT_0_AXI"
+        ]
+      }
+    },
     "nets": {
       "Net": {
         "ports": [
           "sdMciDat",
           "tangerineSOC_0/sdMciDat"
+        ]
+      },
+      "Net1": {
+        "ports": [
+          "xlconstant_0/dout",
+          "tangerineMIGWrapper_0/app_sr_req",
+          "tangerineMIGWrapper_0/app_ref_req",
+          "tangerineMIGWrapper_0/app_zq_req"
+        ]
+      },
+      "Net2": {
+        "ports": [
+          "ddr3_dq",
+          "tangerineMIGWrapper_0/ddr3_dq"
+        ]
+      },
+      "Net3": {
+        "ports": [
+          "ddr3_dqs_n",
+          "tangerineMIGWrapper_0/ddr3_dqs_n"
+        ]
+      },
+      "Net4": {
+        "ports": [
+          "ddr3_dqs_p",
+          "tangerineMIGWrapper_0/ddr3_dqs_p"
         ]
       },
       "button0_1": {
@@ -984,13 +1549,6 @@
           "hdmiOut_0/resetn"
         ]
       },
-      "clk_wiz_1_clk100": {
-        "ports": [
-          "clk_wiz_1/clk100",
-          "tangerineSOC_0/mainClock",
-          "tangerineSOC_0/m00_axi_aclk"
-        ]
-      },
       "clk_wiz_1_clk100ps": {
         "ports": [
           "clk_wiz_1/clk100ps",
@@ -1003,9 +1561,18 @@
           "tangerineSOC_0/mainClockD2"
         ]
       },
+      "clk_wiz_1_clk200": {
+        "ports": [
+          "clk_wiz_1/clk200",
+          "tangerineMIGWrapper_0/sys_clk_i"
+        ]
+      },
       "clk_wiz_1_locked": {
         "ports": [
           "clk_wiz_1/locked",
+          "tangerineMIGWrapper_0/sys_rst",
+          "system_ila_0/resetn",
+          "tangerineMIGWrapper_0/aresetn",
           "tangerineSOC_0/resetn",
           "tangerineSOC_0/m00_axi_aresetn"
         ]
@@ -1039,6 +1606,80 @@
           "sysClk50",
           "clk_wiz_0/clk_in1",
           "clk_wiz_1/clk_in1"
+        ]
+      },
+      "tangerineMIGWrapper_0_ddr3_addr": {
+        "ports": [
+          "tangerineMIGWrapper_0/ddr3_addr",
+          "ddr3_addr"
+        ]
+      },
+      "tangerineMIGWrapper_0_ddr3_ba": {
+        "ports": [
+          "tangerineMIGWrapper_0/ddr3_ba",
+          "ddr3_ba"
+        ]
+      },
+      "tangerineMIGWrapper_0_ddr3_cas_n": {
+        "ports": [
+          "tangerineMIGWrapper_0/ddr3_cas_n",
+          "ddr3_cas_n"
+        ]
+      },
+      "tangerineMIGWrapper_0_ddr3_ck_n": {
+        "ports": [
+          "tangerineMIGWrapper_0/ddr3_ck_n",
+          "ddr3_ck_n"
+        ]
+      },
+      "tangerineMIGWrapper_0_ddr3_ck_p": {
+        "ports": [
+          "tangerineMIGWrapper_0/ddr3_ck_p",
+          "ddr3_ck_p"
+        ]
+      },
+      "tangerineMIGWrapper_0_ddr3_cke": {
+        "ports": [
+          "tangerineMIGWrapper_0/ddr3_cke",
+          "ddr3_cke"
+        ]
+      },
+      "tangerineMIGWrapper_0_ddr3_dm": {
+        "ports": [
+          "tangerineMIGWrapper_0/ddr3_dm",
+          "ddr3_dm"
+        ]
+      },
+      "tangerineMIGWrapper_0_ddr3_odt": {
+        "ports": [
+          "tangerineMIGWrapper_0/ddr3_odt",
+          "ddr3_odt"
+        ]
+      },
+      "tangerineMIGWrapper_0_ddr3_ras_n": {
+        "ports": [
+          "tangerineMIGWrapper_0/ddr3_ras_n",
+          "ddr3_ras_n"
+        ]
+      },
+      "tangerineMIGWrapper_0_ddr3_reset_n": {
+        "ports": [
+          "tangerineMIGWrapper_0/ddr3_reset_n",
+          "ddr3_reset_n"
+        ]
+      },
+      "tangerineMIGWrapper_0_ddr3_we_n": {
+        "ports": [
+          "tangerineMIGWrapper_0/ddr3_we_n",
+          "ddr3_we_n"
+        ]
+      },
+      "tangerineMIGWrapper_0_ui_clk": {
+        "ports": [
+          "tangerineMIGWrapper_0/ui_clk",
+          "system_ila_0/clk",
+          "tangerineSOC_0/mainClock",
+          "tangerineSOC_0/m00_axi_aclk"
         ]
       },
       "tangerineSOC_0_leds": {
@@ -1112,6 +1753,21 @@
           "xlslice_0/Dout",
           "led1"
         ]
+      }
+    },
+    "addressing": {
+      "/tangerineSOC_0": {
+        "address_spaces": {
+          "m00_axi": {
+            "segments": {
+              "SEG_tangerineMIGWrapper_0_reg0": {
+                "address_block": "/tangerineMIGWrapper_0/s_axi/reg0",
+                "offset": "0x00000000",
+                "range": "256M"
+              }
+            }
+          }
+        }
       }
     }
   }

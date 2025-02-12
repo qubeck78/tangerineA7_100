@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="mig_7series_tangerine_synth_1" LaunchPart="xc7a100tfgg676-1" LaunchTime="1739278490">
+  <File Type="PA-TCL" Name="mig_7series_tangerine.tcl"/>
+  <File Type="REPORTS-TCL" Name="mig_7series_tangerine_reports.tcl"/>
+  <File Type="RDS-RDS" Name="mig_7series_tangerine.vds"/>
+  <File Type="RDS-UTIL" Name="mig_7series_tangerine_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="mig_7series_tangerine_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="mig_7series_tangerine.dcp"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/mig_7series_tangerine" RelGenDir="$PGENDIR/mig_7series_tangerine">
+    <File Path="$PSRCDIR/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="mig_7series_tangerine"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/mig_7series_tangerine" RelGenDir="$PGENDIR/mig_7series_tangerine">
+    <File Path="$PSRCDIR/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="mig_7series_tangerine"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
+    <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/tangerineA7_100_wrapper.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_2"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

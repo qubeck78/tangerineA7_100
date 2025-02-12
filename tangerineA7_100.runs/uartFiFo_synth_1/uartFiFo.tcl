@@ -71,7 +71,6 @@ proc create_report { reportName command } {
 }
 OPTRACE "uartFiFo_synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 8
-set_param xicom.use_bs_reader 1
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }
@@ -85,12 +84,12 @@ set_property webtalk.parent_dir C:/Users/qubeck/Documents/Development/ProjektyVH
 set_property parent.project_path C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
-set_property target_language VHDL [current_project]
+set_property target_language Verilog [current_project]
 set_property ip_output_repo c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/uartFiFo/uartFiFo.xci
+read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/uartFiFo/uartFiFo.xci
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/uartFiFo/uartFiFo.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/uartFiFo/uartFiFo_ooc.xdc]
 

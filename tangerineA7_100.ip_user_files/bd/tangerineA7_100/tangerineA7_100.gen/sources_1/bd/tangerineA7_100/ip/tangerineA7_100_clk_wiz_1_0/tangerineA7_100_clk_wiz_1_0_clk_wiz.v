@@ -56,9 +56,10 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// __clk100__100.00000______0.000______50.0______175.200____161.614
-// clk100ps__100.00000____190.000______50.0______175.200____161.614
-// ___clk50__50.00000______0.000______50.0______210.144____161.614
+// __clk100__100.00000______0.000______50.0______162.035____164.985
+// clk100ps__100.00000____189.000______50.0______162.035____164.985
+// ___clk50__50.00000______0.000______50.0______192.113____164.985
+// __clk200__200.00000______0.000______50.0______142.107____164.985
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -74,6 +75,7 @@ module tangerineA7_100_clk_wiz_1_0_clk_wiz
   output        clk100,
   output        clk100ps,
   output        clk50,
+  output        clk200,
   // Status and control signals
   input         resetn,
   output        locked,
@@ -100,7 +102,7 @@ wire clk_in2_tangerineA7_100_clk_wiz_1_0;
   wire        clk100_tangerineA7_100_clk_wiz_1_0;
   wire        clk100ps_tangerineA7_100_clk_wiz_1_0;
   wire        clk50_tangerineA7_100_clk_wiz_1_0;
-  wire        clk12_tangerineA7_100_clk_wiz_1_0;
+  wire        clk200_tangerineA7_100_clk_wiz_1_0;
   wire        clk_out5_tangerineA7_100_clk_wiz_1_0;
   wire        clk_out6_tangerineA7_100_clk_wiz_1_0;
   wire        clk_out7_tangerineA7_100_clk_wiz_1_0;
@@ -115,7 +117,6 @@ wire clk_in2_tangerineA7_100_clk_wiz_1_0;
     wire clkout0b_unused;
    wire clkout1b_unused;
    wire clkout2b_unused;
-   wire clkout3_unused;
    wire clkout3b_unused;
    wire clkout4_unused;
   wire        clkout5_unused;
@@ -130,21 +131,25 @@ wire clk_in2_tangerineA7_100_clk_wiz_1_0;
     .COMPENSATION         ("ZHOLD"),
     .STARTUP_WAIT         ("FALSE"),
     .DIVCLK_DIVIDE        (1),
-    .CLKFBOUT_MULT_F      (18.000),
+    .CLKFBOUT_MULT_F      (20.000),
     .CLKFBOUT_PHASE       (0.000),
     .CLKFBOUT_USE_FINE_PS ("FALSE"),
-    .CLKOUT0_DIVIDE_F     (9.000),
+    .CLKOUT0_DIVIDE_F     (10.000),
     .CLKOUT0_PHASE        (0.000),
     .CLKOUT0_DUTY_CYCLE   (0.500),
     .CLKOUT0_USE_FINE_PS  ("FALSE"),
-    .CLKOUT1_DIVIDE       (9),
-    .CLKOUT1_PHASE        (190.000),
+    .CLKOUT1_DIVIDE       (10),
+    .CLKOUT1_PHASE        (189.000),
     .CLKOUT1_DUTY_CYCLE   (0.500),
     .CLKOUT1_USE_FINE_PS  ("FALSE"),
-    .CLKOUT2_DIVIDE       (18),
+    .CLKOUT2_DIVIDE       (20),
     .CLKOUT2_PHASE        (0.000),
     .CLKOUT2_DUTY_CYCLE   (0.500),
     .CLKOUT2_USE_FINE_PS  ("FALSE"),
+    .CLKOUT3_DIVIDE       (5),
+    .CLKOUT3_PHASE        (0.000),
+    .CLKOUT3_DUTY_CYCLE   (0.500),
+    .CLKOUT3_USE_FINE_PS  ("FALSE"),
     .CLKIN1_PERIOD        (20.000))
   mmcm_adv_inst
     // Output clocks
@@ -157,7 +162,7 @@ wire clk_in2_tangerineA7_100_clk_wiz_1_0;
     .CLKOUT1B            (clkout1b_unused),
     .CLKOUT2             (clk50_tangerineA7_100_clk_wiz_1_0),
     .CLKOUT2B            (clkout2b_unused),
-    .CLKOUT3             (clkout3_unused),
+    .CLKOUT3             (clk200_tangerineA7_100_clk_wiz_1_0),
     .CLKOUT3B            (clkout3b_unused),
     .CLKOUT4             (clkout4_unused),
     .CLKOUT5             (clkout5_unused),
@@ -216,6 +221,10 @@ wire clk_in2_tangerineA7_100_clk_wiz_1_0;
   BUFG clkout3_buf
    (.O   (clk50),
     .I   (clk50_tangerineA7_100_clk_wiz_1_0));
+
+  BUFG clkout4_buf
+   (.O   (clk200),
+    .I   (clk200_tangerineA7_100_clk_wiz_1_0));
 
 
 

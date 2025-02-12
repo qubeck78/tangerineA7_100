@@ -56,9 +56,9 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// ___clk25__64.00000______0.000______50.0______651.823____919.522
-// __clk125__320.00000______0.000______50.0______523.758____919.522
-// clk125ps__320.00000____180.000______50.0______523.758____919.522
+// ___clk64__64.00000______0.000______50.0______651.823____919.522
+// __clk320__320.00000______0.000______50.0______523.758____919.522
+// clk320ps__320.00000____180.000______50.0______523.758____919.522
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -72,9 +72,9 @@
 module tangerineA7_100_clk_wiz_0_0 
  (
   // Clock out ports
-  output        clk25,
-  output        clk125,
-  output        clk125ps,
+  output        clk64,
+  output        clk320,
+  output        clk320ps,
   // Status and control signals
   input         resetn,
   output        locked,
@@ -85,9 +85,9 @@ module tangerineA7_100_clk_wiz_0_0
   tangerineA7_100_clk_wiz_0_0_clk_wiz inst
   (
   // Clock out ports  
-  .clk25(clk25),
-  .clk125(clk125),
-  .clk125ps(clk125ps),
+  .clk64(clk64),
+  .clk320(clk320),
+  .clk320ps(clk320ps),
   // Status and control signals               
   .resetn(resetn), 
   .locked(locked),

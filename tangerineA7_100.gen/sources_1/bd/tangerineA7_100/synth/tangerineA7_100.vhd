@@ -2,7 +2,7 @@
 --Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
---Date        : Tue Feb 11 09:28:40 2025
+--Date        : Tue Feb 11 10:44:19 2025
 --Host        : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 --Command     : generate_target tangerineA7_100.bd
 --Design      : tangerineA7_100
@@ -30,7 +30,7 @@ entity tangerineA7_100 is
     uartTxd : out STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of tangerineA7_100 : entity is "tangerineA7_100,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=tangerineA7_100,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=5,numReposBlks=5,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,synth_mode=Global}";
+  attribute CORE_GENERATION_INFO of tangerineA7_100 : entity is "tangerineA7_100,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=tangerineA7_100,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=5,numReposBlks=5,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,da_board_cnt=1,synth_mode=Global}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of tangerineA7_100 : entity is "tangerineA7_100.hwdef";
 end tangerineA7_100;
@@ -71,6 +71,7 @@ architecture STRUCTURE of tangerineA7_100 is
     clk100 : out STD_LOGIC;
     clk100ps : out STD_LOGIC;
     clk50 : out STD_LOGIC;
+    clk200 : out STD_LOGIC;
     locked : out STD_LOGIC
   );
   end component tangerineA7_100_clk_wiz_1_0;
@@ -166,6 +167,7 @@ architecture STRUCTURE of tangerineA7_100 is
   signal tangerineSOC_0_vgaVS : STD_LOGIC;
   signal uartRxd_1 : STD_LOGIC;
   signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_clk_wiz_1_clk200_UNCONNECTED : STD_LOGIC;
   signal NLW_tangerineSOC_0_m00_axi_arlock_UNCONNECTED : STD_LOGIC;
   signal NLW_tangerineSOC_0_m00_axi_arvalid_UNCONNECTED : STD_LOGIC;
   signal NLW_tangerineSOC_0_m00_axi_awlock_UNCONNECTED : STD_LOGIC;
@@ -195,7 +197,7 @@ architecture STRUCTURE of tangerineA7_100 is
   attribute X_INTERFACE_PARAMETER : string;
   attribute X_INTERFACE_PARAMETER of button0 : signal is "XIL_INTERFACENAME RST.BUTTON0, INSERT_VIP 0, POLARITY ACTIVE_LOW";
   attribute X_INTERFACE_INFO of sysClk50 : signal is "xilinx.com:signal:clock:1.0 CLK.SYSCLK50 CLK";
-  attribute X_INTERFACE_PARAMETER of sysClk50 : signal is "XIL_INTERFACENAME CLK.SYSCLK50, CLK_DOMAIN tangerineA7_100_sysClk, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_PARAMETER of sysClk50 : signal is "XIL_INTERFACENAME CLK.SYSCLK50, CLK_DOMAIN tangerineA7_100_sysClk50, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
 begin
   button0_1 <= button0;
   button1_1 <= button1;
@@ -223,6 +225,7 @@ clk_wiz_1: component tangerineA7_100_clk_wiz_1_0
      port map (
       clk100 => clk_wiz_1_clk100,
       clk100ps => clk_wiz_1_clk100ps,
+      clk200 => NLW_clk_wiz_1_clk200_UNCONNECTED,
       clk50 => clk_wiz_1_clk50,
       clk_in1 => sysClk50_1,
       locked => clk_wiz_1_locked,

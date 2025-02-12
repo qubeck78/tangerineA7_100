@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="uartFiFo_synth_1" LaunchPart="xc7a100tfgg676-1" LaunchTime="1739112538">
+<GenRun Id="uartFiFo_synth_1" LaunchPart="xc7a100tfgg676-1" LaunchTime="1739267411">
   <File Type="PA-TCL" Name="uartFiFo.tcl"/>
   <File Type="REPORTS-TCL" Name="uartFiFo_reports.tcl"/>
   <File Type="RDS-RDS" Name="uartFiFo.vds"/>
@@ -39,6 +39,7 @@
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="UsedInSteps" Val="synth_2"/>
         <Attr Name="AutoDcp" Val="1"/>
       </FileInfo>
     </File>

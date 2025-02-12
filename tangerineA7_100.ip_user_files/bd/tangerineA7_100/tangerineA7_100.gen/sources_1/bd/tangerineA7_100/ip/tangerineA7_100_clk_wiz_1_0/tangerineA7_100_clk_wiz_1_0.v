@@ -56,9 +56,10 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// __clk100__100.00000______0.000______50.0______175.200____161.614
-// clk100ps__100.00000____190.000______50.0______175.200____161.614
-// ___clk50__50.00000______0.000______50.0______210.144____161.614
+// __clk100__100.00000______0.000______50.0______162.035____164.985
+// clk100ps__100.00000____189.000______50.0______162.035____164.985
+// ___clk50__50.00000______0.000______50.0______192.113____164.985
+// __clk200__200.00000______0.000______50.0______142.107____164.985
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -67,7 +68,7 @@
 
 `timescale 1ps/1ps
 
-(* CORE_GENERATION_INFO = "tangerineA7_100_clk_wiz_1_0,clk_wiz_v6_0_12_0_0,{component_name=tangerineA7_100_clk_wiz_1_0,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,enable_axi=0,feedback_source=FDBK_AUTO,PRIMITIVE=MMCM,num_out_clk=3,clkin1_period=20.000,clkin2_period=10.0,use_power_down=false,use_reset=true,use_locked=true,use_inclk_stopped=false,feedback_type=SINGLE,CLOCK_MGR_TYPE=NA,manual_override=false}" *)
+(* CORE_GENERATION_INFO = "tangerineA7_100_clk_wiz_1_0,clk_wiz_v6_0_12_0_0,{component_name=tangerineA7_100_clk_wiz_1_0,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,enable_axi=0,feedback_source=FDBK_AUTO,PRIMITIVE=MMCM,num_out_clk=4,clkin1_period=20.000,clkin2_period=10.0,use_power_down=false,use_reset=true,use_locked=true,use_inclk_stopped=false,feedback_type=SINGLE,CLOCK_MGR_TYPE=NA,manual_override=false}" *)
 
 module tangerineA7_100_clk_wiz_1_0 
  (
@@ -75,6 +76,7 @@ module tangerineA7_100_clk_wiz_1_0
   output        clk100,
   output        clk100ps,
   output        clk50,
+  output        clk200,
   // Status and control signals
   input         resetn,
   output        locked,
@@ -88,6 +90,7 @@ module tangerineA7_100_clk_wiz_1_0
   .clk100(clk100),
   .clk100ps(clk100ps),
   .clk50(clk50),
+  .clk200(clk200),
   // Status and control signals               
   .resetn(resetn), 
   .locked(locked),

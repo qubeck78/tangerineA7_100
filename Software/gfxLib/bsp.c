@@ -9,18 +9,15 @@
 
 BSP_T *bsp                              = ( BSP_T *)                        0xf0000000; //registers base address
 _VGA_REGISTERS_T *vga                   = ( _VGA_REGISTERS_T * )            0xf0100000; //vga registers base address
-
-
-_BLITTER_REGISTERS_T *blt               = ( _BLITTER_REGISTERS_T *)         0xf0200000; //blitter base address
-_SPRITEGEN_REGISTERS_T *spriteGen       = ( _SPRITEGEN_REGISTERS_T *)       0xf0100000; //hw sprite generator base address
-_USBHOST_REGISTERS_T *usbhost           = ( _USBHOST_REGISTERS_T *)         0xf0300000; //hid usb host base address
+_AXI_DMA_REGISTERS_T *axidma            = ( _AXIDMA_REGISTERS_T *)          0xf0200000; //sdram dma base address;
 _UART_REGISTERS_T *uart0                = ( _UART_REGISTERS_T *)            0xf0400000; //uart 0 base address
-_SPI_REGISTERS_T *spi0                  = ( _SPI_REGISTERS_T *)             0xf0500000; //spi 0 base address
-_AUDIO_REGISTERS_T *aud                 = ( _AUDIO_REGISTERS_T*)            0xf0600000; //i2s audio base address
-_SPI_REGISTERS_T *spi1                  = ( _SPI_REGISTERS_T *)             0xf0700000; //spi 1 base address
-_SDRAMDMA_REGISTERS_T *sdrdma           = ( _SDRAMDMA_REGISTERS_T *)        0xf0800000; //sdram dma base address
 
-_FPALU_REGISTERS_T *fpalu               = ( _FPALU_REGISTERS_T * )          0xf0a00000; //fpalu base address
+
+_BLITTER_REGISTERS_T *blt               = ( _BLITTER_REGISTERS_T *)         0xf0f00000; //blitter base address
+_USBHOST_REGISTERS_T *usbhost           = ( _USBHOST_REGISTERS_T *)         0xf0f00000; //hid usb host base address
+_SPI_REGISTERS_T *spi0                  = ( _SPI_REGISTERS_T *)             0xf0f00000; //spi 0 base address
+_AUDIO_REGISTERS_T *aud                 = ( _AUDIO_REGISTERS_T*)            0xf0f00000; //i2s audio base address
+_FPALU_REGISTERS_T *fpalu               = ( _FPALU_REGISTERS_T * )          0xf0f00000; //fpalu base address
 
 void (*bootLoaderEntry)(void) = (void(*)())0x0; 
 

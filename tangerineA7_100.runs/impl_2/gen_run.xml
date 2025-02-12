@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_2" LaunchPart="xc7a100tfgg676-1" LaunchTime="1739367986">
+  <File Type="ROUTE-PWR" Name="tangerineA7_100_wrapper_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="tangerineA7_100_wrapper.tcl"/>
+  <File Type="ROUTE-PWR-SUM" Name="tangerineA7_100_wrapper_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="tangerineA7_100_wrapper_reports.tcl"/>
+  <File Type="OPT-RQA-PB" Name="tangerineA7_100_wrapper_rqa_opted.pb"/>
+  <File Type="BITSTR-MMI" Name="tangerineA7_100_wrapper.mmi"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="tangerineA7_100_wrapper_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="tangerineA7_100_wrapper_timing_summary_init.rpt"/>
+  <File Type="OPT-TIMING" Name="tangerineA7_100_wrapper_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="tangerineA7_100_wrapper_opt.dcp"/>
+  <File Type="OPT-DRC" Name="tangerineA7_100_wrapper_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="tangerineA7_100_wrapper.hwdef"/>
+  <File Type="PWROPT-DCP" Name="tangerineA7_100_wrapper_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="tangerineA7_100_wrapper_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="tangerineA7_100_wrapper_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="tangerineA7_100_wrapper_placed.dcp"/>
+  <File Type="PLACE-IO" Name="tangerineA7_100_wrapper_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="tangerineA7_100_wrapper_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="tangerineA7_100_wrapper_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="tangerineA7_100_wrapper_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="tangerineA7_100_wrapper_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="tangerineA7_100_wrapper_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="tangerineA7_100_wrapper_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BIN" Name="tangerineA7_100_wrapper.bin"/>
+  <File Type="PLACE-TIMING" Name="tangerineA7_100_wrapper_timing_summary_placed.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="tangerineA7_100_wrapper_power_routed.rpx"/>
+  <File Type="PLACE-RQA-PB" Name="tangerineA7_100_wrapper_rqa_placed.pb"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="tangerineA7_100_wrapper_postplace_pwropt.dcp"/>
+  <File Type="BITSTR-MSK" Name="tangerineA7_100_wrapper.msk"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="tangerineA7_100_wrapper_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="tangerineA7_100_wrapper_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="tangerineA7_100_wrapper_drc_physopted.rpt"/>
+  <File Type="BITSTR-RBT" Name="tangerineA7_100_wrapper.rbt"/>
+  <File Type="PHYSOPT-TIMING" Name="tangerineA7_100_wrapper_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="tangerineA7_100_wrapper_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="tangerineA7_100_wrapper_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="tangerineA7_100_wrapper_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="tangerineA7_100_wrapper_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="tangerineA7_100_wrapper_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="tangerineA7_100_wrapper_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="tangerineA7_100_wrapper_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="tangerineA7_100_wrapper_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="tangerineA7_100_wrapper_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-RQS-PB" Name="tangerineA7_100_wrapper_rqs_routed.pb"/>
+  <File Type="ROUTE-STATUS" Name="tangerineA7_100_wrapper_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="tangerineA7_100_wrapper_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="tangerineA7_100_wrapper_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="tangerineA7_100_wrapper_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="tangerineA7_100_wrapper_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="tangerineA7_100_wrapper_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="tangerineA7_100_wrapper_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="tangerineA7_100_wrapper_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="tangerineA7_100_wrapper_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="tangerineA7_100_wrapper_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="tangerineA7_100_wrapper_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="tangerineA7_100_wrapper_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="tangerineA7_100_wrapper_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="tangerineA7_100_wrapper_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="tangerineA7_100_wrapper_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="tangerineA7_100_wrapper_bus_skew_postroute_physopted.rpt"/>
+  <File Type="BG-BIT" Name="tangerineA7_100_wrapper.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="tangerineA7_100_wrapper_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="tangerineA7_100_wrapper_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-NKY" Name="tangerineA7_100_wrapper.nky"/>
+  <File Type="BITSTR-BMM" Name="tangerineA7_100_wrapper_bd.bmm"/>
+  <File Type="PDI-FILE" Name="tangerineA7_100_wrapper.pdi"/>
+  <File Type="BOOT-PDI-FILE" Name="tangerineA7_100_wrapper_soc.pdi"/>
+  <File Type="PL-PDI-FILE" Name="tangerineA7_100_wrapper_pld.pdi"/>
+  <File Type="RCFI_FILE" Name="tangerineA7_100_wrapper.rcfi"/>
+  <File Type="CFI_FILE" Name="tangerineA7_100_wrapper.cfi"/>
+  <File Type="RNPI_FILE" Name="tangerineA7_100_wrapper.rnpi"/>
+  <File Type="NPI_FILE" Name="tangerineA7_100_wrapper.npi"/>
+  <File Type="RBD_FILE" Name="tangerineA7_100_wrapper.rbd"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="tangerineA7_100_wrapper.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="tangerineA7_100_wrapper.sysdef"/>
+  <File Type="BG-BGN" Name="tangerineA7_100_wrapper.bgn"/>
+  <File Type="BG-DRC" Name="tangerineA7_100_wrapper.drc"/>
+  <File Type="RDI-RDI" Name="tangerineA7_100_wrapper.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="ROUTE-RQS" Name="tangerineA7_100_wrapper_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="tangerineA7_100_wrapper_postroute_physopted.rqs"/>
+  <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/hdmiOut/TMDS_encoder.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/hdmiOut/dvid.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/hdmiOut/hdmiOut.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/tangerineMIGWrapper.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/systemRam/systemRam.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/common/InputSync.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/axiDMA.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/nekoRv/nekoRv.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/vga/pixelGenTxt.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/rootRegisters.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/uart/uart.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/vga/vga.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/vga/videoMux.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/tangerineSOC.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/tangerineA7_100/tangerineA7_100.bd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PGENDIR/sources_1/bd/tangerineA7_100/hdl/tangerineA7_100_wrapper.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/vga/font.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/Software/bootloader/boot.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/mig_7series_tangerine/mig_a.prj">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="ScopedToCell" Val="mig_7series_tangerine"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/mig_7series_tangerine/mig_b.prj">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="ScopedToCell" Val="mig_7series_tangerine"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="tangerineA7_100_wrapper"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/tangerineA7_100.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/tangerineA7_100.xdc"/>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
+    <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/tangerineA7_100_wrapper.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_2"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="fontPROM"/>
+  <BlockFileSet Type="BlockSrcs" Name="fastRam"/>
+  <BlockFileSet Type="BlockSrcs" Name="uartFiFo"/>
+  <BlockFileSet Type="BlockSrcs" Name="mig_7series_tangerine"/>
+</GenRun>

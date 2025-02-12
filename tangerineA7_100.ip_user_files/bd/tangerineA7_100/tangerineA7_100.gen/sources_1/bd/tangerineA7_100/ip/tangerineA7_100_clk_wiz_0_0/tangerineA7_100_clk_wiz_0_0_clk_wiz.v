@@ -56,9 +56,9 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// ___clk25__64.00000______0.000______50.0______651.823____919.522
-// __clk125__320.00000______0.000______50.0______523.758____919.522
-// clk125ps__320.00000____180.000______50.0______523.758____919.522
+// ___clk64__64.00000______0.000______50.0______651.823____919.522
+// __clk320__320.00000______0.000______50.0______523.758____919.522
+// clk320ps__320.00000____180.000______50.0______523.758____919.522
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -71,9 +71,9 @@ module tangerineA7_100_clk_wiz_0_0_clk_wiz
 
  (// Clock in ports
   // Clock out ports
-  output        clk25,
-  output        clk125,
-  output        clk125ps,
+  output        clk64,
+  output        clk320,
+  output        clk320ps,
   // Status and control signals
   input         resetn,
   output        locked,
@@ -97,9 +97,9 @@ wire clk_in2_tangerineA7_100_clk_wiz_0_0;
   //    * Unused inputs are tied off
   //    * Unused outputs are labeled unused
 
-  wire        clk25_tangerineA7_100_clk_wiz_0_0;
-  wire        clk125_tangerineA7_100_clk_wiz_0_0;
-  wire        clk125ps_tangerineA7_100_clk_wiz_0_0;
+  wire        clk64_tangerineA7_100_clk_wiz_0_0;
+  wire        clk320_tangerineA7_100_clk_wiz_0_0;
+  wire        clk320ps_tangerineA7_100_clk_wiz_0_0;
   wire        clk100_tangerineA7_100_clk_wiz_0_0;
   wire        clk_out5_tangerineA7_100_clk_wiz_0_0;
   wire        clk_out6_tangerineA7_100_clk_wiz_0_0;
@@ -147,10 +147,10 @@ wire clk_in2_tangerineA7_100_clk_wiz_0_0;
    (
     .CLKFBOUT            (clkfbout_tangerineA7_100_clk_wiz_0_0),
     .CLKFBOUTB           (clkfboutb_unused),
-    .CLKOUT0             (clk25_tangerineA7_100_clk_wiz_0_0),
+    .CLKOUT0             (clk64_tangerineA7_100_clk_wiz_0_0),
     .CLKOUT0B            (clkout0b_unused),
-    .CLKOUT1             (clk125_tangerineA7_100_clk_wiz_0_0),
-    .CLKOUT1B            (clk125ps_tangerineA7_100_clk_wiz_0_0),
+    .CLKOUT1             (clk320_tangerineA7_100_clk_wiz_0_0),
+    .CLKOUT1B            (clk320ps_tangerineA7_100_clk_wiz_0_0),
     .CLKOUT2             (clkout2_unused),
     .CLKOUT2B            (clkout2b_unused),
     .CLKOUT3             (clkout3_unused),
@@ -201,17 +201,17 @@ wire clk_in2_tangerineA7_100_clk_wiz_0_0;
 
 
   BUFG clkout1_buf
-   (.O   (clk25),
-    .I   (clk25_tangerineA7_100_clk_wiz_0_0));
+   (.O   (clk64),
+    .I   (clk64_tangerineA7_100_clk_wiz_0_0));
 
 
   BUFG clkout2_buf
-   (.O   (clk125),
-    .I   (clk125_tangerineA7_100_clk_wiz_0_0));
+   (.O   (clk320),
+    .I   (clk320_tangerineA7_100_clk_wiz_0_0));
 
   BUFG clkout3_buf
-   (.O   (clk125ps),
-    .I   (clk125ps_tangerineA7_100_clk_wiz_0_0));
+   (.O   (clk320ps),
+    .I   (clk320ps_tangerineA7_100_clk_wiz_0_0));
 
 
 
