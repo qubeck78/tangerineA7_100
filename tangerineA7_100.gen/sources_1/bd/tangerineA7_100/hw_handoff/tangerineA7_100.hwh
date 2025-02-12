@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Feb 12 14:46:23 2025" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Feb 12 23:04:16 2025" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a100t" NAME="tangerineA7_100" PACKAGE="fgg676" SPEEDGRADE="-1"/>
 
@@ -1374,9 +1374,9 @@
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_1_locked">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="tangerineMIGWrapper_0" PORT="sys_rst"/>
             <CONNECTION INSTANCE="system_ila_0" PORT="resetn"/>
             <CONNECTION INSTANCE="tangerineMIGWrapper_0" PORT="aresetn"/>
+            <CONNECTION INSTANCE="tangerineMIGWrapper_0" PORT="sys_rst"/>
             <CONNECTION INSTANCE="tangerineSOC_0" PORT="resetn"/>
             <CONNECTION INSTANCE="tangerineSOC_0" PORT="m00_axi_aresetn"/>
           </CONNECTIONS>
@@ -5747,7 +5747,7 @@
           <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="2"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="256"/>
           <PARAMETER NAME="PHASE" VALUE="0.0"/>
-          <PARAMETER NAME="CLK_DOMAIN" VALUE="tangerineA7_100_tangerineMIGWrapper_0_0_ui_clk"/>
+          <PARAMETER NAME="CLK_DOMAIN"/>
           <PARAMETER NAME="NUM_READ_THREADS" VALUE="1"/>
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="RUSER_BITS_PER_BYTE" VALUE="0"/>

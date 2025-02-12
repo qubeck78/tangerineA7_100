@@ -16,8 +16,8 @@
       "clk_wiz_1": "",
       "xlslice_0": "",
       "xlconstant_0": "",
-      "tangerineMIGWrapper_0": "",
       "system_ila_0": "",
+      "tangerineMIGWrapper_0": "",
       "tangerineSOC_0": ""
     },
     "ports": {
@@ -530,6 +530,19 @@
           }
         }
       },
+      "system_ila_0": {
+        "vlnv": "xilinx.com:ip:system_ila:1.1",
+        "xci_name": "tangerineA7_100_system_ila_0_0",
+        "xci_path": "ip\\tangerineA7_100_system_ila_0_0\\tangerineA7_100_system_ila_0_0.xci",
+        "inst_hier_path": "system_ila_0",
+        "interface_ports": {
+          "SLOT_0_AXI": {
+            "mode": "Monitor",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+          }
+        }
+      },
       "tangerineMIGWrapper_0": {
         "vlnv": "xilinx.com:module_ref:tangerineMIGWrapper:1.0",
         "xci_name": "tangerineA7_100_tangerineMIGWrapper_0_0",
@@ -553,6 +566,9 @@
               "PROTOCOL": {
                 "value": "AXI4",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "81250000"
               },
               "ID_WIDTH": {
                 "value": "4",
@@ -976,19 +992,6 @@
           "sys_rst": {
             "type": "rst",
             "direction": "I"
-          }
-        }
-      },
-      "system_ila_0": {
-        "vlnv": "xilinx.com:ip:system_ila:1.1",
-        "xci_name": "tangerineA7_100_system_ila_0_0",
-        "xci_path": "ip\\tangerineA7_100_system_ila_0_0\\tangerineA7_100_system_ila_0_0.xci",
-        "inst_hier_path": "system_ila_0",
-        "interface_ports": {
-          "SLOT_0_AXI": {
-            "mode": "Monitor",
-            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
-            "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
           }
         }
       },
@@ -1570,9 +1573,9 @@
       "clk_wiz_1_locked": {
         "ports": [
           "clk_wiz_1/locked",
-          "tangerineMIGWrapper_0/sys_rst",
           "system_ila_0/resetn",
           "tangerineMIGWrapper_0/aresetn",
+          "tangerineMIGWrapper_0/sys_rst",
           "tangerineSOC_0/resetn",
           "tangerineSOC_0/m00_axi_aresetn"
         ]

@@ -7,7 +7,7 @@
 BSP_T                   *bsp     = ( BSP_T *)                  0xf0000000; //registers base address 
 _VGA_REGISTERS_T        *vga     = ( _VGA_REGISTERS_T * )      0xf0100000; //vga registers base address
 
-#define TEXTATTR 0x7f00
+#define TEXTATTR 0x0f00
 
 uint16_t *displayRam;
 uint32_t  screenIndex;
@@ -70,8 +70,8 @@ int main()
    uint32_t          k;
 
 
-   //160x45 column txt mode only
-   vga->vmMode    = _VIDEOMODE_TEXT160_ONLY; 
+   //160x45 column txt over gfx mode 
+   vga->vmMode    = _VIDEOMODE_426_TEXT160_OVER_GFX; 
 
    vga->pgCursorX = 0;
    vga->pgCursorY = 12;
@@ -148,12 +148,9 @@ int main()
 
       if( k == 0 )
       {
-         for( i = 160 * 15; i < 160 * 45 ; i++ )
+         for( i = 160 * 30; i < 160 * 45 ; i++ )
          {
             displayRam[i] = randomNumber();
-
-/*            displayRam[i] = ddr[i];
-            ddr[i] = randomNumber();*/
          }
       }
 

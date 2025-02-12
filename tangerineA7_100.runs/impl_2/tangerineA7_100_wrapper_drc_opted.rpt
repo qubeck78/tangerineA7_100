@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Wed Feb 12 14:49:21 2025
+| Date         : Wed Feb 12 23:07:10 2025
 | Host         : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 | Command      : report_drc -file tangerineA7_100_wrapper_drc_opted.rpt -pb tangerineA7_100_wrapper_drc_opted.pb -rpx tangerineA7_100_wrapper_drc_opted.rpx
 | Design       : tangerineA7_100_wrapper

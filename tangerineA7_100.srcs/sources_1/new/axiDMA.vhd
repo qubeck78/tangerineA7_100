@@ -32,6 +32,13 @@ port (
    
    ch0Ready:         out   std_logic;
    
+   --ch1 - gfx display, highest priority: 0
+   ch1DmaRequest:       in    std_logic_vector( 1 downto 0 );
+   ch1DmaPointerReset:  in    std_logic;
+   
+   ch1BufClock:         in    std_logic;
+   ch1BufA:             in    std_logic_vector( 8 downto 0 );
+   ch1BufDOut:          out   std_logic_vector( 31 downto 0 );
 
    --axi master bus
    m00_axi_aclk:     in  std_logic;
@@ -84,6 +91,22 @@ architecture Behavioral of axiDMA is
 
 --components
 
+component dmaCh1BufRam is
+port(
+    clka:   in    std_logic;
+    wea:    IN    std_logic_vector( 0 downto 0 );
+    addra:  IN    std_logic_vector( 6 downto 0 );
+    dina:   IN    std_logic_vector( 127 downto 0 );
+    douta:  OUT   std_logic_vector( 127 downto 0 );
+
+    clkb:   IN    std_logic;
+    web:    IN    std_logic_vector( 0 downto 0 );
+    addrb:  IN    std_logic_vector( 8 downto 0 );
+    dinb:   IN    std_logic_vector( 31 downto 0 );
+    doutb:  OUT   std_logic_vector( 31 downto 0 )
+);
+end component;
+
 --signals
 signal resetn:          std_logic;
 
@@ -101,6 +124,14 @@ begin
 -- negative reset
 resetn   <= not reset;
 
+--set unused signals, ports
+ch1BufDOut  <= ( others => '0' );
+
+--place ch1 buf ram
+
+--   ch1BufClock:         in    std_logic;
+--   ch1BufA:             in    std_logic_vector( 8 downto 0 );
+--   ch1BufDOut:          out   std_logic_vector( 31 downto 0 );
 
 axiDMAMaster: process( m00_axi_aclk )
 begin
@@ -114,7 +145,6 @@ begin
 
          m00_axi_arid            <= x"0";
          m00_axi_arlen           <= ( others => '0' );
---         m00_axi_arsize          <= "010";   --32 bits
          m00_axi_arsize          <= "100";   --128 bits
          m00_axi_arburst         <= "01";    --burst type: increment
          m00_axi_arlock          <= '0';
@@ -129,7 +159,6 @@ begin
          m00_axi_awid            <= x"0";
          m00_axi_awlen           <= ( others => '0' );
 
---         m00_axi_awsize          <= "010";   --32 bits
          m00_axi_awsize          <= "100";   --128 bits
 
          m00_axi_awburst         <= "01";    --burst type: increment
@@ -146,8 +175,7 @@ begin
          m00_axi_wlast           <= '1';
          m00_axi_bready          <= '0';
 
---       fsm reset
-         
+--       fsm reset         
          axiState                <= asIdle;
          ch0Ready                <= '0';
          ch0Dout                 <= ( others => '0' );

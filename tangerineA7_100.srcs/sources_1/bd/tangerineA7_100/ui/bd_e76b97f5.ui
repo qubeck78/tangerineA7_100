@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.817297",
-   "Default View_TopLeft":"-26,154",
+   "Default View_TopLeft":"78,99",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
 #  -string -flagsOSRD
@@ -38,8 +38,8 @@ preplace inst hdmiOut_0 -pg 1 -lvl 3 -x 850 -y 170 -defaultsOSRD
 preplace inst clk_wiz_1 -pg 1 -lvl 1 -x 120 -y 260 -defaultsOSRD
 preplace inst xlslice_0 -pg 1 -lvl 3 -x 850 -y 410 -defaultsOSRD
 preplace inst xlconstant_0 -pg 1 -lvl 2 -x 420 -y 870 -defaultsOSRD
-preplace inst tangerineMIGWrapper_0 -pg 1 -lvl 3 -x 850 -y 870 -defaultsOSRD
 preplace inst system_ila_0 -pg 1 -lvl 3 -x 850 -y 530 -defaultsOSRD
+preplace inst tangerineMIGWrapper_0 -pg 1 -lvl 3 -x 850 -y 870 -defaultsOSRD
 preplace inst tangerineSOC_0 -pg 1 -lvl 2 -x 420 -y 300 -defaultsOSRD
 preplace netloc Net 1 2 2 680J 320 NJ
 preplace netloc Net1 1 2 1 700 850n

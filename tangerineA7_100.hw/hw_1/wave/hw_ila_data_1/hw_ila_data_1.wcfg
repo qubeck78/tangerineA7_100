@@ -9,17 +9,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="151"></ZoomStartTime>
-      <ZoomEndTime time="1,074"></ZoomEndTime>
-      <Cursor1Time time="663"></Cursor1Time>
+      <ZoomStartTime time="0"></ZoomStartTime>
+      <ZoomEndTime time="10"></ZoomEndTime>
+      <Cursor1Time time="0"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="322"></NameColumnWidth>
+      <NameColumnWidth column_width="314"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="1" />
-   <wave_markers>
-   </wave_markers>
    <wvobject fp_name="group417" type="group">
       <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : Interface</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -30,16 +28,6 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="group464" type="group">
-         <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : Read Transactions 0</obj_property>
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="Detail_Data">ila_1___slot_0___tangerineSOC_0_m00_axi___Read_Transactions_0_tooltip</obj_property>
-         <obj_property name="Render_Data">ila_1___slot_0___tangerineSOC_0_m00_axi___Read_Transactions_0</obj_property>
-         <obj_property name="EnumTransactionColorTable">0000=blank</obj_property>
-         <obj_property name="CustomSignalColor">Orange</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-      </wvobject>
       <wvobject fp_name="group418" type="group">
          <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AR Channel</obj_property>
          <obj_property name="DisplayName">label</obj_property>

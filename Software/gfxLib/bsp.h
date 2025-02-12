@@ -22,6 +22,11 @@ extern "C"
 #define _VIDEOMODE_TEXT160_ONLY                 0x04
 #define _VIDEOMODE_TEXT160_90_ONLY              0x0c
 
+#define _VIDEOMODE_426_TEXT80_OVER_GFX          0x02
+#define _VIDEOMODE_426_TEXT160_OVER_GFX         0x06
+#define _VIDEOMODE_426_TEXT160_90_OVER_GFX      0x0e
+
+
 /*#define _VIDEOMODE_320_TEXT40_OVER_GFX          0x02
 #define _VIDEOMODE_320_TEXT80_OVER_GFX          0x06
 #define _VIDEOMODE_320_TEXT80_60_OVER_GFX       0x0e
