@@ -11,6 +11,7 @@ _VGA_REGISTERS_T        *vga     = ( _VGA_REGISTERS_T * )      0xf0100000; //vga
 
 uint16_t *displayRam;
 uint32_t  screenIndex;
+uint16_t *ddr;
 
 char buf[128];
 
@@ -76,7 +77,8 @@ int main()
    vga->pgCursorY = 12;
     
    displayRam           = ( unsigned short * )0x10000000;
-   
+   ddr                  = ( unsigned short * )0x20000000;
+
    screenIndex = 0;  
 
    
@@ -96,7 +98,6 @@ int main()
    print( (char*) "   |                   | \n" );
    print( (char*) "   |  Bootloader test  | \n" );
    print( (char*) "   `-------------------` \n" );
-
 
 
    k = 0;
@@ -150,6 +151,9 @@ int main()
          for( i = 160 * 15; i < 160 * 45 ; i++ )
          {
             displayRam[i] = randomNumber();
+
+/*            displayRam[i] = ddr[i];
+            ddr[i] = randomNumber();*/
          }
       }
 

@@ -187,6 +187,24 @@
                 "VH": "2",
                 "VT": "PM",
                 "TU": "active"
+            },
+            "V3": {
+                "VT": "AC",
+                "BA": "0x00000000",
+                "HA": "0x0FFFFFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "m00_axi",
+                "MX": "/tangerineSOC_0",
+                "MI": "m00_axi",
+                "MS": "SEG_tangerineMIGWrapper_0_reg0",
+                "MV": "xilinx.com:module_ref:tangerineSOC:1.0",
+                "SX": "/tangerineMIGWrapper_0",
+                "SI": "s_axi",
+                "SS": "reg0",
+                "SV": "xilinx.com:module_ref:tangerineMIGWrapper:1.0",
+                "TM": "both",
+                "TU": "register"
             }
         },
         "edges": [
@@ -197,6 +215,11 @@
             {
                 "src": "V1",
                 "trg": "V2"
+            },
+            {
+                "src": "V3",
+                "trg": "V2",
+                "EH": "2"
             }
         ]
     }

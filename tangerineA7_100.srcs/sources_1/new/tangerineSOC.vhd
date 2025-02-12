@@ -26,8 +26,8 @@ port(
    m00_axi_awprot:   out std_logic_vector( 2 downto 0 );
    m00_axi_awvalid:  out std_logic;
    m00_axi_awready:  in  std_logic;
-   m00_axi_wdata:    out std_logic_vector( 31 downto 0 );
-   m00_axi_wstrb:    out std_logic_vector( 3 downto 0 );
+   m00_axi_wdata:    out std_logic_vector( 127 downto 0 );
+   m00_axi_wstrb:    out std_logic_vector( 15 downto 0 );
    m00_axi_wvalid:   out std_logic;
    m00_axi_wready:   in  std_logic;
    m00_axi_bresp:    in  std_logic_vector( 1 downto 0) ;
@@ -38,7 +38,7 @@ port(
    m00_axi_arprot:   out std_logic_vector( 2 downto 0 );
    m00_axi_arvalid:  out std_logic;
    m00_axi_arready:  in  std_logic;
-   m00_axi_rdata:    in  std_logic_vector( 31 downto 0 );
+   m00_axi_rdata:    in  std_logic_vector( 127 downto 0 );
    m00_axi_rresp:    in  std_logic_vector( 1 downto 0 );
    m00_axi_rvalid:   in  std_logic;
    m00_axi_rready:   out std_logic;
@@ -124,6 +124,17 @@ port (
 );
 end component; 
 
+-- 256K of fast ram
+component fastRam is
+port(
+    clka : IN STD_LOGIC;
+    wea : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    addra : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    dina : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    douta : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+);
+end component;
+
 -- vga
 
 component vga is
@@ -168,6 +179,83 @@ port(
      
 );
 end component;
+
+--axi DMA controller
+component axiDMA is
+port ( 
+
+   --cpu interface ( registers )
+   reset:            in    std_logic;
+   clock:            in    std_logic;
+   a:                in    std_logic_vector( 15 downto 0 );
+   din:              in    std_logic_vector( 31 downto 0 );
+   dout:             out   std_logic_vector( 31 downto 0 );
+   
+   ce:               in    std_logic;
+   wr:               in    std_logic;
+   dataMask:         in    std_logic_vector( 3 downto 0 );
+   
+   ready:            out   std_logic;
+
+   --ch0 - cpu access to axi ram
+   ch0A:             in    std_logic_vector( 31 downto 0 );
+   ch0DIn:           in    std_logic_vector( 31 downto 0 );
+   ch0DOut:          out   std_logic_vector( 31 downto 0 );
+   
+   ch0CE:            in    std_logic;
+   ch0Wr:            in    std_logic;
+   ch0DataMask:      in    std_logic_vector( 3 downto 0 );
+   
+   ch0Ready:         out   std_logic;
+   
+
+   --axi master bus
+   m00_axi_aclk:     in  std_logic;
+   m00_axi_aresetn:  in  std_logic;
+
+   m00_axi_awaddr:   out std_logic_vector( 31 downto 0 );
+   m00_axi_awprot:   out std_logic_vector( 2 downto 0 );
+   m00_axi_awvalid:  out std_logic;
+   m00_axi_awready:  in  std_logic;
+   m00_axi_wdata:    out std_logic_vector( 127 downto 0 );
+   m00_axi_wstrb:    out std_logic_vector( 15 downto 0 );
+   m00_axi_wvalid:   out std_logic;
+   m00_axi_wready:   in  std_logic;
+   m00_axi_bresp:    in  std_logic_vector( 1 downto 0) ;
+   m00_axi_bvalid:   in  std_logic;
+   m00_axi_bready:   out std_logic;
+   
+   m00_axi_araddr:   out std_logic_vector( 31 downto 0 );
+   m00_axi_arprot:   out std_logic_vector( 2 downto 0 );
+   m00_axi_arvalid:  out std_logic;
+   m00_axi_arready:  in  std_logic;
+   m00_axi_rdata:    in  std_logic_vector( 127 downto 0 );
+   m00_axi_rresp:    in  std_logic_vector( 1 downto 0 );
+   m00_axi_rvalid:   in  std_logic;
+   m00_axi_rready:   out std_logic;
+   
+   -- Extended AXI Master Signals
+   m00_axi_arid:     out std_logic_vector ( 3 downto 0 );
+   m00_axi_arlen:    out std_logic_vector ( 7 downto 0 );
+   m00_axi_arsize:   out std_logic_vector ( 2 downto 0 );
+   m00_axi_arburst:  out std_logic_vector ( 1 downto 0 );
+   m00_axi_arlock:   out std_logic;
+   m00_axi_arcache:  out std_logic_vector ( 3 downto 0 );
+   m00_axi_rid:      in  std_logic_vector ( 3 downto 0 );
+   m00_axi_rlast:    in  std_logic;
+   
+   m00_axi_awid:     out std_logic_vector ( 3 downto 0 );
+   m00_axi_awlen:    out std_logic_vector ( 7 downto 0 );
+   m00_axi_awsize:   out std_logic_vector ( 2 downto 0 );
+   m00_axi_awburst:  out std_logic_vector ( 1 downto 0 );
+   m00_axi_awlock:   out std_logic;
+   m00_axi_wlast:    out std_logic;
+   m00_axi_awcache:  out std_logic_vector ( 3 downto 0 )
+   
+
+);
+end component;
+
 
 --risc-v cpu :)
 component nekoRv is
@@ -305,6 +393,22 @@ signal vgaVSync:        std_logic;
 --vsync signal synchronised to cpu clock domain
 signal vgaVSyncMainClock:   std_logic;
 
+--dma RAM signals
+signal dmaRamCE:           std_logic;
+signal dmaRamDOutForCPU:   std_logic_vector( 31 downto 0 );
+signal dmaRamReady:        std_logic;
+
+signal dmaRegsCE:          std_logic;
+signal dmaRegsDOutForCPU:  std_logic_vector( 31 downto 0 );
+signal dmaRegsReady:       std_logic;
+
+--fast RAM signals
+signal fastRamCE:           std_logic;
+signal fastRamReady:        std_logic;
+signal fastRamDOutForCPU:   std_logic_vector( 31 downto 0 );
+signal fastRamWr:           std_logic_vector( 3 downto 0 ); 
+
+
 begin
 
 --positive reset
@@ -317,35 +421,6 @@ reset    <= not resetn;
 sdMciDat    <= ( others => 'Z' );
 sdMciCmd    <= '1';
 sdMciClk    <= '1';
-
---axi master
---read channel
-m00_axi_araddr    <= ( others => '0' );
-m00_axi_arprot    <= ( others => '0' );
-m00_axi_arvalid   <= '0';
-m00_axi_rready    <= '0';
-m00_axi_arid      <= ( others => '0' );
-m00_axi_arlen     <= ( others => '0' );
-m00_axi_arsize    <= ( others => '0' );
-m00_axi_arburst   <= ( others => '0' );
-m00_axi_arlock    <= '0';
-m00_axi_arcache   <= ( others => '0' );
-    
---write channel 
-m00_axi_awvalid   <= '0';
-m00_axi_awaddr    <= ( others => '0' );
-m00_axi_awprot    <= ( others => '0' );
-m00_axi_awcache   <= ( others => '0' );
-m00_axi_wvalid    <= '0';
-m00_axi_wdata     <= ( others => '0' );
-m00_axi_wstrb     <= ( others => '0' );
-m00_axi_bready    <= '0';
-m00_axi_awid      <= ( others => '0' );
-m00_axi_awlen     <= ( others => '0' );
-m00_axi_awsize    <= ( others => '0' );
-m00_axi_awburst   <= ( others => '0' );
-m00_axi_awlock    <= '0';
-m00_axi_wlast     <= '0';
 
 
 -- assign gpi/gpo
@@ -452,6 +527,40 @@ begin
 
 end process;
 
+-- place fast ram
+
+fastRamWr(0) <= cpuWrStrobe(0) and fastRamCE;
+fastRamWr(1) <= cpuWrStrobe(1) and fastRamCE;
+fastRamWr(2) <= cpuWrStrobe(2) and fastRamCE;
+fastRamWr(3) <= cpuWrStrobe(3) and fastRamCE;
+
+-- 256K of fast ram
+fastRamInst:fastRam
+port map(
+    clka    => mainClock,
+    wea     => fastRamWr,
+    addra   => cpuAOut( 15 downto 0 ),
+    dina    => cpuDOut,
+    douta   => fastRamDoutForCPU
+);
+
+fastRamAccess:process( reset, mainClock )
+begin
+
+    if reset = '1' then
+    
+        fastRamReady <= '0';
+        
+    elsif rising_edge( mainClock ) then
+    
+        fastRamReady <= fastRamCE;
+    
+    end if;
+
+end process;
+
+
+
 -- place vga
 
 -- buffer vsync in signal, which is passed to frame timer after sync with main clock
@@ -509,50 +618,35 @@ port map(
 -- chip selects
    systemRAMCE    <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"0" else '0';
    txtfbRAMCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"1" else '0';
+   dmaRamCE       <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"2" else '0';
+   fastRamCE      <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"3" else '0';
    rootRegsCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f00" else '0';   
    vgaCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f01" else '0';   
+   dmaRegsCE      <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f02" else '0';
    uartCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f04" else '0';
-
---    sdramDMACE      <= '1' when ( cpuMemValid = '1'  ) and cpuAOutFull( 31 downto 28 ) = x"2" else '0';
---    fastRamCE       <= '1' when ( cpuMemValid = '1'  ) and cpuAOutFull( 31 downto 28 ) = x"3" else '0';
-         
-
---    spriteGenCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f01" else '0';
    
+--    fastRamCE       <= '1' when ( cpuMemValid = '1'  ) and cpuAOutFull( 31 downto 28 ) = x"3" else '0';
 --    blitterRegsCE   <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f02" else '0';
-    
 --    usbHostCE       <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f03" else '0';
-
-
 --    spiCE           <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f05" else '0';
-
---    i2sCE           <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f06" else '0';
-
-    
---    sdramDmaRegsCE  <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f08" else '0';
-  
---    pggRegsCE       <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f09" else '0';
-    
+--    i2sCE           <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f06" else '0';  
 --    fpAluCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0a" else '0';
     
   
 -- bus slaves ready signals mux
    cpuMemReady       <= systemRamReady when systemRAMCE = '1'
                         else txtfbRamReady when txtfbRamCE = '1'
+                        else dmaRamReady when dmaRamCE = '1'
+                        else fastRamReady when fastRamCE = '1' 
                         else rootRegsReady when rootRegsCE = '1' 
-                        else vgaReady  when vgaCE = '1' 
+                        else vgaReady  when vgaCE = '1'
+                        else dmaRegsReady when dmaRegsCE = '1'  
                         else uartReady when uartCE = '1' 
---                        else spiReady when spiCE = '1' 
---                        else usbHostReady when usbHostCE = '1' 
---                        else registersReady when registersCE = '1' 
---                        else sdramDMAReady when sdramDMACE = '1' 
 --                        else fastRamReady when fastRamCE = '1' 
 --                        else blitterRegsReady when blitterRegsCE = '1' 
---                        else spriteGenReady when spriteGenCE = '1' 
+--                        else usbHostReady when usbHostCE = '1' 
+--                        else spiReady when spiCE = '1' 
 --                        else i2sReady when i2sCE = '1' 
---                        else flashSpiReady when flashSpiCE = '1'
---                        else sdramDmaRegsReady when sdramDmaRegsCE = '1'  
---                        else pggRegsReady when pggRegsCE = '1' 
 --                        else fpAluReady when fpAluCE = '1' 
                         else '1';
 
@@ -560,20 +654,17 @@ port map(
 -- bus slaves data outputs mux
    cpuDin            <= systemRamDoutForCPU                       when cpuAOutFull( 31 downto 28 ) = x"0" else 
                         txtfbRamDoutForCPU                        when cpuAOutFull( 31 downto 28 ) = x"1" else
+                        dmaRamDoutForCPU                          when cpuAOutFull( 31 downto 28 ) = x"2" else
+                        fastRamDoutForCPU                         when cpuAOutFull( 31 downto 28 ) = x"3" else
                         rootRegsDoutForCPU                        when cpuAOutFull( 31 downto 20 ) = x"f00" else 
                         vgaDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f01" else 
+                        dmaRegsDOutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f02" else
                         uartDoutForCPU                            when cpuAOutFull( 31 downto 20 ) = x"f04" else
---                        registersDoutForCPU                       when cpuAOutFull( 31 downto 20 ) = x"f00" else
---                        sdramDMADoutForCPU                        when cpuAOutFull( 31 downto 28 ) = x"2"  else
 --                        fastRamDoutForCPU                         when cpuAOutFull( 31 downto 28 ) = x"3"  else
---                        spriteGenDoutForCPU                       when cpuAOutFull( 31 downto 20 ) = x"f01" else
 --                        blitterRegsDoutForCPU                     when cpuAOutFull( 31 downto 20 ) = x"f02" else
 --                        usbHostDoutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f03" else 
 --                        spiDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f05" else
 --                        i2sDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f06" else 
---                        flashSpiDoutForCPU                        when cpuAOutFull( 31 downto 20 ) = x"f07" else  
---                        sdramDmaRegsDoutForCPU                    when cpuAOutFull( 31 downto 20 ) = x"f08" else                        
---                        pggRegsDoutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f09" else
 --                        fpAluDoutForCPU                           when cpuAOutFull( 31 downto 20 ) = x"f0a" else  
                         x"00000000";
 
@@ -601,7 +692,6 @@ port map(
   
 --emulate cpuWrStrobe
 cpuWrStrobe       <=  cpuDataMask when cpuWr = '1' else "0000";
-
 
 
 --cpu resetgen process
@@ -634,6 +724,83 @@ begin
    end if;
    
 end process;
+
+
+
+axiDMAInst:axiDMA
+port map( 
+
+   --cpu interface ( registers )
+   reset       => reset,
+   clock       => mainClock,
+   a           => cpuAOut( 15 downto 0 ),
+   din         => cpuDOut,
+--   dout:             out   std_logic_vector( 31 downto 0 );
+   
+   ce          => '0',
+   wr          => cpuWr,
+   dataMask    => cpuDataMask,
+   
+--   ready:            out   std_logic;
+
+   --ch0 - cpu access to axi ram
+   ch0A              => cpuAOutFull,
+   ch0DIn            => cpuDOut,
+   ch0DOut           => dmaRamDoutForCPU,
+   
+   ch0CE             => dmaRamCE,
+   ch0Wr             => cpuWr,
+   ch0DataMask       => cpuDataMask,
+   
+   ch0Ready          => dmaRamReady,
+   
+   --axi master bus
+   m00_axi_aclk      => m00_axi_aclk,
+   m00_axi_aresetn   => m00_axi_aresetn,
+
+   m00_axi_awaddr    => m00_axi_awaddr,
+   m00_axi_awprot    => m00_axi_awprot,
+   m00_axi_awvalid   => m00_axi_awvalid,
+   m00_axi_awready   => m00_axi_awready,
+   m00_axi_wdata     => m00_axi_wdata,
+   m00_axi_wstrb     => m00_axi_wstrb,
+   m00_axi_wvalid    => m00_axi_wvalid,
+   m00_axi_wready    => m00_axi_wready,
+   m00_axi_bresp     => m00_axi_bresp,
+   m00_axi_bvalid    => m00_axi_bvalid,
+   m00_axi_bready    => m00_axi_bready,
+   
+   m00_axi_araddr    => m00_axi_araddr,
+   m00_axi_arprot    => m00_axi_arprot,
+   m00_axi_arvalid   => m00_axi_arvalid,
+   m00_axi_arready   => m00_axi_arready,
+   m00_axi_rdata     => m00_axi_rdata,
+   m00_axi_rresp     => m00_axi_rresp,
+   m00_axi_rvalid    => m00_axi_rvalid,
+   m00_axi_rready    => m00_axi_rready,
+   
+   -- Extended AXI Master Signals
+   m00_axi_arid      => m00_axi_arid,
+   m00_axi_arlen     => m00_axi_arlen,
+   m00_axi_arsize    => m00_axi_arsize,
+   m00_axi_arburst   => m00_axi_arburst,
+   m00_axi_arlock    => m00_axi_arlock,
+   m00_axi_arcache   => m00_axi_arcache,
+   m00_axi_rid       => m00_axi_rid,
+   m00_axi_rlast     => m00_axi_rlast,
+   
+   m00_axi_awid      => m00_axi_awid,
+   m00_axi_awlen     => m00_axi_awlen,
+   m00_axi_awsize    => m00_axi_awsize,
+   m00_axi_awburst   => m00_axi_awburst,
+   m00_axi_awlock    => m00_axi_awlock,
+   m00_axi_wlast     => m00_axi_wlast,
+   m00_axi_awcache   => m00_axi_awcache
+   
+);
+
+
+
 
 -- place root regs
 rootRegistersInst:rootRegisters

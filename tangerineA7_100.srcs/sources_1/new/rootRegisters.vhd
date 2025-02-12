@@ -131,7 +131,7 @@ begin
                      --0x04 r- component version                       
                      when x"01" =>
                      
-                        dout  <= x"20250210";
+                        dout  <= x"20250212";
 
                      --0x08 w- tickTimerReset                       
                      when x"02" =>

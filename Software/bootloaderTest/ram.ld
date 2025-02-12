@@ -1,15 +1,21 @@
 MEMORY 
 {						         
 
+/*fast ram*/
+		ram 	: ORIGIN = 0x30000000, LENGTH = 0x3ffff 
+		eram   	: ORIGIN = 0x30040000, LENGTH = 0 
+
+
+
 /*dma ram*/
-/*		ram 	: ORIGIN = 0x20781000, LENGTH = 0x0007efff 
-		eram   	: ORIGIN = 0x20800000, LENGTH = 0 
+/*		ram 	: ORIGIN = 0x20008000, LENGTH = 0x0007efff 
+		eram   	: ORIGIN = 0x20000000, LENGTH = 0 
 */
 
 /*system ram*/
-		ram 	: ORIGIN = 0x00002000, LENGTH = 0x00005fff
+/*		ram 	: ORIGIN = 0x00002000, LENGTH = 0x00005fff
 		eram   	: ORIGIN = 0x00008000, LENGTH = 0 
-
+*/
 
 }
 

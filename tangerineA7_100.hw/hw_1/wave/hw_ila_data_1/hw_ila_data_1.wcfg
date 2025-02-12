@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
+         <top_modules>
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="151"></ZoomStartTime>
+      <ZoomEndTime time="1,074"></ZoomEndTime>
+      <Cursor1Time time="663"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="322"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="1" />
+   <wave_markers>
+   </wave_markers>
+   <wvobject fp_name="group417" type="group">
+      <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : Interface</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Detail_Data">Interface_(i1:s0)_(tangerineSOC_0_m00_axi)_tooltip</obj_property>
+      <obj_property name="Render_Data">Interface_(i1:s0)_(tangerineSOC_0_m00_axi)</obj_property>
+      <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
+      <obj_property name="CustomSignalColor">OliveDrab</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="group464" type="group">
+         <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : Read Transactions 0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Detail_Data">ila_1___slot_0___tangerineSOC_0_m00_axi___Read_Transactions_0_tooltip</obj_property>
+         <obj_property name="Render_Data">ila_1___slot_0___tangerineSOC_0_m00_axi___Read_Transactions_0</obj_property>
+         <obj_property name="EnumTransactionColorTable">0000=blank</obj_property>
+         <obj_property name="CustomSignalColor">Orange</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+      </wvobject>
+      <wvobject fp_name="group418" type="group">
+         <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AR Channel</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Detail_Data">AR_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)_tooltip</obj_property>
+         <obj_property name="Render_Data">AR_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)</obj_property>
+         <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
+         <obj_property name="CustomSignalColor">Yellow</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arvalid" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arvalid</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_arvalid</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : ARVALID</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arready" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arready</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_arready</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : ARREADY</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arid" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arid[3:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_arid[3:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : ARID</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_araddr" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_araddr[31:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_araddr[31:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : ARADDR</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arburst" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arburst[1:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_arburst[1:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : ARBURST</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arlen" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arlen[7:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_arlen[7:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : ARLEN</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arsize" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arsize[2:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_arsize[2:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : ARSIZE</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arcache" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arcache[3:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_arcache[3:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : ARCACHE</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arprot" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arprot[2:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_arprot[2:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : ARPROT</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arlock" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arlock</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_arlock</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : ARLOCK</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_ar_cnt" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_ar_cnt[1:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_ar_cnt[1:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AR_CNT</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group430" type="group">
+         <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : R Channel</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Detail_Data">R_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)_tooltip</obj_property>
+         <obj_property name="Render_Data">R_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)</obj_property>
+         <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
+         <obj_property name="CustomSignalColor">Gold</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rvalid" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rvalid</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_rvalid</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : RVALID</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rready" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rready</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_rready</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : RREADY</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rlast" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rlast</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_rlast</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : RLAST</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rid" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rid[3:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_rid[3:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : RID</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rdata" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rdata[127:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_rdata[127:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : RDATA</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rresp" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rresp[1:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_rresp[1:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : RRESP</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_r_cnt" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_r_cnt[1:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_r_cnt[1:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : R_CNT</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group438" type="group">
+         <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AW Channel</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Detail_Data">AW_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)_tooltip</obj_property>
+         <obj_property name="Render_Data">AW_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)</obj_property>
+         <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
+         <obj_property name="CustomSignalColor">MediumTurquoise</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awvalid" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awvalid</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_awvalid</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AWVALID</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awready" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awready</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_awready</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AWREADY</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awid" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awid[3:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_awid[3:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AWID</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awaddr" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awaddr[31:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_awaddr[31:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AWADDR</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awburst" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awburst[1:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_awburst[1:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AWBURST</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awlen" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awlen[7:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_awlen[7:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AWLEN</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awsize" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awsize[2:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_awsize[2:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AWSIZE</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awcache" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awcache[3:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_awcache[3:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AWCACHE</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awprot" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awprot[2:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_awprot[2:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AWPROT</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awlock" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awlock</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_awlock</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AWLOCK</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_aw_cnt" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_aw_cnt[1:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_aw_cnt[1:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AW_CNT</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group450" type="group">
+         <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : W Channel</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Detail_Data">W_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)_tooltip</obj_property>
+         <obj_property name="Render_Data">W_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)</obj_property>
+         <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
+         <obj_property name="CustomSignalColor">Teal</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_wvalid" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_wvalid</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_wvalid</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : WVALID</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_wready" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_wready</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_wready</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : WREADY</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_wlast" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_wlast</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_wlast</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : WLAST</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_wdata" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_wdata[127:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_wdata[127:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : WDATA</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_wstrb" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_wstrb[15:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_wstrb[15:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : WSTRB</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group456" type="group">
+         <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : B Channel</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Detail_Data">B_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)_tooltip</obj_property>
+         <obj_property name="Render_Data">B_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)</obj_property>
+         <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
+         <obj_property name="CustomSignalColor">SteelBlue</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_bvalid" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_bvalid</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_bvalid</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : BVALID</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_bready" type="logic">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_bready</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_bready</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : BREADY</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_bid" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_bid[3:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_bid[3:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : BID</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_bresp" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_bresp[1:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_bresp[1:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : BRESP</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+         <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_b_cnt" type="array">
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_b_cnt[1:0]</obj_property>
+            <obj_property name="ObjectShortName">net_slot_0_axi_b_cnt[1:0]</obj_property>
+            <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : B_CNT</obj_property>
+            <obj_property name="Radix">HEXRADIX</obj_property>
+            <obj_property name="LABELRADIX">true</obj_property>
+            <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+</wave_config>

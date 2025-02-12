@@ -52,15 +52,13 @@ extern "C"
 //x"80000000";   -- root id
 //x"80000001";   -- serial id
 //x"80000002";   -- spi id
-//x"80000003";   -- sdram DMA id
 //x"80000004";   -- usb hid host id
 //x"80000005";   -- blitter id
-//x"80000006";   -- sprite gen id
 //x"80000007";   -- i2s id
-//x"80000008";   -- gfx pixel gen id
 //x"80000009";   -- fpalu id
 //x"8000000a";   -- ps2 host id
 //x"8000000b";   -- vga id
+//x"8000000c";   -- axi dma id
 
 typedef struct _BSP_T
 {
@@ -109,18 +107,6 @@ typedef struct __VGA_REGISTERS_T
 
 extern _VGA_REGISTERS_T *vga;
 
-
-typedef struct __SPRITEGEN_REGISTERS_T
-{
-    volatile uint32_t id;
-    volatile uint32_t version;
-    
-    volatile uint32_t spriteX;
-    volatile uint32_t spriteY;
-
-}_SPRITEGEN_REGISTERS_T;
-
-extern _SPRITEGEN_REGISTERS_T *spriteGen;
 
 typedef struct __BLITTER_REGISTERS_T
 {
@@ -249,7 +235,6 @@ typedef struct __SPI_REGISTERS_T
 }_SPI_REGISTERS_T;
 
 extern _SPI_REGISTERS_T *spi0;
-extern _SPI_REGISTERS_T *spi1;
 
 typedef struct __AUDIO_REGISTERS_T
 {
@@ -268,18 +253,18 @@ typedef struct __AUDIO_REGISTERS_T
 
 extern _AUDIO_REGISTERS_T *aud;
 
-typedef struct __SDRAMDMA_REGISTERS_T
+typedef struct __AXI_DMA_REGISTERS_T
 {
     volatile uint32_t id;
     volatile uint32_t version;
-    volatile uint32_t ch3DmaPointerStart;
-    volatile uint32_t ch3DmaRequest0Modulo;
-    volatile uint32_t ch3DmaRequest1Modulo;
-    volatile uint32_t ch3DmaRequestLength;
+    volatile uint32_t ch1DmaPointerStart;
+    volatile uint32_t ch1DmaRequest0Modulo;
+    volatile uint32_t ch1DmaRequest1Modulo;
+    volatile uint32_t ch1DmaRequestLength;
 
-}_SDRAMDMA_REGISTERS_T;
+}_AXI_DMA_REGISTERS_T;
 
-extern _SDRAMDMA_REGISTERS_T *sdrdma;
+extern _AXI_DMA_REGISTERS_T *axidma;
 
 
 typedef struct __FPALU_REGISTERS_T
