@@ -68,6 +68,8 @@ int main()
    uint32_t          i;
    volatile uint32_t j;
    uint32_t          k;
+   uint32_t          x;
+   uint32_t          y;
 
 
    //160x45 column txt over gfx mode 
@@ -86,6 +88,14 @@ int main()
    for( i = 0; i < 7200 ; i++ )
    {
      displayRam[i] = TEXTATTR;
+   }
+
+   for( y = 0; y < 240; y++ )
+   {
+      for( x = 0; x < 432; x++ )
+      {
+         ddr[ x + 512 * y ] = 0;
+      }
    }
 
    print( (char*) "\n" );   
@@ -145,6 +155,14 @@ int main()
 
    
       for( j = 0; j < 10000; j++ );
+
+   for( y = 0; y < 240; y++ )
+   {
+      for( x = 0; x < 426; x++ )
+      {
+         ddr[ x + 512 * y ] = randomNumber();
+      }
+   }
 
       if( k == 0 )
       {

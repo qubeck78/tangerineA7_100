@@ -8,8 +8,8 @@ MEMORY
 
 
 /*dma ram*/
-/*		ram 	: ORIGIN = 0x20008000, LENGTH = 0x0007efff 
-		eram   	: ORIGIN = 0x20000000, LENGTH = 0 
+/*		ram 	: ORIGIN = 0x21000000, LENGTH = 0x0007efff 
+		eram   	: ORIGIN = 0x20080000, LENGTH = 0 
 */
 
 /*system ram*/

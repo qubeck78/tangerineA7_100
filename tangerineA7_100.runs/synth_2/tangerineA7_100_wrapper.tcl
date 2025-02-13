@@ -118,6 +118,9 @@ read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/ta
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/uartFiFo/uartFiFo.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/uartFiFo/uartFiFo_ooc.xdc]
 
+read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/dmaCh1BufRam/dmaCh1BufRam.xci
+set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/dmaCh1BufRam/dmaCh1BufRam_ooc.xdc]
+
 read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/fontPROM/fontPROM.xci
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/fontPROM/fontPROM_ooc.xdc]
 
@@ -140,6 +143,10 @@ set_property used_in_implementation false [get_files -all c:/Users/qubeck/Docume
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_system_ila_0_0/bd_0/ip/ip_0/bd_2af6_ila_lib_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_system_ila_0_0/bd_0/bd_2af6_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_system_ila_0_0/tangerineA7_100_system_ila_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_2_0/tangerineA7_100_clk_wiz_2_0_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_2_0/tangerineA7_100_clk_wiz_2_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_2_0/tangerineA7_100_clk_wiz_2_0_late.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_2_0/tangerineA7_100_clk_wiz_2_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/tangerineA7_100_ooc.xdc]
 
 OPTRACE "Adding files" END { }
