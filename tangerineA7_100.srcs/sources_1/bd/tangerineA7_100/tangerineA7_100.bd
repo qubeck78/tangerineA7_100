@@ -16,8 +16,9 @@
       "clk_wiz_1": "",
       "xlslice_0": "",
       "xlconstant_0": "",
-      "tangerineMIGWrapper_0": "",
       "system_ila_0": "",
+      "tangerineMIGWrapper_0": "",
+      "clk_wiz_2": "",
       "tangerineSOC_0": ""
     },
     "ports": {
@@ -530,6 +531,19 @@
           }
         }
       },
+      "system_ila_0": {
+        "vlnv": "xilinx.com:ip:system_ila:1.1",
+        "xci_name": "tangerineA7_100_system_ila_0_0",
+        "xci_path": "ip\\tangerineA7_100_system_ila_0_0\\tangerineA7_100_system_ila_0_0.xci",
+        "inst_hier_path": "system_ila_0",
+        "interface_ports": {
+          "SLOT_0_AXI": {
+            "mode": "Monitor",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+          }
+        }
+      },
       "tangerineMIGWrapper_0": {
         "vlnv": "xilinx.com:module_ref:tangerineMIGWrapper:1.0",
         "xci_name": "tangerineA7_100_tangerineMIGWrapper_0_0",
@@ -979,16 +993,95 @@
           }
         }
       },
-      "system_ila_0": {
-        "vlnv": "xilinx.com:ip:system_ila:1.1",
-        "xci_name": "tangerineA7_100_system_ila_0_0",
-        "xci_path": "ip\\tangerineA7_100_system_ila_0_0\\tangerineA7_100_system_ila_0_0.xci",
-        "inst_hier_path": "system_ila_0",
-        "interface_ports": {
-          "SLOT_0_AXI": {
-            "mode": "Monitor",
-            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
-            "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
+      "clk_wiz_2": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "tangerineA7_100_clk_wiz_2_0",
+        "xci_path": "ip\\tangerineA7_100_clk_wiz_2_0\\tangerineA7_100_clk_wiz_2_0.xci",
+        "inst_hier_path": "clk_wiz_2",
+        "parameters": {
+          "CLKIN1_JITTER_PS": {
+            "value": "123.07000000000001"
+          },
+          "CLKOUT1_JITTER": {
+            "value": "139.978"
+          },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "116.055"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "162.5"
+          },
+          "CLKOUT2_JITTER": {
+            "value": "161.616"
+          },
+          "CLKOUT2_PHASE_ERROR": {
+            "value": "116.055"
+          },
+          "CLKOUT2_REQUESTED_OUT_FREQ": {
+            "value": "81.250"
+          },
+          "CLKOUT2_USED": {
+            "value": "true"
+          },
+          "CLKOUT3_JITTER": {
+            "value": "139.978"
+          },
+          "CLKOUT3_PHASE_ERROR": {
+            "value": "116.055"
+          },
+          "CLKOUT3_REQUESTED_OUT_FREQ": {
+            "value": "162.5"
+          },
+          "CLKOUT3_REQUESTED_PHASE": {
+            "value": "190"
+          },
+          "CLKOUT3_USED": {
+            "value": "true"
+          },
+          "CLK_OUT1_PORT": {
+            "value": "clk162_5"
+          },
+          "CLK_OUT2_PORT": {
+            "value": "clk81_25"
+          },
+          "CLK_OUT3_PORT": {
+            "value": "clk162_5ps"
+          },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "10.000"
+          },
+          "MMCM_CLKIN1_PERIOD": {
+            "value": "12.308"
+          },
+          "MMCM_CLKIN2_PERIOD": {
+            "value": "10.000"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "5.000"
+          },
+          "MMCM_CLKOUT1_DIVIDE": {
+            "value": "10"
+          },
+          "MMCM_CLKOUT2_DIVIDE": {
+            "value": "5"
+          },
+          "MMCM_CLKOUT2_PHASE": {
+            "value": "189.000"
+          },
+          "NUM_OUT_CLKS": {
+            "value": "3"
+          },
+          "PRIM_IN_FREQ": {
+            "value": "81.250"
+          },
+          "PRIM_SOURCE": {
+            "value": "No_buffer"
+          },
+          "RESET_PORT": {
+            "value": "resetn"
+          },
+          "RESET_TYPE": {
+            "value": "ACTIVE_LOW"
           }
         }
       },
@@ -1310,16 +1403,16 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "81250000",
-                "value_src": "user_prop"
+                "value": "162500000",
+                "value_src": "ip_prop"
               },
               "PHASE": {
                 "value": "0.0",
-                "value_src": "default_prop"
+                "value_src": "ip_prop"
               },
               "CLK_DOMAIN": {
                 "value": "tangerineA7_100_tangerineMIGWrapper_0_0_ui_clk",
-                "value_src": "default_prop"
+                "value_src": "ip_prop"
               }
             }
           },
@@ -1327,7 +1420,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "100000000",
+                "value": "162500000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -1335,7 +1428,7 @@
                 "value_src": "ip_prop"
               },
               "CLK_DOMAIN": {
-                "value": "/clk_wiz_1_clk_out1",
+                "value": "tangerineA7_100_tangerineMIGWrapper_0_0_ui_clk",
                 "value_src": "ip_prop"
               }
             }
@@ -1344,7 +1437,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "50000000",
+                "value": "81250000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -1352,7 +1445,7 @@
                 "value_src": "ip_prop"
               },
               "CLK_DOMAIN": {
-                "value": "/clk_wiz_1_clk_out1",
+                "value": "tangerineA7_100_tangerineMIGWrapper_0_0_ui_clk",
                 "value_src": "ip_prop"
               }
             }
@@ -1514,7 +1607,8 @@
         "ports": [
           "button0",
           "clk_wiz_0/resetn",
-          "clk_wiz_1/resetn"
+          "clk_wiz_1/resetn",
+          "clk_wiz_2/resetn"
         ]
       },
       "button1_1": {
@@ -1549,18 +1643,6 @@
           "hdmiOut_0/resetn"
         ]
       },
-      "clk_wiz_1_clk100ps": {
-        "ports": [
-          "clk_wiz_1/clk100ps",
-          "tangerineSOC_0/mainClockPs"
-        ]
-      },
-      "clk_wiz_1_clk50": {
-        "ports": [
-          "clk_wiz_1/clk50",
-          "tangerineSOC_0/mainClockD2"
-        ]
-      },
       "clk_wiz_1_clk200": {
         "ports": [
           "clk_wiz_1/clk200",
@@ -1570,11 +1652,29 @@
       "clk_wiz_1_locked": {
         "ports": [
           "clk_wiz_1/locked",
-          "tangerineMIGWrapper_0/sys_rst",
           "system_ila_0/resetn",
           "tangerineMIGWrapper_0/aresetn",
+          "tangerineMIGWrapper_0/sys_rst",
           "tangerineSOC_0/resetn",
           "tangerineSOC_0/m00_axi_aresetn"
+        ]
+      },
+      "clk_wiz_2_clk162_5": {
+        "ports": [
+          "clk_wiz_2/clk162_5",
+          "tangerineSOC_0/mainClock"
+        ]
+      },
+      "clk_wiz_2_clk162_5ps": {
+        "ports": [
+          "clk_wiz_2/clk162_5ps",
+          "tangerineSOC_0/mainClockPs"
+        ]
+      },
+      "clk_wiz_2_clk81_25": {
+        "ports": [
+          "clk_wiz_2/clk81_25",
+          "tangerineSOC_0/mainClockD2"
         ]
       },
       "hdmiOut_0_hdmiClkN": {
@@ -1678,7 +1778,7 @@
         "ports": [
           "tangerineMIGWrapper_0/ui_clk",
           "system_ila_0/clk",
-          "tangerineSOC_0/mainClock",
+          "clk_wiz_2/clk_in1",
           "tangerineSOC_0/m00_axi_aclk"
         ]
       },

@@ -208,6 +208,13 @@ port (
    
    ch0Ready:         out   std_logic;
    
+   --ch1 - gfx display, highest priority: 0
+   ch1DmaRequest:       in    std_logic_vector( 1 downto 0 );
+   ch1DmaPointerReset:  in    std_logic;
+   
+   ch1BufClock:         in    std_logic;
+   ch1BufA:             in    std_logic_vector( 8 downto 0 );
+   ch1BufDOut:          out   std_logic_vector( 31 downto 0 );
 
    --axi master bus
    m00_axi_aclk:     in  std_logic;
@@ -402,6 +409,12 @@ signal dmaRegsCE:          std_logic;
 signal dmaRegsDOutForCPU:  std_logic_vector( 31 downto 0 );
 signal dmaRegsReady:       std_logic;
 
+--dma ch1 - vga
+signal ch1DmaRequest:      std_logic_vector( 1 downto 0 );
+signal ch1BufClock:        std_logic;
+signal ch1BufA:            std_logic_vector( 8 downto 0 );
+signal ch1BufDOut:         std_logic_vector( 31 downto 0 );
+
 --fast RAM signals
 signal fastRamCE:           std_logic;
 signal fastRamReady:        std_logic;
@@ -590,13 +603,12 @@ port map(
    txtFbRamA      => txtFbRamBA,
    txtFbRamDIn    => txtFbRamBDOut,
 
-   --dma interface ( gfx mode line data buffer, dma requests )
---   gfxFbRamClock:    out   std_logic;
-   gfxFbRamDIn    => ( others => '0' ),
---   gfxFbRamA:        out std_logic_vector( 8 downto 0 );    --2 buffers, 256 long words each
-
+   --dma ch1 interface ( gfx mode line data buffer, dma requests )
+   gfxFbRamClock  => ch1BufClock,
+   gfxFbRamDIn    => ch1BufDOut,
+   gfxFbRamA      => ch1BufA,
     --2 dma requests
---   vgaDMARequest:    out std_logic_vector( 1 downto 0 );
+   vgaDMARequest  => ch1DmaRequest,
 
    --video output ( VGA )
    vgaRed         => vgaRed,
@@ -744,16 +756,24 @@ port map(
 --   ready:            out   std_logic;
 
    --ch0 - cpu access to axi ram
-   ch0A              => cpuAOutFull,
-   ch0DIn            => cpuDOut,
-   ch0DOut           => dmaRamDoutForCPU,
+   ch0A                 => cpuAOutFull,
+   ch0DIn               => cpuDOut,
+   ch0DOut              => dmaRamDoutForCPU,
    
-   ch0CE             => dmaRamCE,
-   ch0Wr             => cpuWr,
-   ch0DataMask       => cpuDataMask,
+   ch0CE                => dmaRamCE,
+   ch0Wr                => cpuWr,
+   ch0DataMask          => cpuDataMask,
    
-   ch0Ready          => dmaRamReady,
+   ch0Ready             => dmaRamReady,
    
+   --ch1 - gfx display, highest priority: 0
+   ch1DmaRequest        => ch1DmaRequest,
+   ch1DmaPointerReset   => vgaVSyncMainClock,
+   
+   ch1BufClock          => ch1BufClock,
+   ch1BufA              => ch1BufA,
+   ch1BufDOut           => ch1BufDOut,
+
    --axi master bus
    m00_axi_aclk      => m00_axi_aclk,
    m00_axi_aresetn   => m00_axi_aresetn,

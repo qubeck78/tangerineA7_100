@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="dmaCh1BufRam_synth_1" LaunchPart="xc7a100tfgg676-1" LaunchTime="1739441319">
+  <File Type="PA-TCL" Name="dmaCh1BufRam.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="dmaCh1BufRam_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="dmaCh1BufRam_reports.tcl"/>
+  <File Type="RDS-RDS" Name="dmaCh1BufRam.vds"/>
+  <File Type="RDS-UTIL" Name="dmaCh1BufRam_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="dmaCh1BufRam_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="dmaCh1BufRam.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="dmaCh1BufRam_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="dmaCh1BufRam_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/dmaCh1BufRam" RelGenDir="$PGENDIR/dmaCh1BufRam">
+    <File Path="$PSRCDIR/sources_1/ip/dmaCh1BufRam/dmaCh1BufRam.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="dmaCh1BufRam"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/dmaCh1BufRam" RelGenDir="$PGENDIR/dmaCh1BufRam">
+    <File Path="$PSRCDIR/sources_1/ip/dmaCh1BufRam/dmaCh1BufRam.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="dmaCh1BufRam"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
+    <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/tangerineA7_100_wrapper.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_2"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

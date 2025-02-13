@@ -31,11 +31,11 @@ port(
 
    --dma interface ( gfx mode line data buffer, dma requests )
    gfxFbRamClock:    out   std_logic;
-   gfxFbRamDIn:      in  std_logic_vector( 31 downto 0 );
-   gfxFbRamA:        out std_logic_vector( 8 downto 0 );    --2 buffers, 256 long words each
+   gfxFbRamDIn:      in    std_logic_vector( 31 downto 0 );
+   gfxFbRamA:        out   std_logic_vector( 8 downto 0 );    --2 buffers, 256 long words each
 
     --2 dma requests
-   vgaDMARequest:    out std_logic_vector( 1 downto 0 );
+   vgaDMARequest:    out   std_logic_vector( 1 downto 0 );
 
    --video output ( VGA )
    vgaRed:           out   std_logic_vector( 7 downto 0 );
@@ -123,6 +123,47 @@ port(
 );
 end component;
 
+component pixelGenGfx is
+port(
+   
+   reset:            in  std_logic;
+   
+   --pixel clock
+   pggClock:         in  std_logic;
+   
+   --video out
+   pggR:             out std_logic_vector( 7 downto 0 );
+   pggG:             out std_logic_vector( 7 downto 0 );
+   pggB:             out std_logic_vector( 7 downto 0 );
+
+   --gfx buffer ram
+   gfxBufRamDOut:    in  std_logic_vector( 31 downto 0 );
+   gfxBufRamRdA:     out std_logic_vector( 8 downto 0 );
+
+   --2 dma requests
+   pggDMARequest:    out std_logic_vector( 1 downto 0 );
+   
+   --sync gen inputs
+   pgVSync:          in  std_logic;
+   pgHSync:          in  std_logic;
+   pgDe:             in  std_logic;
+   pgXCount:         in  std_logic_vector( 11 downto 0 );
+   pgYCount:         in  std_logic_vector( 11 downto 0 );
+   pgDeX:            in  std_logic;
+   pgDeY:            in  std_logic;
+   pgPreFetchLine:   in  std_logic;
+   pgFetchEnable:    in  std_logic;
+   
+   -- 720p sync:
+   -- 00 : 426x240x16
+   -- 01 : 640x360x16
+
+   pgVideoMode:      in  std_logic_vector( 1 downto 0 );
+   
+   pgEnabled:        in  std_logic
+);
+end component;
+
 --video mux ( mixes text, graphics )
 component videoMux is
 port( 
@@ -199,6 +240,12 @@ signal videoRamBA:      std_logic_vector( 13 downto 0 );
 signal pgCursorX:       std_logic_vector( 7 downto 0 );
 signal pgCursorY:       std_logic_vector( 7 downto 0 );
 
+--gfx pixel gen signals
+signal pggR:            std_logic_vector( 7 downto 0 );
+signal pggG:            std_logic_vector( 7 downto 0 );
+signal pggB:            std_logic_vector( 7 downto 0 );
+
+signal pggEnabled:      std_logic;
 
 begin
 
@@ -221,6 +268,7 @@ port map(
 );
 
 
+
 -- place text mode font rom ( 2048 x 8 )
 
 fontPromInst: fontProm 
@@ -230,8 +278,7 @@ port map(
     douta   => fontRomDout
 );
 
---Place txt pixel gen
-
+--Place sync gen / pixel gen txt
 
 txtFbRamClock  <= pixelClock;
 
@@ -296,6 +343,56 @@ port map(
         
 );   
 
+-- place pixel gen gfx
+
+pggEnabled   <= '1' when vmMode( 1 downto 0 ) /= "00" else '0';
+
+-- assign clock for gfx buffer ram
+
+gfxFbRamClock  <= not pixelClock;
+
+pixelGenGfxInst:pixelGenGfx
+port map(
+   
+   reset          => reset,
+   
+   --pixel clock
+   pggClock       => pixelClock,
+   
+   --video out
+   pggR           => pggR,
+   pggG           => pggG,
+   pggB           => pggB,
+
+   --gfx buffer ram
+   gfxBufRamDOut  => gfxFbRamDIn,
+   gfxBufRamRdA   => gfxFbRamA,
+
+   --2 dma requests
+   pggDMARequest  => vgaDMARequest,
+   
+   --sync gen inputs
+   pgVSync        => pgVSync,
+   pgHSync        => pgHSync,
+   pgDe           => pgDE,
+   pgXCount       => pgXCount,
+   pgYCount       => pgYCount,
+   pgDeX          => pgDeX,
+   pgDeY          => pgDeY,
+   pgPreFetchLine => pgPreFetchLine,
+   pgFetchEnable  => pgFetchEnable,
+   
+   -- 720p sync:
+   -- 00 : 426x240x16
+   -- 01 : 640x360x16
+
+   pgVideoMode    => vmMode( 5 downto 4 ),
+   
+   pgEnabled      => pggEnabled
+);
+
+
+
 -- place videomux
 
 videoMuxInst:videoMux
@@ -321,9 +418,9 @@ port map(
    pgB            => pgB,
    
    --gfx
-   pggR           => ( others => '0' ),
-   pggG           => ( others => '0' ),
-   pggB           => ( others => '0' ),
+   pggR           => pggR,
+   pggG           => pggG,
+   pggB           => pggB,
    
    --video output
    vgaHS          => vgaHS,

@@ -70,7 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "mig_7series_tangerine_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 8
+set_param tcl.collectionResultDisplayLimit 0
 set_param xicom.use_bs_reader 1
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
@@ -90,7 +90,7 @@ set_property ip_output_repo c:/Users/qubeck/Documents/Development/ProjektyVHDL/W
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine.xci
+read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine.xci
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine/user_design/constraints/mig_7series_tangerine.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine/user_design/constraints/mig_7series_tangerine_ooc.xdc]
 

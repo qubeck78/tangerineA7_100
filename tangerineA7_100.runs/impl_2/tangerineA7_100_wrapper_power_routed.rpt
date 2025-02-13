@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Wed Feb 12 14:54:21 2025
+| Date             : Thu Feb 13 14:09:55 2025
 | Host             : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 | Command          : report_power -file tangerineA7_100_wrapper_power_routed.rpt -pb tangerineA7_100_wrapper_power_summary_routed.pb -rpx tangerineA7_100_wrapper_power_routed.rpx
 | Design           : tangerineA7_100_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.135        |
+| Total On-Chip Power (W)  | 1.293        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.026        |
+| Dynamic (W)              | 1.184        |
 | Device Static (W)        | 0.109        |
 | Effective TJA (C/W)      | 2.6          |
-| Max Ambient (C)          | 82.0         |
-| Junction Temperature (C) | 28.0         |
+| Max Ambient (C)          | 81.6         |
+| Junction Temperature (C) | 28.4         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,25 +52,25 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.053 |       27 |       --- |             --- |
-| Slice Logic              |     0.014 |    31489 |       --- |             --- |
-|   LUT as Logic           |     0.013 |    11295 |     63400 |           17.82 |
-|   CARRY4                 |    <0.001 |      573 |     15850 |            3.62 |
-|   Register               |    <0.001 |    13154 |    126800 |           10.37 |
+| Clocks                   |     0.067 |       29 |       --- |             --- |
+| Slice Logic              |     0.020 |    31866 |       --- |             --- |
+|   LUT as Logic           |     0.017 |    11478 |     63400 |           18.10 |
+|   CARRY4                 |     0.001 |      580 |     15850 |            3.66 |
+|   Register               |    <0.001 |    13486 |    126800 |           10.64 |
 |   LUT as Distributed RAM |    <0.001 |      378 |     19000 |            1.99 |
+|   F7/F8 Muxes            |    <0.001 |      543 |     63400 |            0.86 |
 |   LUT as Shift Register  |    <0.001 |      805 |     19000 |            4.24 |
-|   F7/F8 Muxes            |    <0.001 |      576 |     63400 |            0.91 |
-|   Others                 |    <0.001 |     1222 |       --- |             --- |
-| Signals                  |     0.019 |    24292 |       --- |             --- |
-| Block RAM                |     0.029 |       93 |       135 |           68.89 |
-| MMCM                     |     0.280 |        3 |         6 |           50.00 |
+|   Others                 |    <0.001 |     1235 |       --- |             --- |
+| Signals                  |     0.028 |    24663 |       --- |             --- |
+| Block RAM                |     0.055 |       97 |       135 |           71.85 |
+| MMCM                     |     0.376 |        4 |         6 |           66.67 |
 | PLL                      |     0.115 |        1 |         6 |           16.67 |
-| DSPs                     |     0.006 |       12 |       240 |            5.00 |
-| I/O                      |     0.396 |       63 |       300 |           21.00 |
+| DSPs                     |     0.012 |       12 |       240 |            5.00 |
+| I/O                      |     0.398 |       63 |       300 |           21.00 |
 | PHASER                   |     0.110 |       14 |       --- |             --- |
 | XADC                     |     0.004 |        1 |       --- |             --- |
 | Static Power             |     0.109 |          |           |                 |
-| Total                    |     1.135 |          |           |                 |
+| Total                    |     1.293 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -80,16 +80,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.176 |       0.158 |      0.019 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.335 |       0.317 |      0.018 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.045 |       0.041 |      0.004 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.235 |       0.216 |      0.019 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.388 |       0.370 |      0.018 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.046 |       0.042 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.120 |       0.116 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.005 |       0.002 |      0.003 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.007 |       0.005 |      0.003 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.022 |       0.002 |      0.020 |       NA    | Unspecified | NA         |
@@ -136,12 +136,14 @@ Table of Contents
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
 | Clock                                                                                                                                                     | Domain                                                                                                                                                                                                                                                            | Constraint (ns) |
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+| clk162_5_tangerineA7_100_clk_wiz_2_0                                                                                                                      | tangerineA7_100_i/clk_wiz_2/inst/clk162_5_tangerineA7_100_clk_wiz_2_0                                                                                                                                                                                             |             6.2 |
 | clk200_tangerineA7_100_clk_wiz_1_0                                                                                                                        | tangerineA7_100_i/clk_wiz_1/inst/clk200_tangerineA7_100_clk_wiz_1_0                                                                                                                                                                                               |             5.0 |
 | clk320_tangerineA7_100_clk_wiz_0_0                                                                                                                        | tangerineA7_100_i/clk_wiz_0/inst/clk320_tangerineA7_100_clk_wiz_0_0                                                                                                                                                                                               |             3.1 |
 | clk64_tangerineA7_100_clk_wiz_0_0                                                                                                                         | tangerineA7_100_i/clk_wiz_0/inst/clk64_tangerineA7_100_clk_wiz_0_0                                                                                                                                                                                                |            15.6 |
 | clk_pll_i                                                                                                                                                 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/clk_pll_i                                                                                                                                         |            12.3 |
 | clkfbout_tangerineA7_100_clk_wiz_0_0                                                                                                                      | tangerineA7_100_i/clk_wiz_0/inst/clkfbout_tangerineA7_100_clk_wiz_0_0                                                                                                                                                                                             |           100.0 |
 | clkfbout_tangerineA7_100_clk_wiz_1_0                                                                                                                      | tangerineA7_100_i/clk_wiz_1/inst/clkfbout_tangerineA7_100_clk_wiz_1_0                                                                                                                                                                                             |            20.0 |
+| clkfbout_tangerineA7_100_clk_wiz_2_0                                                                                                                      | tangerineA7_100_i/clk_wiz_2/inst/clkfbout_tangerineA7_100_clk_wiz_2_0                                                                                                                                                                                             |            12.3 |
 | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/TCK                                                                | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/TCK                                                                                                                                                                                                 |            33.0 |
 | freq_refclk                                                                                                                                               | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/freq_refclk                                                                                                                                       |             1.5 |
 | iserdes_clkdiv                                                                                                                                            | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/iserdes_clkdiv            |            12.3 |
@@ -173,23 +175,25 @@ Table of Contents
 +---------------------------+-----------+
 | Name                      | Power (W) |
 +---------------------------+-----------+
-| tangerineA7_100_wrapper   |     1.026 |
+| tangerineA7_100_wrapper   |     1.184 |
 |   dbg_hub                 |     0.003 |
 |     inst                  |     0.003 |
 |       BSCANID.u_xsdbm_id  |     0.003 |
-|   tangerineA7_100_i       |     1.021 |
+|   tangerineA7_100_i       |     1.177 |
 |     clk_wiz_0             |     0.087 |
 |       inst                |     0.087 |
-|     clk_wiz_1             |     0.107 |
-|       inst                |     0.107 |
+|     clk_wiz_1             |     0.106 |
+|       inst                |     0.106 |
+|     clk_wiz_2             |     0.097 |
+|       inst                |     0.097 |
 |     hdmiOut_0             |     0.141 |
 |       inst                |     0.141 |
-|     system_ila_0          |     0.025 |
-|       inst                |     0.025 |
-|     tangerineMIGWrapper_0 |     0.609 |
-|       inst                |     0.609 |
-|     tangerineSOC_0        |     0.053 |
-|       inst                |     0.053 |
+|     system_ila_0          |     0.026 |
+|       inst                |     0.026 |
+|     tangerineMIGWrapper_0 |     0.611 |
+|       inst                |     0.611 |
+|     tangerineSOC_0        |     0.109 |
+|       inst                |     0.109 |
 +---------------------------+-----------+
 
 

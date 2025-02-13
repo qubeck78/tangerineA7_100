@@ -32,6 +32,13 @@ port (
    
    ch0Ready:         out   std_logic;
    
+   --ch1 - gfx display, highest priority: 0
+   ch1DmaRequest:       in    std_logic_vector( 1 downto 0 );
+   ch1DmaPointerReset:  in    std_logic;
+   
+   ch1BufClock:         in    std_logic;
+   ch1BufA:             in    std_logic_vector( 8 downto 0 );
+   ch1BufDOut:          out   std_logic_vector( 31 downto 0 );
 
    --axi master bus
    m00_axi_aclk:     in  std_logic;
@@ -84,6 +91,22 @@ architecture Behavioral of axiDMA is
 
 --components
 
+component dmaCh1BufRam is
+port(
+    clka:   in    std_logic;
+    wea:    IN    std_logic_vector( 0 downto 0 );
+    addra:  IN    std_logic_vector( 6 downto 0 );
+    dina:   IN    std_logic_vector( 127 downto 0 );
+    douta:  OUT   std_logic_vector( 127 downto 0 );
+
+    clkb:   IN    std_logic;
+    web:    IN    std_logic_vector( 0 downto 0 );
+    addrb:  IN    std_logic_vector( 8 downto 0 );
+    dinb:   IN    std_logic_vector( 31 downto 0 );
+    doutb:  OUT   std_logic_vector( 31 downto 0 )
+);
+end component;
+
 --signals
 signal resetn:          std_logic;
 
@@ -93,13 +116,55 @@ type   regState_T is ( rsWaitForRegAccess, rsWaitForBusCycleEnd );
 signal registerState:       regState_T;
 
 --axi dma fsm
-type   axiState_T is ( asIdle, asCh0Read0, asCh0Read1, asCh0Read2, asCh0Write0, asCh0Write1, asCh0Write2, asCh0Write3 );
+type   axiState_T is ( asIdle, asCh0Read0, asCh0Read1, asCh0Read2, asCh0Write0, asCh0Write1, asCh0Write2, asCh0Write3,
+                               asCh1Read0, asCh1Read1, asCh1Read2, asCh1Read3 );
+
 signal axiState:       axiState_T;
+
+--ch1 buf dma side
+
+signal ch1BufAA:     std_logic_vector( 6 downto 0 );
+signal ch1BufAWr:    std_logic_vector( 0 downto 0 );
+signal ch1BufADin:   std_logic_vector( 127 downto 0 );
+
+--ch1 signals
+signal ch1DmaRequestLatched:  std_logic_vector( 1 downto 0 );
+signal ch1DmaPointer:         std_logic_vector( 31 downto 0 );
+signal ch1DmaBufPointer:      std_logic_vector( 6 downto 0 );
+
+--ch1 registers
+signal ch1DmaPointerStart:    std_logic_vector( 31 downto 0 );
+signal ch1DmaRequest0Length:  std_logic_vector( 7 downto 0 );
+signal ch1DmaRequest1Length:  std_logic_vector( 7 downto 0 );
+signal ch1DmaRequest0PtrAdd:  std_logic_vector( 15 downto 0 );
+signal ch1DmaRequest1PtrAdd:  std_logic_vector( 15 downto 0 );
+
+
 
 begin
 
 -- negative reset
 resetn   <= not reset;
+
+--set unused signals, ports
+
+--place ch1 buf ram
+
+dmaCh1BufRamInst:dmaCh1BufRam
+port map(
+      clka     => m00_axi_aclk,
+      wea      => ch1BufAWr,
+      addra    => ch1BufAA,
+      dina     => ch1BufADin,
+--    douta:  OUT   std_logic_vector( 127 downto 0 );
+
+      clkb     => ch1BufClock,
+      web      => "0",
+      addrb    => ch1BufA,
+      dinb     => ( others => '0' ),
+      doutb    => ch1BufDOut
+);
+
 
 
 axiDMAMaster: process( m00_axi_aclk )
@@ -114,7 +179,6 @@ begin
 
          m00_axi_arid            <= x"0";
          m00_axi_arlen           <= ( others => '0' );
---         m00_axi_arsize          <= "010";   --32 bits
          m00_axi_arsize          <= "100";   --128 bits
          m00_axi_arburst         <= "01";    --burst type: increment
          m00_axi_arlock          <= '0';
@@ -129,7 +193,6 @@ begin
          m00_axi_awid            <= x"0";
          m00_axi_awlen           <= ( others => '0' );
 
---         m00_axi_awsize          <= "010";   --32 bits
          m00_axi_awsize          <= "100";   --128 bits
 
          m00_axi_awburst         <= "01";    --burst type: increment
@@ -146,13 +209,40 @@ begin
          m00_axi_wlast           <= '1';
          m00_axi_bready          <= '0';
 
---       fsm reset
-         
+--       fsm reset         
          axiState                <= asIdle;
          ch0Ready                <= '0';
          ch0Dout                 <= ( others => '0' );
+
+--       ch1 buf, dma side
+         ch1BufAA                <= ( others => '0' );
+         ch1BufAWr               <= "0";
+         ch1BufADin              <= ( others => '0') ;
+         
+--       ch1
+         ch1DmaRequestLatched    <= ( others => '0' );
+         ch1DmaBufPointer        <= ( others => '0' );
                   
       else
+
+         --latch ch1 dma requests
+        if ch1DmaRequest( 0 ) = '1' then
+         
+            ch1DmaRequestLatched( 0 ) <= '1';
+        
+        end if;
+        
+        if ch1DmaRequest( 1 ) = '1' then
+         
+            ch1DmaRequestLatched( 1 ) <= '1';
+            
+        end if;
+        
+        if ch1DmaPointerReset = '1' then
+        
+            ch1DmaPointer <= ch1DmaPointerStart;
+        
+        end if;
       
          case axiState is
          
@@ -160,7 +250,20 @@ begin
             
                ch0Ready <= '0';
 
-               if ch0CE = '1' then
+               --check ch1 access
+               if ch1DmaRequestLatched( 0 ) = '1' then
+         
+                  ch1DmaBufPointer     <= "0000000";                       
+            
+                  axiState    <= asCh1Read0;
+                        
+               elsif ch1DmaRequestLatched( 1 ) = '1' then
+         
+                  ch1DmaBufPointer    <= "1000000";                       
+            
+                  axiState    <= asCh1Read0;
+            
+               elsif ch0CE = '1' then
                
                   if ch0Wr = '1' then
                   
@@ -176,8 +279,7 @@ begin
                end if;               
          
             when asCh0Read0 =>
-            
-              
+                          
                --read
                m00_axi_araddr    <= x"0" & ch0A( 27 downto 4 ) & x"0";    --128 bit adr
                m00_axi_arvalid   <= '1';
@@ -318,7 +420,72 @@ begin
                   axiState <= asIdle;
                
                end if;
+
+            when asCh1Read0 =>
             
+               m00_axi_araddr <= ch1DmaPointer;
+               
+               if ch1DmaRequestLatched( 0 ) = '1' then
+                  
+                  m00_axi_arlen  <= ch1DmaRequest0Length;
+               
+               else
+
+                  m00_axi_arlen  <= ch1DmaRequest1Length;
+               
+               end if;
+               
+               m00_axi_rready    <= '0';
+               
+               m00_axi_arvalid   <= '1';
+               
+               if m00_axi_arready = '1' then
+               
+                  axiState <= asCh1Read1;
+               
+               end if;
+            
+            when asCh1Read1 =>
+            
+               m00_axi_arvalid   <= '0';
+               m00_axi_rready    <= '1';
+               
+               if m00_axi_rvalid = '1' then
+               
+                  ch1BufAA    <= ch1DmaBufPointer;
+                  ch1BufADIn  <= m00_axi_rdata;
+                  ch1BufAWr   <= "1";
+                  
+                  ch1DmaBufPointer  <= std_logic_vector( unsigned( ch1DmaBufPointer ) + 1 );
+                  
+                  if m00_axi_rlast = '1' then
+                  
+                     axiState <= asCh1Read2;
+                  
+                  end if;
+                  
+               end if; 
+               
+            when asCh1Read2 =>
+            
+               ch1BufAWr         <= "0";
+               m00_axi_rready    <= '0';
+               m00_axi_arvalid   <= '0';
+               
+               ch1DmaRequestLatched <= "00";
+               
+               if ch1DmaRequestLatched( 0 ) = '1' then
+
+                  ch1DmaPointer  <= std_logic_vector( unsigned( ch1DmaPointer ) + unsigned( ch1DmaRequest0PtrAdd ) );
+            
+               else
+            
+                  ch1DmaPointer  <= std_logic_vector( unsigned( ch1DmaPointer ) + unsigned( ch1DmaRequest1PtrAdd ) );
+            
+               end if;
+
+               axiState <= asIdle;
+               
             when others =>
             
                axiState <= asIdle;
@@ -346,6 +513,12 @@ begin
          registerState     <= rsWaitForRegAccess;
          ready             <= '0';
       
+         ch1DmaRequest0Length <= x"36";   --54 128-bit words,  864 bytes, 432 pixels
+         ch1DmaRequest1Length <= x"36";   --54 128-bit words,  864 bytes, 432 pixels
+         ch1DmaRequest0PtrAdd <= x"0400"; --row width 1024 bytes, 512 pixels
+         ch1DmaRequest1PtrAdd <= x"0400"; --row width 1024 bytes, 512 pixels
+                  
+         ch1DmaPointerStart   <= ( others => '0' );
          
       else
             

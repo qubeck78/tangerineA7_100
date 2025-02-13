@@ -7,7 +7,7 @@
 BSP_T                   *bsp     = ( BSP_T *)                  0xf0000000; //registers base address 
 _VGA_REGISTERS_T        *vga     = ( _VGA_REGISTERS_T * )      0xf0100000; //vga registers base address
 
-#define TEXTATTR 0x7f00
+#define TEXTATTR 0x0f00
 
 uint16_t *displayRam;
 uint32_t  screenIndex;
@@ -68,10 +68,12 @@ int main()
    uint32_t          i;
    volatile uint32_t j;
    uint32_t          k;
+   uint32_t          x;
+   uint32_t          y;
 
 
-   //160x45 column txt mode only
-   vga->vmMode    = _VIDEOMODE_TEXT160_ONLY; 
+   //160x45 column txt over gfx mode 
+   vga->vmMode    = _VIDEOMODE_426_TEXT160_OVER_GFX; 
 
    vga->pgCursorX = 0;
    vga->pgCursorY = 12;
@@ -86,6 +88,14 @@ int main()
    for( i = 0; i < 7200 ; i++ )
    {
      displayRam[i] = TEXTATTR;
+   }
+
+   for( y = 0; y < 240; y++ )
+   {
+      for( x = 0; x < 432; x++ )
+      {
+         ddr[ x + 512 * y ] = 0;
+      }
    }
 
    print( (char*) "\n" );   
@@ -146,14 +156,19 @@ int main()
    
       for( j = 0; j < 10000; j++ );
 
+   for( y = 0; y < 240; y++ )
+   {
+      for( x = 0; x < 426; x++ )
+      {
+         ddr[ x + 512 * y ] = randomNumber();
+      }
+   }
+
       if( k == 0 )
       {
-         for( i = 160 * 15; i < 160 * 45 ; i++ )
+         for( i = 160 * 30; i < 160 * 45 ; i++ )
          {
             displayRam[i] = randomNumber();
-
-/*            displayRam[i] = ddr[i];
-            ddr[i] = randomNumber();*/
          }
       }
 
