@@ -164,7 +164,7 @@ port(
    --dma interface ( gfx mode line data buffer, dma requests )
    gfxFbRamClock:    out   std_logic;
    gfxFbRamDIn:      in  std_logic_vector( 31 downto 0 );
-   gfxFbRamA:        out std_logic_vector( 8 downto 0 );    --2 buffers, 256 long words each
+   gfxFbRamA:        out std_logic_vector( 10 downto 0 );    --2 buffers, 1024 long words each
 
     --2 dma requests
    vgaDMARequest:    out std_logic_vector( 1 downto 0 );
@@ -213,7 +213,7 @@ port (
    ch1DmaPointerReset:  in    std_logic;
    
    ch1BufClock:         in    std_logic;
-   ch1BufA:             in    std_logic_vector( 8 downto 0 );
+   ch1BufA:             in    std_logic_vector( 10 downto 0 );
    ch1BufDOut:          out   std_logic_vector( 31 downto 0 );
 
    --axi master bus
@@ -336,6 +336,32 @@ port(
    );
 end component; 
 
+--SPI
+component SPI is
+port(
+
+   --cpu interface
+   reset:      in  std_logic;
+   clock:      in  std_logic;
+
+   a:          in    std_logic_vector( 15 downto 0 );
+   din:        in    std_logic_vector( 31 downto 0 );
+   dout:       out   std_logic_vector( 31 downto 0 );
+   
+   ce:         in    std_logic;
+   wr:         in    std_logic;
+   dataMask:   in    std_logic_vector( 3 downto 0 );
+   
+   ready:      out   std_logic;
+   
+   --spi interface
+   sclk:       out std_logic;
+   mosi:       out std_logic;
+   miso:       in  std_logic
+   
+);
+end component;
+
 --signals
 
 signal reset:  std_logic;
@@ -390,6 +416,15 @@ signal uartCE:          std_logic;
 signal uartDoutForCPU:  std_logic_vector( 31 downto 0 );
 signal uartReady:       std_logic;
 
+--spi signals
+signal spiCE:            std_logic;
+signal spiDoutForCPU:    std_logic_vector( 31 downto 0 );
+signal spiReady:         std_logic;
+
+signal spiSClk:          std_logic;
+signal spiMOSI:          std_logic;
+signal spiMISO:          std_logic; 
+
 --vga signals
 signal vgaCE:           std_logic;
 signal vgaDOutForCPU:   std_logic_vector( 31 downto 0 );
@@ -412,7 +447,7 @@ signal dmaRegsReady:       std_logic;
 --dma ch1 - vga
 signal ch1DmaRequest:      std_logic_vector( 1 downto 0 );
 signal ch1BufClock:        std_logic;
-signal ch1BufA:            std_logic_vector( 8 downto 0 );
+signal ch1BufA:            std_logic_vector( 10 downto 0 );
 signal ch1BufDOut:         std_logic_vector( 31 downto 0 );
 
 --fast RAM signals
@@ -431,15 +466,14 @@ reset    <= not resetn;
 --drive unused signals, ports
 
 
-sdMciDat    <= ( others => 'Z' );
-sdMciCmd    <= '1';
-sdMciClk    <= '1';
-
-
 -- assign gpi/gpo
 
 gpi         <= ( others => '0' );
-leds        <= gpo( 31 downto 30 );
+
+leds( 0 )   <= gpo( 30 );
+leds( 1 )   <= gpo( 31 );
+
+sdMciDat(3) <= gpo( 0 );   --sd card cs
 
 
 -- sync VSync to main clock
@@ -636,11 +670,11 @@ port map(
    vgaCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f01" else '0';   
    dmaRegsCE      <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f02" else '0';
    uartCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f04" else '0';
+   spiCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f05" else '0';
    
 --    fastRamCE       <= '1' when ( cpuMemValid = '1'  ) and cpuAOutFull( 31 downto 28 ) = x"3" else '0';
 --    blitterRegsCE   <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f02" else '0';
 --    usbHostCE       <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f03" else '0';
---    spiCE           <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f05" else '0';
 --    i2sCE           <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f06" else '0';  
 --    fpAluCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0a" else '0';
     
@@ -654,10 +688,10 @@ port map(
                         else vgaReady  when vgaCE = '1'
                         else dmaRegsReady when dmaRegsCE = '1'  
                         else uartReady when uartCE = '1' 
+                        else spiReady when spiCE = '1' 
 --                        else fastRamReady when fastRamCE = '1' 
 --                        else blitterRegsReady when blitterRegsCE = '1' 
 --                        else usbHostReady when usbHostCE = '1' 
---                        else spiReady when spiCE = '1' 
 --                        else i2sReady when i2sCE = '1' 
 --                        else fpAluReady when fpAluCE = '1' 
                         else '1';
@@ -672,10 +706,10 @@ port map(
                         vgaDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f01" else 
                         dmaRegsDOutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f02" else
                         uartDoutForCPU                            when cpuAOutFull( 31 downto 20 ) = x"f04" else
+                        spiDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f05" else
 --                        fastRamDoutForCPU                         when cpuAOutFull( 31 downto 28 ) = x"3"  else
 --                        blitterRegsDoutForCPU                     when cpuAOutFull( 31 downto 20 ) = x"f02" else
 --                        usbHostDoutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f03" else 
---                        spiDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f05" else
 --                        i2sDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f06" else 
 --                        fpAluDoutForCPU                           when cpuAOutFull( 31 downto 20 ) = x"f0a" else  
                         x"00000000";
@@ -747,13 +781,13 @@ port map(
    clock       => mainClock,
    a           => cpuAOut( 15 downto 0 ),
    din         => cpuDOut,
---   dout:             out   std_logic_vector( 31 downto 0 );
+   dout        => dmaRegsDOutForCPU,
    
-   ce          => '0',
+   ce          => dmaRegsCE,
    wr          => cpuWr,
    dataMask    => cpuDataMask,
    
---   ready:            out   std_logic;
+   ready       => dmaRegsReady,
 
    --ch0 - cpu access to axi ram
    ch0A                 => cpuAOutFull,
@@ -870,5 +904,36 @@ port map(
   
 );  
 
+-- place SD card SPI   
+-- spi cs assigned in gpo section
+
+sdMciClk    <= spiSClk;
+sdMciCmd    <= spiMOSI;
+spiMISO     <= sdMciDat( 0 );
+sdMciDat(2 downto 0 )   <= "ZZZ";
+   
+SPIInst:SPI
+port map(
+
+   --cpu interface
+   reset       => reset,
+   clock       => mainClockD2,
+
+   a           => cpuAOut( 15 downto 0 ),
+   din         => cpuDOut,
+   dout        => spiDoutForCPU,
+   
+   ce          => spiCE,
+   wr          => cpuWr,
+   dataMask    => cpuDataMask,
+   
+   ready       => spiReady,
+   
+   --spi interface
+   sclk        => spiSClk,
+   mosi        => spiMOSI,
+   miso        => spiMISO
+   
+); 
 
 end Behavioral;

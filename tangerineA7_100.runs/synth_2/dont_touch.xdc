@@ -3,9 +3,6 @@
 
 # XDC: new/tangerineA7_100.xdc
 
-# IP: ip/systemRam/systemRam.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==systemRam || ORIG_REF_NAME==systemRam} -quiet] -quiet
-
 # Block Designs: bd/tangerineA7_100/tangerineA7_100.bd
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7_100 || ORIG_REF_NAME==tangerineA7_100} -quiet] -quiet
 
@@ -57,6 +54,9 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7
 # IP: ip/mig_7series_tangerine/mig_7series_tangerine.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mig_7series_tangerine || ORIG_REF_NAME==mig_7series_tangerine} -quiet] -quiet
 
+# IP: bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_2_0/tangerineA7_100_clk_wiz_2_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7_100_clk_wiz_2_0 || ORIG_REF_NAME==tangerineA7_100_clk_wiz_2_0} -quiet] -quiet
+
 # IP: bd/tangerineA7_100/ip/tangerineA7_100_tangerineSOC_0_0/tangerineA7_100_tangerineSOC_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7_100_tangerineSOC_0_0 || ORIG_REF_NAME==tangerineA7_100_tangerineSOC_0_0} -quiet] -quiet
 
@@ -73,10 +73,10 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fontPROM ||
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fastRam || ORIG_REF_NAME==fastRam} -quiet] -quiet
 
 # IP: ip/systemRam/systemRam.xci
-#dup# set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==systemRam || ORIG_REF_NAME==systemRam} -quiet] -quiet
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==systemRam || ORIG_REF_NAME==systemRam} -quiet] -quiet
 
-# IP: bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_2_0/tangerineA7_100_clk_wiz_2_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7_100_clk_wiz_2_0 || ORIG_REF_NAME==tangerineA7_100_clk_wiz_2_0} -quiet] -quiet
+# IP: bd/tangerineA7_100/ip/tangerineA7_100_xlslice_1_0/tangerineA7_100_xlslice_1_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7_100_xlslice_1_0 || ORIG_REF_NAME==tangerineA7_100_xlslice_1_0} -quiet] -quiet
 
 # XDC: c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_0_0/tangerineA7_100_clk_wiz_0_0_board.xdc
 set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==tangerineA7_100_clk_wiz_0_0 || ORIG_REF_NAME==tangerineA7_100_clk_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet

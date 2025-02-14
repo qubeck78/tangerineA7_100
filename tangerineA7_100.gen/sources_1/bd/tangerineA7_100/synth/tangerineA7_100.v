@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Thu Feb 13 14:02:39 2025
+//Date        : Fri Feb 14 18:25:47 2025
 //Host        : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 //Command     : generate_target tangerineA7_100.bd
 //Design      : tangerineA7_100
@@ -10,7 +10,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "tangerineA7_100,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=tangerineA7_100,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=9,numReposBlks=9,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=3,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_board_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "tangerineA7_100.hwdef" *) 
+(* CORE_GENERATION_INFO = "tangerineA7_100,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=tangerineA7_100,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=10,numReposBlks=10,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=3,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_board_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "tangerineA7_100.hwdef" *) 
 module tangerineA7_100
    (button0,
     button1,
@@ -60,7 +60,7 @@ module tangerineA7_100
   output hdmiClkP;
   output [2:0]hdmiDN;
   output [2:0]hdmiDP;
-  output led0;
+  output [0:0]led0;
   output [0:0]led1;
   output sdMciClk;
   output sdMciCmd;
@@ -84,7 +84,7 @@ module tangerineA7_100
   wire clk_wiz_1_locked;
   wire clk_wiz_2_clk162_5;
   wire clk_wiz_2_clk162_5ps;
-  wire clk_wiz_2_clk81_25;
+  wire clk_wiz_2_clk40_625;
   wire hdmiOut_0_hdmiClkN;
   wire hdmiOut_0_hdmiClkP;
   wire [2:0]hdmiOut_0_hdmiDN;
@@ -149,6 +149,7 @@ module tangerineA7_100
   wire tangerineSOC_0_vgaVS;
   wire uartRxd_1;
   wire [0:0]xlslice_0_Dout;
+  wire [0:0]xlslice_1_Dout;
 
   assign button0_1 = button0;
   assign button1_1 = button1;
@@ -167,7 +168,7 @@ module tangerineA7_100
   assign hdmiClkP = hdmiOut_0_hdmiClkP;
   assign hdmiDN[2:0] = hdmiOut_0_hdmiDN;
   assign hdmiDP[2:0] = hdmiOut_0_hdmiDP;
-  assign led0 = clk_wiz_0_locked;
+  assign led0[0] = xlslice_1_Dout;
   assign led1[0] = xlslice_0_Dout;
   assign sdMciClk = tangerineSOC_0_sdMciClk;
   assign sdMciCmd = tangerineSOC_0_sdMciCmd;
@@ -189,7 +190,7 @@ module tangerineA7_100
   tangerineA7_100_clk_wiz_2_0 clk_wiz_2
        (.clk162_5(clk_wiz_2_clk162_5),
         .clk162_5ps(clk_wiz_2_clk162_5ps),
-        .clk81_25(clk_wiz_2_clk81_25),
+        .clk40_625(clk_wiz_2_clk40_625),
         .clk_in1(tangerineMIGWrapper_0_ui_clk),
         .resetn(button0_1));
   tangerineA7_100_hdmiOut_0_0 hdmiOut_0
@@ -344,7 +345,7 @@ module tangerineA7_100
         .m00_axi_wstrb(tangerineSOC_0_m00_axi_WSTRB),
         .m00_axi_wvalid(tangerineSOC_0_m00_axi_WVALID),
         .mainClock(clk_wiz_2_clk162_5),
-        .mainClockD2(clk_wiz_2_clk81_25),
+        .mainClockD2(clk_wiz_2_clk40_625),
         .mainClockPs(clk_wiz_2_clk162_5ps),
         .pixelClock(clk_wiz_0_clk25),
         .resetn(clk_wiz_1_locked),
@@ -364,4 +365,7 @@ module tangerineA7_100
   tangerineA7_100_xlslice_0_0 xlslice_0
        (.Din(tangerineSOC_0_leds),
         .Dout(xlslice_0_Dout));
+  tangerineA7_100_xlslice_1_0 xlslice_1
+       (.Din(tangerineSOC_0_leds),
+        .Dout(xlslice_1_Dout));
 endmodule

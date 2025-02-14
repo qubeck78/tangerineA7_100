@@ -10,7 +10,8 @@ use UNISIM.VComponents.all;
 entity rootRegisters is
 generic(
 
-    clockFreq               : integer := 100000000
+--    clockFreq               : integer := 100000000
+    clockFreq               : integer := 162500000
 
 );
 
@@ -69,8 +70,14 @@ signal frameTimerPrvVsync:          std_logic;
 signal mtimeTimer:                  std_logic_vector( 63 downto 0 );
 signal mtimeTimerCmp:               std_logic_vector( 63 downto 0 );
 
+-- gpo register
+signal gpoRegister:                 std_logic_vector( 31 downto 0 );
 
 begin
+
+--assign gpo
+
+gpo   <= gpoRegister;
 
 registers: process( all )
 begin
@@ -79,7 +86,7 @@ begin
    
       if reset = '1' then
       
-         gpo               <= ( others => '1' );
+         gpoRegister       <= ( others => '1' );
          mtimeIrq          <= '0';
          
          registerState     <= rsWaitForRegAccess;
@@ -131,7 +138,7 @@ begin
                      --0x04 r- component version                       
                      when x"01" =>
                      
-                        dout  <= x"20250212";
+                        dout  <= x"20250214";
 
                      --0x08 w- tickTimerReset                       
                      when x"02" =>
@@ -164,11 +171,11 @@ begin
                      --0x14 rw gpo
                      when x"05" =>
                      
-                        dout  <= gpo;
+                        dout  <= gpoRegister;
                         
                         if wr = '1' then
                         
-                           gpo   <= din;
+                           gpoRegister   <= din;
                            
                         end if;
 

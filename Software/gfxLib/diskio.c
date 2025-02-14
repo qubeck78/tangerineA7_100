@@ -29,26 +29,11 @@
 
 
 #include "diskio.h"     /* Common include file for FatFs and disk I/O layer */
-//#include "system.h"
 #include "unistd.h"
 #include "bsp.h"
 #include "gfFont.h"
 extern tgfTextOverlay   con;
 
-/*-------------------------------------------------------------------------*/
-/* Platform dependent macros and functions needed to be modified           */
-/*-------------------------------------------------------------------------*/
-
-//#define   INIT_PORT() init_port() /* Initialize MMC control port (CS/CLK/DI:output, DO/WP/INS:input) */
-//#define dly_us(n) usleep(n) /* Delay n microseconds */
-
-//#define CS_H()      IOWR(CS_SPI_BASE, 0, 1) /* Set MMC CS "high" */
-//#define CS_L()      IOWR(CS_SPI_BASE, 0, 0) /* Set MMC CS "low" */
-//#define CK_H()      IOWR(CLK_SPI_BASE, 0, 1)    /* Set MMC SCLK "high" */
-//#define CK_L()      IOWR(CLK_SPI_BASE, 0, 0)    /* Set MMC SCLK "low" */
-//#define DI_H()      IOWR(DI_SPI_BASE, 0, 1) /* Set MMC DI "high" */
-//#define DI_L()      IOWR(DI_SPI_BASE, 0, 0) /* Set MMC DI "low" */
-//#define DO          IORD(DO_SPI_BASE, 0)    /* Get MMC DO value (high:true, low:false) */
 
 #define INS         (1)         /* Card is inserted (yes:true, no:false, default:true) */
 #define WP          (0)         /* Card is write protected (yes:true, no:false, default:false) */
@@ -107,13 +92,10 @@ DWORD get_fattime()
 /*init_port()*/
 static void init_port (void)
 {
-//  IOWR(DO_SPI_BASE, 1, 0);
-//  IOWR(DI_SPI_BASE, 1, 1);
-//  IOWR(CS_SPI_BASE, 1, 1);
-//  IOWR(CLK_SPI_BASE, 1, 1);
+
 }
 /*-----------------------------------------------------------------------*/
-/* Transmit bytes to the MMC (bitbanging)                                */
+/* Transmit bytes to the MMC                                             */
 /*-----------------------------------------------------------------------*/
 
 static
@@ -140,7 +122,7 @@ void xmit_mmc (
 
 
 /*-----------------------------------------------------------------------*/
-/* Receive bytes from the MMC (bitbanging)                               */
+/* Receive bytes from the MMC                                            */
 /*-----------------------------------------------------------------------*/
 
 static
@@ -191,7 +173,7 @@ int wait_ready (void)   /* 1:OK, 0:Timeout */
         if (d == 0xFF) return 1;
     
         for( j = 0; j < DELAYCNT100US; j++ );
-        //dly_us(100);
+
     }
 
     return 0;
@@ -207,8 +189,7 @@ static void deselectCard(void)
 {
     BYTE d;
 
-    //CS_H();
-    bsp->gpoPort |= 1;
+    bsp->gpo |= 1;
     
     rcvr_mmc(&d, 1);
 }
@@ -221,9 +202,8 @@ static void deselectCard(void)
 
 static int selectCard(void)   /* 1:OK, 0:Timeout */
 {
-    //CS_L();
     
-    bsp->gpoPort &= ( 1 ^ 0xffffffff );
+    bsp->gpo &= ( 1 ^ 0xffffffff );
     
     if (!wait_ready()) {
         deselectCard();
@@ -254,7 +234,6 @@ int rcvr_datablock (    /* 1:OK, 0:Failed */
         if (d[0] != 0xFF) break;
         
         for( j = 0; j < DELAYCNT100US; j++ );
-        //dly_us(100);
     }
     if (d[0] != 0xFE) return 0;     /* If not valid data token, retutn with error */
 
@@ -398,7 +377,7 @@ DSTATUS disk_initialize (
 
     //CS_H();
     
-    bsp->gpoPort |= 1;
+    bsp->gpo |= 1;
     
     for (n = 10; n; n--) rcvr_mmc(buf, 1);  /* 80 dummy clocks */
 

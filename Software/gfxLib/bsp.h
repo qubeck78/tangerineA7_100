@@ -9,8 +9,6 @@ extern "C"
 
 //Memory regions
 
-//7.5MB
-//#define _SYSTEM_MEMORY_SIZE 	( 7864320 - 16)
 
 //63.5MB
 #define _SYSTEM_MEMORY_SIZE     ( 66584576 - 16)
@@ -22,23 +20,21 @@ extern "C"
 #define _VIDEOMODE_TEXT160_ONLY                 0x04
 #define _VIDEOMODE_TEXT160_90_ONLY              0x0c
 
+//426x240
 #define _VIDEOMODE_426_TEXT80_OVER_GFX          0x02
 #define _VIDEOMODE_426_TEXT160_OVER_GFX         0x06
 #define _VIDEOMODE_426_TEXT160_90_OVER_GFX      0x0e
 
+//640x360
+#define _VIDEOMODE_640_TEXT80_OVER_GFX          0x12
+#define _VIDEOMODE_640_TEXT160_OVER_GFX         0x16
+#define _VIDEOMODE_640_TEXT160_90_OVER_GFX      0x1e
 
-/*#define _VIDEOMODE_320_TEXT40_OVER_GFX          0x02
-#define _VIDEOMODE_320_TEXT80_OVER_GFX          0x06
-#define _VIDEOMODE_320_TEXT80_60_OVER_GFX       0x0e
+//1280x720
+#define _VIDEOMODE_1280_TEXT80_OVER_GFX         0x22
+#define _VIDEOMODE_1280_TEXT160_OVER_GFX        0x26
+#define _VIDEOMODE_1280_TEXT160_90_OVER_GFX     0x2e
 
-#define _VIDEOMODE_640_TEXT40_OVER_GFX          0x12
-#define _VIDEOMODE_640_TEXT80_OVER_GFX          0x16
-#define _VIDEOMODE_640_TEXT80_60_OVER_GFX       0x1e
-
-#define _VIDEOMODE_320_8BPP_TEXT40_OVER_GFX     0x22
-#define _VIDEOMODE_320_8BPP_TEXT80_OVER_GFX     0x26
-#define _VIDEOMODE_320_8BPP_TEXT80_60_OVER_GFX  0x2e
-*/
 
 #include "gfTypes.h"
 
@@ -263,9 +259,8 @@ typedef struct __AXI_DMA_REGISTERS_T
     volatile uint32_t id;
     volatile uint32_t version;
     volatile uint32_t ch1DmaPointerStart;
-    volatile uint32_t ch1DmaRequest0Modulo;
-    volatile uint32_t ch1DmaRequest1Modulo;
     volatile uint32_t ch1DmaRequestLength;
+    volatile uint32_t ch1DmaRequestPtrAdd;
 
 }_AXI_DMA_REGISTERS_T;
 
@@ -297,9 +292,8 @@ uint32_t    getTicks( void );
 void        delayMs( uint32_t delay );
 
 uint32_t    setVideoMode( uint32_t videoMode );
+void        waitVSync( void );
 void        reboot( void );
-
-
 
 
 

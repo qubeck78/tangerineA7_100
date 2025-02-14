@@ -16,7 +16,7 @@ uint32_t gfDisplayBitmap( tgfBitmap *bmp )
    #if defined( _GFXLIB_RISCV_FATFS )
    
    //bsp->dmaDisplayPointerStart = ( uint32_t )( ( uint32_t )bmp->buffer - _SYSTEM_MEMORY_BASE ) / 4;
-   sdrdma->ch3DmaPointerStart = ( uint32_t )( ( uint32_t )bmp->buffer - _SYSTEM_MEMORY_BASE ) / 4;
+   axidma->ch1DmaPointerStart = ( uint32_t )bmp->buffer;
    
    #endif
 

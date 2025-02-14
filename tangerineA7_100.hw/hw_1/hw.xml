@@ -23,7 +23,7 @@
     <Object name="xc7a100t_0" gui_info="">
       <Properties Property="FULL_PROBES.FILE" value="$_project_name_.runs/impl_2/$_project_name__wrapper.ltx"/>
       <Properties Property="PROBES.FILE" value="$_project_name_.runs/impl_2/$_project_name__wrapper.ltx"/>
-      <Properties Property="PROGRAM.HW_BITSTREAM" value="D:/Xilinx2023.1/Vivado/2023.1/data/xicom/cfgmem/bitfile/spi_xc7a100t_pullnone.bit"/>
+      <Properties Property="PROGRAM.HW_BITSTREAM" value="$_project_name_.runs/impl_2/$_project_name__wrapper.bit"/>
       <Properties Property="PROGRAM.HW_CFGMEM_PART" value="n25q64-3.3v-spi-x1_x2_x4"/>
       <Properties Property="SLR.COUNT" value="1"/>
     </Object>

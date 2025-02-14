@@ -57,12 +57,12 @@
 dmaCh1BufRam your_instance_name (
   .clka(clka),    // input wire clka
   .wea(wea),      // input wire [0 : 0] wea
-  .addra(addra),  // input wire [6 : 0] addra
+  .addra(addra),  // input wire [8 : 0] addra
   .dina(dina),    // input wire [127 : 0] dina
   .douta(douta),  // output wire [127 : 0] douta
   .clkb(clkb),    // input wire clkb
   .web(web),      // input wire [0 : 0] web
-  .addrb(addrb),  // input wire [8 : 0] addrb
+  .addrb(addrb),  // input wire [10 : 0] addrb
   .dinb(dinb),    // input wire [31 : 0] dinb
   .doutb(doutb)  // output wire [31 : 0] doutb
 );

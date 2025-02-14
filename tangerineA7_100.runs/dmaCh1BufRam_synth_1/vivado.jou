@@ -3,8 +3,8 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Thu Feb 13 11:08:45 2025
-# Process ID: 252940
+# Start of session at: Fri Feb 14 09:08:27 2025
+# Process ID: 28964
 # Current directory: C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/dmaCh1BufRam_synth_1
 # Command line: vivado.exe -log dmaCh1BufRam.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source dmaCh1BufRam.tcl
 # Log file: C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/dmaCh1BufRam_synth_1/dmaCh1BufRam.vds
