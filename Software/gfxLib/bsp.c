@@ -9,13 +9,13 @@
 
 BSP_T *bsp                              = ( BSP_T *)                        0xf0000000; //registers base address
 _VGA_REGISTERS_T *vga                   = ( _VGA_REGISTERS_T * )            0xf0100000; //vga registers base address
-_AXI_DMA_REGISTERS_T *axidma            = ( _AXIDMA_REGISTERS_T *)          0xf0200000; //sdram dma base address;
+_AXI_DMA_REGISTERS_T *axidma            = ( _AXI_DMA_REGISTERS_T *)         0xf0200000; //sdram dma base address;
 _UART_REGISTERS_T *uart0                = ( _UART_REGISTERS_T *)            0xf0400000; //uart 0 base address
+_SPI_REGISTERS_T *spi0                  = ( _SPI_REGISTERS_T *)             0xf0500000; //spi 0 base address
 
 
 _BLITTER_REGISTERS_T *blt               = ( _BLITTER_REGISTERS_T *)         0xf0f00000; //blitter base address
 _USBHOST_REGISTERS_T *usbhost           = ( _USBHOST_REGISTERS_T *)         0xf0f00000; //hid usb host base address
-_SPI_REGISTERS_T *spi0                  = ( _SPI_REGISTERS_T *)             0xf0f00000; //spi 0 base address
 _AUDIO_REGISTERS_T *aud                 = ( _AUDIO_REGISTERS_T*)            0xf0f00000; //i2s audio base address
 _FPALU_REGISTERS_T *fpalu               = ( _FPALU_REGISTERS_T * )          0xf0f00000; //fpalu base address
 
@@ -32,6 +32,7 @@ void _fini(void) { }
 
 #ifdef __cplusplus
 extern "C" 
+{
 #endif
 int _write ( int file, const void * ptr, size_t len ) 
 {
@@ -57,17 +58,35 @@ int _write ( int file, const void * ptr, size_t len )
     }
 }
 
+void *malloc( size_t size )
+{
+    return osAlloc( size, OS_ALLOC_MEMF_CHIP ); 
+}
+
+void free( void *mem )
+{
+    osFree( mem ); 
+}
+
+void* realloc( void *oldmem, size_t bytes )
+{
+    return osRealloc( oldmem, bytes, OS_ALLOC_MEMF_CHIP );
+}
+
+#ifdef __cplusplus
+}
+#endif
 
 uint32_t bspInit()
 {
-    randomSeed = 3242323459 + ( bsp->tickTimerValue << 16 ) ^ ( bsp->tickTimerValue ^ 0xef122333 );
+    randomSeed = 3242323459 + ( bsp->tickTimerCounter << 16 ) ^ ( bsp->tickTimerCounter ^ 0xef122333 );
 
     osAllocInit();
- //   osAllocAddNode( 0, ( void* )_SYSTEM_MEMORY_BASE, _SYSTEM_MEMORY_SIZE, OS_ALLOC_MEMF_CHIP );
+    osAllocAddNode( 0, ( void* )_SYSTEM_MEMORY_BASE, _SYSTEM_MEMORY_SIZE, OS_ALLOC_MEMF_CHIP );
     
-	//osAllocAddNode( 1, ( void* )_SDRAM_MEMORY_BASE, _SDRAM_MEMORY_SIZE, OS_ALLOC_MEMF_FAST );
+    //osAllocAddNode( 1, ( void* )_SDRAM_MEMORY_BASE, _SDRAM_MEMORY_SIZE, OS_ALLOC_MEMF_FAST );
 
-    bsp->videoMuxMode       = _VIDEOMODE_TEXT160_ONLY; //text mode: 160x45, 720p 
+    vga->vmMode       = _VIDEOMODE_TEXT160_ONLY; //text mode: 160x45, 720p 
     
     //connect gfxlib con to hardware text overlay   
     con.type                = GF_TEXT_OVERLAY_TYPE_HARDWARE;
@@ -81,8 +100,6 @@ uint32_t bspInit()
     con.textBuffer          = (uint8_t*) 0x10000000; //hw text mode buffer address
 
     toCls( &con );
-
-    con.width               = 40;               //default 40x30 console
 
     con.textAttributes      = 0x8f; 
 
@@ -181,62 +198,89 @@ void delayMs( uint32_t delay )
 
 uint32_t setVideoMode( uint32_t videoMode )
 {
-    bsp->videoMuxMode = videoMode;
+    uint32_t    i;
+
     
-    //check textmode: 40 or 80 column and adjust console width
-    if( videoMode & _VIDEOMODE_TEXT80_ONLY )
+    i = ( videoMode >> 2 ) & 3;
+
+    switch( i )
     {
-        con.width = 80;
-    }
-    else
-    {
-        con.width = 40;     
-    }
+        case 0:
 
-    if( videoMode & 0x10 )
-    {
-        
-        //640 x 480
+            //80x45
 
-        //adjust dma request modulos to achieve continuous data throughout x scan line
-        //line size: 1024 pixels, 512 longwords
-        sdrdma->ch3DmaRequest0Modulo = 0;
-        sdrdma->ch3DmaRequest1Modulo = 192;   
-        
-        //dma request length: 160 long words ( 2 requests per line )
-        sdrdma->ch3DmaRequestLength     = 0x9f;
-    }
-    else
-    {
-        //320 x 240
+            con.width   = 80;
+            con.height  = 45;
 
-        if( videoMode & 0x20 )
-        {
-            //8bpp
+            break;
 
-            //adjust dma request modulos to have 512 pixels, 128 longwords odd & even scan lines
-            sdrdma->ch3DmaRequest0Modulo = 0x30;
-            sdrdma->ch3DmaRequest1Modulo = 0x30;   
+        case 1:
 
-            //dma request length: 80 long words ( 1 request per two lines )
-            sdrdma->ch3DmaRequestLength  = 0x4f;
+            //160x45
 
-        }
-        else
-        {        
-            //16bpp
+            con.width   = 160;
+            con.height  = 45;
 
-            //adjust dma request modulos to have 512 pixels, 256 longwords odd & even scan lines
-            sdrdma->ch3DmaRequest0Modulo = 0x60;
-            sdrdma->ch3DmaRequest1Modulo = 0x60;   
+            break;
 
-            //dma request length: 160 long words ( 1 request per two lines )
-            sdrdma->ch3DmaRequestLength  = 0x9f;
-        }
+        case 2:
+            //160x90
+
+            con.width   = 160;
+            con.height  = 90;
+
+            break;
+
+        default:
+            return 1;
     }
 
+
+    i = ( videoMode >> 4 ) & 3;
+    
+    switch( i )
+    {
+     
+        case 0:
+            
+            //426x240
+
+            axidma->ch1DmaRequestLength = 0x36;     //54 128-bit words, 864 bytes, 432 pixels
+            axidma->ch1DmaRequestPtrAdd = 0x400;    //row width 1024 bytes, 512 pixels    
+
+            break;
+
+        case 1:
+            
+            //640x360
+            
+            axidma->ch1DmaRequestLength = 0x50;     //80 128-bit words, 1280 bytes, 640 pixels
+            axidma->ch1DmaRequestPtrAdd = 0x800;    //row width 2048 bytes, 1024 pixels    
+
+            break;
+
+        case 2:
+
+            //1280x720
+
+            axidma->ch1DmaRequestLength = 0xa0;      //160 128-bit words, 2560 bytes, 1280 pixels
+            axidma->ch1DmaRequestPtrAdd = 0x1000;    //row width 4096 bytes, 2048 pixels  
+            
+            break;
+
+        default:
+            return 1;
+
+    }
+
+    vga->vmMode = videoMode;
 
     return 0;
+}
+
+void waitVSync()
+{
+    do{}while( ! vga->pgVSync ); 
 }
 
 void reboot()

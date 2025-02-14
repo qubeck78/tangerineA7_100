@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x6D31A7B1BD4FE8EE",
+      "boundary_crc": "0xB88FCE641EEC5E50",
       "device": "xc7a100tfgg676-1",
       "gen_directory": "../../../../tangerineA7_100.gen/sources_1/bd/tangerineA7_100",
       "name": "tangerineA7_100",
@@ -19,6 +19,7 @@
       "system_ila_0": "",
       "tangerineMIGWrapper_0": "",
       "clk_wiz_2": "",
+      "xlslice_1": "",
       "tangerineSOC_0": ""
     },
     "ports": {
@@ -71,7 +72,9 @@
         "direction": "I"
       },
       "led0": {
-        "direction": "O"
+        "direction": "O",
+        "left": "0",
+        "right": "0"
       },
       "led1": {
         "direction": "O",
@@ -406,13 +409,13 @@
             "value": "200.0"
           },
           "CLKOUT1_JITTER": {
-            "value": "162.035"
+            "value": "142.107"
           },
           "CLKOUT1_PHASE_ERROR": {
             "value": "164.985"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "100.000"
+            "value": "200.000"
           },
           "CLKOUT2_JITTER": {
             "value": "162.035"
@@ -424,7 +427,7 @@
             "value": "190"
           },
           "CLKOUT2_USED": {
-            "value": "true"
+            "value": "false"
           },
           "CLKOUT3_JITTER": {
             "value": "192.113"
@@ -436,7 +439,7 @@
             "value": "50"
           },
           "CLKOUT3_USED": {
-            "value": "true"
+            "value": "false"
           },
           "CLKOUT4_JITTER": {
             "value": "142.107"
@@ -448,10 +451,10 @@
             "value": "200"
           },
           "CLKOUT4_USED": {
-            "value": "true"
+            "value": "false"
           },
           "CLK_OUT1_PORT": {
-            "value": "clk100"
+            "value": "clk200"
           },
           "CLK_OUT2_PORT": {
             "value": "clk100ps"
@@ -472,22 +475,22 @@
             "value": "10.0"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "10.000"
+            "value": "5.000"
           },
           "MMCM_CLKOUT1_DIVIDE": {
-            "value": "10"
+            "value": "1"
           },
           "MMCM_CLKOUT1_PHASE": {
             "value": "189.000"
           },
           "MMCM_CLKOUT2_DIVIDE": {
-            "value": "20"
+            "value": "1"
           },
           "MMCM_CLKOUT3_DIVIDE": {
-            "value": "5"
+            "value": "1"
           },
           "NUM_OUT_CLKS": {
-            "value": "4"
+            "value": "1"
           },
           "PRIM_IN_FREQ": {
             "value": "50"
@@ -1038,6 +1041,18 @@
           "CLKOUT3_USED": {
             "value": "true"
           },
+          "CLKOUT4_JITTER": {
+            "value": "186.987"
+          },
+          "CLKOUT4_PHASE_ERROR": {
+            "value": "116.055"
+          },
+          "CLKOUT4_REQUESTED_OUT_FREQ": {
+            "value": "40.625"
+          },
+          "CLKOUT4_USED": {
+            "value": "true"
+          },
           "CLK_OUT1_PORT": {
             "value": "clk162_5"
           },
@@ -1046,6 +1061,9 @@
           },
           "CLK_OUT3_PORT": {
             "value": "clk162_5ps"
+          },
+          "CLK_OUT4_PORT": {
+            "value": "clk40_625"
           },
           "MMCM_CLKFBOUT_MULT_F": {
             "value": "10.000"
@@ -1068,8 +1086,11 @@
           "MMCM_CLKOUT2_PHASE": {
             "value": "189.000"
           },
+          "MMCM_CLKOUT3_DIVIDE": {
+            "value": "20"
+          },
           "NUM_OUT_CLKS": {
-            "value": "3"
+            "value": "4"
           },
           "PRIM_IN_FREQ": {
             "value": "81.250"
@@ -1082,6 +1103,17 @@
           },
           "RESET_TYPE": {
             "value": "ACTIVE_LOW"
+          }
+        }
+      },
+      "xlslice_1": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "tangerineA7_100_xlslice_1_0",
+        "xci_path": "ip\\tangerineA7_100_xlslice_1_0\\tangerineA7_100_xlslice_1_0.xci",
+        "inst_hier_path": "xlslice_1",
+        "parameters": {
+          "DIN_WIDTH": {
+            "value": "2"
           }
         }
       },
@@ -1437,7 +1469,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "81250000",
+                "value": "40625000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -1639,7 +1671,6 @@
       "clk_wiz_0_locked": {
         "ports": [
           "clk_wiz_0/locked",
-          "led0",
           "hdmiOut_0/resetn"
         ]
       },
@@ -1671,9 +1702,9 @@
           "tangerineSOC_0/mainClockPs"
         ]
       },
-      "clk_wiz_2_clk81_25": {
+      "clk_wiz_2_clk40_625": {
         "ports": [
-          "clk_wiz_2/clk81_25",
+          "clk_wiz_2/clk40_625",
           "tangerineSOC_0/mainClockD2"
         ]
       },
@@ -1785,7 +1816,8 @@
       "tangerineSOC_0_leds": {
         "ports": [
           "tangerineSOC_0/leds",
-          "xlslice_0/Din"
+          "xlslice_0/Din",
+          "xlslice_1/Din"
         ]
       },
       "tangerineSOC_0_sdMciClk": {
@@ -1852,6 +1884,12 @@
         "ports": [
           "xlslice_0/Dout",
           "led1"
+        ]
+      },
+      "xlslice_1_Dout": {
+        "ports": [
+          "xlslice_1/Dout",
+          "led0"
         ]
       }
     },

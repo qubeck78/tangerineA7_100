@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Thu Feb 13 14:09:42 2025
+| Date         : Fri Feb 14 18:33:06 2025
 | Host         : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 | Command      : report_drc -file tangerineA7_100_wrapper_drc_routed.rpt -pb tangerineA7_100_wrapper_drc_routed.pb -rpx tangerineA7_100_wrapper_drc_routed.rpx
 | Design       : tangerineA7_100_wrapper
@@ -24,20 +24,21 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 139
-+-----------+----------+----------------------------+------------+
-| Rule      | Severity | Description                | Violations |
-+-----------+----------+----------------------------+------------+
-| CHECK-3   | Warning  | Report rule limit reached  | 1          |
-| DPIP-1    | Warning  | Input pipelining           | 24         |
-| DPOP-1    | Warning  | PREG Output pipelining     | 6          |
-| DPOP-2    | Warning  | MREG Output pipelining     | 12         |
-| DPOR-1    | Warning  | Asynchronous load check    | 70         |
-| PDCN-1569 | Warning  | LUT equation term check    | 4          |
-| REQP-1709 | Warning  | Clock output buffering     | 1          |
-| REQP-1839 | Warning  | RAMB36 async control check | 20         |
-| RTSTAT-10 | Warning  | No routable loads          | 1          |
-+-----------+----------+----------------------------+------------+
+             Violations found: 141
++-----------+----------+---------------------------------+------------+
+| Rule      | Severity | Description                     | Violations |
++-----------+----------+---------------------------------+------------+
+| CHECK-3   | Warning  | Report rule limit reached       | 1          |
+| DPIP-1    | Warning  | Input pipelining                | 24         |
+| DPOP-1    | Warning  | PREG Output pipelining          | 6          |
+| DPOP-2    | Warning  | MREG Output pipelining          | 12         |
+| DPOR-1    | Warning  | Asynchronous load check         | 70         |
+| PDCN-1569 | Warning  | LUT equation term check         | 4          |
+| REQP-1709 | Warning  | Clock output buffering          | 1          |
+| REQP-1839 | Warning  | RAMB36 async control check      | 20         |
+| RPBF-3    | Warning  | IO port buffering is incomplete | 2          |
+| RTSTAT-10 | Warning  | No routable loads               | 1          |
++-----------+----------+---------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
@@ -608,22 +609,22 @@ Related violations: <none>
 
 PDCN-1569#1 Warning
 LUT equation term check  
-Used physical LUT pin 'A1' of cell tangerineA7_100_i/tangerineSOC_0/inst/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin tangerineA7_100_i/tangerineSOC_0/inst/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A6)+((~A6)*(~A5)*A3)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Used physical LUT pin 'A1' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I0) is not included in the LUT equation: 'O5=(A2*A3)+(A2*(~A3)*(~A4))+((~A2))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
 Related violations: <none>
 
 PDCN-1569#2 Warning
 LUT equation term check  
-Used physical LUT pin 'A3' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1/I0) is not included in the LUT equation: 'O6=(A6+~A6)*((A2))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Used physical LUT pin 'A2' of cell tangerineA7_100_i/tangerineSOC_0/inst/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin tangerineA7_100_i/tangerineSOC_0/inst/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A6)+((~A6)*(~A5)*A3)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
 Related violations: <none>
 
 PDCN-1569#3 Warning
 LUT equation term check  
-Used physical LUT pin 'A4' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I0) is not included in the LUT equation: 'O5=(A1*A2)+(A1*(~A2)*(~A3))+((~A1))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Used physical LUT pin 'A3' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.id_state[0]_i_1/I0) is not included in the LUT equation: 'O6=(A6+~A6)*((A1))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
 Related violations: <none>
 
 PDCN-1569#4 Warning
 LUT equation term check  
-Used physical LUT pin 'A5' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I1) is not included in the LUT equation: 'O5=(A1*A2)+(A1*(~A2)*(~A3))+((~A1))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Used physical LUT pin 'A5' of cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1 (pin dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/temp_curid[31]_i_1/I1) is not included in the LUT equation: 'O5=(A2*A3)+(A2*(~A3)*(~A4))+((~A2))'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
 Related violations: <none>
 
 REQP-1709#1 Warning
@@ -731,12 +732,22 @@ RAMB36 async control check
 The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[18].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[18].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[18].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/wr_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 Related violations: <none>
 
+RPBF-3#1 Warning
+IO port buffering is incomplete  
+Device port sdMciDat[0] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#2 Warning
+IO port buffering is incomplete  
+Device port sdMciDat[3] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
 RTSTAT-10#1 Warning
 No routable loads  
 37 net(s) have no routable loads. The problem bus(es) and/or net(s) are dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD1/ctl_reg_en_2[1],
 dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i,
-dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow,
 dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2],
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwhf.whf/overflow,
 dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg[0],
 dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2],
 dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD7_CTL/ctl_reg[2:0],

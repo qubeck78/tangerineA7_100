@@ -101,6 +101,7 @@ read_vhdl -vhdl2019 -library xil_defaultlib {
   C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/pixelGenGfx.vhd
   C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/pixelGenTxt.vhd
   C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/rootRegisters.vhd
+  C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/spi/spi.vhd
   C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/uart/uart.vhd
   C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/vga.vhd
   C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/videoMux.vhd

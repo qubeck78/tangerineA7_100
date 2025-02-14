@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Thu Feb 13 14:02:39 2025
+//Date        : Fri Feb 14 18:25:47 2025
 //Host        : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 //Command     : generate_target tangerineA7_100_wrapper.bd
 //Design      : tangerineA7_100_wrapper
@@ -59,7 +59,7 @@ module tangerineA7_100_wrapper
   output hdmiClkP;
   output [2:0]hdmiDN;
   output [2:0]hdmiDP;
-  output led0;
+  output [0:0]led0;
   output [0:0]led1;
   output sdMciClk;
   output sdMciCmd;
@@ -88,7 +88,7 @@ module tangerineA7_100_wrapper
   wire hdmiClkP;
   wire [2:0]hdmiDN;
   wire [2:0]hdmiDP;
-  wire led0;
+  wire [0:0]led0;
   wire [0:0]led1;
   wire sdMciClk;
   wire sdMciCmd;

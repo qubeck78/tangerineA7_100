@@ -37,7 +37,7 @@ port (
    ch1DmaPointerReset:  in    std_logic;
    
    ch1BufClock:         in    std_logic;
-   ch1BufA:             in    std_logic_vector( 8 downto 0 );
+   ch1BufA:             in    std_logic_vector( 10 downto 0 );
    ch1BufDOut:          out   std_logic_vector( 31 downto 0 );
 
    --axi master bus
@@ -95,13 +95,13 @@ component dmaCh1BufRam is
 port(
     clka:   in    std_logic;
     wea:    IN    std_logic_vector( 0 downto 0 );
-    addra:  IN    std_logic_vector( 6 downto 0 );
+    addra:  IN    std_logic_vector( 8 downto 0 );
     dina:   IN    std_logic_vector( 127 downto 0 );
     douta:  OUT   std_logic_vector( 127 downto 0 );
 
     clkb:   IN    std_logic;
     web:    IN    std_logic_vector( 0 downto 0 );
-    addrb:  IN    std_logic_vector( 8 downto 0 );
+    addrb:  IN    std_logic_vector( 10 downto 0 );
     dinb:   IN    std_logic_vector( 31 downto 0 );
     doutb:  OUT   std_logic_vector( 31 downto 0 )
 );
@@ -123,21 +123,19 @@ signal axiState:       axiState_T;
 
 --ch1 buf dma side
 
-signal ch1BufAA:     std_logic_vector( 6 downto 0 );
+signal ch1BufAA:     std_logic_vector( 8 downto 0 );
 signal ch1BufAWr:    std_logic_vector( 0 downto 0 );
 signal ch1BufADin:   std_logic_vector( 127 downto 0 );
 
 --ch1 signals
 signal ch1DmaRequestLatched:  std_logic_vector( 1 downto 0 );
 signal ch1DmaPointer:         std_logic_vector( 31 downto 0 );
-signal ch1DmaBufPointer:      std_logic_vector( 6 downto 0 );
+signal ch1DmaBufPointer:      std_logic_vector( 8 downto 0 );
 
 --ch1 registers
 signal ch1DmaPointerStart:    std_logic_vector( 31 downto 0 );
-signal ch1DmaRequest0Length:  std_logic_vector( 7 downto 0 );
-signal ch1DmaRequest1Length:  std_logic_vector( 7 downto 0 );
-signal ch1DmaRequest0PtrAdd:  std_logic_vector( 15 downto 0 );
-signal ch1DmaRequest1PtrAdd:  std_logic_vector( 15 downto 0 );
+signal ch1DmaRequestLength:   std_logic_vector( 7 downto 0 );
+signal ch1DmaRequestPtrAdd:  std_logic_vector( 15 downto 0 );
 
 
 
@@ -253,13 +251,13 @@ begin
                --check ch1 access
                if ch1DmaRequestLatched( 0 ) = '1' then
          
-                  ch1DmaBufPointer     <= "0000000";                       
+                  ch1DmaBufPointer     <= "000000000";                       
             
                   axiState    <= asCh1Read0;
                         
                elsif ch1DmaRequestLatched( 1 ) = '1' then
          
-                  ch1DmaBufPointer    <= "1000000";                       
+                  ch1DmaBufPointer    <= "100000000";                       
             
                   axiState    <= asCh1Read0;
             
@@ -425,15 +423,7 @@ begin
             
                m00_axi_araddr <= ch1DmaPointer;
                
-               if ch1DmaRequestLatched( 0 ) = '1' then
-                  
-                  m00_axi_arlen  <= ch1DmaRequest0Length;
-               
-               else
-
-                  m00_axi_arlen  <= ch1DmaRequest1Length;
-               
-               end if;
+               m00_axi_arlen  <= ch1DmaRequestLength;
                
                m00_axi_rready    <= '0';
                
@@ -474,15 +464,7 @@ begin
                
                ch1DmaRequestLatched <= "00";
                
-               if ch1DmaRequestLatched( 0 ) = '1' then
-
-                  ch1DmaPointer  <= std_logic_vector( unsigned( ch1DmaPointer ) + unsigned( ch1DmaRequest0PtrAdd ) );
-            
-               else
-            
-                  ch1DmaPointer  <= std_logic_vector( unsigned( ch1DmaPointer ) + unsigned( ch1DmaRequest1PtrAdd ) );
-            
-               end if;
+               ch1DmaPointer  <= std_logic_vector( unsigned( ch1DmaPointer ) + unsigned( ch1DmaRequestPtrAdd ) );
 
                axiState <= asIdle;
                
@@ -513,10 +495,8 @@ begin
          registerState     <= rsWaitForRegAccess;
          ready             <= '0';
       
-         ch1DmaRequest0Length <= x"36";   --54 128-bit words,  864 bytes, 432 pixels
-         ch1DmaRequest1Length <= x"36";   --54 128-bit words,  864 bytes, 432 pixels
-         ch1DmaRequest0PtrAdd <= x"0400"; --row width 1024 bytes, 512 pixels
-         ch1DmaRequest1PtrAdd <= x"0400"; --row width 1024 bytes, 512 pixels
+         ch1DmaRequestLength <= x"36";   --54 128-bit words,  864 bytes, 432 pixels
+         ch1DmaRequestPtrAdd <= x"0400"; --row width 1024 bytes, 512 pixels
                   
          ch1DmaPointerStart   <= ( others => '0' );
          
@@ -546,9 +526,41 @@ begin
                      --0x04 r- component version                       
                      when x"01" =>
                      
-                        dout  <= x"20250212";
+                        dout  <= x"20250214";
 
+                     --0x08 rw ch1DmaPointerStart                       
+                     when x"02" =>
+                     
+                        dout  <= ch1DmaPointerStart;
                         
+                        if wr = '1' then
+                        
+                           ch1DmaPointerStart   <= din;
+                        
+                        end if;
+                        
+                     --0x0c rw ch1DmaRequestLength                       
+                     when x"03" =>
+                     
+                        dout  <= x"000000" & ch1DmaRequestLength;
+                        
+                        if wr = '1' then
+                        
+                           ch1DmaRequestLength   <= din( 7 downto 0 );
+                        
+                        end if;
+
+                     --0x10 rw ch1DmaRequestPtrAdd                       
+                     when x"04" =>
+                     
+                        dout  <= x"0000" & ch1DmaRequestPtrAdd;
+                        
+                        if wr = '1' then
+                        
+                           ch1DmaRequestPtrAdd   <= din( 15 downto 0 );
+                        
+                        end if;
+
                      when others =>
                      
                         dout  <= ( others => '0' );

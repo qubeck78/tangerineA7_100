@@ -69,6 +69,8 @@ static uint32_t findInArray( uint8_t element, uint8_t *array, int arrayLength )
   return -1;
 }
 
+#ifdef _GFXLIB_USB_HOST
+
 uint32_t usbHIDInit()
 {
    int i;
@@ -354,6 +356,7 @@ uint32_t usbHIDGetMouse( uint32_t *pmouseX, uint32_t *pmouseY, uint32_t *pmouseB
 
    return 0;
 }
+
 uint32_t usbHIDHandleEvents( void )
 {
    uint32_t    currKeys;
@@ -472,3 +475,35 @@ uint32_t usbHIDHandleEvents( void )
    return 0;
 }
 
+#else
+
+uint32_t usbHIDInit()
+{
+   return 1;
+}
+
+uint32_t usbHIDSetMousePointerShape( tgfBitmap *pointerBitmap )
+{
+   return 1;
+}
+
+uint32_t usbHIDSetMousePointerVisibility( uint32_t visible )
+{
+   return 1;
+}
+
+uint32_t usbHidSetMouseReporting( uint32_t enable )
+{
+   return 1;
+}
+
+uint32_t usbHIDGetMouse( uint32_t *pmouseX, uint32_t *pmouseY, uint32_t *pmouseButtons )
+{
+   return 1;
+}
+
+uint32_t usbHIDHandleEvents( void )
+{
+   return 1;
+}
+#endif

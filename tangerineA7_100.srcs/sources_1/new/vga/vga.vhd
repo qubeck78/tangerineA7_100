@@ -32,7 +32,7 @@ port(
    --dma interface ( gfx mode line data buffer, dma requests )
    gfxFbRamClock:    out   std_logic;
    gfxFbRamDIn:      in    std_logic_vector( 31 downto 0 );
-   gfxFbRamA:        out   std_logic_vector( 8 downto 0 );    --2 buffers, 256 long words each
+   gfxFbRamA:        out   std_logic_vector( 10 downto 0 );    --2 buffers, 1024 long words each
 
     --2 dma requests
    vgaDMARequest:    out   std_logic_vector( 1 downto 0 );
@@ -138,7 +138,7 @@ port(
 
    --gfx buffer ram
    gfxBufRamDOut:    in  std_logic_vector( 31 downto 0 );
-   gfxBufRamRdA:     out std_logic_vector( 8 downto 0 );
+   gfxBufRamRdA:     out std_logic_vector( 10 downto 0 );
 
    --2 dma requests
    pggDMARequest:    out std_logic_vector( 1 downto 0 );
@@ -385,6 +385,7 @@ port map(
    -- 720p sync:
    -- 00 : 426x240x16
    -- 01 : 640x360x16
+   -- 10 : 1280x720x16
 
    pgVideoMode    => vmMode( 5 downto 4 ),
    
@@ -473,7 +474,7 @@ begin
                      --0x04 r- component version                       
                      when x"01" =>
                      
-                        dout  <= x"20250210";
+                        dout  <= x"20250214";
 
                      --0x08 rw vmMode
                      when x"02" =>

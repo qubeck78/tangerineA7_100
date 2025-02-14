@@ -7,7 +7,7 @@
 BSP_T                   *bsp     = ( BSP_T *)                  0xf0000000; //registers base address 
 _VGA_REGISTERS_T        *vga     = ( _VGA_REGISTERS_T * )      0xf0100000; //vga registers base address
 
-#define TEXTATTR 0x0f00
+#define TEXTATTR 0x8f00
 
 uint16_t *displayRam;
 uint32_t  screenIndex;
@@ -87,7 +87,7 @@ int main()
    
    for( i = 0; i < 7200 ; i++ )
    {
-     displayRam[i] = TEXTATTR;
+     displayRam[i] = 0;
    }
 
    for( y = 0; y < 240; y++ )
@@ -99,22 +99,22 @@ int main()
    }
 
    print( (char*) "\n" );   
-   print( (char*) "        |.\\__/.|    (~\\ \n" );
-   print( (char*) "        | O O  |     ) ) \n" );
-   print( (char*) "      _.|  T   |_   ( (  \n" );   
-   print( (char*) "   .-- ((---- ((-------. \n" );
-   print( (char*) "   |  RISC-V           | \n" );
-   print( (char*) "   |  tangerine A7_100 | \n" );
-   print( (char*) "   |                   | \n" );
-   print( (char*) "   |  Bootloader test  | \n" );
-   print( (char*) "   `-------------------` \n" );
+   print( (char*) "      |.\\__/.|    (~\\  \n" );
+   print( (char*) "      | O O  |     ) ) \n" );
+   print( (char*) "    _.|  T   |_   ( (  \n" );   
+   print( (char*) " .-- ((---- ((-------. \n" );
+   print( (char*) " |  RISC-V           | \n" );
+   print( (char*) " |  tangerine A7_100 | \n" );
+   print( (char*) " |                   | \n" );
+   print( (char*) " |  Bootloader test  | \n" );
+   print( (char*) " `-------------------` \n" );
 
 
    k = 0;
    do
    {
       
-      screenIndex = 160 * 10;
+      screenIndex = 160 * 11;
 
       for( i = 0; i < 160; i++ )
       {
@@ -156,16 +156,18 @@ int main()
    
       for( j = 0; j < 10000; j++ );
 
-   for( y = 0; y < 240; y++ )
-   {
-      for( x = 0; x < 426; x++ )
-      {
-         ddr[ x + 512 * y ] = randomNumber();
-      }
-   }
 
       if( k == 0 )
       {
+
+         for( y = 0; y < 240; y++ )
+         {
+            for( x = 0; x < 426; x++ )
+            {
+               ddr[ x + 512 * y ] = randomNumber();
+            }
+         }
+
          for( i = 160 * 30; i < 160 * 45 ; i++ )
          {
             displayRam[i] = randomNumber();

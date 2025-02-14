@@ -451,7 +451,7 @@ int main()
    spaceDistance( i ); print( (char*) ".---- ((---- ((------------.\n" );
    spaceDistance( i ); print( (char*) "| tangerineA7_100 Wukong   |\n" );
    spaceDistance( i ); print( (char*) "| Powered by nekoRV        |\n" );
-   spaceDistance( i ); print( (char*) "| Bootloader32IM B20250210 |\n" );
+   spaceDistance( i ); print( (char*) "| Bootloader32IM B20250213 |\n" );
    spaceDistance( i ); print( (char*) "| SOC B" );
    print( buf);
    print( (char*)"            |\n" );
@@ -563,7 +563,16 @@ int main()
 
    }while( uartData != 'S' );
 
-   print( (char*)"\n\nReceiving:'" );
+   screenIndex = 160 * 22 + 50;
+
+   for( i = 0; i < 60; i++ )
+   {
+      print( (char*) " " );
+   }
+
+   screenIndex = 160 * 22 + 50;
+
+   print( (char*)"Receiving:'" );
 
    uartGetS( buf, sizeof( buf ) );
    //print( buf );
