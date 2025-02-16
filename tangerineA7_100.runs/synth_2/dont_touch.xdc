@@ -72,6 +72,12 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==ps2Controll
 # IP: ip/uartFiFo/uartFiFo.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==uartFiFo || ORIG_REF_NAME==uartFiFo} -quiet] -quiet
 
+# IP: ip/cacheTagRam/cacheTagRam.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==cacheTagRam || ORIG_REF_NAME==cacheTagRam} -quiet] -quiet
+
+# IP: ip/cacheDataRam/cacheDataRam.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==cacheDataRam || ORIG_REF_NAME==cacheDataRam} -quiet] -quiet
+
 # IP: ip/dmaCh1BufRam/dmaCh1BufRam.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dmaCh1BufRam || ORIG_REF_NAME==dmaCh1BufRam} -quiet] -quiet
 

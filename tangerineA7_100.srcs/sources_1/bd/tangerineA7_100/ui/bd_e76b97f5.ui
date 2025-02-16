@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.0",
-   "Default View_TopLeft":"434,747",
+   "Default View_TopLeft":"87,3",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
 #  -string -flagsOSRD
@@ -52,6 +52,8 @@ preplace netloc Net1 1 2 1 710 680n
 preplace netloc Net2 1 3 1 NJ 700
 preplace netloc Net3 1 3 1 NJ 720
 preplace netloc Net4 1 3 1 NJ 740
+preplace netloc Net5 1 2 2 N 1010 NJ
+preplace netloc Net6 1 2 2 N 1030 NJ
 preplace netloc Net7 1 2 2 NJ 1050 NJ
 preplace netloc Net8 1 2 2 NJ 1070 NJ
 preplace netloc button0_1 1 0 1 30 260n
@@ -95,8 +97,6 @@ preplace netloc tangerineSOC_0_vgaVS 1 2 1 680 380n
 preplace netloc uartRxd_1 1 0 2 NJ 1000 NJ
 preplace netloc xlslice_0_Dout 1 3 1 NJ 1230
 preplace netloc xlslice_1_Dout 1 3 1 NJ 1130
-preplace netloc Net5 1 2 2 N 1010 NJ
-preplace netloc Net6 1 2 2 N 1030 NJ
 preplace netloc tangerineSOC_0_m00_axi 1 2 1 610 60n
 levelinfo -pg 1 0 140 450 860 1060
 pagesize -pg 1 -db -bbox -sgen -110 0 1220 1290

@@ -150,6 +150,8 @@ OPTRACE "add files" START { }
   read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/fastRam/fastRam.xci
   read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/dmaCh1BufRam/dmaCh1BufRam.xci
   read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/ps2ControllerFifo/ps2ControllerFifo.xci
+  read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/cacheDataRam/cacheDataRam.xci
+  read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/cacheTagRam/cacheTagRam.xci
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
   read_xdc C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/constrs_1/new/tangerineA7_100.xdc

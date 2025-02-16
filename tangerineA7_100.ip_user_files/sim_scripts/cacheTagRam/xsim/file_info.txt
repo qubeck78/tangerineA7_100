@@ -1,0 +1,2 @@
+cacheTagRam.v,verilog,xil_defaultlib,../../../../tangerineA7_100.gen/sources_1/ip/cacheTagRam/sim/cacheTagRam.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v
