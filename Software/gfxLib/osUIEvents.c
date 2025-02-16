@@ -3,6 +3,7 @@
 #ifdef _GFXLIB_RISCV_FATFS
 
 #include "usbHID.h"
+#include "ps2Host.h"
 
 #endif
 
@@ -29,6 +30,12 @@ uint32_t osUIEventsInit()
    #ifdef _GFXLIB_USB_HOST
 
    rv = usbHIDInit();
+
+   #endif
+
+   #ifdef _GFXLIB_PS2_HOST
+
+   rv = ps2HostInit();
 
    #endif
    
@@ -93,6 +100,14 @@ uint32_t osGetUIEvent( tosUIEvent *event )
    //poll USB HID
 
    usbHIDHandleEvents();
+
+   #endif
+
+   #ifdef _GFXLIB_PS2_HOST
+
+   //poll PS2 host
+   
+   ps2HostHandleEvents();
 
    #endif
 

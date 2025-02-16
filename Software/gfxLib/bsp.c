@@ -10,6 +10,7 @@
 BSP_T *bsp                              = ( BSP_T *)                        0xf0000000; //registers base address
 _VGA_REGISTERS_T *vga                   = ( _VGA_REGISTERS_T * )            0xf0100000; //vga registers base address
 _AXI_DMA_REGISTERS_T *axidma            = ( _AXI_DMA_REGISTERS_T *)         0xf0200000; //sdram dma base address;
+_PS2HOST_REGISTERS_T *ps2Host           = ( _PS2HOST_REGISTERS_T * )        0xf0300000; //ps2 keyboard/mouse host controller
 _UART_REGISTERS_T *uart0                = ( _UART_REGISTERS_T *)            0xf0400000; //uart 0 base address
 _SPI_REGISTERS_T *spi0                  = ( _SPI_REGISTERS_T *)             0xf0500000; //spi 0 base address
 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Feb 14 18:25:49 2025" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Feb 15 21:42:18 2025" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a100t" NAME="tangerineA7_100" PACKAGE="fgg676" SPEEDGRADE="-1"/>
 
@@ -145,6 +145,26 @@
     <PORT DIR="O" LEFT="0" NAME="ddr3_odt" RIGHT="0" SIGIS="undef" SIGNAME="tangerineMIGWrapper_0_ddr3_odt">
       <CONNECTIONS>
         <CONNECTION INSTANCE="tangerineMIGWrapper_0" PORT="ddr3_odt"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="ps2aClock" SIGIS="undef" SIGNAME="External_Ports_ps2aClock">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tangerineSOC_0" PORT="ps2aClock"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="ps2aData" SIGIS="undef" SIGNAME="External_Ports_ps2aData">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tangerineSOC_0" PORT="ps2aData"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="ps2bClock" SIGIS="undef" SIGNAME="External_Ports_ps2bClock">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tangerineSOC_0" PORT="ps2bClock"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="ps2bData" SIGIS="undef" SIGNAME="External_Ports_ps2bData">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tangerineSOC_0" PORT="ps2bData"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -6659,6 +6679,26 @@
         <PORT DIR="O" NAME="sdMciClk" SIGIS="undef" SIGNAME="tangerineSOC_0_sdMciClk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="sdMciClk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="IO" NAME="ps2aClock" SIGIS="undef" SIGNAME="External_Ports_ps2aClock">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ps2aClock"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="IO" NAME="ps2aData" SIGIS="undef" SIGNAME="External_Ports_ps2aData">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ps2aData"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="IO" NAME="ps2bClock" SIGIS="undef" SIGNAME="External_Ports_ps2bClock">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ps2bClock"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="IO" NAME="ps2bData" SIGIS="undef" SIGNAME="External_Ports_ps2bData">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ps2bData"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="0" NAME="buttons" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_button1">

@@ -1,97 +1,105 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.765028",
-   "Default View_TopLeft":"-276,5",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"434,747",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
 #  -string -flagsOSRD
-preplace port port-id_sysClk50 -pg 1 -lvl 0 -x 0 -y 430 -defaultsOSRD
-preplace port port-id_uartTxd -pg 1 -lvl 4 -x 1020 -y 340 -defaultsOSRD
-preplace port port-id_uartRxd -pg 1 -lvl 0 -x 0 -y 300 -defaultsOSRD
-preplace port port-id_button0 -pg 1 -lvl 0 -x 0 -y 340 -defaultsOSRD
-preplace port port-id_button1 -pg 1 -lvl 0 -x 0 -y 320 -defaultsOSRD
-preplace port port-id_hdmiClkP -pg 1 -lvl 4 -x 1020 -y 120 -defaultsOSRD
-preplace port port-id_hdmiClkN -pg 1 -lvl 4 -x 1020 -y 140 -defaultsOSRD
-preplace port port-id_sdMciCmd -pg 1 -lvl 4 -x 1020 -y 280 -defaultsOSRD
-preplace port port-id_sdMciClk -pg 1 -lvl 4 -x 1020 -y 320 -defaultsOSRD
-preplace port port-id_ddr3_cas_n -pg 1 -lvl 4 -x 1020 -y 810 -defaultsOSRD
-preplace port port-id_ddr3_ras_n -pg 1 -lvl 4 -x 1020 -y 890 -defaultsOSRD
-preplace port port-id_ddr3_reset_n -pg 1 -lvl 4 -x 1020 -y 910 -defaultsOSRD
-preplace port port-id_ddr3_we_n -pg 1 -lvl 4 -x 1020 -y 930 -defaultsOSRD
-preplace portBus led0 -pg 1 -lvl 4 -x 1020 -y 630 -defaultsOSRD
-preplace portBus led1 -pg 1 -lvl 4 -x 1020 -y 530 -defaultsOSRD
-preplace portBus hdmiDP -pg 1 -lvl 4 -x 1020 -y 160 -defaultsOSRD
-preplace portBus hdmiDN -pg 1 -lvl 4 -x 1020 -y 180 -defaultsOSRD
-preplace portBus sdMciDat -pg 1 -lvl 4 -x 1020 -y 300 -defaultsOSRD
-preplace portBus ddr3_addr -pg 1 -lvl 4 -x 1020 -y 770 -defaultsOSRD
-preplace portBus ddr3_ba -pg 1 -lvl 4 -x 1020 -y 790 -defaultsOSRD
-preplace portBus ddr3_ck_n -pg 1 -lvl 4 -x 1020 -y 830 -defaultsOSRD
-preplace portBus ddr3_ck_p -pg 1 -lvl 4 -x 1020 -y 850 -defaultsOSRD
-preplace portBus ddr3_cke -pg 1 -lvl 4 -x 1020 -y 870 -defaultsOSRD
-preplace portBus ddr3_dq -pg 1 -lvl 4 -x 1020 -y 950 -defaultsOSRD
-preplace portBus ddr3_dqs_n -pg 1 -lvl 4 -x 1020 -y 970 -defaultsOSRD
-preplace portBus ddr3_dqs_p -pg 1 -lvl 4 -x 1020 -y 990 -defaultsOSRD
-preplace portBus ddr3_dm -pg 1 -lvl 4 -x 1020 -y 1010 -defaultsOSRD
-preplace portBus ddr3_odt -pg 1 -lvl 4 -x 1020 -y 1030 -defaultsOSRD
-preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 140 -y 420 -defaultsOSRD
-preplace inst hdmiOut_0 -pg 1 -lvl 3 -x 850 -y 150 -defaultsOSRD
-preplace inst clk_wiz_1 -pg 1 -lvl 1 -x 140 -y 560 -defaultsOSRD
-preplace inst xlslice_0 -pg 1 -lvl 3 -x 850 -y 530 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 2 -x 470 -y 930 -defaultsOSRD
-preplace inst system_ila_0 -pg 1 -lvl 3 -x 850 -y 410 -defaultsOSRD
-preplace inst tangerineMIGWrapper_0 -pg 1 -lvl 3 -x 850 -y 950 -defaultsOSRD
-preplace inst clk_wiz_2 -pg 1 -lvl 1 -x 140 -y 190 -defaultsOSRD
-preplace inst xlslice_1 -pg 1 -lvl 3 -x 850 -y 630 -defaultsOSRD
-preplace inst tangerineSOC_0 -pg 1 -lvl 2 -x 470 -y 240 -defaultsOSRD
-preplace netloc Net 1 2 2 650J 300 NJ
-preplace netloc Net1 1 2 1 700 930n
-preplace netloc Net2 1 3 1 NJ 950
-preplace netloc Net3 1 3 1 NJ 970
-preplace netloc Net4 1 3 1 NJ 990
-preplace netloc button0_1 1 0 1 30 180n
-preplace netloc button1_1 1 0 2 NJ 320 NJ
-preplace netloc clk_wiz_0_clk25 1 1 2 250 40 690
-preplace netloc clk_wiz_0_clk320 1 1 2 240J 30 700
-preplace netloc clk_wiz_0_clk320ps 1 1 2 290J 50 680
-preplace netloc clk_wiz_0_locked 1 1 2 310J 60 N
-preplace netloc clk_wiz_1_clk200 1 1 2 NJ 550 620
-preplace netloc clk_wiz_1_locked 1 1 2 320 430 690
-preplace netloc clk_wiz_2_clk162_5 1 1 1 300 150n
-preplace netloc clk_wiz_2_clk162_5ps 1 1 1 280 190n
-preplace netloc clk_wiz_2_clk40_625 1 1 1 260 210n
-preplace netloc hdmiOut_0_hdmiClkN 1 3 1 NJ 140
-preplace netloc hdmiOut_0_hdmiClkP 1 3 1 NJ 120
-preplace netloc hdmiOut_0_hdmiDN 1 3 1 NJ 180
-preplace netloc hdmiOut_0_hdmiDP 1 3 1 NJ 160
-preplace netloc sysClk50_1 1 0 1 20 430n
-preplace netloc tangerineMIGWrapper_0_ddr3_addr 1 3 1 NJ 770
-preplace netloc tangerineMIGWrapper_0_ddr3_ba 1 3 1 NJ 790
-preplace netloc tangerineMIGWrapper_0_ddr3_cas_n 1 3 1 NJ 810
-preplace netloc tangerineMIGWrapper_0_ddr3_ck_n 1 3 1 NJ 830
-preplace netloc tangerineMIGWrapper_0_ddr3_ck_p 1 3 1 NJ 850
-preplace netloc tangerineMIGWrapper_0_ddr3_cke 1 3 1 NJ 870
-preplace netloc tangerineMIGWrapper_0_ddr3_dm 1 3 1 NJ 1010
-preplace netloc tangerineMIGWrapper_0_ddr3_odt 1 3 1 NJ 1030
-preplace netloc tangerineMIGWrapper_0_ddr3_ras_n 1 3 1 NJ 890
-preplace netloc tangerineMIGWrapper_0_ddr3_reset_n 1 3 1 NJ 910
-preplace netloc tangerineMIGWrapper_0_ddr3_we_n 1 3 1 NJ 930
-preplace netloc tangerineMIGWrapper_0_ui_clk 1 0 4 40 290 270 70 670 690 1000
-preplace netloc tangerineSOC_0_leds 1 2 1 630 350n
-preplace netloc tangerineSOC_0_sdMciClk 1 2 2 630J 320 NJ
-preplace netloc tangerineSOC_0_sdMciCmd 1 2 2 NJ 310 1000J
-preplace netloc tangerineSOC_0_uartTX 1 2 2 660J 330 1000J
-preplace netloc tangerineSOC_0_vgaBlue 1 2 1 650 180n
-preplace netloc tangerineSOC_0_vgaDE 1 2 1 700 240n
-preplace netloc tangerineSOC_0_vgaGreen 1 2 1 630 160n
-preplace netloc tangerineSOC_0_vgaHS 1 2 1 700 200n
-preplace netloc tangerineSOC_0_vgaRed 1 2 1 630 140n
-preplace netloc tangerineSOC_0_vgaVS 1 2 1 700 220n
-preplace netloc uartRxd_1 1 0 2 NJ 300 NJ
-preplace netloc xlslice_0_Dout 1 3 1 NJ 530
-preplace netloc xlslice_1_Dout 1 3 1 NJ 630
-preplace netloc tangerineSOC_0_m00_axi 1 2 1 640 130n
-levelinfo -pg 1 0 140 470 850 1020
-pagesize -pg 1 -db -bbox -sgen -110 0 1180 1210
+preplace port port-id_sysClk50 -pg 1 -lvl 0 -x 0 -y 280 -defaultsOSRD
+preplace port port-id_uartTxd -pg 1 -lvl 4 -x 1060 -y 930 -defaultsOSRD
+preplace port port-id_uartRxd -pg 1 -lvl 0 -x 0 -y 1000 -defaultsOSRD
+preplace port port-id_button0 -pg 1 -lvl 0 -x 0 -y 260 -defaultsOSRD
+preplace port port-id_button1 -pg 1 -lvl 0 -x 0 -y 1020 -defaultsOSRD
+preplace port port-id_hdmiClkP -pg 1 -lvl 4 -x 1060 -y 280 -defaultsOSRD
+preplace port port-id_hdmiClkN -pg 1 -lvl 4 -x 1060 -y 300 -defaultsOSRD
+preplace port port-id_sdMciCmd -pg 1 -lvl 4 -x 1060 -y 970 -defaultsOSRD
+preplace port port-id_sdMciClk -pg 1 -lvl 4 -x 1060 -y 990 -defaultsOSRD
+preplace port port-id_ddr3_cas_n -pg 1 -lvl 4 -x 1060 -y 560 -defaultsOSRD
+preplace port port-id_ddr3_ras_n -pg 1 -lvl 4 -x 1060 -y 640 -defaultsOSRD
+preplace port port-id_ddr3_reset_n -pg 1 -lvl 4 -x 1060 -y 660 -defaultsOSRD
+preplace port port-id_ddr3_we_n -pg 1 -lvl 4 -x 1060 -y 680 -defaultsOSRD
+preplace port port-id_ps2aClock -pg 1 -lvl 4 -x 1060 -y 1010 -defaultsOSRD
+preplace port port-id_ps2aData -pg 1 -lvl 4 -x 1060 -y 1030 -defaultsOSRD
+preplace port port-id_ps2bClock -pg 1 -lvl 4 -x 1060 -y 1050 -defaultsOSRD
+preplace port port-id_ps2bData -pg 1 -lvl 4 -x 1060 -y 1070 -defaultsOSRD
+preplace portBus led0 -pg 1 -lvl 4 -x 1060 -y 1130 -defaultsOSRD
+preplace portBus led1 -pg 1 -lvl 4 -x 1060 -y 1230 -defaultsOSRD
+preplace portBus hdmiDP -pg 1 -lvl 4 -x 1060 -y 320 -defaultsOSRD
+preplace portBus hdmiDN -pg 1 -lvl 4 -x 1060 -y 340 -defaultsOSRD
+preplace portBus sdMciDat -pg 1 -lvl 4 -x 1060 -y 950 -defaultsOSRD
+preplace portBus ddr3_addr -pg 1 -lvl 4 -x 1060 -y 520 -defaultsOSRD
+preplace portBus ddr3_ba -pg 1 -lvl 4 -x 1060 -y 540 -defaultsOSRD
+preplace portBus ddr3_ck_n -pg 1 -lvl 4 -x 1060 -y 580 -defaultsOSRD
+preplace portBus ddr3_ck_p -pg 1 -lvl 4 -x 1060 -y 600 -defaultsOSRD
+preplace portBus ddr3_cke -pg 1 -lvl 4 -x 1060 -y 620 -defaultsOSRD
+preplace portBus ddr3_dq -pg 1 -lvl 4 -x 1060 -y 700 -defaultsOSRD
+preplace portBus ddr3_dqs_n -pg 1 -lvl 4 -x 1060 -y 720 -defaultsOSRD
+preplace portBus ddr3_dqs_p -pg 1 -lvl 4 -x 1060 -y 740 -defaultsOSRD
+preplace portBus ddr3_dm -pg 1 -lvl 4 -x 1060 -y 760 -defaultsOSRD
+preplace portBus ddr3_odt -pg 1 -lvl 4 -x 1060 -y 780 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 140 -y 270 -defaultsOSRD
+preplace inst hdmiOut_0 -pg 1 -lvl 3 -x 860 -y 310 -defaultsOSRD
+preplace inst clk_wiz_1 -pg 1 -lvl 1 -x 140 -y 930 -defaultsOSRD
+preplace inst xlslice_0 -pg 1 -lvl 3 -x 860 -y 1230 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 2 -x 450 -y 1190 -defaultsOSRD
+preplace inst system_ila_0 -pg 1 -lvl 3 -x 860 -y 80 -defaultsOSRD
+preplace inst tangerineMIGWrapper_0 -pg 1 -lvl 3 -x 860 -y 700 -defaultsOSRD
+preplace inst clk_wiz_2 -pg 1 -lvl 1 -x 140 -y 760 -defaultsOSRD
+preplace inst xlslice_1 -pg 1 -lvl 3 -x 860 -y 1130 -defaultsOSRD
+preplace inst tangerineSOC_0 -pg 1 -lvl 2 -x 450 -y 940 -defaultsOSRD
+preplace netloc Net 1 2 2 620J 960 1030J
+preplace netloc Net1 1 2 1 710 680n
+preplace netloc Net2 1 3 1 NJ 700
+preplace netloc Net3 1 3 1 NJ 720
+preplace netloc Net4 1 3 1 NJ 740
+preplace netloc Net7 1 2 2 NJ 1050 NJ
+preplace netloc Net8 1 2 2 NJ 1070 NJ
+preplace netloc button0_1 1 0 1 30 260n
+preplace netloc button1_1 1 0 2 NJ 1020 NJ
+preplace netloc clk_wiz_0_clk25 1 1 2 290 250 630
+preplace netloc clk_wiz_0_clk320 1 1 2 NJ 260 N
+preplace netloc clk_wiz_0_clk320ps 1 1 2 NJ 280 N
+preplace netloc clk_wiz_0_locked 1 1 2 300J 240 620
+preplace netloc clk_wiz_1_clk200 1 1 2 260 730 670J
+preplace netloc clk_wiz_1_locked 1 1 2 250 720 690
+preplace netloc clk_wiz_2_clk162_5 1 1 1 240 720n
+preplace netloc clk_wiz_2_clk162_5ps 1 1 1 280 760n
+preplace netloc clk_wiz_2_clk40_625 1 1 1 270 780n
+preplace netloc hdmiOut_0_hdmiClkN 1 3 1 NJ 300
+preplace netloc hdmiOut_0_hdmiClkP 1 3 1 NJ 280
+preplace netloc hdmiOut_0_hdmiDN 1 3 1 NJ 340
+preplace netloc hdmiOut_0_hdmiDP 1 3 1 NJ 320
+preplace netloc sysClk50_1 1 0 1 20 280n
+preplace netloc tangerineMIGWrapper_0_ddr3_addr 1 3 1 NJ 520
+preplace netloc tangerineMIGWrapper_0_ddr3_ba 1 3 1 NJ 540
+preplace netloc tangerineMIGWrapper_0_ddr3_cas_n 1 3 1 NJ 560
+preplace netloc tangerineMIGWrapper_0_ddr3_ck_n 1 3 1 NJ 580
+preplace netloc tangerineMIGWrapper_0_ddr3_ck_p 1 3 1 NJ 600
+preplace netloc tangerineMIGWrapper_0_ddr3_cke 1 3 1 NJ 620
+preplace netloc tangerineMIGWrapper_0_ddr3_dm 1 3 1 NJ 760
+preplace netloc tangerineMIGWrapper_0_ddr3_odt 1 3 1 NJ 780
+preplace netloc tangerineMIGWrapper_0_ddr3_ras_n 1 3 1 NJ 640
+preplace netloc tangerineMIGWrapper_0_ddr3_reset_n 1 3 1 NJ 660
+preplace netloc tangerineMIGWrapper_0_ddr3_we_n 1 3 1 NJ 680
+preplace netloc tangerineMIGWrapper_0_ui_clk 1 0 4 40 660 300 660 650 970 1010
+preplace netloc tangerineSOC_0_leds 1 2 1 610 1090n
+preplace netloc tangerineSOC_0_sdMciClk 1 2 2 NJ 990 NJ
+preplace netloc tangerineSOC_0_sdMciCmd 1 2 2 600J 1000 1030J
+preplace netloc tangerineSOC_0_uartTX 1 2 2 610J 980 1020J
+preplace netloc tangerineSOC_0_vgaBlue 1 2 1 640 340n
+preplace netloc tangerineSOC_0_vgaDE 1 2 1 700 400n
+preplace netloc tangerineSOC_0_vgaGreen 1 2 1 630 320n
+preplace netloc tangerineSOC_0_vgaHS 1 2 1 660 360n
+preplace netloc tangerineSOC_0_vgaRed 1 2 1 620 300n
+preplace netloc tangerineSOC_0_vgaVS 1 2 1 680 380n
+preplace netloc uartRxd_1 1 0 2 NJ 1000 NJ
+preplace netloc xlslice_0_Dout 1 3 1 NJ 1230
+preplace netloc xlslice_1_Dout 1 3 1 NJ 1130
+preplace netloc Net5 1 2 2 N 1010 NJ
+preplace netloc Net6 1 2 2 N 1030 NJ
+preplace netloc tangerineSOC_0_m00_axi 1 2 1 610 60n
+levelinfo -pg 1 0 140 450 860 1060
+pagesize -pg 1 -db -bbox -sgen -110 0 1220 1290
 "
 }
 {

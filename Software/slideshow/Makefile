@@ -34,8 +34,8 @@ $(TARGET).disasm: $(TARGET).elf
 $(TARGET).rec: $(TARGET).elf $(TARGET).disasm 
 	$(OBJCOPY) -O srec $(TARGET).elf $(TARGET).rec
 
-$(TARGET).elf: main.o bsp.o startup.o osAlloc.o osFile.o gfBitmap.o gfDrawing.o gfFont.o gfJPEG.o picojpeg.o diskio.o ccsbcs.o ff.o osUIEvents.o 
-	$(LD) startup.o main.o ../gfxLib/bsp.o ../gfxLib/diskio.o ../gfxLib/ccsbcs.o ../gfxLib/ff.o ../gfxLib/osAlloc.o ../gfxLib/osFile.o ../gfxLib/gfBitmap.o ../gfxLib/gfDrawing.o ../gfxLib/gfFont.o ../gfxLib/gfJPEG.o ../gfxLib/picojpeg.o ../gfxLib/osUIEvents.o  $(LIBC) $(LIBNOSYS) $(LIBM) $(LIBGCC)  -o $(TARGET).elf
+$(TARGET).elf: main.o bsp.o startup.o osAlloc.o osFile.o gfBitmap.o gfDrawing.o gfFont.o gfJPEG.o picojpeg.o diskio.o ccsbcs.o ff.o osUIEvents.o ps2Host.o
+	$(LD) startup.o main.o ../gfxLib/bsp.o ../gfxLib/diskio.o ../gfxLib/ccsbcs.o ../gfxLib/ff.o ../gfxLib/osAlloc.o ../gfxLib/osFile.o ../gfxLib/gfBitmap.o ../gfxLib/gfDrawing.o ../gfxLib/gfFont.o ../gfxLib/gfJPEG.o ../gfxLib/picojpeg.o ../gfxLib/osUIEvents.o ../gfxLib/ps2Host.o  $(LIBC) $(LIBNOSYS) $(LIBM) $(LIBGCC)  -o $(TARGET).elf
 	$(NM) $(TARGET).elf >$(TARGET).sym
 
 $(TARGET).bin: $(TARGET).elf
@@ -91,6 +91,9 @@ osUIEvents.o: ../gfxLib/osUIEvents.c
 
 usbHID.o: ../gfxLib/usbHID.c
 	$(CC) -o ../gfxLib/usbHID.o ../gfxLib/usbHID.c
+
+ps2Host.o: ../gfxLib/ps2Host.c
+	$(CC) -o ../gfxLib/ps2Host.o ../gfxLib/ps2Host.c
 
 clean:
 	rm -f *.o *.rec *.disasm *.elf *.mif *.mi *.bin *.map

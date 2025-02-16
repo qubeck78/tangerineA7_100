@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Fri Feb 14 18:25:47 2025
+//Date        : Sat Feb 15 21:42:16 2025
 //Host        : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 //Command     : generate_target tangerineA7_100_wrapper.bd
 //Design      : tangerineA7_100_wrapper
@@ -33,6 +33,10 @@ module tangerineA7_100_wrapper
     hdmiDP,
     led0,
     led1,
+    ps2aClock,
+    ps2aData,
+    ps2bClock,
+    ps2bData,
     sdMciClk,
     sdMciCmd,
     sdMciDat,
@@ -61,6 +65,10 @@ module tangerineA7_100_wrapper
   output [2:0]hdmiDP;
   output [0:0]led0;
   output [0:0]led1;
+  inout ps2aClock;
+  inout ps2aData;
+  inout ps2bClock;
+  inout ps2bData;
   output sdMciClk;
   output sdMciCmd;
   inout [3:0]sdMciDat;
@@ -90,6 +98,10 @@ module tangerineA7_100_wrapper
   wire [2:0]hdmiDP;
   wire [0:0]led0;
   wire [0:0]led1;
+  wire ps2aClock;
+  wire ps2aData;
+  wire ps2bClock;
+  wire ps2bData;
   wire sdMciClk;
   wire sdMciCmd;
   wire [3:0]sdMciDat;
@@ -120,6 +132,10 @@ module tangerineA7_100_wrapper
         .hdmiDP(hdmiDP),
         .led0(led0),
         .led1(led1),
+        .ps2aClock(ps2aClock),
+        .ps2aData(ps2aData),
+        .ps2bClock(ps2bClock),
+        .ps2bData(ps2bData),
         .sdMciClk(sdMciClk),
         .sdMciCmd(sdMciCmd),
         .sdMciDat(sdMciDat),

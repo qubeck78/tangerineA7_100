@@ -206,11 +206,9 @@ port(
 end component;
 
 --signals
-
 signal resetn:          std_logic;
 
 --registers
-
 type   regState_T is ( rsWaitForRegAccess, rsWaitForBusCycleEnd );
 signal registerState:       regState_T;
 signal pgVSyncSynClock: std_logic;

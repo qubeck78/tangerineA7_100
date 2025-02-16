@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB88FCE641EEC5E50",
+      "boundary_crc": "0xB061696FF737302E",
       "device": "xc7a100tfgg676-1",
       "gen_directory": "../../../../tangerineA7_100.gen/sources_1/bd/tangerineA7_100",
       "name": "tangerineA7_100",
@@ -169,6 +169,18 @@
         "direction": "O",
         "left": "0",
         "right": "0"
+      },
+      "ps2aClock": {
+        "direction": "IO"
+      },
+      "ps2aData": {
+        "direction": "IO"
+      },
+      "ps2bClock": {
+        "direction": "IO"
+      },
+      "ps2bData": {
+        "direction": "IO"
       }
     },
     "components": {
@@ -1572,6 +1584,18 @@
           "sdMciClk": {
             "direction": "O"
           },
+          "ps2aClock": {
+            "direction": "IO"
+          },
+          "ps2aData": {
+            "direction": "IO"
+          },
+          "ps2bClock": {
+            "direction": "IO"
+          },
+          "ps2bData": {
+            "direction": "IO"
+          },
           "buttons": {
             "direction": "I",
             "left": "0",
@@ -1633,6 +1657,30 @@
         "ports": [
           "ddr3_dqs_p",
           "tangerineMIGWrapper_0/ddr3_dqs_p"
+        ]
+      },
+      "Net5": {
+        "ports": [
+          "ps2aClock",
+          "tangerineSOC_0/ps2aClock"
+        ]
+      },
+      "Net6": {
+        "ports": [
+          "ps2aData",
+          "tangerineSOC_0/ps2aData"
+        ]
+      },
+      "Net7": {
+        "ports": [
+          "ps2bClock",
+          "tangerineSOC_0/ps2bClock"
+        ]
+      },
+      "Net8": {
+        "ports": [
+          "ps2bData",
+          "tangerineSOC_0/ps2bData"
         ]
       },
       "button0_1": {

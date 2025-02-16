@@ -1,0 +1,2 @@
+ps2ControllerFifo.v,verilog,xil_defaultlib,../../../../tangerineA7_100.gen/sources_1/ip/ps2ControllerFifo/sim/ps2ControllerFifo.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v
