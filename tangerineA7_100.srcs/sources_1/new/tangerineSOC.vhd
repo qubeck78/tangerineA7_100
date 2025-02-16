@@ -79,6 +79,16 @@ port(
    sdMciCmd:	   out   std_logic;	
    sdMciClk:	   out   std_logic;	 
 
+   --ps2 host
+   --VIVADO bug/feature? :)
+   --to get inout working in block design 'Synthesis options/Global' has to be selected while generating output products of block design
+   
+   ps2aClock:  inout    std_logic;
+   ps2aData:   inout    std_logic;
+   
+   ps2bClock:  inout    std_logic;
+   ps2bData:   inout    std_logic;
+   
    --buttons
    buttons:       in    std_logic_vector( 0 downto 0 );
     
@@ -362,6 +372,33 @@ port(
 );
 end component;
 
+component ps2Host is
+port (
+
+   --cpu interface ( registers )
+   reset:            in    std_logic;
+   clock:            in    std_logic;
+   a:                in    std_logic_vector( 15 downto 0 );
+   din:              in    std_logic_vector( 31 downto 0 );
+   dout:             out   std_logic_vector( 31 downto 0 );
+   
+   ce:               in    std_logic;
+   wr:               in    std_logic;
+   dataMask:         in    std_logic_vector( 3 downto 0 );
+   
+   ready:            out   std_logic;
+
+
+--VIVADO bug/feature? :)
+--to get inout working in block design 'Synthesis options/Global' has to be selected while generating output products of block design
+   ps2aClock:  inout    std_logic;
+   ps2aData:   inout    std_logic;
+   
+   ps2bClock:  inout    std_logic;
+   ps2bData:   inout    std_logic
+ );
+end component;
+
 --signals
 
 signal reset:  std_logic;
@@ -424,6 +461,12 @@ signal spiReady:         std_logic;
 signal spiSClk:          std_logic;
 signal spiMOSI:          std_logic;
 signal spiMISO:          std_logic; 
+
+--ps2 host signals
+signal ps2hostCE:          std_logic;
+signal ps2hostDoutForCPU:  std_logic_vector( 31 downto 0 );
+signal ps2hostReady:       std_logic;
+
 
 --vga signals
 signal vgaCE:           std_logic;
@@ -669,14 +712,13 @@ port map(
    rootRegsCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f00" else '0';   
    vgaCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f01" else '0';   
    dmaRegsCE      <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f02" else '0';
+   ps2HostCE      <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f03" else '0';
    uartCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f04" else '0';
    spiCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f05" else '0';
    
---    fastRamCE       <= '1' when ( cpuMemValid = '1'  ) and cpuAOutFull( 31 downto 28 ) = x"3" else '0';
---    blitterRegsCE   <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f02" else '0';
---    usbHostCE       <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f03" else '0';
---    i2sCE           <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f06" else '0';  
---    fpAluCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0a" else '0';
+--    blitterRegsCE   <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0f" else '0';
+--    i2sCE           <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0f" else '0';  
+--    fpAluCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0f" else '0';
     
   
 -- bus slaves ready signals mux
@@ -687,6 +729,7 @@ port map(
                         else rootRegsReady when rootRegsCE = '1' 
                         else vgaReady  when vgaCE = '1'
                         else dmaRegsReady when dmaRegsCE = '1'  
+                        else ps2HostReady when ps2HostCE = '1' 
                         else uartReady when uartCE = '1' 
                         else spiReady when spiCE = '1' 
 --                        else fastRamReady when fastRamCE = '1' 
@@ -705,13 +748,14 @@ port map(
                         rootRegsDoutForCPU                        when cpuAOutFull( 31 downto 20 ) = x"f00" else 
                         vgaDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f01" else 
                         dmaRegsDOutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f02" else
+                        ps2HostDOutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f03" else
                         uartDoutForCPU                            when cpuAOutFull( 31 downto 20 ) = x"f04" else
                         spiDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f05" else
---                        fastRamDoutForCPU                         when cpuAOutFull( 31 downto 28 ) = x"3"  else
+
 --                        blitterRegsDoutForCPU                     when cpuAOutFull( 31 downto 20 ) = x"f02" else
---                        usbHostDoutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f03" else 
 --                        i2sDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f06" else 
 --                        fpAluDoutForCPU                           when cpuAOutFull( 31 downto 20 ) = x"f0a" else  
+
                         x"00000000";
 
 -- the CPU
@@ -903,6 +947,29 @@ port map(
   uartRXD  => uartRX
   
 );  
+
+ps2HostInst:ps2Host
+port map(
+
+   --cpu interface ( registers )
+   reset       => reset,
+   clock       => mainClock,
+   a           => cpuAOut( 15 downto 0 ),
+   din         => cpuDOut,
+   dout        => ps2HostDoutForCPU,
+   
+   ce          => ps2HostCE,
+   wr          => cpuWr,
+   dataMask    => cpuDataMask,
+   
+   ready       => ps2HostReady,
+
+   ps2aClock   => ps2aClock,
+   ps2aData    => ps2aData,
+   
+   ps2bClock   => ps2bClock,
+   ps2bData    => ps2bData
+ );
 
 -- place SD card SPI   
 -- spi cs assigned in gpo section

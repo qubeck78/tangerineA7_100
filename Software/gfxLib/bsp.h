@@ -207,6 +207,24 @@ typedef struct __USBHOST_REGISTERS_T
 
 extern _USBHOST_REGISTERS_T *usbhost;
 
+
+typedef struct __PS2HOST_REGISTERS_T
+{
+    volatile uint32_t   id;
+    volatile uint32_t   version;
+
+    volatile uint32_t   keyboardData;
+    volatile uint32_t   keyboardStatus;
+
+    volatile uint32_t   mouseData;
+    volatile uint32_t   mouseStatus;
+
+}_PS2HOST_REGISTERS_T;
+
+extern _PS2HOST_REGISTERS_T *ps2Host;
+
+
+
 typedef struct __UART_REGISTERS_T
 {
     volatile uint32_t id;

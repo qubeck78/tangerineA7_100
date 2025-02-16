@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Fri Feb 14 18:25:47 2025
+//Date        : Sat Feb 15 21:42:16 2025
 //Host        : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 //Command     : generate_target tangerineA7_100.bd
 //Design      : tangerineA7_100
@@ -34,6 +34,10 @@ module tangerineA7_100
     hdmiDP,
     led0,
     led1,
+    ps2aClock,
+    ps2aData,
+    ps2bClock,
+    ps2bData,
     sdMciClk,
     sdMciCmd,
     sdMciDat,
@@ -62,6 +66,10 @@ module tangerineA7_100
   output [2:0]hdmiDP;
   output [0:0]led0;
   output [0:0]led1;
+  inout ps2aClock;
+  inout ps2aData;
+  inout ps2bClock;
+  inout ps2bData;
   output sdMciClk;
   output sdMciCmd;
   inout [3:0]sdMciDat;
@@ -74,6 +82,10 @@ module tangerineA7_100
   wire [15:0]Net2;
   wire [1:0]Net3;
   wire [1:0]Net4;
+  wire Net5;
+  wire Net6;
+  wire Net7;
+  wire Net8;
   wire button0_1;
   wire button1_1;
   wire clk_wiz_0_clk25;
@@ -348,6 +360,10 @@ module tangerineA7_100
         .mainClockD2(clk_wiz_2_clk40_625),
         .mainClockPs(clk_wiz_2_clk162_5ps),
         .pixelClock(clk_wiz_0_clk25),
+        .ps2aClock(ps2aClock),
+        .ps2aData(ps2aData),
+        .ps2bClock(ps2bClock),
+        .ps2bData(ps2bData),
         .resetn(clk_wiz_1_locked),
         .sdMciClk(tangerineSOC_0_sdMciClk),
         .sdMciCmd(tangerineSOC_0_sdMciCmd),

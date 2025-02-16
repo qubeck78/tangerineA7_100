@@ -247,6 +247,7 @@ int main()
 {
     uint32_t    i;
     uint32_t    rv;
+    tosUIEvent      event;
 
 
     bspInit();
@@ -260,7 +261,10 @@ int main()
 
 
     toCls( &con );
-    printf( "tangerineRISC-V SOC Slideshow B20250214\n\n" );
+    
+    con.flags   |= GF_TEXT_OVERLAY_FLAG_SHOW_CURSOR;
+
+    printf( "tangerineRISC-V SOC Slideshow B20250215\n\n" );
 
     
     screen.flags            = 0;
@@ -297,6 +301,23 @@ int main()
         }while( 1 );        
     }
 
+
+    printf( ">" );
+    fflush( stdout );
+
+    do
+    {
+        if( !osGetUIEvent( &event ) )
+        { 
+            if( event.type == OS_EVENT_TYPE_KEYBOARD_KEYPRESS )
+            {
+                printf( "%c", event.arg1 );
+                fflush( stdout );      
+            }
+        }
+
+    }while( event.arg1 != 27 );
+
 /*
     gfLoadBitmapFS( &cursor, (char*)"0:/sys/cursor.gbm" );
     usbHIDSetMousePointerShape( &cursor );
@@ -307,6 +328,8 @@ int main()
 
     numDirEntries = getNumEntries();
 
+
+    con.flags   &= GF_TEXT_OVERLAY_FLAG_SHOW_CURSOR ^ 0xffffffff;
 
     if( numDirEntries )
     {

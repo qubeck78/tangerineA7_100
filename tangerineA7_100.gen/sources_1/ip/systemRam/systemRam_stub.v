@@ -4,8 +4,8 @@
 // Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
 // Date        : Fri Feb 14 00:01:43 2025
 // Host        : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/systemRam/systemRam_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top systemRam -prefix
+//               systemRam_ systemRam_stub.v
 // Design      : systemRam
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tfgg676-1

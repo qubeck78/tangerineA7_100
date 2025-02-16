@@ -108,6 +108,10 @@ module tangerineA7_100_tangerineSOC_0_0 (
   sdMciDat,
   sdMciCmd,
   sdMciClk,
+  ps2aClock,
+  ps2aData,
+  ps2bClock,
+  ps2bData,
   buttons,
   leds
 );
@@ -206,6 +210,10 @@ input wire uartRX;
 inout wire [3 : 0] sdMciDat;
 output wire sdMciCmd;
 output wire sdMciClk;
+inout wire ps2aClock;
+inout wire ps2aData;
+inout wire ps2bClock;
+inout wire ps2bData;
 input wire [0 : 0] buttons;
 output wire [1 : 0] leds;
 
@@ -262,6 +270,10 @@ output wire [1 : 0] leds;
     .sdMciDat(sdMciDat),
     .sdMciCmd(sdMciCmd),
     .sdMciClk(sdMciClk),
+    .ps2aClock(ps2aClock),
+    .ps2aData(ps2aData),
+    .ps2bClock(ps2bClock),
+    .ps2bData(ps2bData),
     .buttons(buttons),
     .leds(leds)
   );

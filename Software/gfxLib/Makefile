@@ -19,17 +19,17 @@ LIBM     = "c:\Program Files\riscv-none-gcc\riscv-none-embed\lib\rv32im\ilp32\li
 LIBNOSYS = "c:\Program Files\riscv-none-gcc\riscv-none-embed\lib\rv32im\ilp32\libnosys.a"
 SENDER = srecsend
 
-all: $(TARGET).a $(TARGET)Lite.a  
+all: $(TARGET).a $(TARGET)Lite.a    
 
 $(TARGET).disasm: $(TARGET).elf
 	$(OBJDUMP) --disassemble -S $(TARGET).elf>$(TARGET).disasm
 
 
-$(TARGET).a: bsp.o osAlloc.o osFile.o osSerial.o gfBitmap.o gfDrawing.o gfFont.o gfGouraud.o gfJPEG.o picojpeg.o diskio.o ccsbcs.o ff.o osUIEvents.o usbHID.o gfAudio.o
-	$(AR) rcs $(TARGET).a bsp.o osAlloc.o osFile.o osSerial.o gfBitmap.o gfDrawing.o gfFont.o gfGouraud.o gfJPEG.o picojpeg.o diskio.o ccsbcs.o ff.o osUIEvents.o usbHID.o gfAudio.o
+$(TARGET).a: bsp.o osAlloc.o osFile.o osSerial.o gfBitmap.o gfDrawing.o gfFont.o gfGouraud.o gfJPEG.o picojpeg.o diskio.o ccsbcs.o ff.o osUIEvents.o ps2Host.o gfAudio.o
+	$(AR) rcs $(TARGET).a bsp.o osAlloc.o osFile.o osSerial.o gfBitmap.o gfDrawing.o gfFont.o gfGouraud.o gfJPEG.o picojpeg.o diskio.o ccsbcs.o ff.o osUIEvents.o ps2Host.o gfAudio.o
 
-$(TARGET)Lite.a: bsp.o osAlloc.o osFile.o gfBitmap.o gfDrawing.o gfFont.o diskio.o ccsbcs.o ff.o osUIEvents.o usbHID.o
-	$(AR) rcs $(TARGET)Lite.a bsp.o osAlloc.o osFile.o gfBitmap.o gfDrawing.o gfFont.o diskio.o ccsbcs.o ff.o osUIEvents.o usbHID.o
+$(TARGET)Lite.a: bsp.o osAlloc.o osFile.o gfBitmap.o gfDrawing.o gfFont.o diskio.o ccsbcs.o ff.o osUIEvents.o ps2Host.o
+	$(AR) rcs $(TARGET)Lite.a bsp.o osAlloc.o osFile.o gfBitmap.o gfDrawing.o gfFont.o diskio.o ccsbcs.o ff.o osUIEvents.o ps2Host.o
 
 bsp.o: bsp.c
 	$(CC) -o bsp.o bsp.c 

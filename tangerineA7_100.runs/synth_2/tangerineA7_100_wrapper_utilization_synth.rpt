@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Fri Feb 14 18:27:33 2025
+| Date         : Sat Feb 15 21:44:00 2025
 | Host         : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 | Command      : report_utilization -file tangerineA7_100_wrapper_utilization_synth.rpt -pb tangerineA7_100_wrapper_utilization_synth.pb
 | Design       : tangerineA7_100_wrapper
@@ -31,15 +31,15 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*                | 7134 |     0 |          0 |     63400 | 11.25 |
-|   LUT as Logic             | 6339 |     0 |          0 |     63400 | 10.00 |
-|   LUT as Memory            |  795 |     0 |          0 |     19000 |  4.18 |
+| Slice LUTs*                | 7522 |     0 |          0 |     63400 | 11.86 |
+|   LUT as Logic             | 6723 |     0 |          0 |     63400 | 10.60 |
+|   LUT as Memory            |  799 |     0 |          0 |     19000 |  4.21 |
 |     LUT as Distributed RAM |    0 |     0 |            |           |       |
-|     LUT as Shift Register  |  795 |     0 |            |           |       |
-| Slice Registers            | 7540 |     0 |          0 |    126800 |  5.95 |
-|   Register as Flip Flop    | 7540 |     0 |          0 |    126800 |  5.95 |
+|     LUT as Shift Register  |  799 |     0 |            |           |       |
+| Slice Registers            | 7748 |     0 |          0 |    126800 |  6.11 |
+|   Register as Flip Flop    | 7748 |     0 |          0 |    126800 |  6.11 |
 |   Register as Latch        |    0 |     0 |          0 |    126800 |  0.00 |
-| F7 Muxes                   |  449 |     0 |          0 |     31700 |  1.42 |
+| F7 Muxes                   |  332 |     0 |          0 |     31700 |  1.05 |
 | F8 Muxes                   |    4 |     0 |          0 |     15850 |  0.03 |
 +----------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -59,9 +59,9 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 22    |          Yes |           - |          Set |
-| 506   |          Yes |           - |        Reset |
-| 65    |          Yes |         Set |            - |
-| 6947  |          Yes |       Reset |            - |
+| 505   |          Yes |           - |        Reset |
+| 91    |          Yes |         Set |            - |
+| 7130  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -96,7 +96,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +-----------------------------+------+-------+------------+-----------+-------+
 |          Site Type          | Used | Fixed | Prohibited | Available | Util% |
 +-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |   20 |     0 |          0 |       300 |  6.67 |
+| Bonded IOB                  |   24 |     0 |          0 |       300 |  8.00 |
 | Bonded IPADs                |    0 |     0 |          0 |        26 |  0.00 |
 | Bonded OPADs                |    0 |     0 |          0 |        16 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |         6 |  0.00 |
@@ -156,27 +156,28 @@ Warning! LUT value is adjusted to account for LUT combining.
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| FDRE       | 6947 |        Flop & Latch |
-| LUT6       | 3353 |                 LUT |
-| LUT2       | 1141 |                 LUT |
-| LUT4       |  988 |                 LUT |
-| LUT5       |  934 |                 LUT |
-| SRL16E     |  740 |  Distributed Memory |
-| LUT3       |  640 |                 LUT |
-| FDCE       |  506 |        Flop & Latch |
-| MUXF7      |  449 |               MuxFx |
-| CARRY4     |  397 |          CarryLogic |
-| LUT1       |  372 |                 LUT |
+| FDRE       | 7130 |        Flop & Latch |
+| LUT6       | 3406 |                 LUT |
+| LUT2       | 1188 |                 LUT |
+| LUT5       | 1109 |                 LUT |
+| LUT4       | 1066 |                 LUT |
+| SRL16E     |  744 |  Distributed Memory |
+| LUT3       |  650 |                 LUT |
+| FDCE       |  505 |        Flop & Latch |
+| LUT1       |  464 |                 LUT |
+| CARRY4     |  421 |          CarryLogic |
 | SRLC32E    |  369 |  Distributed Memory |
-| FDSE       |   65 |        Flop & Latch |
+| MUXF7      |  332 |               MuxFx |
+| FDSE       |   91 |        Flop & Latch |
 | FDPE       |   22 |        Flop & Latch |
 | BUFG       |   13 |               Clock |
 | RAMB36E1   |   12 |        Block Memory |
 | DSP48E1    |   12 |    Block Arithmetic |
+| IBUF       |   10 |                  IO |
 | OBUFDS     |    8 |                  IO |
 | OBUF       |    6 |                  IO |
-| IBUF       |    6 |                  IO |
 | ODDR       |    4 |                  IO |
+| OBUFT      |    4 |                  IO |
 | MUXF8      |    4 |               MuxFx |
 | INV        |    4 |                 LUT |
 | MMCME2_ADV |    3 |               Clock |
@@ -191,6 +192,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 |        Ref Name       | Used |
 +-----------------------+------+
 | systemRam             |    2 |
+| ps2ControllerFifo     |    2 |
 | uartFiFo              |    1 |
 | mig_7series_tangerine |    1 |
 | fontPROM              |    1 |

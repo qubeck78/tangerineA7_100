@@ -88,6 +88,10 @@
         "sdMciDat": [ { "direction": "inout", "size_left": "3", "size_right": "0" } ],
         "sdMciCmd": [ { "direction": "out" } ],
         "sdMciClk": [ { "direction": "out" } ],
+        "ps2aClock": [ { "direction": "inout" } ],
+        "ps2aData": [ { "direction": "inout" } ],
+        "ps2bClock": [ { "direction": "inout" } ],
+        "ps2bData": [ { "direction": "inout" } ],
         "buttons": [ { "direction": "in", "size_left": "0", "size_right": "0" } ],
         "leds": [ { "direction": "out", "size_left": "1", "size_right": "0" } ]
       },
