@@ -377,9 +377,9 @@ Disassembly of section .text:
 30000574:	00812423          	sw	s0,8(sp)
 30000578:	3cf72223          	sw	a5,964(a4) # 300253c4 <randomSeed>
 3000057c:	7a4050ef          	jal	ra,30005d20 <osAllocInit>
-30000580:	03f80637          	lui	a2,0x3f80
+30000580:	04000637          	lui	a2,0x4000
 30000584:	00100693          	li	a3,1
-30000588:	ff060613          	addi	a2,a2,-16 # 3f7fff0 <stackPointer+0x3f7a570>
+30000588:	ff060613          	addi	a2,a2,-16 # 3fffff0 <stackPointer+0x3ffa570>
 3000058c:	200005b7          	lui	a1,0x20000
 30000590:	00000513          	li	a0,0
 30000594:	7cc050ef          	jal	ra,30005d60 <osAllocAddNode>

@@ -148,7 +148,8 @@ signal registerState:       regState_T;
 --axi dma fsm
 type   axiState_T is ( asIdle, asCh0Read0, asCh0Read1, 
                                asCh0Write0, asCh0Write1, asCh0Write2,
-                               asCh0Cache0, asCh0Cache1, asCh0Cache2, asCh0Cache3,
+                               asCh0Cache0, 
+                               asCh0CacheFill0, asCh0CacheFill1, asCh0CacheFill2, asCh0CacheFill3, asCh0CacheFill4, asCh0CacheFill5,  
                                asCh0TransactionDone,
                                asCh1Read0, asCh1Read1, asCh1Read2, asCh1Read3 );
 
@@ -171,6 +172,9 @@ signal ch1DmaRequestLength:   std_logic_vector( 7 downto 0 );
 signal ch1DmaRequestPtrAdd:  std_logic_vector( 15 downto 0 );
 
 --cache signals
+
+signal cacheEnabled:       std_logic;
+signal triggerCacheFlush:  std_logic;
 
 --cache ram
 --way0
@@ -530,24 +534,35 @@ begin
       else
 
          --latch ch1 dma requests
-        if ch1DmaRequest( 0 ) = '1' then
+         if ch1DmaRequest( 0 ) = '1' then
          
             ch1DmaRequestLatched( 0 ) <= '1';
         
-        end if;
+         end if;
         
-        if ch1DmaRequest( 1 ) = '1' then
+         if ch1DmaRequest( 1 ) = '1' then
          
             ch1DmaRequestLatched( 1 ) <= '1';
             
-        end if;
+         end if;
         
-        if ch1DmaPointerReset = '1' then
+         if ch1DmaPointerReset = '1' then
         
             ch1DmaPointer <= ch1DmaPointerStart;
         
-        end if;
+         end if;
       
+         --check cache flush trigger
+         if triggerCacheFlush = '1' then
+
+            cacheValidWay0       <= ( others => '0' );
+            cacheValidWay1       <= ( others => '0' );
+            cacheValidWay2       <= ( others => '0' );
+            cacheValidWay3       <= ( others => '0' );
+         
+         end if;
+         
+         
          case axiState is
          
             when asIdle =>
@@ -574,19 +589,29 @@ begin
                   cacheHitWay1         <= '0';
                   cacheHitWay2         <= '0';
                   cacheHitWay3         <= '0';
-         
 
-                  if ch0Wr = '1' then
+
+                  if cacheEnabled = '1' then
                   
-                     --write
-                     axiState <= asCh0Write0;
-                     
+                     --check cache
+                     axiState <= asCh0Cache0;         
+
                   else
-                                       
-                     axiState <= asCh0Read0;
+                  
+                     --cache disabled
+                     if ch0Wr = '1' then
+                  
+                        --write
+                        axiState <= asCh0Write0;
                      
-                  end if;
+                     else
+                                       
+                        axiState <= asCh0Read0;
+                     
+                     end if;
                
+                  end if;
+                  
                end if;               
             
             when asCh0Cache0 =>
@@ -600,11 +625,42 @@ begin
                
                    if ch0Wr = '0' then
                    
-                     axiState    <= asCh0TransactionDone;
+--                     axiState    <= asCh0TransactionDone;
+                        ch0Ready <= '1';
+                        
+                        if ch0CE = '0' then
+                        
+                           ch0Ready <= '0';
+                           axiState <= asIdle;
+                        
+                        end if;
+        
                      
                    else
                    
                      --write to ram and cache
+
+                     --write to cache
+                     cacheWay0WEa      <= ch0DataMask;                     
+
+                     --write to ddr
+                     
+                     m00_axi_awaddr    <= x"0" & ch0A( 27 downto 4 ) & x"0";    --128 bit adr
+                     m00_axi_awvalid   <= '1';
+                     m00_axi_awlen     <= x"00";
+               
+                     m00_axi_wvalid    <= '0';
+                     m00_axi_bready    <= '0';
+                     
+                     if m00_axi_awready = '1' then
+                        
+                        axiState <= asCh0Write1;
+                     
+                     else
+                     
+                        axiState <= asCh0Write0;
+                        
+                     end if;
                      
                    
                    end if;
@@ -617,12 +673,43 @@ begin
 
                    if ch0Wr = '0' then
                    
-                     axiState    <= asCh0TransactionDone;
-                     
+--                     axiState    <= asCh0TransactionDone;
+                        ch0Ready <= '1';
+                        
+                        if ch0CE = '0' then
+                        
+                           ch0Ready <= '0';
+                           axiState <= asIdle;
+                           
+                        end if;
+                        
                    else
                    
                      --write to ram and cache
                      
+                     --write to cache
+                     cacheWay1WEa      <= ch0DataMask;                     
+
+                     --write to ddr
+
+                     --write to ddr
+                     
+                     m00_axi_awaddr    <= x"0" & ch0A( 27 downto 4 ) & x"0";    --128 bit adr
+                     m00_axi_awvalid   <= '1';
+                     m00_axi_awlen     <= x"00";
+               
+                     m00_axi_wvalid    <= '0';
+                     m00_axi_bready    <= '0';
+                     
+                     if m00_axi_awready = '1' then
+                        
+                        axiState <= asCh0Write1;
+                     
+                     else
+                     
+                        axiState <= asCh0Write0;
+                        
+                     end if;
                    
                    end if;
             
@@ -634,12 +721,43 @@ begin
 
                    if ch0Wr = '0' then
                    
-                     axiState    <= asCh0TransactionDone;
+--                     axiState    <= asCh0TransactionDone;
+                        ch0Ready <= '1';
+                        
+                        if ch0CE = '0' then
+                        
+                           ch0Ready <= '0';
+                           axiState <= asIdle;
+                           
+                        end if;
                      
                    else
                    
                      --write to ram and cache
                      
+                     --write to cache
+                     cacheWay2WEa      <= ch0DataMask;                     
+
+                     --write to ddr
+
+                     --write to ddr
+                     
+                     m00_axi_awaddr    <= x"0" & ch0A( 27 downto 4 ) & x"0";    --128 bit adr
+                     m00_axi_awvalid   <= '1';
+                     m00_axi_awlen     <= x"00";
+               
+                     m00_axi_wvalid    <= '0';
+                     m00_axi_bready    <= '0';
+                     
+                     if m00_axi_awready = '1' then
+                        
+                        axiState <= asCh0Write1;
+                     
+                     else
+                     
+                        axiState <= asCh0Write0;
+                        
+                     end if;
                    
                    end if;
 
@@ -652,11 +770,42 @@ begin
 
                    if ch0Wr = '0' then
                    
-                     axiState    <= asCh0TransactionDone;
+--                     axiState    <= asCh0TransactionDone;
+                        ch0Ready <= '1';
+                        
+                        if ch0CE = '0' then
+                        
+                           ch0Ready <= '0';
+                           axiState <= asIdle;
+                           
+                        end if;
                      
                    else
                    
                      --write to ram and cache
+                     --write to cache
+                     cacheWay3WEa      <= ch0DataMask;                     
+
+                     --write to ddr
+
+                     --write to ddr
+                     
+                     m00_axi_awaddr    <= x"0" & ch0A( 27 downto 4 ) & x"0";    --128 bit adr
+                     m00_axi_awvalid   <= '1';
+                     m00_axi_awlen     <= x"00";
+               
+                     m00_axi_wvalid    <= '0';
+                     m00_axi_bready    <= '0';
+                     
+                     if m00_axi_awready = '1' then
+                        
+                        axiState <= asCh0Write1;
+                     
+                     else
+                     
+                        axiState <= asCh0Write0;
+                        
+                     end if;
                      
                    
                    end if;
@@ -669,7 +818,7 @@ begin
 
                      --read 64 bytes from ddr and store in next cache line
                    
-                   
+                     axiState <= asCh0CacheFill0;
                      
                    else
                    
@@ -685,6 +834,10 @@ begin
                      if m00_axi_awready = '1' then
                         
                         axiState <= asCh0Write1;
+                     
+                     else
+                     
+                        axiState <= asCh0Write0;
                         
                      end if;
                                               
@@ -692,10 +845,264 @@ begin
 
                end if;
                
+            
+            when asCh0CacheFill0 =>
+            
+               --save tag, set cache line valid
+               --cacheTagWay1DOut( 13 downto 0 ) = ch0A( 27 downto 14 )
+               
+               --check way number for current page
+               
+               --                        page address
+               case cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )  is
+               
+                  when "00" =>
+                     
+                     cacheTagWay0We                                                    <= '1';      
+                     cacheValidWay0( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )   <= '1';
+                     
+                  when "01" =>
+                  
+                     cacheTagWay1We                                                    <= '1';      
+                     cacheValidWay1( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )   <= '1';
+                  
+                  when "10" =>
+
+                     cacheTagWay2We                                                    <= '1';      
+                     cacheValidWay2( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )   <= '1';
+                  
+                  
+                  when "11" =>
+                  
+                     cacheTagWay3We                                                    <= '1';      
+                     cacheValidWay3( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )   <= '1';
+               
+               end case;
+
+               --read
+               m00_axi_araddr    <= x"0" & ch0A( 27 downto 6 ) & "000000";    --128 bit adr
+               m00_axi_arvalid   <= '1';
+               m00_axi_arlen     <= x"03";                                    --4 128-bit words 
+               m00_axi_rready    <= '0';
+
+               if m00_axi_arready = '1' then
+                  
+                  axiState <= asCh0CacheFill1;
+                  
+               end if;
+
+            when asCh0CacheFill1 =>
+            
+               cacheTagWay0We <= '0';      
+               cacheTagWay1We <= '0';      
+               cacheTagWay2We <= '0';                  
+               cacheTagWay3We <= '0';      
+
+               --clear arvalid, set readiness to receive data
+               m00_axi_arvalid   <= '0';
+               m00_axi_rready    <= '1';
+
+               if m00_axi_rvalid = '1' then
+                  
+                  --we've got data
+   
+                  --check way number for current page
+                  
+                  --                        page address
+                  case cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )  is
+                  
+                     when "00" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay0Ab    <= ch0A( 13 downto 6 ) & "00";
+                        cacheWay0Dinb  <= m00_axi_rdata;
+                        cacheWay0Web   <= ( others => '1' );                                 
+
+                     when "01" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay1Ab    <= ch0A( 13 downto 6 ) & "00";
+                        cacheWay1Dinb  <= m00_axi_rdata;
+                        cacheWay1Web   <= ( others => '1' );
+
+                     when "10" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay2Ab    <= ch0A( 13 downto 6 ) & "00";
+                        cacheWay2Dinb  <= m00_axi_rdata;
+                        cacheWay2Web   <= ( others => '1' );
+
+                     when "11" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay3Ab    <= ch0A( 13 downto 6 ) & "00";
+                        cacheWay3Dinb  <= m00_axi_rdata;
+                        cacheWay3Web   <= ( others => '1' );
+                              
+                  end case;
+                  
+                  axiState       <= asCh0CacheFill2;
+                                  
+               end if;
+            
+            when asCh0CacheFill2 =>
+
+               if m00_axi_rvalid = '1' then
+                  
+                  --we've got data
+                  
+                  --check way number for current page
+                  
+                  --                        page address
+                  case cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )  is
+                  
+                     when "00" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay0Ab    <= ch0A( 13 downto 6 ) & "01";
+                        cacheWay0Dinb  <= m00_axi_rdata;
+                        cacheWay0Web   <= ( others => '1' );                                 
+
+                     when "01" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay1Ab    <= ch0A( 13 downto 6 ) & "01";
+                        cacheWay1Dinb  <= m00_axi_rdata;
+                        cacheWay1Web   <= ( others => '1' );
+
+                     when "10" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay2Ab    <= ch0A( 13 downto 6 ) & "01";
+                        cacheWay2Dinb  <= m00_axi_rdata;
+                        cacheWay2Web   <= ( others => '1' );
+
+                     when "11" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay3Ab    <= ch0A( 13 downto 6 ) & "01";
+                        cacheWay3Dinb  <= m00_axi_rdata;
+                        cacheWay3Web   <= ( others => '1' );
+                              
+                  end case;
+
+                  axiState       <= asCh0CacheFill3;
+                                  
+               end if;
+
+            when asCh0CacheFill3 =>
+
+               if m00_axi_rvalid = '1' then
+                  
+                  --we've got data
+                  
+                  --check way number for current page
+                  
+                  --                        page address
+                  case cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )  is
+                  
+                     when "00" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay0Ab    <= ch0A( 13 downto 6 ) & "10";
+                        cacheWay0Dinb  <= m00_axi_rdata;
+                        cacheWay0Web   <= ( others => '1' );                                 
+
+                     when "01" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay1Ab    <= ch0A( 13 downto 6 ) & "10";
+                        cacheWay1Dinb  <= m00_axi_rdata;
+                        cacheWay1Web   <= ( others => '1' );
+
+                     when "10" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay2Ab    <= ch0A( 13 downto 6 ) & "10";
+                        cacheWay2Dinb  <= m00_axi_rdata;
+                        cacheWay2Web   <= ( others => '1' );
+
+                     when "11" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay3Ab    <= ch0A( 13 downto 6 ) & "10";
+                        cacheWay3Dinb  <= m00_axi_rdata;
+                        cacheWay3Web   <= ( others => '1' );
+                              
+                  end case;
+
+                  axiState       <= asCh0CacheFill4;
+                                  
+               end if;
+
+            when asCh0CacheFill4 =>
+
+               if m00_axi_rvalid = '1' then
+                  
+                  --we've got data
+                  
+                  --check way number for current page
+                  
+                  --                        page address
+                  case cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )  is
+                  
+                     when "00" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay0Ab    <= ch0A( 13 downto 6 ) & "11";
+                        cacheWay0Dinb  <= m00_axi_rdata;
+                        cacheWay0Web   <= ( others => '1' );                                 
+               
+                     when "01" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay1Ab    <= ch0A( 13 downto 6 ) & "11";
+                        cacheWay1Dinb  <= m00_axi_rdata;
+                        cacheWay1Web   <= ( others => '1' );
+
+                     when "10" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay2Ab    <= ch0A( 13 downto 6 ) & "11";
+                        cacheWay2Dinb  <= m00_axi_rdata;
+                        cacheWay2Web   <= ( others => '1' );
+
+                     when "11" =>
+                     
+                        --             page address          --entry address in cache line
+                        cacheWay3Ab    <= ch0A( 13 downto 6 ) & "11";
+                        cacheWay3Dinb  <= m00_axi_rdata;
+                        cacheWay3Web   <= ( others => '1' );
+                              
+                  end case;
+
+                  --increase way counter for current page
+                  cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) ) <= std_logic_vector( unsigned( cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) ) ) + 1 );
+
+                  --finish axi read
+                  m00_axi_rready    <= '0';                   
+                  m00_axi_arvalid   <= '0';
+   
+
+                  axiState       <= asCh0CacheFill5;
+                                  
+               end if;
+
+            when asCh0CacheFill5 =>
+
+               cacheWay0Web   <= ( others => '0' );                                 
+               cacheWay1Web   <= ( others => '0' );                                 
+               cacheWay2Web   <= ( others => '0' );                                 
+               cacheWay3Web   <= ( others => '0' );                                 
+            
+               
+            
+               --re-check updated cache
+               axiState       <= asCh0Cache0;
+
             when asCh0Read0 =>
             
-                             
-                          
+                                                      
                --read
                m00_axi_araddr    <= x"0" & ch0A( 27 downto 4 ) & x"0";    --128 bit adr
                m00_axi_arvalid   <= '1';
@@ -757,6 +1164,12 @@ begin
 --              end if;
             
             when asCh0Write0 =>
+
+               --deassert cache write
+               cacheWay0WEa      <= ( others => '0' );                     
+               cacheWay1WEa      <= ( others => '0' );                     
+               cacheWay2WEa      <= ( others => '0' );                     
+               cacheWay3WEa      <= ( others => '0' );                     
             
                m00_axi_awaddr    <= x"0" & ch0A( 27 downto 4 ) & x"0";    --128 bit adr
                m00_axi_awvalid   <= '1';
@@ -772,6 +1185,12 @@ begin
                end if;
 
             when asCh0Write1 =>
+
+               --deassert cache write
+               cacheWay0WEa      <= ( others => '0' );                     
+               cacheWay1WEa      <= ( others => '0' );                     
+               cacheWay2WEa      <= ( others => '0' );                     
+               cacheWay3WEa      <= ( others => '0' );                     
 
                m00_axi_awvalid   <= '0';
                
@@ -918,7 +1337,20 @@ begin
                   
          ch1DmaPointerStart   <= ( others => '0' );
          
+         --cpu cache enabled by default
+         
+         cacheEnabled      <= '1';
+
+         --clear triggers
+         
+         triggerCacheFlush <= '0';
+         
       else
+            
+         --clear triggers
+         
+         triggerCacheFlush <= '0';
+            
             
          case registerState is
          
@@ -944,7 +1376,7 @@ begin
                      --0x04 r- component version                       
                      when x"01" =>
                      
-                        dout  <= x"20250214";
+                        dout  <= x"20250217";
 
                      --0x08 rw ch1DmaPointerStart                       
                      when x"02" =>
@@ -977,6 +1409,23 @@ begin
                         
                            ch1DmaRequestPtrAdd   <= din( 15 downto 0 );
                         
+                        end if;
+
+                    --0x14 rw cacheControl                       
+                     when x"05" =>
+                     
+                        dout  <= x"0000000" & "000" & cacheEnabled;
+                        
+                        if wr = '1' then
+                        
+                           cacheEnabled   <= din( 0 );
+                           
+                           if din( 1 ) = '1' then
+                           
+                              triggerCacheFlush <= '1';
+                              
+                           end if;
+                           
                         end if;
 
                      when others =>

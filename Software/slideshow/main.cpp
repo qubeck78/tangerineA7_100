@@ -251,9 +251,11 @@ int main()
 
 
     bspInit();
-        
-    setVideoMode( _VIDEOMODE_1280_TEXT160_OVER_GFX );
 
+    //axidma->cacheControl = 0;       //disable cache
+
+    setVideoMode( _VIDEOMODE_1280_TEXT160_OVER_GFX );
+    
     //alloc screen buffers
     screen.width            = 1280;
     screen.rowWidth         = 2048;
