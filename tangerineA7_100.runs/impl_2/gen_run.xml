@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_2" LaunchPart="xc7a100tfgg676-1" LaunchTime="1739652140">
+<GenRun Id="impl_2" LaunchPart="xc7a100tfgg676-1" LaunchTime="1739802424">
   <File Type="ROUTE-PWR" Name="tangerineA7_100_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="tangerineA7_100_wrapper.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="tangerineA7_100_wrapper_power_summary_routed.pb"/>
@@ -281,7 +281,9 @@
   <BlockFileSet Type="BlockSrcs" Name="ps2ControllerFifo"/>
   <BlockFileSet Type="BlockSrcs" Name="dmaCh1BufRam"/>
   <BlockFileSet Type="BlockSrcs" Name="fontPROM"/>
+  <BlockFileSet Type="BlockSrcs" Name="cacheDataRam"/>
   <BlockFileSet Type="BlockSrcs" Name="fastRam"/>
   <BlockFileSet Type="BlockSrcs" Name="uartFiFo"/>
   <BlockFileSet Type="BlockSrcs" Name="mig_7series_tangerine"/>
+  <BlockFileSet Type="BlockSrcs" Name="cacheTagRam"/>
 </GenRun>

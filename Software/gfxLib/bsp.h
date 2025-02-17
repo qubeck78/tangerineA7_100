@@ -10,8 +10,8 @@ extern "C"
 //Memory regions
 
 
-//63.5MB
-#define _SYSTEM_MEMORY_SIZE     ( 66584576 - 16)
+//64MB
+#define _SYSTEM_MEMORY_SIZE     ( 67108864 - 16)
 
 #define _SYSTEM_MEMORY_BASE		0x20000000
 
@@ -279,7 +279,8 @@ typedef struct __AXI_DMA_REGISTERS_T
     volatile uint32_t ch1DmaPointerStart;
     volatile uint32_t ch1DmaRequestLength;
     volatile uint32_t ch1DmaRequestPtrAdd;
-
+    volatile uint32_t cacheControl;
+    
 }_AXI_DMA_REGISTERS_T;
 
 extern _AXI_DMA_REGISTERS_T *axidma;

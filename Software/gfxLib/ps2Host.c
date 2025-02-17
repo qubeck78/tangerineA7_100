@@ -26,8 +26,11 @@ static uint32_t ps2HostKeyboardRxMain( uint32_t kbRx )
 {
    tosUIEvent  event;
 
-//   printf( "|%02x|", (int)kbRx );
-//   fflush( stdout );
+   //printf( "|%02x|", (int)kbRx );
+   //fflush( stdout );
+
+   //pause :P
+   //e1 14 77 e1 f0 14 f0 77
 
    switch( ps2HostState )
    {

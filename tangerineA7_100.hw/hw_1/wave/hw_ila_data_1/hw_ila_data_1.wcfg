@@ -14,29 +14,16 @@
       <Cursor1Time time="0"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="286"></NameColumnWidth>
+      <NameColumnWidth column_width="270"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="1" />
-   <wvobject fp_name="group417" type="group">
+   <wvobject fp_name="group181" type="group">
       <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : Interface</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="Detail_Data">Interface_(i1:s0)_(tangerineSOC_0_m00_axi)_tooltip</obj_property>
-      <obj_property name="Render_Data">Interface_(i1:s0)_(tangerineSOC_0_m00_axi)</obj_property>
-      <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
-      <obj_property name="CustomSignalColor">OliveDrab</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="group418" type="group">
+      <wvobject fp_name="group182" type="group">
          <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AR Channel</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="Detail_Data">AR_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)_tooltip</obj_property>
-         <obj_property name="Render_Data">AR_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)</obj_property>
-         <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
-         <obj_property name="CustomSignalColor">Yellow</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
          <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arvalid" type="logic">
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arvalid</obj_property>
@@ -134,16 +121,9 @@
             <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
          </wvobject>
       </wvobject>
-      <wvobject fp_name="group430" type="group">
+      <wvobject fp_name="group194" type="group">
          <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : R Channel</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="Detail_Data">R_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)_tooltip</obj_property>
-         <obj_property name="Render_Data">R_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)</obj_property>
-         <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
-         <obj_property name="CustomSignalColor">Gold</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-         <obj_property name="isExpanded"></obj_property>
          <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rvalid" type="logic">
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_rvalid</obj_property>
@@ -205,16 +185,9 @@
             <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
          </wvobject>
       </wvobject>
-      <wvobject fp_name="group438" type="group">
+      <wvobject fp_name="group202" type="group">
          <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : AW Channel</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="Detail_Data">AW_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)_tooltip</obj_property>
-         <obj_property name="Render_Data">AW_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)</obj_property>
-         <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
-         <obj_property name="CustomSignalColor">MediumTurquoise</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-         <obj_property name="isExpanded"></obj_property>
          <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awvalid" type="logic">
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awvalid</obj_property>
@@ -312,16 +285,9 @@
             <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
          </wvobject>
       </wvobject>
-      <wvobject fp_name="group450" type="group">
+      <wvobject fp_name="group214" type="group">
          <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : W Channel</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="Detail_Data">W_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)_tooltip</obj_property>
-         <obj_property name="Render_Data">W_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)</obj_property>
-         <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
-         <obj_property name="CustomSignalColor">Teal</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-         <obj_property name="isExpanded"></obj_property>
          <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_wvalid" type="logic">
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_wvalid</obj_property>
@@ -365,15 +331,9 @@
             <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
          </wvobject>
       </wvobject>
-      <wvobject fp_name="group456" type="group">
+      <wvobject fp_name="group220" type="group">
          <obj_property name="label">slot_0 : tangerineSOC_0_m00_axi : B Channel</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="Detail_Data">B_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)_tooltip</obj_property>
-         <obj_property name="Render_Data">B_Channel_(i1:s0)_(tangerineSOC_0_m00_axi)</obj_property>
-         <obj_property name="EnumTransactionColorTable">0=blank</obj_property>
-         <obj_property name="CustomSignalColor">SteelBlue</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
          <wvobject fp_name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_bvalid" type="logic">
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="ElementShortName">tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_bvalid</obj_property>
