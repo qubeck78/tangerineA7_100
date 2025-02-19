@@ -4,9 +4,10 @@
 #include <climits>
 #include <cstdio>
 
-#include "../gfxLib/osFile.h"
-#include "../gfxLib/gfBitmap.h"
-#include "../gfxLib/gfFont.h"
+#include "main.h"
+#include "osFile.h"
+#include "gfBitmap.h"
+#include "gfFont.h"
 
 
 extern tgfBitmap        screen;
@@ -19,17 +20,18 @@ extern tgfBitmap        background;
 
 uint32_t uiDrawStatusBar()
 {
-   uint32_t rv;
-
-   rv = 0;
+   uint32_t i;
 
    toSetCursorPos( &con, 0, 0 );
    con.textAttributes   = 0xf0;
 
-   toPrintF( &con, ( char* )"tangerineSOC Shell B20241228                                                     " );
+   toPrintF( &con, ( char* )"tangerineSOC Shell %s", _BUILD );
+   for( i = 0; i < 160 - 28; i++ )
+   {
+      toPrintF( &con, (char*)" " );
+   }
 
-
-   toSetCursorPos( &con, 0, 28 );
+   toSetCursorPos( &con, 0, 44 );
 
    con.textAttributes   = 0xd7;
    toPrintF( &con, ( char* )"F1 remount" );
@@ -71,10 +73,8 @@ uint32_t uiDrawStatusBar()
    toPrintF( &con, ( char* )"F8 delete" );
 
    con.textAttributes   = 0x0f;
-   toPrintF( &con, ( char* )"    " );
+   toPrintF( &con, ( char* )" " );
 
-
-   toSetCursorPos( &con, 0, 29 );
 
    con.textAttributes   = 0x5f;
    toPrintF( &con, ( char* )"BkSp parent" );
@@ -100,7 +100,7 @@ uint32_t uiDrawStatusBar()
    con.textAttributes   = 0x0f;
    toPrintF( &con, ( char* )"                             " );
 
-   return rv;
+   return 0;
 }
 
 uint32_t uiDrawSelectorWindowFrame( tselector *selector )
@@ -108,7 +108,7 @@ uint32_t uiDrawSelectorWindowFrame( tselector *selector )
    uint32_t    rv;
    uint32_t    i;
    uint32_t    j;
-   char     buf[50];
+   char     buf[128];
 
    rv = 0;
 
@@ -121,7 +121,7 @@ uint32_t uiDrawSelectorWindowFrame( tselector *selector )
 
    j = strlen( selector->path );
 
-   for( i = 0; i < 38; i++ )
+   for( i = 0; i < 78; i++ )
    {
 
       if( i < j )
@@ -135,8 +135,8 @@ uint32_t uiDrawSelectorWindowFrame( tselector *selector )
 
    }
 
-   buf[39] = 0xbf;
-   buf[40] = 0x00;
+   buf[79] = 0xbf;
+   buf[80] = 0x00;
 
    toPrint( &con, buf );
 
@@ -144,19 +144,19 @@ uint32_t uiDrawSelectorWindowFrame( tselector *selector )
    {
       toSetCursorPos( &con, selector->x, 2 + i );
       toPrint( &con, ( char* ) "\xb3" );
-      toSetCursorPos( &con, selector->x + 39, 2 + i );
+      toSetCursorPos( &con, selector->x + 79, 2 + i );
       toPrint( &con, ( char* ) "\xb3" );
    }
 
    buf[0] = 0xc0;
 
-   for( i = 0; i < 38; i++ )
+   for( i = 0; i < 78; i++ )
    {
       buf[ 1 + i ] = 0xc4;
    }
 
-   buf[39] = 0xd9;
-   buf[40] = 0x00;
+   buf[79] = 0xd9;
+   buf[80] = 0x00;
 
    toSetCursorPos( &con, selector->x, 2 + selector->selectorWindowHeight );
    toPrint( &con, buf );
@@ -172,7 +172,7 @@ uint32_t uiDrawSelectorWindowContents( tselector *selector )
    uint32_t    j;
    uint32_t    idx;
 
-   char     buf[50];
+   char     buf[128];
    uint16_t   position;
    char     buf2[16];
 
@@ -184,8 +184,8 @@ uint32_t uiDrawSelectorWindowContents( tselector *selector )
    con.textAttributes   = 0x0f;
    for( i = 0; i < selector->selectorWindowHeight; i++ )
    {
-      strncpy( buf, selector->selectorFileNames[i], 38 );
-      for( j = strlen( buf ); j < 38; j++ )
+      strncpy( buf, selector->selectorFileNames[i], 78 );
+      for( j = strlen( buf ); j < 78; j++ )
       {
          buf[j]      = ' ';
          buf[j+1]    = 0;
@@ -193,7 +193,7 @@ uint32_t uiDrawSelectorWindowContents( tselector *selector )
 
       if( selector->selectorFileLengths[i] == 0xffffffff )
       {
-         j = 33;
+         j = 73;
          buf[j++] = '(';
          buf[j++] = 'd';
          buf[j++] = 'i';
@@ -206,7 +206,7 @@ uint32_t uiDrawSelectorWindowContents( tselector *selector )
          {
             sprintf( buf2, "%d", selector->selectorFileLengths[i] );
 
-            idx = 38 - strlen( buf2 );
+            idx = 78 - strlen( buf2 );
             for( j = 0; j < strlen( buf2 ); j++ )
             {
                buf[idx + j] = buf2[j];
@@ -298,7 +298,7 @@ uint32_t uiDrawInfoWindow( char *title, char *contents, uint32_t buttons )
 {
    uint32_t    wy;
    uint32_t    wx;
-   char     buf[80];
+   char     buf[160];
    uint32_t    i;
    uint32_t    j;
    uint16_t   width;
@@ -315,7 +315,7 @@ uint32_t uiDrawInfoWindow( char *title, char *contents, uint32_t buttons )
       wy = ( con.height / 2 ) - 2;
    }
 
-   wx = 40 - ( ( width + 2 ) / 2 );
+   wx = ( con.width / 2 ) - ( ( width + 2 ) / 2 );
    
    buf[0] = 0xda;
 
@@ -392,14 +392,14 @@ uint32_t uiDrawInfoWindow( char *title, char *contents, uint32_t buttons )
 
          case _UI_INFO_WINDOW_BUTTONS_OK:
 
-            toSetCursorPos( &con, 39, wy + 1 );
+            toSetCursorPos( &con, wx + 2, wy + 1 );
             toPrint( &con, (char*)"OK" );
 
             break;
 
          case _UI_INFO_WINDOW_BUTTONS_CANCEL:
 
-            toSetCursorPos( &con, 37, wy + 1 );
+            toSetCursorPos( &con, wx + 2, wy + 1 );
             toPrint( &con, (char*)"CANCEL" );
 
             break;

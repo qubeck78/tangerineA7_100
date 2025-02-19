@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Mon Feb 17 15:34:36 2025
+| Date             : Wed Feb 19 10:17:45 2025
 | Host             : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 | Command          : report_power -file tangerineA7_100_wrapper_power_routed.rpt -pb tangerineA7_100_wrapper_power_summary_routed.pb -rpx tangerineA7_100_wrapper_power_routed.rpx
 | Design           : tangerineA7_100_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.430        |
+| Total On-Chip Power (W)  | 1.486        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.319        |
+| Dynamic (W)              | 1.375        |
 | Device Static (W)        | 0.111        |
 | Effective TJA (C/W)      | 2.6          |
-| Max Ambient (C)          | 81.3         |
-| Junction Temperature (C) | 28.7         |
+| Max Ambient (C)          | 81.1         |
+| Junction Temperature (C) | 28.9         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,25 +52,25 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.081 |       30 |       --- |             --- |
-| Slice Logic              |     0.028 |    38156 |       --- |             --- |
-|   LUT as Logic           |     0.025 |    14905 |     63400 |           23.51 |
-|   CARRY4                 |     0.002 |      614 |     15850 |            3.87 |
-|   Register               |    <0.001 |    15785 |    126800 |           12.45 |
+| Clocks                   |     0.097 |       30 |       --- |             --- |
+| Slice Logic              |     0.045 |    43903 |       --- |             --- |
+|   LUT as Logic           |     0.040 |    17301 |     63400 |           27.29 |
+|   CARRY4                 |     0.003 |      832 |     15850 |            5.25 |
+|   Register               |     0.002 |    18002 |    126800 |           14.20 |
 |   LUT as Distributed RAM |    <0.001 |      386 |     19000 |            2.03 |
-|   F7/F8 Muxes            |    <0.001 |      747 |     63400 |            1.18 |
-|   LUT as Shift Register  |    <0.001 |      811 |     19000 |            4.27 |
-|   Others                 |    <0.001 |     1332 |       --- |             --- |
-| Signals                  |     0.042 |    29302 |       --- |             --- |
-| Block RAM                |     0.151 |      116 |       135 |           85.93 |
+|   F7/F8 Muxes            |    <0.001 |      787 |     63400 |            1.24 |
+|   LUT as Shift Register  |    <0.001 |      857 |     19000 |            4.51 |
+|   Others                 |    <0.001 |     1899 |       --- |             --- |
+| Signals                  |     0.062 |    33336 |       --- |             --- |
+| Block RAM                |     0.149 |      116 |       135 |           85.93 |
 | MMCM                     |     0.376 |        4 |         6 |           66.67 |
 | PLL                      |     0.115 |        1 |         6 |           16.67 |
-| DSPs                     |     0.011 |       12 |       240 |            5.00 |
+| DSPs                     |     0.016 |       17 |       240 |            7.08 |
 | I/O                      |     0.402 |       69 |       300 |           23.00 |
 | PHASER                   |     0.110 |       14 |       --- |             --- |
 | XADC                     |     0.004 |        1 |       --- |             --- |
 | Static Power             |     0.111 |          |           |                 |
-| Total                    |     1.430 |          |           |                 |
+| Total                    |     1.486 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -80,7 +80,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.360 |       0.340 |      0.020 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.416 |       0.396 |      0.020 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.388 |       0.370 |      0.018 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.047 |       0.043 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -176,11 +176,11 @@ Table of Contents
 +---------------------------+-----------+
 | Name                      | Power (W) |
 +---------------------------+-----------+
-| tangerineA7_100_wrapper   |     1.319 |
+| tangerineA7_100_wrapper   |     1.375 |
 |   dbg_hub                 |     0.003 |
 |     inst                  |     0.003 |
 |       BSCANID.u_xsdbm_id  |     0.003 |
-|   tangerineA7_100_i       |     1.309 |
+|   tangerineA7_100_i       |     1.365 |
 |     clk_wiz_0             |     0.087 |
 |       inst                |     0.087 |
 |     clk_wiz_1             |     0.106 |
@@ -189,12 +189,12 @@ Table of Contents
 |       inst                |     0.097 |
 |     hdmiOut_0             |     0.141 |
 |       inst                |     0.141 |
-|     system_ila_0          |     0.027 |
-|       inst                |     0.027 |
-|     tangerineMIGWrapper_0 |     0.613 |
-|       inst                |     0.613 |
-|     tangerineSOC_0        |     0.237 |
-|       inst                |     0.237 |
+|     system_ila_0          |     0.028 |
+|       inst                |     0.028 |
+|     tangerineMIGWrapper_0 |     0.614 |
+|       inst                |     0.614 |
+|     tangerineSOC_0        |     0.291 |
+|       inst                |     0.291 |
 +---------------------------+-----------+
 
 

@@ -13,12 +13,12 @@ _AXI_DMA_REGISTERS_T *axidma            = ( _AXI_DMA_REGISTERS_T *)         0xf0
 _PS2HOST_REGISTERS_T *ps2Host           = ( _PS2HOST_REGISTERS_T * )        0xf0300000; //ps2 keyboard/mouse host controller
 _UART_REGISTERS_T *uart0                = ( _UART_REGISTERS_T *)            0xf0400000; //uart 0 base address
 _SPI_REGISTERS_T *spi0                  = ( _SPI_REGISTERS_T *)             0xf0500000; //spi 0 base address
+_FPALU_REGISTERS_T *fpalu               = ( _FPALU_REGISTERS_T * )          0xf0600000; //fpalu base address
 
 
 _BLITTER_REGISTERS_T *blt               = ( _BLITTER_REGISTERS_T *)         0xf0f00000; //blitter base address
 _USBHOST_REGISTERS_T *usbhost           = ( _USBHOST_REGISTERS_T *)         0xf0f00000; //hid usb host base address
 _AUDIO_REGISTERS_T *aud                 = ( _AUDIO_REGISTERS_T*)            0xf0f00000; //i2s audio base address
-_FPALU_REGISTERS_T *fpalu               = ( _FPALU_REGISTERS_T * )          0xf0f00000; //fpalu base address
 
 void (*bootLoaderEntry)(void) = (void(*)())0x0; 
 
@@ -81,6 +81,8 @@ void* realloc( void *oldmem, size_t bytes )
 uint32_t bspInit()
 {
     randomSeed = 3242323459 + ( bsp->tickTimerCounter << 16 ) ^ ( bsp->tickTimerCounter ^ 0xef122333 );
+
+    axidma->cacheControl = 1;       //enable i/d cache
 
     osAllocInit();
     osAllocAddNode( 0, ( void* )_SYSTEM_MEMORY_BASE, _SYSTEM_MEMORY_SIZE, OS_ALLOC_MEMF_CHIP );

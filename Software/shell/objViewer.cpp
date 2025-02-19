@@ -11,6 +11,7 @@ extern tgfBitmap         background;
 extern tgfBitmap         screen2;
 extern tgfBitmap         zBuffer; 
 extern tgfBitmap         texture; 
+tgfBitmap                background426;
 
 float                    sinT[360];
 float                    cosT[360];  
@@ -497,7 +498,7 @@ int objvDisplayObj( tgfBitmap *pscr )
    
    #ifdef _GFXLIB_HW_BLITTER_3D
 
-      blt->saAddress       = (uint32_t)background.buffer;
+      blt->saAddress       = (uint32_t)background426.buffer;
       blt->saRowWidth      = 160;
       blt->saWidth         = 160;
       blt->saHeight        = 240;
@@ -513,7 +514,7 @@ int objvDisplayObj( tgfBitmap *pscr )
 
    #else
 
-      gfBlitBitmap( pscr, &background, 0, 0 );
+      gfBlitBitmap( pscr, &background426, 0, 0 );
 
    #endif
 
@@ -730,11 +731,26 @@ int objvView( char* fileName )
 
    rv = 0;
 
+
+   setVideoMode( _VIDEOMODE_426_TEXT160_OVER_GFX );
+   screen.width            = 426;
+   screen.rowWidth         = 512;
+   screen.height           = 240;
+
+
    con.textAttributes = 0x0f;
    toCls( &con );
 
-   gfBlitBitmap( &screen, &background, 0, 0 );
-   gfBlitBitmap( &screen2, &background, 0, 0 );
+   //cut background
+
+   background426.flags     = 0; 
+   background426.width     = 426;
+   background426.height    = 240;
+   background426.rowWidth  = background.rowWidth;
+   background426.buffer    = background.buffer;
+
+   gfBlitBitmap( &screen, &background426, 0, 0 );
+   gfBlitBitmap( &screen2, &background426, 0, 0 );
 
 
 
@@ -905,6 +921,11 @@ int objvView( char* fileName )
    texture.buffer = NULL;
    texture.width  = 0;
    texture.height = 0;
+
+   setVideoMode( _VIDEOMODE_1280_TEXT160_OVER_GFX );
+   screen.width            = 1280;
+   screen.rowWidth         = 2048;
+   screen.height           = 720;
 
    return rv;
 }

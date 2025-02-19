@@ -18,10 +18,16 @@ tgfBitmap               screen;
 
 char buf[256];
 
+//640x480 
 
+//tangerineA7_200 ( sdram )
 //sw  fp - 136035ms
 //hw  fp -  39763ms
 //hw2 fp -  15979ms
+
+//tangerineWukong ( ddr )
+//hw2 fp - 9551ms ( code in fastram )
+//hw2 fp - 13438 ( code in dmaRam )
 
 int animLeds( int j )
 {   
@@ -246,6 +252,7 @@ int main()
     bspInit();
     
     setVideoMode( _VIDEOMODE_1280_TEXT160_OVER_GFX );
+    // setVideoMode( _VIDEOMODE_640_TEXT160_OVER_GFX );
     
     //alloc screen buffers
     screen.width            = 1280;
@@ -274,7 +281,11 @@ int main()
 
     startTicks = getTicks();
 
-    ffMandelbrot( &screen, 7, -2.0f, -1.0f, 0.002125f, 0.002125f );
+//1280x720 coords
+    ffMandelbrot( &screen, 7, -2.0f, -0.9f, 0.00248, 0.00248 );
+
+// 640x480 coords
+//    ffMandelbrot( &screen, 7, -2.0f, -1.0f, 0.00425f, 0.00425f ); 
 
     endTicks = getTicks();
 

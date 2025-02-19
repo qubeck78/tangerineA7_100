@@ -399,6 +399,27 @@ port (
  );
 end component;
 
+--fpalu
+component fpAlu is
+port(
+
+   --cpu interface
+   reset:            in    std_logic;
+   clock:            in    std_logic;
+   a:                in    std_logic_vector( 15 downto 0 );
+   din:              in    std_logic_vector( 31 downto 0 );
+   dout:             out   std_logic_vector( 31 downto 0 );
+   
+   ce:               in    std_logic;
+   wr:               in    std_logic;
+   dataMask:         in    std_logic_vector( 3 downto 0 );
+   
+   ready:            out   std_logic
+   
+);
+end component;
+
+
 --signals
 
 signal reset:  std_logic;
@@ -467,7 +488,6 @@ signal ps2hostCE:          std_logic;
 signal ps2hostDoutForCPU:  std_logic_vector( 31 downto 0 );
 signal ps2hostReady:       std_logic;
 
-
 --vga signals
 signal vgaCE:           std_logic;
 signal vgaDOutForCPU:   std_logic_vector( 31 downto 0 );
@@ -499,6 +519,10 @@ signal fastRamReady:        std_logic;
 signal fastRamDOutForCPU:   std_logic_vector( 31 downto 0 );
 signal fastRamWr:           std_logic_vector( 3 downto 0 ); 
 
+--fpalu signals
+signal fpaluCE:                 std_logic;
+signal fpaluDoutForCPU:         std_logic_vector( 31 downto 0 );
+signal fpaluReady:              std_logic;
 
 begin
 
@@ -715,10 +739,10 @@ port map(
    ps2HostCE      <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f03" else '0';
    uartCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f04" else '0';
    spiCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f05" else '0';
+   fpAluCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f06" else '0';
    
 --    blitterRegsCE   <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0f" else '0';
 --    i2sCE           <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0f" else '0';  
---    fpAluCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0f" else '0';
     
   
 -- bus slaves ready signals mux
@@ -732,11 +756,11 @@ port map(
                         else ps2HostReady when ps2HostCE = '1' 
                         else uartReady when uartCE = '1' 
                         else spiReady when spiCE = '1' 
+                        else fpAluReady when fpAluCE = '1' 
 --                        else fastRamReady when fastRamCE = '1' 
 --                        else blitterRegsReady when blitterRegsCE = '1' 
 --                        else usbHostReady when usbHostCE = '1' 
 --                        else i2sReady when i2sCE = '1' 
---                        else fpAluReady when fpAluCE = '1' 
                         else '1';
 
 
@@ -751,10 +775,10 @@ port map(
                         ps2HostDOutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f03" else
                         uartDoutForCPU                            when cpuAOutFull( 31 downto 20 ) = x"f04" else
                         spiDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f05" else
+                        fpAluDoutForCPU                           when cpuAOutFull( 31 downto 20 ) = x"f06" else  
 
 --                        blitterRegsDoutForCPU                     when cpuAOutFull( 31 downto 20 ) = x"f02" else
 --                        i2sDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f06" else 
---                        fpAluDoutForCPU                           when cpuAOutFull( 31 downto 20 ) = x"f0a" else  
 
                         x"00000000";
 
@@ -1002,5 +1026,24 @@ port map(
    miso        => spiMISO
    
 ); 
+
+-- place fpalu
+fpAluInst:fpAlu
+port map(
+
+   --cpu interface
+   reset            => reset,
+   clock            => mainClock,
+   a                => cpuAOut( 15 downto 0 ),
+   din              => cpuDOut,
+   dout             => fpAluDoutForCPU,
+   
+   ce               => fpAluCE,
+   wr               => cpuWr,
+   dataMask         => cpuDataMask,
+   
+   ready            => fpAluReady
+   
+);
 
 end Behavioral;

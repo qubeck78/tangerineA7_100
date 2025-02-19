@@ -66,6 +66,15 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7
 # IP: bd/tangerineA7_100/ip/tangerineA7_100_tangerineSOC_0_0/tangerineA7_100_tangerineSOC_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7_100_tangerineSOC_0_0 || ORIG_REF_NAME==tangerineA7_100_tangerineSOC_0_0} -quiet] -quiet
 
+# IP: ip/fpDiv/fpDiv.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fpDiv || ORIG_REF_NAME==fpDiv} -quiet] -quiet
+
+# IP: ip/fpMul/fpMul.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fpMul || ORIG_REF_NAME==fpMul} -quiet] -quiet
+
+# IP: ip/fpAddSub/fpAddSub.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fpAddSub || ORIG_REF_NAME==fpAddSub} -quiet] -quiet
+
 # IP: ip/ps2ControllerFifo/ps2ControllerFifo.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==ps2ControllerFifo || ORIG_REF_NAME==ps2ControllerFifo} -quiet] -quiet
 

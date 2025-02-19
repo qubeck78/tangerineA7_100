@@ -62,17 +62,22 @@ uint32_t init()
 
    bspInit();
 
-   setVideoMode( _VIDEOMODE_426_TEXT160_OVER_GFX );
+   setVideoMode( _VIDEOMODE_1280_TEXT160_OVER_GFX );
    
    con.textAttributes = 0x0f;
 
    toCls( &con );
    toPrintF( &con, (char*)"Shell init\n" );
 
+   // setVideoMode( _VIDEOMODE_426_TEXT160_OVER_GFX );
    //alloc screen buffer
-   screen.width            = 426;
-   screen.rowWidth         = 512;
-   screen.height           = 240;
+   // screen.width            = 426;
+   // screen.rowWidth         = 512;
+   // screen.height           = 240;
+
+   screen.width            = 1280;
+   screen.rowWidth         = 2048;
+   screen.height           = 720;
       
    screen.flags            = 0;
    screen.transparentColor = 0;
@@ -116,7 +121,7 @@ uint32_t init()
 
    toPrintF( &con, (char*)"osFInit\n" );
 
-   rv = gfLoadBitmapFS( &background, ( char* )"0:/shell/background.gbm" );
+   rv = gfLoadBitmapFS( &background, ( char* )"0:/shell/background1280.gbm" );
 
    gfBlitBitmap( &screen, &background, 0, 0 );
 
@@ -585,7 +590,7 @@ int main()
    selectors[0].x          = 0;
    selectors[0].y          = 1;
 
-   selectors[1].x          = 40;
+   selectors[1].x          = 80;
    selectors[1].y          = 1;
 
    //default selector window height
