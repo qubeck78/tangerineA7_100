@@ -93,6 +93,9 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dmaCh1BufRa
 # IP: ip/fontPROM/fontPROM.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fontPROM || ORIG_REF_NAME==fontPROM} -quiet] -quiet
 
+# IP: ip/dmaCh2BufRam/dmaCh2BufRam.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dmaCh2BufRam || ORIG_REF_NAME==dmaCh2BufRam} -quiet] -quiet
+
 # IP: ip/fastRam/fastRam.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fastRam || ORIG_REF_NAME==fastRam} -quiet] -quiet
 

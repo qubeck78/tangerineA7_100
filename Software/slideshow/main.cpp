@@ -32,6 +32,9 @@ tosDirItem                   dirItem;
 
 uint32_t                     numDirEntries;
 
+uint16_t                    *ch2Buf;
+uint32_t                    *ch2BufL;
+
 
 uint32_t getNumEntries()
 {
@@ -222,17 +225,17 @@ uint32_t slideshow()
 
                                     case _KEYCODE_F1:
 
+                                        axidma->cacheControl ^= 1;       //toggle i/d cache                                            
+
                                         if( axidma->cacheControl & 1)
                                         {
-                                            axidma->cacheControl = 0;       //disable i/d cache                                            
-                                            printf( "cache disabled\n" );
+                                            printf( "cache enabled\n" );
                                         }
                                         else
                                         {
-                                            axidma->cacheControl = 1;       //enable i/d cache                                            
-
-                                            printf( "cache enabled\n" );
+                                            printf( "cache disabled\n" );
                                         }
+
                                         break;
 
                                     default:
@@ -257,7 +260,7 @@ uint32_t slideshow()
 int main()
 {
     uint32_t    i;
-    volatile uint32_t j;
+    uint32_t    j;
 
     uint32_t    rv;
     tosUIEvent      event;
@@ -265,6 +268,9 @@ int main()
 
     bspInit();
 
+
+    ch2Buf = (uint16_t*)0x40000000;
+    ch2BufL = (uint32_t*)0x40000000;
 
     setVideoMode( _VIDEOMODE_1280_TEXT160_OVER_GFX );
     
@@ -279,7 +285,7 @@ int main()
     
     con.flags   |= GF_TEXT_OVERLAY_FLAG_SHOW_CURSOR;
 
-    printf( "tangerineRISC-V SOC Slideshow B20250215\n\n" );
+    printf( "tangerineRISC-V SOC Slideshow B20250220\n\n" );
 
     
     screen.flags            = 0;
@@ -310,7 +316,6 @@ int main()
 
 //https://www.youtube.com/watch?v=lI5Gh-1zk-s
     
-
     for( i = 0; i < 768; i++ )
     {
 
@@ -324,6 +329,7 @@ int main()
         axidma->ch2DaAddress += 4096;
 
     }
+
 
 
     //init events queue

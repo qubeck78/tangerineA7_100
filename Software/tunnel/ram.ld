@@ -1,9 +1,9 @@
 MEMORY 
 {						         
 
-/* dma ram - last 512KB of 64MB */
-/*		 ram 	: ORIGIN = 0x23F80000, LENGTH = 0x0007ffff
-		 eram   : ORIGIN = 0x24000000, LENGTH = 0
+/* dma ram  */
+/*		 ram 	:   ORIGIN = 0x24000000, LENGTH = 0x0007ffff
+		 eram   : ORIGIN = 0x24080000, LENGTH = 0
 */
 
 

@@ -222,9 +222,18 @@ port (
    ch1DmaRequest:       in    std_logic_vector( 1 downto 0 );
    ch1DmaPointerReset:  in    std_logic;
    
-   ch1BufClock:         in    std_logic;
-   ch1BufA:             in    std_logic_vector( 10 downto 0 );
-   ch1BufDOut:          out   std_logic_vector( 31 downto 0 );
+   --block ram interface - line buffer
+   ch1BufClock:      in    std_logic;
+   ch1BufA:          in    std_logic_vector( 10 downto 0 );
+   ch1BufDOut:       out   std_logic_vector( 31 downto 0 );
+
+   --ch2 - block transfers triggered via registers   
+   --block ram interface - transfer buffer
+   ch2BufClock:      out   std_logic;
+   ch2BufWE:         out   std_logic_vector( 15 downto 0 );
+   ch2BufA:          out   std_logic_vector( 7 downto 0 );
+   ch2BufDin:        in    std_logic_vector( 127 downto 0 );
+   ch2BufDOut:       out   std_logic_vector( 127 downto 0 );
 
    --axi master bus
    m00_axi_aclk:     in  std_logic;
@@ -270,6 +279,28 @@ port (
    m00_axi_awcache:  out std_logic_vector ( 3 downto 0 )
    
 
+);
+end component;
+
+
+--dma ch2 buffer ( block transfer )
+
+component dmaCh2BufRam is
+port(
+    
+    --cpu side
+    clka:   in    std_logic;
+    wea:    in    std_logic_vector( 3 downto 0 );
+    addra:  in    std_logic_vector( 9 downto 0 );
+    dina:   in    std_logic_vector( 31 downto 0 );
+    douta:  out   std_logic_vector( 31 downto 0 );
+    
+    --dma side
+    clkb:   in    std_logic;
+    web:    in    std_logic_vector( 15 downto 0 );
+    addrb:  in    std_logic_vector( 7 downto 0 );
+    dinb:   in    std_logic_vector( 127 downto 0 );
+    doutb:  out   std_logic_vector( 127 downto 0 )
 );
 end component;
 
@@ -509,9 +540,26 @@ signal dmaRegsReady:       std_logic;
 
 --dma ch1 - vga
 signal ch1DmaRequest:      std_logic_vector( 1 downto 0 );
+signal ch1DmaRequestSynced:   std_logic_vector( 1 downto 0 );
+
 signal ch1BufClock:        std_logic;
 signal ch1BufA:            std_logic_vector( 10 downto 0 );
 signal ch1BufDOut:         std_logic_vector( 31 downto 0 );
+
+--dma ch2 block transfers
+--cpu side
+signal ch2BufCE:           std_logic;
+signal ch2BufWr:           std_logic_vector( 3 downto 0 );
+signal ch2BufReady:        std_logic;
+signal ch2BufDOutForCPU:   std_logic_vector( 31 downto 0 );
+
+--dma side
+signal ch2BufClockB:       std_logic;
+signal ch2BufWEB:          std_logic_vector( 15 downto 0 );
+signal ch2BufAB:           std_logic_vector( 7 downto 0 );
+signal ch2BufDInB:         std_logic_vector( 127 downto 0 );
+signal ch2BufDOutB:        std_logic_vector( 127 downto 0 );
+
 
 --fast RAM signals
 signal fastRamCE:           std_logic;
@@ -555,6 +603,19 @@ port map(
    clock             => mainClock,
    signalInput(0)    => vgaVSync,
    signalOutput(0)   => vgaVSyncMainClock
+   
+);
+
+inputSyncDmaRequestInst:inputSync
+generic map
+(
+   inputWidth  => 2
+)
+port map(
+   
+   clock             => mainClock,
+   signalInput       => ch1DmaRequest,
+   signalOutput      => ch1DmaRequestSynced
    
 );
 
@@ -674,6 +735,47 @@ begin
 end process;
 
 
+--Place dma ch2 ram for block transfers
+
+ch2BufWr(0) <= cpuWrStrobe(0) and ch2BufCE;
+ch2BufWr(1) <= cpuWrStrobe(1) and ch2BufCE;
+ch2BufWr(2) <= cpuWrStrobe(2) and ch2BufCE;
+ch2BufWr(3) <= cpuWrStrobe(3) and ch2BufCE;
+
+dmaCh2BufRamInst:dmaCh2BufRam
+port map(
+    
+    --cpu side
+    clka       => mainClock,
+    wea        => ch2BufWr,
+    addra      => cpuAOut( 9 downto 0 ),
+    dina       => cpuDOut,
+    douta      => ch2BufDOutForCPU,
+    
+    --dma side
+    clkb       => ch2BufClockB,
+    web        => ch2BufWEB,
+    addrb      => ch2BufAB,
+    dinb       => ch2BufDOutB,
+    doutb      => ch2BufDInB
+);
+
+ch2BufAccess:process( reset, mainClock )
+begin
+
+    if reset = '1' then
+    
+        ch2BufReady <= '0';
+        
+    elsif rising_edge( mainClock ) then
+    
+        ch2BufReady <= ch2BufCE;
+    
+    end if;
+
+end process;
+
+
 
 -- place vga
 
@@ -733,14 +835,14 @@ port map(
    txtfbRAMCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"1" else '0';
    dmaRamCE       <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"2" else '0';
    fastRamCE      <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"3" else '0';
+   ch2BufCE       <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"4" else '0';
    rootRegsCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f00" else '0';   
    vgaCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f01" else '0';   
    dmaRegsCE      <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f02" else '0';
    ps2HostCE      <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f03" else '0';
    uartCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f04" else '0';
    spiCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f05" else '0';
-   fpAluCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f06" else '0';
-   
+   fpAluCE        <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f06" else '0';
 --    blitterRegsCE   <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0f" else '0';
 --    i2sCE           <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0f" else '0';  
     
@@ -749,7 +851,8 @@ port map(
    cpuMemReady       <= systemRamReady when systemRAMCE = '1'
                         else txtfbRamReady when txtfbRamCE = '1'
                         else dmaRamReady when dmaRamCE = '1'
-                        else fastRamReady when fastRamCE = '1' 
+                        else fastRamReady when fastRamCE = '1'
+                        else ch2BufReady when ch2BufCE = '1'  
                         else rootRegsReady when rootRegsCE = '1' 
                         else vgaReady  when vgaCE = '1'
                         else dmaRegsReady when dmaRegsCE = '1'  
@@ -769,6 +872,7 @@ port map(
                         txtfbRamDoutForCPU                        when cpuAOutFull( 31 downto 28 ) = x"1" else
                         dmaRamDoutForCPU                          when cpuAOutFull( 31 downto 28 ) = x"2" else
                         fastRamDoutForCPU                         when cpuAOutFull( 31 downto 28 ) = x"3" else
+                        ch2BufDoutForCPU                          when cpuAOutFull( 31 downto 28 ) = x"4" else
                         rootRegsDoutForCPU                        when cpuAOutFull( 31 downto 20 ) = x"f00" else 
                         vgaDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f01" else 
                         dmaRegsDOutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f02" else
@@ -869,12 +973,21 @@ port map(
    ch0Ready             => dmaRamReady,
    
    --ch1 - gfx display, highest priority: 0
-   ch1DmaRequest        => ch1DmaRequest,
+   ch1DmaRequest        => ch1DmaRequestSynced,
    ch1DmaPointerReset   => vgaVSyncMainClock,
    
    ch1BufClock          => ch1BufClock,
    ch1BufA              => ch1BufA,
    ch1BufDOut           => ch1BufDOut,
+
+
+   --ch2 - block transfers triggered via registers   
+   --block ram interface - transfer buffer
+   ch2BufClock          => ch2BufClockB,
+   ch2BufWE             => ch2BufWEB,
+   ch2BufA              => ch2BufAB,
+   ch2BufDin            => ch2BufDInB,
+   ch2BufDOut           => ch2BufDOutB,
 
    --axi master bus
    m00_axi_aclk      => m00_axi_aclk,

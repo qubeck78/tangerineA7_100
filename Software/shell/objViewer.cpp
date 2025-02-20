@@ -494,7 +494,6 @@ int objvDisplayObj( tgfBitmap *pscr )
 
    //copy background to screen buffer
       
-   //todo: add 32-bit blitter to simulator
    
    #ifdef _GFXLIB_HW_BLITTER_3D
 
@@ -514,7 +513,22 @@ int objvDisplayObj( tgfBitmap *pscr )
 
    #else
 
-      gfBlitBitmap( pscr, &background426, 0, 0 );
+      //gfBlitBitmap( pscr, &background426, 0, 0 );
+
+      axidma->ch2TransferLength = 0x35;
+
+      for( i = 0; i < 240; i++ )
+      {
+
+         axidma->ch2SaAddress = (uint32_t)background426.buffer + 2560 * i;
+         axidma->ch2Command = 0x01;
+         do{}while( ! ( axidma->ch2Command & 1 ) );
+
+         axidma->ch2DaAddress = (uint32_t)pscr->buffer +  1024 * i;
+         axidma->ch2Command = 0x02;
+         do{}while( ! ( axidma->ch2Command & 1 ) );
+
+      }
 
    #endif
 
@@ -536,8 +550,27 @@ int objvDisplayObj( tgfBitmap *pscr )
 
    #else
 
+
+
       gfFillRect( &zBuffer, 0, 0, 319, 239, 0xffff );
-   
+
+      /*axidma->ch2Input0[0] = 0xffffffff;
+      axidma->ch2Input0[1] = 0xffffffff;
+      axidma->ch2Input0[2] = 0xffffffff;
+      axidma->ch2Input0[3] = 0xffffffff;
+      
+      axidma->ch2TransferLength = 0x35;
+      for( i = 0; i < 240; i++ )
+      {
+
+         axidma->ch2DaAddress = (uint32_t)zBuffer.buffer +  1024 * i;
+         axidma->ch2Command = 0x00;
+         do{}while( ! ( axidma->ch2Command & 1 ) );
+
+      }
+
+      axidma->cacheControl = 2;
+*/
    #endif
 
 
