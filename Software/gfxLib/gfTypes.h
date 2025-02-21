@@ -5,7 +5,7 @@
 
 //Version
 
-#define _GFXLIB_VERSION 20250217
+#define _GFXLIB_VERSION 20250221
 
 
 //Platform
@@ -22,6 +22,7 @@
 //#define _GFXLIB_USB_HOST
 #define _GFXLIB_FPALU
 #define _GFXLIB_PS2_HOST
+#define _GFXLIB_AXI_DMA
 
 #ifndef NULL
 #define NULL 0

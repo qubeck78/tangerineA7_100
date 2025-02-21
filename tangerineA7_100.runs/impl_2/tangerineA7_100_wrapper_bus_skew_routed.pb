@@ -1,2 +1,2 @@
 
-2018.1íBus skew resultsò•‡8A
+2018.1íBus skew resultsò•‡Z6A

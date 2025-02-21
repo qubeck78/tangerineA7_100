@@ -166,7 +166,8 @@ type   axiState_T is ( asIdle, asCh0Read0, asCh0Read1,
                                asCh1Read0, asCh1Read1, asCh1Read2, asCh1Read3,
                                asCh2Fill0, asCh2Fill1, asCh2Fill2,
                                asCh2Read0, asCh2Read1, asCh2Read2,
-                               asCh2Write0, asCh2Write1, asCh2Write2
+                               asCh2Write0, asCh2Write1, asCh2Write2,
+                               asCh2ReadShift0, asCh2ReadShift1, asCh2ReadShift2, asCh2ReadShift3
                                );
 
 signal axiState:       axiState_T;
@@ -282,7 +283,15 @@ signal ch2TransferCounter:    std_logic_vector( 7 downto 0 );
 signal ch2BufPointer:         std_logic_vector( 7 downto 0 );
 signal ch2Input0:             std_logic_vector( 127 downto 0 );
 signal ch2SaAddress:          std_logic_vector( 31 downto 0 );
+signal ch2SaPointer:          std_logic_vector( 31 downto 0 );
+signal ch2SaRowWidth:         std_logic_vector( 15 downto 0 );
 signal ch2DaAddress:          std_logic_vector( 31 downto 0 );
+signal ch2DaPointer:          std_logic_vector( 31 downto 0 );
+signal ch2DaRowWidth:         std_logic_vector( 15 downto 0 );
+signal ch2DaFirstWriteMask:   std_logic_vector( 15 downto 0 );
+signal ch2DaLastWriteMask:    std_logic_vector( 15 downto 0 );
+signal ch2FirstDataBeat:      std_logic;
+signal ch2PreviousData:       std_logic_vector( 127 downto 0 );
 
 -- 00 - fill da with value in ch2Input0
 -- 01 - read sa to buffer
@@ -657,7 +666,7 @@ begin
                   -- 00 - fill da with value in ch2Input0
                   -- 01 - read sa to buffer
                   -- 02 - write buffer to da
-                  
+                  -- 03 - read sa to buffer with shift right
                   
                   case ch2Command is
 
@@ -675,6 +684,11 @@ begin
 
                         ch2Ready <= '0';                     
                         axiState <= asCh2Write0;
+
+                     when x"03" =>
+                     
+                        ch2Ready <= '0';
+                        axiState <= asCh2ReadShift0;
                   
                      when others =>
                      
@@ -1548,17 +1562,20 @@ begin
 
                axiStateDebug        <= x"11";   
                
-               m00_axi_awaddr    <= ch2DaAddress;
+               m00_axi_awaddr    <= ch2DaPointer;
                m00_axi_awvalid   <= '1';
                m00_axi_awlen     <= ch2TransferLength;
                ch2TransferCounter   <= ch2TransferLength;
-         
+               
                m00_axi_wvalid    <= '0';
                m00_axi_bready    <= '0';
                m00_axi_wlast     <= '0';
                
+               ch2FirstDataBeat  <= '1';
+               
                if m00_axi_awready = '1' then
-                  
+                 
+
                   axiState <= asCh2Fill1;
                   
                end if;
@@ -1572,8 +1589,21 @@ begin
                
                if m00_axi_wready = '1' then
                
-                  m00_axi_wstrb     <= ( others => '1' );                     
---                  m00_axi_wdata     <= ( 127 downto 8 => '0' ) & ch2TransferCounter;
+                  if ch2FirstDataBeat = '1' then
+                 
+                     m00_axi_wstrb     <= ch2DaFirstWriteMask;                     
+                     ch2FirstDataBeat  <= '0';
+                     
+                  elsif ch2TransferCounter = x"00" then
+
+                     m00_axi_wstrb     <= ch2DaLastWriteMask;                     
+                  
+                  else
+
+                     m00_axi_wstrb     <= ( others => '1' );                     
+                  
+                  end if;
+                 
                   m00_axi_wdata     <= ch2Input0;
                                           
                   m00_axi_wvalid    <= '1';
@@ -1607,15 +1637,13 @@ begin
                   m00_axi_bready <= '1';
                                     
                end if;
-               
-               
+                              
 
                if m00_axi_bvalid = '1' then
                
                   m00_axi_bready <= '0';
 
-                  ch2DmaRequestLatched <= '0';
-                  
+                  ch2DmaRequestLatched <= '0';                  
                   axiState <= asIdle;
               
               end if;
@@ -1627,7 +1655,7 @@ begin
 
                ch2BufPointer        <= ( others => '0' );
 
-               m00_axi_araddr       <= ch2SaAddress;               
+               m00_axi_araddr       <= ch2SaPointer;               
                m00_axi_arlen        <= ch2TransferLength;              
                m00_axi_rready       <= '0';               
                m00_axi_arvalid      <= '1';
@@ -1669,15 +1697,14 @@ begin
                m00_axi_rready       <= '0';
                m00_axi_arvalid      <= '0';
                
-               ch2DmaRequestLatched <= '0';
-               
+               ch2DmaRequestLatched <= '0';               
                axiState <= asIdle;
 
             when asCh2Write0 =>
 
                axiStateDebug        <= x"17";   
                
-               m00_axi_awaddr    <= ch2DaAddress;
+               m00_axi_awaddr    <= ch2DaPointer;
                m00_axi_awvalid   <= '1';
                m00_axi_awlen     <= ch2TransferLength;
                m00_axi_wvalid    <= '0';
@@ -1685,6 +1712,7 @@ begin
                m00_axi_wlast     <= '0';
 
                ch2TransferCounter   <= ch2TransferLength;
+               ch2FirstDataBeat     <= '1';
                
                ch2BufPointer        <= x"01";  
                ch2BufA              <= x"00";
@@ -1709,7 +1737,21 @@ begin
                   ch2BufA           <= ch2BufPointer;
                   ch2BufPointer     <= std_logic_vector( unsigned( ch2BufPointer ) + 1 );
 
-                  m00_axi_wstrb     <= ( others => '1' );                     
+                  if ch2FirstDataBeat = '1' then
+                 
+                     m00_axi_wstrb     <= ch2DaFirstWriteMask;                     
+                     ch2FirstDataBeat  <= '0';
+                     
+                  elsif ch2TransferCounter = x"00" then
+
+                     m00_axi_wstrb     <= ch2DaLastWriteMask;                     
+                  
+                  else
+
+                     m00_axi_wstrb     <= ( others => '1' );                     
+                  
+                  end if;
+
                   m00_axi_wdata     <= ch2BufDin;
                                           
                   m00_axi_wvalid    <= '1';
@@ -1741,18 +1783,159 @@ begin
                   m00_axi_bready <= '1';
                                     
                end if;
-               
-               
+                              
 
                if m00_axi_bvalid = '1' then
                
                   m00_axi_bready <= '0';
 
-                  ch2DmaRequestLatched <= '0';
-                  
+                  ch2DmaRequestLatched <= '0';                  
                   axiState <= asIdle;
               
               end if;
+
+
+            when asCh2ReadShift0 =>
+            
+               axiStateDebug        <= x"1a";   
+
+               ch2BufPointer        <= ( others => '0' );
+               ch2PreviousData      <= ( others => '0' );
+               
+               m00_axi_araddr       <= ch2SaPointer;               
+               m00_axi_arlen        <= ch2TransferLength;              
+               m00_axi_rready       <= '0';               
+               m00_axi_arvalid      <= '1';
+               
+               if m00_axi_arready = '1' then
+               
+                  axiState <= asCh2ReadShift1;
+               
+               end if;
+            
+            when asCh2ReadShift1 =>
+            
+               axiStateDebug     <= x"1b";   
+
+               m00_axi_arvalid   <= '0';
+               m00_axi_rready    <= '1';
+               
+               if m00_axi_rvalid = '1' then
+               
+                  ch2BufA     <= ch2BufPointer;
+                  ch2BufWE    <= ( others => '1' );
+
+                  case ch2Input0( 2 downto 0 ) is
+                  
+                     when "000"  =>
+                     --0 
+                        ch2BufDOut  <= m00_axi_rdata;
+                  
+                     when "001" =>
+                     --1
+
+                        ch2BufDOut                       <= m00_axi_rdata( 111 downto 0 ) & ch2PreviousData( 15 downto 0 );
+                        ch2PreviousData( 15 downto 0 )   <= m00_axi_rdata( 127 downto 112 );
+                     
+                     when "010" =>
+                     --2
+                        ch2BufDOut                       <= m00_axi_rdata( 95 downto 0 ) & ch2PreviousData( 31 downto 0 );
+                        ch2PreviousData( 31 downto 0 )   <= m00_axi_rdata( 127 downto 96 );
+                     
+                     when "011" =>
+                     --3
+                        ch2BufDOut                       <= m00_axi_rdata( 79 downto 0 ) & ch2PreviousData( 47 downto 0 ); 
+                        ch2PreviousData( 47 downto 0 )   <= m00_axi_rdata( 127 downto 80 );
+ 
+                     when "100" =>
+                     --4
+                        ch2BufDOut                       <= m00_axi_rdata( 63 downto 0 ) & ch2PreviousData( 63 downto 0 );
+                        ch2PreviousData( 63 downto 0 )   <= m00_axi_rdata( 127 downto 64 );
+
+                     when "101" =>
+                     --5
+                        ch2BufDOut                       <= m00_axi_rdata( 47 downto 0 ) & ch2PreviousData( 79 downto 0 );
+                        ch2PreviousData( 79 downto 0 )   <= m00_axi_rdata( 127 downto 48 );
+
+                     when "110" =>
+                     --6
+                        ch2BufDOut                       <= m00_axi_rdata( 31 downto 0 ) & ch2PreviousData( 95 downto 0 );
+                        ch2PreviousData( 95 downto 0 )   <= m00_axi_rdata( 127 downto 32 );
+
+                     when "111" =>
+                     --7
+                        ch2BufDOut                        <= m00_axi_rdata( 15 downto 0 ) & ch2PreviousData( 111 downto 0 );
+                        ch2PreviousData( 111 downto 0 )   <= m00_axi_rdata( 127 downto 16 );
+                     
+                  end case;
+                  
+                  ch2BufPointer  <= std_logic_vector( unsigned( ch2BufPointer ) + 1 );
+                  
+                  if m00_axi_rlast = '1' then
+                  
+                     axiState <= asCh2ReadShift2;
+                  
+                  end if;
+                  
+               end if; 
+               
+            when asCh2ReadShift2 =>
+            
+               axiStateDebug        <= x"1c";   
+
+               m00_axi_rready       <= '0';
+               m00_axi_arvalid      <= '0';
+
+
+               ch2BufA     <= ch2BufPointer;
+               ch2BufWE    <= ( others => '1' );
+
+               case ch2Input0( 2 downto 0 ) is
+               
+                  when "000"  =>
+                  --0 
+                     ch2BufDOut  <= ( others => '0' );
+               
+                  when "001" =>
+                  --1
+                     ch2BufDOut( 15 downto 0 )  <= ch2PreviousData( 15 downto 0 );
+                  
+                  when "010" =>
+                  --2
+                     ch2BufDOut( 31 downto 0 )   <= ch2PreviousData( 31 downto 0 );
+                  
+                  when "011" =>
+                  --3
+                     ch2BufDOut( 47 downto 0 )   <= ch2PreviousData( 47 downto 0 );
+                     
+                  when "100" =>
+                  --4
+                     ch2BufDOut( 63 downto 0 )   <= ch2PreviousData( 63 downto 0 );
+
+                  when "101" =>
+                  --5
+                     ch2BufDOut( 79 downto 0 )   <= ch2PreviousData( 79 downto 0 );
+
+                  when "110" =>
+                  --6
+                     ch2BufDOut( 95 downto 0 )   <= ch2PreviousData( 95 downto 0 );
+
+                  when "111" =>
+                  --7
+                     ch2BufDOut( 111 downto 0 )   <= ch2PreviousData( 111 downto 0 );
+                  
+               end case;
+
+               
+               axiState             <= asCh2ReadShift3;
+               
+
+            when asCh2ReadShift3 =>
+            
+               ch2BufWE             <= ( others => '0' );
+               ch2DmaRequestLatched <= '0';               
+               axiState <= asIdle;
+
                                     
                 
             when others =>
@@ -1788,6 +1971,15 @@ begin
          ch1DmaRequestPtrAdd <= x"0400"; --row width 1024 bytes, 512 pixels
                   
          ch1DmaPointerStart   <= ( others => '0' );
+         
+         ch2SaAddress         <= ( others => '0' );
+         ch2SaPointer         <= ( others => '0' );
+         ch2SaRowWidth        <= ( others => '0' );
+         ch2DaAddress         <= ( others => '0' );
+         ch2DaPointer         <= ( others => '0' );
+         ch2DaRowWidth        <= ( others => '0' );
+         ch2DaFirstWriteMask  <= ( others => '1' );
+         ch2DaLastWriteMask   <= ( others => '1' );
          
          --cpu cache enabled by default
          
@@ -1831,7 +2023,7 @@ begin
                      --0x04 r- component version                       
                      when x"01" =>
                      
-                        dout  <= x"20250220";
+                        dout  <= x"20250221";
 
                      --0x08 rw ch1DmaPointerStart                       
                      when x"02" =>
@@ -1894,7 +2086,17 @@ begin
                            
                         end if;
 
-                    --0x1c -- unused0
+                    --0x1c rw ch2DaWriteMask
+                    when x"07" =>
+                    
+                        dout <= ch2DaFirstWriteMask & ch2DaLastWriteMask;
+                        
+                        if wr = '1' then
+         
+                           ch2DaFirstWriteMask  <= din( 31 downto 16 );
+                           ch2DaLastWriteMask   <= din( 15 downto 0 );
+
+                        end if;
                     
                     --0x20 rw ch2Input0_0                       
                      when x"08" =>
@@ -1951,8 +2153,19 @@ begin
                            
                         end if;
 
-                    --0x34 rw ch2DaAddress                       
+                    --0x34 rw ch2SaRowWidth                       
                      when x"0d" =>
+                     
+                        dout  <= x"0000" & ch2SaRowWidth;
+                        
+                        if wr = '1' then
+
+                           ch2SaRowWidth <= din( 15 downto 0 );                        
+                           
+                        end if;
+
+                    --0x38 rw ch2DaAddress                       
+                     when x"0e" =>
                      
                         dout  <= ch2DaAddress;
                         
@@ -1962,29 +2175,75 @@ begin
                            
                         end if;
 
-                     --0x38 rw ch2Command / status                       
+                    --0x3c rw ch2DaRowWidth                       
+                     when x"0f" =>
+                     
+                        dout  <= x"0000" & ch2DaRowWidth;
+                        
+                        if wr = '1' then
+
+                           ch2DaRowWidth <= din( 15 downto 0 );                        
+                           
+                        end if;
+
+                     --0x40 rw ch2Command / status                       
                      
                      --commands ( write )
                      ---- 00 - fill da with value in ch2Input0
                      ---- 01 - read sa to buffer
-                     ---- 02 - read sa to buffer and shift right
-                     ---- 03 - write buffer to da
+                     ---- 02 - write buffer to da
                      
                      --status ( read )
                      --b0 - ch2Ready
                      
-                     when x"0e" =>
+                     when x"10" =>
                      
                         dout  <= x"0000000" & "000" & not ch2DmaRequestLatched;
                         
                         if wr = '1' then
+
+                           --advance address regs according to command
+                           
+                           case din( 7 downto 0 ) is 
+                           
+                              when x"00" =>
+
+                                 --fill
+                                 ch2DaPointer   <= ch2DaAddress;
+                                 ch2DaAddress   <= std_logic_vector( unsigned( ch2DaAddress ) + unsigned( ch2DaRowWidth ) );
+
+                              when x"01" =>
+
+                                 --read
+                                 ch2SaPointer   <= ch2SaAddress;
+                                 ch2SaAddress   <= std_logic_vector( unsigned( ch2SaAddress ) + unsigned( ch2SaRowWidth ) );
+
+                              when x"02" =>
+
+                                 --write
+                                 ch2DaPointer   <= ch2DaAddress;
+                                 ch2DaAddress   <= std_logic_vector( unsigned( ch2DaAddress ) + unsigned( ch2DaRowWidth ) );
+
+                              when x"03" =>
+                              
+                                 --read with shift right
+                                 ch2SaPointer   <= ch2SaAddress;
+                                 ch2SaAddress   <= std_logic_vector( unsigned( ch2SaAddress ) + unsigned( ch2SaRowWidth ) );
+                                 
+                                                                  
+                              when others =>
+                              
+                                 ch2SaPointer   <= ch2SaAddress;
+                                 ch2DaPointer   <= ch2DaAddress;
+                              
+                           end case;
 
                            ch2Command     <= din( 7 downto 0 );                        
                            ch2DmaRequest  <= '1';     
 
                         end if;
 
-                     when x"0f" =>
+                     when x"11" =>
                      
                         dout <= x"000000" & axiStateDebug;
 

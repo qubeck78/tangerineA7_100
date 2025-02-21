@@ -307,29 +307,26 @@ int main()
 
 //    gfFillRect( &screen, 0, 0, screen.width - 1, screen.height - 1 , gfColor( 255, 255, 255 ) ); 
 
-    axidma->ch2DaAddress = (uint32_t)screen.buffer;
+    axidma->ch2DaAddress        = (uint32_t)screen.buffer;
+    axidma->ch2DaRowWidth       = 4096;
+    axidma->ch2TransferLength   = 159; 
+    axidma->ch2DaWriteMask      = 0xffffffff;
 
     for( i = 0; i < 4; i++ )
     {
         axidma->ch2Input0[i] = gfColor( 32, 32, 32) | ( gfColor( 32, 32, 32) << 16 );
     }
 
-//https://www.youtube.com/watch?v=lI5Gh-1zk-s
+    //https://www.youtube.com/watch?v=lI5Gh-1zk-s
     
     for( i = 0; i < 768; i++ )
     {
-
-
-        axidma->ch2TransferLength = 159; 
         axidma->ch2Command = 0x00;
         do{
         }while( ! ( axidma->ch2Command & 1 ) );   
-
-
-        axidma->ch2DaAddress += 4096;
-
     }
 
+    
 
 
     //init events queue
