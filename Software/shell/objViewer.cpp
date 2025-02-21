@@ -11,6 +11,7 @@ extern tgfBitmap         background;
 extern tgfBitmap         screen2;
 extern tgfBitmap         zBuffer; 
 extern tgfBitmap         texture; 
+tgfBitmap                background426;
 
 float                    sinT[360];
 float                    cosT[360];  
@@ -493,51 +494,58 @@ int objvDisplayObj( tgfBitmap *pscr )
 
    //copy background to screen buffer
       
-   //todo: add 32-bit blitter to simulator
    
-   #ifdef _GFXLIB_HW_BLITTER_3D
 
-      blt->saAddress       = (uint32_t)background.buffer;
-      blt->saRowWidth      = 160;
-      blt->saWidth         = 160;
-      blt->saHeight        = 240;
+   //gfBlitBitmap( pscr, &background426, 0, 0 );
 
-      blt->daAddress       = (uint32_t)pscr->buffer;
-      blt->daRowWidth      = 256;
-      blt->daWidth         = 160;
-      blt->daHeight        = 240;
-
-      blt->command         = 0x1200;
+   axidma->ch2TransferLength = 0x35;
+   axidma->ch2SaAddress    = (uint32_t)background426.buffer;
+   axidma->ch2SaRowWidth   = 2560;
+   axidma->ch2DaAddress = (uint32_t)pscr->buffer;
+   axidma->ch2DaRowWidth   = 1024;
+   axidma->ch2DaWriteMask  = 0xffffffff;
       
-      while( ! ( blt->command & 1 ) );
+   for( i = 0; i < 240; i++ )
+   {
 
-   #else
+      //read row
+      axidma->ch2Command = 0x01;
+      do{}while( ! ( axidma->ch2Command & 1 ) );
 
-      gfBlitBitmap( pscr, &background, 0, 0 );
+      //write row
+      axidma->ch2Command = 0x02;
+      do{}while( ! ( axidma->ch2Command & 1 ) );
 
-   #endif
+   }
 
    //calc point cloud
    objvCalc3d( pscr );
 
    //clear zbuffer
-   #ifdef _GFXLIB_HW_BLITTER_3D
 
-      blt->daAddress       = (uint32_t)zBuffer.buffer;
-      blt->daRowWidth      = 256;
-      blt->daWidth         = 160;
-      blt->daHeight        = 240;
-      blt->input0          = 0xffffffff;
+   gfFillRect( &zBuffer, 0, 0, zBuffer.width - 1, zBuffer.height - 1, 0xffff );
 
-      blt->command         = 0x1100;
+   /*
+
+   //clearing z-buffer via axi dma requires flushing cpu cache, and this gives a huge performance drop
+
+   axidma->ch2Input0[0] = 0xffffffff;
+   axidma->ch2Input0[1] = 0xffffffff;
+   axidma->ch2Input0[2] = 0xffffffff;
+   axidma->ch2Input0[3] = 0xffffffff;
       
-      while( ! ( blt->command & 1 ) );
+   axidma->ch2TransferLength = 0x35;
+   for( i = 0; i < 240; i++ )
+   {
 
-   #else
+      axidma->ch2DaAddress = (uint32_t)zBuffer.buffer +  1024 * i;
+      axidma->ch2Command = 0x00;
+      do{}while( ! ( axidma->ch2Command & 1 ) );
 
-      gfFillRect( &zBuffer, 0, 0, 319, 239, 0xffff );
-   
-   #endif
+   }
+
+   axidma->cacheControl = 2;
+*/
 
 
 
@@ -730,11 +738,26 @@ int objvView( char* fileName )
 
    rv = 0;
 
+
+   setVideoMode( _VIDEOMODE_426_TEXT160_OVER_GFX );
+   screen.width            = 426;
+   screen.rowWidth         = 512;
+   screen.height           = 240;
+
+
    con.textAttributes = 0x0f;
    toCls( &con );
 
-   gfBlitBitmap( &screen, &background, 0, 0 );
-   gfBlitBitmap( &screen2, &background, 0, 0 );
+   //cut background
+
+   background426.flags     = 0; 
+   background426.width     = 426;
+   background426.height    = 240;
+   background426.rowWidth  = background.rowWidth;
+   background426.buffer    = background.buffer;
+
+   gfBlitBitmap( &screen, &background426, 0, 0 );
+   gfBlitBitmap( &screen2, &background426, 0, 0 );
 
 
 
@@ -905,6 +928,11 @@ int objvView( char* fileName )
    texture.buffer = NULL;
    texture.width  = 0;
    texture.height = 0;
+
+   setVideoMode( _VIDEOMODE_1280_TEXT160_OVER_GFX );
+   screen.width            = 1280;
+   screen.rowWidth         = 2048;
+   screen.height           = 720;
 
    return rv;
 }

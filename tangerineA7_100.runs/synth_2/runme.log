@@ -41,11 +41,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tfgg676-1
-INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
-INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 44912
+INFO: [Synth 8-7075] Helper process launched with PID 323336
 CRITICAL WARNING: [Synth 8-9339] data object 'clk200_tangerineA7_100_clk_wiz_1_0' is already declared [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_1_0/tangerineA7_100_clk_wiz_1_0_clk_wiz.v:99]
 INFO: [Synth 8-6826] previous declaration of 'clk200_tangerineA7_100_clk_wiz_1_0' is from here [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_1_0/tangerineA7_100_clk_wiz_1_0_clk_wiz.v:96]
 CRITICAL WARNING: [Synth 8-11152] second declaration of 'clk200_tangerineA7_100_clk_wiz_1_0' is ignored [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_1_0/tangerineA7_100_clk_wiz_1_0_clk_wiz.v:99]
@@ -161,7 +159,7 @@ WARNING: [Synth 8-10294] parameter declaration is not allowed here in this mode 
 WARNING: [Synth 8-10294] parameter declaration is not allowed here in this mode of Verilog [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ipshared/20d0/hdl/ila_v6_2_syn_rfs.v:4588]
 WARNING: [Synth 8-10294] parameter declaration is not allowed here in this mode of Verilog [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ipshared/20d0/hdl/ila_v6_2_syn_rfs.v:5486]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2424.285 ; gain = 426.902
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2426.156 ; gain = 428.012
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'tangerineA7_100_wrapper' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/hdl/tangerineA7_100_wrapper.v:13]
 INFO: [Synth 8-6157] synthesizing module 'tangerineA7_100' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:13]
@@ -240,9 +238,8 @@ INFO: [Synth 8-6157] synthesizing module 'MMCME2_ADV__parameterized1' [D:/Xilinx
 INFO: [Synth 8-6155] done synthesizing module 'MMCME2_ADV__parameterized1' (0#1) [D:/Xilinx2023.1/Vivado/2023.1/scripts/rt/data/unisim_comp.v:80311]
 INFO: [Synth 8-6155] done synthesizing module 'tangerineA7_100_clk_wiz_2_0_clk_wiz' (0#1) [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_2_0/tangerineA7_100_clk_wiz_2_0_clk_wiz.v:71]
 INFO: [Synth 8-6155] done synthesizing module 'tangerineA7_100_clk_wiz_2_0' (0#1) [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_2_0/tangerineA7_100_clk_wiz_2_0.v:71]
-WARNING: [Synth 8-7071] port 'clk81_25' of module 'tangerineA7_100_clk_wiz_2_0' is unconnected for instance 'clk_wiz_2' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:202]
-WARNING: [Synth 8-7071] port 'locked' of module 'tangerineA7_100_clk_wiz_2_0' is unconnected for instance 'clk_wiz_2' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:202]
-WARNING: [Synth 8-7023] instance 'clk_wiz_2' of module 'tangerineA7_100_clk_wiz_2_0' has 7 connections declared, but only 5 given [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:202]
+WARNING: [Synth 8-7071] port 'clk81_25' of module 'tangerineA7_100_clk_wiz_2_0' is unconnected for instance 'clk_wiz_2' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:203]
+WARNING: [Synth 8-7023] instance 'clk_wiz_2' of module 'tangerineA7_100_clk_wiz_2_0' has 7 connections declared, but only 6 given [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:203]
 INFO: [Synth 8-6157] synthesizing module 'tangerineA7_100_hdmiOut_0_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_hdmiOut_0_0/synth/tangerineA7_100_hdmiOut_0_0.v:53]
 INFO: [Synth 8-638] synthesizing module 'hdmiOut' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/hdmiOut/hdmiOut.vhd:37]
 INFO: [Synth 8-113] binding component instance 'OBUFDS_blue' to cell 'OBUFDS' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/hdmiOut/hdmiOut.vhd:76]
@@ -275,7 +272,7 @@ INFO: [Synth 8-113] binding component instance 'ODDR2_clock' to cell 'ODDR2' [C:
 INFO: [Synth 8-256] done synthesizing module 'dvid' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/hdmiOut/dvid.vhd:31]
 INFO: [Synth 8-256] done synthesizing module 'hdmiOut' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/hdmiOut/hdmiOut.vhd:37]
 INFO: [Synth 8-6155] done synthesizing module 'tangerineA7_100_hdmiOut_0_0' (0#1) [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_hdmiOut_0_0/synth/tangerineA7_100_hdmiOut_0_0.v:53]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:223]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:225]
 INFO: [Synth 8-6157] synthesizing module 'tangerineA7_100_system_ila_0_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_system_ila_0_0/synth/tangerineA7_100_system_ila_0_0.v:53]
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_system_ila_0_0/synth/tangerineA7_100_system_ila_0_0.v:175]
 INFO: [Synth 8-6157] synthesizing module 'bd_2af6' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_system_ila_0_0/bd_0/synth/bd_2af6.v:10]
@@ -323,38 +320,45 @@ INFO: [Synth 8-6155] done synthesizing module 'bd_2af6' (0#1) [c:/Users/qubeck/D
 INFO: [Synth 8-6155] done synthesizing module 'tangerineA7_100_system_ila_0_0' (0#1) [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_system_ila_0_0/synth/tangerineA7_100_system_ila_0_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'tangerineA7_100_tangerineMIGWrapper_0_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_tangerineMIGWrapper_0_0/synth/tangerineA7_100_tangerineMIGWrapper_0_0.v:53]
 INFO: [Synth 8-638] synthesizing module 'tangerineMIGWrapper' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineMIGWrapper.vhd:96]
-INFO: [Synth 8-3491] module 'mig_7series_tangerine' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/mig_7series_tangerine_stub.v:6' bound to instance 'tangerineMIGInst' of component 'mig_7series_tangerine' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineMIGWrapper.vhd:190]
-INFO: [Synth 8-6157] synthesizing module 'mig_7series_tangerine' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/mig_7series_tangerine_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'mig_7series_tangerine' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/mig_7series_tangerine_stub.v:6]
+INFO: [Synth 8-3491] module 'mig_7series_tangerine' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/mig_7series_tangerine_stub.v:6' bound to instance 'tangerineMIGInst' of component 'mig_7series_tangerine' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineMIGWrapper.vhd:190]
+INFO: [Synth 8-6157] synthesizing module 'mig_7series_tangerine' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/mig_7series_tangerine_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'mig_7series_tangerine' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/mig_7series_tangerine_stub.v:6]
 INFO: [Synth 8-256] done synthesizing module 'tangerineMIGWrapper' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineMIGWrapper.vhd:96]
 INFO: [Synth 8-6155] done synthesizing module 'tangerineA7_100_tangerineMIGWrapper_0_0' (0#1) [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_tangerineMIGWrapper_0_0/synth/tangerineA7_100_tangerineMIGWrapper_0_0.v:53]
-WARNING: [Synth 8-7071] port 'init_calib_complete' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' is unconnected for instance 'tangerineMIGWrapper_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:261]
-WARNING: [Synth 8-7071] port 'ui_clk_sync_rst' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' is unconnected for instance 'tangerineMIGWrapper_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:261]
-WARNING: [Synth 8-7071] port 'mmcm_locked' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' is unconnected for instance 'tangerineMIGWrapper_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:261]
-WARNING: [Synth 8-7071] port 'app_sr_active' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' is unconnected for instance 'tangerineMIGWrapper_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:261]
-WARNING: [Synth 8-7071] port 'app_ref_ack' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' is unconnected for instance 'tangerineMIGWrapper_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:261]
-WARNING: [Synth 8-7071] port 'app_zq_ack' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' is unconnected for instance 'tangerineMIGWrapper_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:261]
-WARNING: [Synth 8-7023] instance 'tangerineMIGWrapper_0' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' has 64 connections declared, but only 58 given [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:261]
+WARNING: [Synth 8-7071] port 'init_calib_complete' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' is unconnected for instance 'tangerineMIGWrapper_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:263]
+WARNING: [Synth 8-7071] port 'ui_clk_sync_rst' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' is unconnected for instance 'tangerineMIGWrapper_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:263]
+WARNING: [Synth 8-7071] port 'mmcm_locked' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' is unconnected for instance 'tangerineMIGWrapper_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:263]
+WARNING: [Synth 8-7071] port 'app_sr_active' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' is unconnected for instance 'tangerineMIGWrapper_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:263]
+WARNING: [Synth 8-7071] port 'app_ref_ack' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' is unconnected for instance 'tangerineMIGWrapper_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:263]
+WARNING: [Synth 8-7071] port 'app_zq_ack' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' is unconnected for instance 'tangerineMIGWrapper_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:263]
+WARNING: [Synth 8-7023] instance 'tangerineMIGWrapper_0' of module 'tangerineA7_100_tangerineMIGWrapper_0_0' has 64 connections declared, but only 58 given [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/synth/tangerineA7_100.v:263]
 INFO: [Synth 8-6157] synthesizing module 'tangerineA7_100_tangerineSOC_0_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_tangerineSOC_0_0/synth/tangerineA7_100_tangerineSOC_0_0.v:53]
 INFO: [Synth 8-638] synthesizing module 'tangerineSOC' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:101]
 	Parameter inputWidth bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'inputSync' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/common/InputSync.vhd:7' bound to instance 'inputSyncVSInst' of component 'inputSync' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:524]
+INFO: [Synth 8-3491] module 'inputSync' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/common/InputSync.vhd:7' bound to instance 'inputSyncVSInst' of component 'inputSync' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:596]
 INFO: [Synth 8-638] synthesizing module 'inputSync' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/common/InputSync.vhd:26]
 INFO: [Synth 8-256] done synthesizing module 'inputSync' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/common/InputSync.vhd:26]
-INFO: [Synth 8-3491] module 'systemRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/systemRam_stub.v:6' bound to instance 'txtfbRamInst' of component 'systemRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:547]
-INFO: [Synth 8-6157] synthesizing module 'systemRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/systemRam_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'systemRam' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/systemRam_stub.v:6]
-INFO: [Synth 8-3491] module 'systemRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/systemRam_stub.v:6' bound to instance 'systemRamInst' of component 'systemRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:588]
-INFO: [Synth 8-3491] module 'fastRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/fastRam_stub.v:6' bound to instance 'fastRamInst' of component 'fastRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:628]
-INFO: [Synth 8-6157] synthesizing module 'fastRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/fastRam_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fastRam' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/fastRam_stub.v:6]
-INFO: [Synth 8-3491] module 'vga' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/vga.vhd:8' bound to instance 'vgaInst' of component 'vga' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:659]
+	Parameter inputWidth bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'inputSync' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/common/InputSync.vhd:7' bound to instance 'inputSyncDmaRequestInst' of component 'inputSync' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:609]
+INFO: [Synth 8-638] synthesizing module 'inputSync__parameterized1' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/common/InputSync.vhd:26]
+INFO: [Synth 8-256] done synthesizing module 'inputSync__parameterized1' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/common/InputSync.vhd:26]
+INFO: [Synth 8-3491] module 'systemRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/systemRam_stub.v:6' bound to instance 'txtfbRamInst' of component 'systemRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:632]
+INFO: [Synth 8-6157] synthesizing module 'systemRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/systemRam_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'systemRam' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/systemRam_stub.v:6]
+INFO: [Synth 8-3491] module 'systemRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/systemRam_stub.v:6' bound to instance 'systemRamInst' of component 'systemRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:673]
+INFO: [Synth 8-3491] module 'fastRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fastRam_stub.v:6' bound to instance 'fastRamInst' of component 'fastRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:713]
+INFO: [Synth 8-6157] synthesizing module 'fastRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fastRam_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fastRam' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fastRam_stub.v:6]
+INFO: [Synth 8-3491] module 'dmaCh2BufRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/dmaCh2BufRam_stub.v:6' bound to instance 'dmaCh2BufRamInst' of component 'dmaCh2BufRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:745]
+INFO: [Synth 8-6157] synthesizing module 'dmaCh2BufRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/dmaCh2BufRam_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'dmaCh2BufRam' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/dmaCh2BufRam_stub.v:6]
+INFO: [Synth 8-3491] module 'vga' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/vga.vhd:8' bound to instance 'vgaInst' of component 'vga' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:785]
 INFO: [Synth 8-638] synthesizing module 'vga' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/vga.vhd:51]
 	Parameter inputWidth bound to: 1 - type: integer 
 INFO: [Synth 8-3491] module 'inputSync' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/common/InputSync.vhd:7' bound to instance 'inputSyncVSInst' of component 'inputSync' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/vga.vhd:255]
-INFO: [Synth 8-3491] module 'fontPROM' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/fontPROM_stub.v:6' bound to instance 'fontPromInst' of component 'fontPROM' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/vga.vhd:272]
-INFO: [Synth 8-6157] synthesizing module 'fontPROM' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/fontPROM_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fontPROM' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/fontPROM_stub.v:6]
+INFO: [Synth 8-3491] module 'fontPROM' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fontPROM_stub.v:6' bound to instance 'fontPromInst' of component 'fontPROM' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/vga.vhd:272]
+INFO: [Synth 8-6157] synthesizing module 'fontPROM' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fontPROM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fontPROM' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fontPROM_stub.v:6]
 INFO: [Synth 8-3491] module 'pixelGenTxt' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/pixelGenTxt.vhd:13' bound to instance 'pixelGenInst' of component 'pixelGenTxt' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/vga.vhd:288]
 INFO: [Synth 8-638] synthesizing module 'pixelGenTxt' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/pixelGenTxt.vhd:70]
 INFO: [Synth 8-226] default block is never used [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/pixelGenTxt.vhd:141]
@@ -368,7 +372,7 @@ INFO: [Synth 8-638] synthesizing module 'videoMux' [C:/Users/qubeck/Documents/De
 INFO: [Synth 8-256] done synthesizing module 'videoMux' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/videoMux.vhd:48]
 INFO: [Synth 8-226] default block is never used [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/vga.vhd:451]
 INFO: [Synth 8-256] done synthesizing module 'vga' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/vga.vhd:51]
-INFO: [Synth 8-3491] module 'nekoRv' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:22' bound to instance 'nekoRvInst' of component 'nekoRv' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:763]
+INFO: [Synth 8-3491] module 'nekoRv' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:22' bound to instance 'nekoRvInst' of component 'nekoRv' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:891]
 INFO: [Synth 8-638] synthesizing module 'nekoRv' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:50]
 INFO: [Synth 8-226] default block is never used [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:509]
 INFO: [Synth 8-226] default block is never used [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:693]
@@ -377,58 +381,68 @@ INFO: [Synth 8-226] default block is never used [C:/Users/qubeck/Documents/Devel
 INFO: [Synth 8-226] default block is never used [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:1502]
 INFO: [Synth 8-226] default block is never used [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:1575]
 INFO: [Synth 8-256] done synthesizing module 'nekoRv' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:50]
-INFO: [Synth 8-3491] module 'axiDMA' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:8' bound to instance 'axiDMAInst' of component 'axiDMA' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:820]
-INFO: [Synth 8-638] synthesizing module 'axiDMA' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:90]
-INFO: [Synth 8-3491] module 'dmaCh1BufRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/dmaCh1BufRam_stub.v:6' bound to instance 'dmaCh1BufRamInst' of component 'dmaCh1BufRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:270]
-INFO: [Synth 8-6157] synthesizing module 'dmaCh1BufRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/dmaCh1BufRam_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'dmaCh1BufRam' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/dmaCh1BufRam_stub.v:6]
-INFO: [Synth 8-3491] module 'cacheDataRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/cacheDataRam_stub.v:6' bound to instance 'cacheDataRamW0Inst' of component 'cacheDataRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:299]
-INFO: [Synth 8-6157] synthesizing module 'cacheDataRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/cacheDataRam_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'cacheDataRam' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/cacheDataRam_stub.v:6]
-INFO: [Synth 8-3491] module 'cacheDataRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/cacheDataRam_stub.v:6' bound to instance 'cacheDataRamW1Inst' of component 'cacheDataRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:318]
-INFO: [Synth 8-3491] module 'cacheDataRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/cacheDataRam_stub.v:6' bound to instance 'cacheDataRamW2Inst' of component 'cacheDataRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:337]
-INFO: [Synth 8-3491] module 'cacheDataRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/cacheDataRam_stub.v:6' bound to instance 'cacheDataRamW3Inst' of component 'cacheDataRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:356]
-INFO: [Synth 8-3491] module 'cacheTagRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/cacheTagRam_stub.v:6' bound to instance 'cacheTagRamW0Inst' of component 'cacheTagRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:389]
-INFO: [Synth 8-6157] synthesizing module 'cacheTagRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/cacheTagRam_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'cacheTagRam' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/cacheTagRam_stub.v:6]
-INFO: [Synth 8-3491] module 'cacheTagRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/cacheTagRam_stub.v:6' bound to instance 'cacheTagRamW1Inst' of component 'cacheTagRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:399]
-INFO: [Synth 8-3491] module 'cacheTagRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/cacheTagRam_stub.v:6' bound to instance 'cacheTagRamW2Inst' of component 'cacheTagRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:409]
-INFO: [Synth 8-3491] module 'cacheTagRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/cacheTagRam_stub.v:6' bound to instance 'cacheTagRamW3Inst' of component 'cacheTagRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:419]
-INFO: [Synth 8-226] default block is never used [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:1355]
-INFO: [Synth 8-256] done synthesizing module 'axiDMA' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:90]
-INFO: [Synth 8-3491] module 'rootRegisters' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/rootRegisters.vhd:10' bound to instance 'rootRegistersInst' of component 'rootRegisters' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:904]
+INFO: [Synth 8-3491] module 'axiDMA' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:8' bound to instance 'axiDMAInst' of component 'axiDMA' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:948]
+INFO: [Synth 8-638] synthesizing module 'axiDMA' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:101]
+INFO: [Synth 8-3491] module 'dmaCh1BufRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/dmaCh1BufRam_stub.v:6' bound to instance 'dmaCh1BufRamInst' of component 'dmaCh1BufRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:321]
+INFO: [Synth 8-6157] synthesizing module 'dmaCh1BufRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/dmaCh1BufRam_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'dmaCh1BufRam' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/dmaCh1BufRam_stub.v:6]
+INFO: [Synth 8-3491] module 'cacheDataRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/cacheDataRam_stub.v:6' bound to instance 'cacheDataRamW0Inst' of component 'cacheDataRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:350]
+INFO: [Synth 8-6157] synthesizing module 'cacheDataRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/cacheDataRam_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'cacheDataRam' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/cacheDataRam_stub.v:6]
+INFO: [Synth 8-3491] module 'cacheDataRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/cacheDataRam_stub.v:6' bound to instance 'cacheDataRamW1Inst' of component 'cacheDataRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:369]
+INFO: [Synth 8-3491] module 'cacheDataRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/cacheDataRam_stub.v:6' bound to instance 'cacheDataRamW2Inst' of component 'cacheDataRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:388]
+INFO: [Synth 8-3491] module 'cacheDataRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/cacheDataRam_stub.v:6' bound to instance 'cacheDataRamW3Inst' of component 'cacheDataRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:407]
+INFO: [Synth 8-3491] module 'cacheTagRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/cacheTagRam_stub.v:6' bound to instance 'cacheTagRamW0Inst' of component 'cacheTagRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:440]
+INFO: [Synth 8-6157] synthesizing module 'cacheTagRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/cacheTagRam_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'cacheTagRam' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/cacheTagRam_stub.v:6]
+INFO: [Synth 8-3491] module 'cacheTagRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/cacheTagRam_stub.v:6' bound to instance 'cacheTagRamW1Inst' of component 'cacheTagRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:450]
+INFO: [Synth 8-3491] module 'cacheTagRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/cacheTagRam_stub.v:6' bound to instance 'cacheTagRamW2Inst' of component 'cacheTagRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:460]
+INFO: [Synth 8-3491] module 'cacheTagRam' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/cacheTagRam_stub.v:6' bound to instance 'cacheTagRamW3Inst' of component 'cacheTagRam' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:470]
+INFO: [Synth 8-226] default block is never used [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:2003]
+INFO: [Synth 8-256] done synthesizing module 'axiDMA' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:101]
+INFO: [Synth 8-3491] module 'rootRegisters' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/rootRegisters.vhd:10' bound to instance 'rootRegistersInst' of component 'rootRegisters' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:1041]
 INFO: [Synth 8-638] synthesizing module 'rootRegisters' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/rootRegisters.vhd:46]
 INFO: [Synth 8-226] default block is never used [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/rootRegisters.vhd:115]
 INFO: [Synth 8-256] done synthesizing module 'rootRegisters' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/rootRegisters.vhd:46]
-INFO: [Synth 8-3491] module 'UART' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/uart/uart.vhd:7' bound to instance 'UARTInst' of component 'UART' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:933]
+INFO: [Synth 8-3491] module 'UART' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/uart/uart.vhd:7' bound to instance 'UARTInst' of component 'UART' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:1070]
 INFO: [Synth 8-638] synthesizing module 'UART' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/uart/uart.vhd:41]
 INFO: [Synth 8-226] default block is never used [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/uart/uart.vhd:142]
 	Parameter inputWidth bound to: 1 - type: integer 
 INFO: [Synth 8-3491] module 'inputSync' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/common/InputSync.vhd:7' bound to instance 'rxdSyncInst' of component 'inputSync' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/uart/uart.vhd:228]
-INFO: [Synth 8-3491] module 'uartFiFo' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/uartFiFo_stub.v:6' bound to instance 'rxFiFoInst' of component 'uartFiFo' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/uart/uart.vhd:245]
-INFO: [Synth 8-6157] synthesizing module 'uartFiFo' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/uartFiFo_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'uartFiFo' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/uartFiFo_stub.v:6]
+INFO: [Synth 8-3491] module 'uartFiFo' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/uartFiFo_stub.v:6' bound to instance 'rxFiFoInst' of component 'uartFiFo' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/uart/uart.vhd:245]
+INFO: [Synth 8-6157] synthesizing module 'uartFiFo' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/uartFiFo_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'uartFiFo' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/uartFiFo_stub.v:6]
 INFO: [Synth 8-256] done synthesizing module 'UART' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/uart/uart.vhd:41]
-INFO: [Synth 8-3491] module 'ps2Host' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2Host.vhd:14' bound to instance 'ps2HostInst' of component 'ps2Host' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:951]
+INFO: [Synth 8-3491] module 'ps2Host' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2Host.vhd:14' bound to instance 'ps2HostInst' of component 'ps2Host' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:1088]
 INFO: [Synth 8-638] synthesizing module 'ps2Host' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2Host.vhd:41]
 INFO: [Synth 8-3491] module 'ps2PortController' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2PortController.vhd:9' bound to instance 'ps2aControllerInst' of component 'ps2PortController' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2Host.vhd:130]
 INFO: [Synth 8-638] synthesizing module 'ps2PortController' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2PortController.vhd:32]
 	Parameter inputWidth bound to: 2 - type: integer 
 INFO: [Synth 8-3491] module 'inputSync' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/common/InputSync.vhd:7' bound to instance 'inputSyncPs2AInst' of component 'inputSync' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2PortController.vhd:86]
-INFO: [Synth 8-638] synthesizing module 'inputSync__parameterized2' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/common/InputSync.vhd:26]
-INFO: [Synth 8-256] done synthesizing module 'inputSync__parameterized2' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/common/InputSync.vhd:26]
 INFO: [Synth 8-256] done synthesizing module 'ps2PortController' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2PortController.vhd:32]
 INFO: [Synth 8-3491] module 'ps2PortController' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2PortController.vhd:9' bound to instance 'ps2bControllerInst' of component 'ps2PortController' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2Host.vhd:153]
-INFO: [Synth 8-3491] module 'ps2ControllerFifo' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/ps2ControllerFifo_stub.v:6' bound to instance 'ps2aFifoInst' of component 'ps2ControllerFifo' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2Host.vhd:176]
-INFO: [Synth 8-6157] synthesizing module 'ps2ControllerFifo' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/ps2ControllerFifo_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ps2ControllerFifo' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/ps2ControllerFifo_stub.v:6]
-INFO: [Synth 8-3491] module 'ps2ControllerFifo' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-19472-DESKTOP-T3E75FC/realtime/ps2ControllerFifo_stub.v:6' bound to instance 'ps2bFifoInst' of component 'ps2ControllerFifo' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2Host.vhd:189]
+INFO: [Synth 8-3491] module 'ps2ControllerFifo' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/ps2ControllerFifo_stub.v:6' bound to instance 'ps2aFifoInst' of component 'ps2ControllerFifo' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2Host.vhd:176]
+INFO: [Synth 8-6157] synthesizing module 'ps2ControllerFifo' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/ps2ControllerFifo_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ps2ControllerFifo' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/ps2ControllerFifo_stub.v:6]
+INFO: [Synth 8-3491] module 'ps2ControllerFifo' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/ps2ControllerFifo_stub.v:6' bound to instance 'ps2bFifoInst' of component 'ps2ControllerFifo' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2Host.vhd:189]
 INFO: [Synth 8-226] default block is never used [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2Host.vhd:234]
 INFO: [Synth 8-256] done synthesizing module 'ps2Host' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/ps2/ps2Host.vhd:41]
-INFO: [Synth 8-3491] module 'SPI' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/spi/spi.vhd:7' bound to instance 'SPIInst' of component 'SPI' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:982]
+INFO: [Synth 8-3491] module 'SPI' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/spi/spi.vhd:7' bound to instance 'SPIInst' of component 'SPI' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:1119]
 INFO: [Synth 8-638] synthesizing module 'SPI' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/spi/spi.vhd:32]
 INFO: [Synth 8-226] default block is never used [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/spi/spi.vhd:76]
 INFO: [Synth 8-256] done synthesizing module 'SPI' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/spi/spi.vhd:32]
+INFO: [Synth 8-3491] module 'fpAlu' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/fpalu/fpAlu.vhd:5' bound to instance 'fpAluInst' of component 'fpAlu' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:1144]
+INFO: [Synth 8-638] synthesizing module 'fpAlu' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/fpalu/fpAlu.vhd:25]
+INFO: [Synth 8-3491] module 'fpAddSub' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fpAddSub_stub.v:6' bound to instance 'fpAddSubInst' of component 'fpAddSub' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/fpalu/fpAlu.vhd:315]
+INFO: [Synth 8-6157] synthesizing module 'fpAddSub' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fpAddSub_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fpAddSub' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fpAddSub_stub.v:6]
+INFO: [Synth 8-3491] module 'fpMul' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fpMul_stub.v:6' bound to instance 'fpMulinst' of component 'fpMul' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/fpalu/fpAlu.vhd:328]
+INFO: [Synth 8-6157] synthesizing module 'fpMul' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fpMul_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fpMul' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fpMul_stub.v:6]
+INFO: [Synth 8-3491] module 'fpDiv' declared at 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fpDiv_stub.v:6' bound to instance 'fpDivInst' of component 'fpDiv' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/fpalu/fpAlu.vhd:339]
+INFO: [Synth 8-6157] synthesizing module 'fpDiv' [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fpDiv_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fpDiv' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/.Xil/Vivado-326812-DESKTOP-T3E75FC/realtime/fpDiv_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'fpAlu' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/fpalu/fpAlu.vhd:25]
 INFO: [Synth 8-256] done synthesizing module 'tangerineSOC' (0#1) [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/tangerineSOC.vhd:101]
 INFO: [Synth 8-6155] done synthesizing module 'tangerineA7_100_tangerineSOC_0_0' (0#1) [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_tangerineSOC_0_0/synth/tangerineA7_100_tangerineSOC_0_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'tangerineA7_100_xlconstant_0_0' [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_xlconstant_0_0/synth/tangerineA7_100_xlconstant_0_0.v:53]
@@ -554,12 +568,25 @@ INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance '
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'slot_0_ar'. This will prevent further optimization [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_system_ila_0_0/bd_0/synth/bd_2af6.v:317]
 INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'slot_0_r'. This will prevent further optimization [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_system_ila_0_0/bd_0/synth/bd_2af6.v:329]
 WARNING: [Synth 8-6014] Unused sequential element paletteRamAddrA_reg was removed.  [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/pixelGenGfx.vhd:118]
-WARNING: [Synth 8-6014] Unused sequential element cacheHitWay0_reg was removed.  [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:529]
-WARNING: [Synth 8-6014] Unused sequential element cacheHitWay1_reg was removed.  [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:530]
-WARNING: [Synth 8-6014] Unused sequential element cacheHitWay2_reg was removed.  [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:531]
-WARNING: [Synth 8-6014] Unused sequential element cacheHitWay3_reg was removed.  [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:532]
+WARNING: [Synth 8-6014] Unused sequential element cacheHitWay0_reg was removed.  [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:580]
+WARNING: [Synth 8-6014] Unused sequential element cacheHitWay1_reg was removed.  [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:581]
+WARNING: [Synth 8-6014] Unused sequential element cacheHitWay2_reg was removed.  [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:582]
+WARNING: [Synth 8-6014] Unused sequential element cacheHitWay3_reg was removed.  [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:583]
+WARNING: [Synth 8-6014] Unused sequential element ch2Ready_reg was removed.  [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/axiDMA.vhd:588]
 WARNING: [Synth 8-7129] Port Din[1] in module xlslice_v1_0_2_xlslice__parameterized0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Din[0] in module xlslice_v1_0_2_xlslice is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[15] in module fpAlu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[14] in module fpAlu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[13] in module fpAlu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[12] in module fpAlu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[11] in module fpAlu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[10] in module fpAlu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[9] in module fpAlu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[8] in module fpAlu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataMask[3] in module fpAlu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataMask[2] in module fpAlu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataMask[1] in module fpAlu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dataMask[0] in module fpAlu is either unconnected or has no load
 WARNING: [Synth 8-7129] Port a[15] in module SPI is either unconnected or has no load
 WARNING: [Synth 8-7129] Port a[14] in module SPI is either unconnected or has no load
 WARNING: [Synth 8-7129] Port a[13] in module SPI is either unconnected or has no load
@@ -646,32 +673,20 @@ WARNING: [Synth 8-7129] Port din[29] in module UART is either unconnected or has
 WARNING: [Synth 8-7129] Port din[28] in module UART is either unconnected or has no load
 WARNING: [Synth 8-7129] Port din[27] in module UART is either unconnected or has no load
 WARNING: [Synth 8-7129] Port din[26] in module UART is either unconnected or has no load
-WARNING: [Synth 8-7129] Port din[25] in module UART is either unconnected or has no load
-WARNING: [Synth 8-7129] Port din[24] in module UART is either unconnected or has no load
-WARNING: [Synth 8-7129] Port din[23] in module UART is either unconnected or has no load
-WARNING: [Synth 8-7129] Port din[22] in module UART is either unconnected or has no load
-WARNING: [Synth 8-7129] Port din[21] in module UART is either unconnected or has no load
-WARNING: [Synth 8-7129] Port din[20] in module UART is either unconnected or has no load
-WARNING: [Synth 8-7129] Port din[19] in module UART is either unconnected or has no load
-WARNING: [Synth 8-7129] Port din[18] in module UART is either unconnected or has no load
-WARNING: [Synth 8-7129] Port din[17] in module UART is either unconnected or has no load
-WARNING: [Synth 8-7129] Port din[16] in module UART is either unconnected or has no load
-WARNING: [Synth 8-7129] Port din[15] in module UART is either unconnected or has no load
-WARNING: [Synth 8-7129] Port din[14] in module UART is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2968.750 ; gain = 971.367
+Finished RTL Elaboration : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2968.750 ; gain = 971.367
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2968.750 ; gain = 971.367
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.255 . Memory (MB): peak = 2968.750 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.306 . Memory (MB): peak = 2965.816 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 490 Unisim elements for replacement
 WARNING: [Netlist 29-151] Pin 'C1' on instance 'tangerineA7_100_i/hdmiOut_0/inst/dvidInst/ODDR2_blue' of cell type 'ODDR2' does not have an equivalent function on the new cell type 'ODDR'. Net 'clk_n' that is connected to this pin will not be connected to the replacement instance.
 WARNING: [Netlist 29-151] Pin 'C1' on instance 'tangerineA7_100_i/hdmiOut_0/inst/dvidInst/ODDR2_clock' of cell type 'ODDR2' does not have an equivalent function on the new cell type 'ODDR'. Net 'clk_n' that is connected to this pin will not be connected to the replacement instance.
@@ -684,6 +699,12 @@ Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine/mig_7series_tangerine_in_context.xdc] for cell 'tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst'
 Finished Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine/mig_7series_tangerine_in_context.xdc] for cell 'tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst'
+Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/fpDiv/fpDiv/fpDiv_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpDivInst'
+Finished Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/fpDiv/fpDiv/fpDiv_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpDivInst'
+Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/fpMul/fpMul/fpMul_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpMulinst'
+Finished Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/fpMul/fpMul/fpMul_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpMulinst'
+Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/fpAddSub/fpAddSub/fpAddSub_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpAddSubInst'
+Finished Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/fpAddSub/fpAddSub/fpAddSub_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpAddSubInst'
 Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/ps2ControllerFifo/ps2ControllerFifo/ps2ControllerFifo_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2aFifoInst'
 Finished Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/ps2ControllerFifo/ps2ControllerFifo/ps2ControllerFifo_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2aFifoInst'
 Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/ps2ControllerFifo/ps2ControllerFifo/ps2ControllerFifo_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2bFifoInst'
@@ -710,6 +731,8 @@ Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard
 Finished Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/dmaCh1BufRam/dmaCh1BufRam/dmaCh1BufRam_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/axiDMAInst/dmaCh1BufRamInst'
 Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/fontPROM/fontPROM/fontPROM_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/vgaInst/fontPromInst'
 Finished Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/fontPROM/fontPROM/fontPROM_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/vgaInst/fontPromInst'
+Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/dmaCh2BufRam/dmaCh2BufRam/dmaCh2BufRam_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst'
+Finished Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/dmaCh2BufRam/dmaCh2BufRam/dmaCh2BufRam_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst'
 Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/fastRam/fastRam/fastRam_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst'
 Finished Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/fastRam/fastRam/fastRam_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst'
 Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/systemRam/systemRam/systemRam_in_context.xdc] for cell 'tangerineA7_100_i/tangerineSOC_0/inst/txtfbRamInst'
@@ -743,7 +766,7 @@ Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard
 Finished Parsing XDC File [c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_2_0/tangerineA7_100_clk_wiz_2_0_late.xdc] for cell 'tangerineA7_100_i/clk_wiz_2/inst'
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2987.430 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2965.816 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 360 instances were transformed.
   CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 316 instances
@@ -751,7 +774,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   OBUFDS => OBUFDS: 4 instances
   ODDR2 => ODDR: 4 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.148 . Memory (MB): peak = 2987.430 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.157 . Memory (MB): peak = 2965.816 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst' at clock pin 'clka' is different from the actual clock period '6.154', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst' at clock pin 'clka' is different from the actual clock period '6.154', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'tangerineA7_100_i/tangerineSOC_0/inst/systemRamInst' at clock pin 'clka' is different from the actual clock period '6.154', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'tangerineA7_100_i/tangerineSOC_0/inst/txtfbRamInst' at clock pin 'clka' is different from the actual clock period '6.154', this can lead to different synthesis results.
@@ -765,20 +789,21 @@ WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context s
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'tangerineA7_100_i/tangerineSOC_0/inst/axiDMAInst/cacheTagRamW2Inst' at clock pin 'clka' is different from the actual clock period '6.154', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'tangerineA7_100_i/tangerineSOC_0/inst/axiDMAInst/cacheTagRamW3Inst' at clock pin 'clka' is different from the actual clock period '6.154', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'tangerineA7_100_i/tangerineSOC_0/inst/axiDMAInst/dmaCh1BufRamInst' at clock pin 'clka' is different from the actual clock period '12.308', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpAddSubInst' at clock pin 'aclk' is different from the actual clock period '6.154', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpDivInst' at clock pin 'aclk' is different from the actual clock period '6.154', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpMulinst' at clock pin 'aclk' is different from the actual clock period '6.154', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2aFifoInst' at clock pin 'clk' is different from the actual clock period '6.154', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2bFifoInst' at clock pin 'clk' is different from the actual clock period '6.154', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'tangerineA7_100_i/tangerineSOC_0/inst/vgaInst/fontPromInst' at clock pin 'clka' is different from the actual clock period '15.625', this can lead to different synthesis results.
-INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
-INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2987.430 ; gain = 990.047
+Finished Constraint Validation : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg676-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2987.430 ; gain = 990.047
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -877,11 +902,14 @@ Applied set_property IO_BUFFER_TYPE = NONE for ddr3_reset_n. (constraint file  c
 Applied set_property CLOCK_BUFFER_TYPE = NONE for ddr3_reset_n. (constraint file  c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine/mig_7series_tangerine_in_context.xdc, line 93).
 Applied set_property IO_BUFFER_TYPE = NONE for ddr3_we_n. (constraint file  c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine/mig_7series_tangerine_in_context.xdc, line 94).
 Applied set_property CLOCK_BUFFER_TYPE = NONE for ddr3_we_n. (constraint file  c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine/mig_7series_tangerine_in_context.xdc, line 95).
-Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/clk_wiz_0/inst. (constraint file  C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/dont_touch.xdc, line 94).
-Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/clk_wiz_1/inst. (constraint file  C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/dont_touch.xdc, line 102).
-Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/system_ila_0/inst/ila_lib/inst. (constraint file  C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/dont_touch.xdc, line 110).
-Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/clk_wiz_2/inst. (constraint file  C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/dont_touch.xdc, line 122).
+Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/clk_wiz_0/inst. (constraint file  C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/dont_touch.xdc, line 106).
+Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/clk_wiz_1/inst. (constraint file  C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/dont_touch.xdc, line 114).
+Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/system_ila_0/inst/ila_lib/inst. (constraint file  C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/dont_touch.xdc, line 122).
+Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/clk_wiz_2/inst. (constraint file  C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/dont_touch.xdc, line 134).
 Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpDivInst. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpMulinst. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpAddSubInst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2aFifoInst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2bFifoInst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/inst/UARTInst/rxFiFoInst. (constraint file  auto generated constraint).
@@ -895,6 +923,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/
 Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/inst/axiDMAInst/cacheDataRamW3Inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/inst/axiDMAInst/dmaCh1BufRamInst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/inst/vgaInst/fontPromInst. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/inst/systemRamInst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0/inst/txtfbRamInst. (constraint file  auto generated constraint).
@@ -918,7 +947,18 @@ Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/clk_wiz_2. (con
 Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/xlslice_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for tangerineA7_100_i/tangerineSOC_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2987.430 ; gain = 990.047
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2965.816 ; gain = 967.672
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Preparing Guide Design
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Doing Graph Differ : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 2965.816 ; gain = 967.672
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6702] IncrSynth : Over 50% of partitions are impacted by design changes. Reverting to default synthesis
+WARNING: [Synth 8-6702] IncrSynth : Reverting to default synthesis
+hdmiOut__GC0---------------------------------------------------------------------------------
+Finished Preparing Guide Design : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_2_reg_p2s'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'xsdbs_v1_0_2_reg_p2s__parameterized0'
@@ -963,6 +1003,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'rxState_reg' in module 'UAR
 INFO: [Synth 8-802] inferred FSM for state register 'txState_reg' in module 'UART'
 INFO: [Synth 8-802] inferred FSM for state register 'ps2State_reg' in module 'ps2PortController'
 INFO: [Synth 8-802] inferred FSM for state register 'spiState_reg' in module 'SPI'
+INFO: [Synth 8-802] inferred FSM for state register 'regState_reg' in module 'fpAlu'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -1410,20 +1451,33 @@ INFO: [Synth 8-3354] encoded FSM with state register 'pggState_reg' using encodi
               asch1read0 |                            00001 |                            01110
               asch1read1 |                            00010 |                            01111
               asch1read2 |                            00011 |                            10000
-             asch0cache0 |                            00100 |                            00110
-         asch0cachefill0 |                            00101 |                            00111
-         asch0cachefill1 |                            00110 |                            01000
-         asch0cachefill2 |                            00111 |                            01001
-         asch0cachefill3 |                            01000 |                            01010
-         asch0cachefill4 |                            01001 |                            01011
-         asch0cachefill5 |                            01010 |                            01100
-             asch0write0 |                            01011 |                            00011
-             asch0write1 |                            01100 |                            00100
-             asch0write2 |                            01101 |                            00101
-              asch0read0 |                            01110 |                            00001
-              asch0read1 |                            01111 |                            00010
-    asch0transactiondone |                            10000 |                            01101
-                  iSTATE |                            10001 |                            11111
+              asch2fill0 |                            00100 |                            10010
+              asch2fill1 |                            00101 |                            10011
+              asch2fill2 |                            00110 |                            10100
+              asch2read0 |                            00111 |                            10101
+              asch2read1 |                            01000 |                            10110
+              asch2read2 |                            01001 |                            10111
+             asch2write0 |                            01010 |                            11000
+             asch2write1 |                            01011 |                            11001
+             asch2write2 |                            01100 |                            11010
+         asch2readshift0 |                            01101 |                            11011
+         asch2readshift1 |                            01110 |                            11100
+         asch2readshift2 |                            01111 |                            11101
+         asch2readshift3 |                            10000 |                            11110
+             asch0cache0 |                            10001 |                            00110
+         asch0cachefill0 |                            10010 |                            00111
+         asch0cachefill1 |                            10011 |                            01000
+         asch0cachefill2 |                            10100 |                            01001
+         asch0cachefill3 |                            10101 |                            01010
+         asch0cachefill4 |                            10110 |                            01011
+         asch0cachefill5 |                            10111 |                            01100
+             asch0write0 |                            11000 |                            00011
+             asch0write1 |                            11001 |                            00100
+             asch0write2 |                            11010 |                            00101
+              asch0read0 |                            11011 |                            00001
+              asch0read1 |                            11100 |                            00010
+    asch0transactiondone |                            11101 |                            01101
+                  iSTATE |                            11110 |                            11111
 *
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'axiState_reg' using encoding 'sequential' in module 'axiDMA'
@@ -1504,9 +1558,29 @@ INFO: [Synth 8-3354] encoded FSM with state register 'ps2State_reg' using encodi
                   spib0h |                            10001 |                            10001
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'spiState_reg' using encoding 'sequential' in module 'SPI'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+      rswaitforregaccess |                             0001 |                               00
+         rswaitforresult |                             0010 |                               01
+    rswaitforbuscycleend |                             0100 |                               10
+                  iSTATE |                             1000 |                               11
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'regState_reg' using encoding 'one-hot' in module 'fpAlu'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 2987.430 ; gain = 990.047
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
+
+
+Incremental Synthesis Report Summary:
+
+1. Incremental synthesis run: no
+
+   Reason for not running incremental synthesis : Change is too high
+
+
+INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -1525,7 +1599,209 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+INFO: [Synth 8-5544] ROM "p_2_out0" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "m00_axi_wdata" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ch2BufDOut" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\m00_axi_awid_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\m00_axi_arsize_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\m00_axi_arprot_reg[2] )
+INFO: [Synth 8-5544] ROM "lutBackgroundColorVar" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "lutLetterColorVar" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "pixelGenGfxInst/pggState" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "csrMip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "csrMie" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "csrMtvec" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "csrMscratch" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "csrMepc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "csrMcause" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "csrMtval" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:991]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:990]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:989]
+INFO: [Synth 8-5546] ROM "csrMip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "csrMie" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "csrMtvec" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "csrMscratch" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "csrMepc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "csrMcause" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "csrMtval" won't be mapped to RAM because it is too sparse
+DSP Report: Generating DSP resultMuluu0, operation Mode is: A2*B2.
+DSP Report: register rs1Val_reg is absorbed into DSP resultMuluu0.
+DSP Report: register resultMuluu0 is absorbed into DSP resultMuluu0.
+DSP Report: operator resultMuluu0 is absorbed into DSP resultMuluu0.
+DSP Report: operator resultMuluu0 is absorbed into DSP resultMuluu0.
+DSP Report: Generating DSP resultMuluu0, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register rs2Val_reg is absorbed into DSP resultMuluu0.
+DSP Report: register rs1Val_reg is absorbed into DSP resultMuluu0.
+DSP Report: operator resultMuluu0 is absorbed into DSP resultMuluu0.
+DSP Report: operator resultMuluu0 is absorbed into DSP resultMuluu0.
+DSP Report: Generating DSP resultMuluu0, operation Mode is: A2*B2.
+DSP Report: register resultMuluu0 is absorbed into DSP resultMuluu0.
+DSP Report: register resultMuluu0 is absorbed into DSP resultMuluu0.
+DSP Report: operator resultMuluu0 is absorbed into DSP resultMuluu0.
+DSP Report: operator resultMuluu0 is absorbed into DSP resultMuluu0.
+DSP Report: Generating DSP resultMuluu0, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register rs2Val_reg is absorbed into DSP resultMuluu0.
+DSP Report: register resultMuluu0 is absorbed into DSP resultMuluu0.
+DSP Report: operator resultMuluu0 is absorbed into DSP resultMuluu0.
+DSP Report: operator resultMuluu0 is absorbed into DSP resultMuluu0.
+DSP Report: Generating DSP resultMulsu0, operation Mode is: A2*B2.
+DSP Report: register rs1Val_reg is absorbed into DSP resultMulsu0.
+DSP Report: register resultMulsu0 is absorbed into DSP resultMulsu0.
+DSP Report: operator resultMulsu0 is absorbed into DSP resultMulsu0.
+DSP Report: operator resultMulsu0 is absorbed into DSP resultMulsu0.
+DSP Report: Generating DSP resultMulsu0, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register rs1Val_reg is absorbed into DSP resultMulsu0.
+DSP Report: register rs2Val_reg is absorbed into DSP resultMulsu0.
+DSP Report: operator resultMulsu0 is absorbed into DSP resultMulsu0.
+DSP Report: operator resultMulsu0 is absorbed into DSP resultMulsu0.
+DSP Report: Generating DSP resultMulsu0, operation Mode is: A2*B2.
+DSP Report: register resultMulsu0 is absorbed into DSP resultMulsu0.
+DSP Report: register resultMulsu0 is absorbed into DSP resultMulsu0.
+DSP Report: operator resultMulsu0 is absorbed into DSP resultMulsu0.
+DSP Report: operator resultMulsu0 is absorbed into DSP resultMulsu0.
+DSP Report: Generating DSP resultMulsu0, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register rs2Val_reg is absorbed into DSP resultMulsu0.
+DSP Report: register resultMulsu0 is absorbed into DSP resultMulsu0.
+DSP Report: operator resultMulsu0 is absorbed into DSP resultMulsu0.
+DSP Report: operator resultMulsu0 is absorbed into DSP resultMulsu0.
+DSP Report: Generating DSP resultMul0, operation Mode is: A2*B2.
+DSP Report: register rs1Val_reg is absorbed into DSP resultMul0.
+DSP Report: register resultMul0 is absorbed into DSP resultMul0.
+DSP Report: operator resultMul0 is absorbed into DSP resultMul0.
+DSP Report: operator resultMul0 is absorbed into DSP resultMul0.
+DSP Report: Generating DSP resultMul0, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register rs2Val_reg is absorbed into DSP resultMul0.
+DSP Report: register rs1Val_reg is absorbed into DSP resultMul0.
+DSP Report: operator resultMul0 is absorbed into DSP resultMul0.
+DSP Report: operator resultMul0 is absorbed into DSP resultMul0.
+DSP Report: Generating DSP resultMul0, operation Mode is: A2*B2.
+DSP Report: register resultMul0 is absorbed into DSP resultMul0.
+DSP Report: register resultMul0 is absorbed into DSP resultMul0.
+DSP Report: operator resultMul0 is absorbed into DSP resultMul0.
+DSP Report: operator resultMul0 is absorbed into DSP resultMul0.
+DSP Report: Generating DSP resultMul0, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register rs2Val_reg is absorbed into DSP resultMul0.
+DSP Report: register resultMul0 is absorbed into DSP resultMul0.
+DSP Report: operator resultMul0 is absorbed into DSP resultMul0.
+DSP Report: operator resultMul0 is absorbed into DSP resultMul0.
+INFO: [Synth 8-5546] ROM "rxBuffer0" won't be mapped to RAM because it is too sparse
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[16]' (FDE) to 'nekoRvInst/jtImm_reg[16]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[17]' (FDE) to 'nekoRvInst/jtImm_reg[17]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[18]' (FDE) to 'nekoRvInst/jtImm_reg[18]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[19]' (FDE) to 'nekoRvInst/jtImm_reg[19]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[20]' (FDE) to 'nekoRvInst/jtImm_reg[11]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[21]' (FDE) to 'nekoRvInst/jtImm_reg[1]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[22]' (FDE) to 'nekoRvInst/jtImm_reg[2]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[23]' (FDE) to 'nekoRvInst/jtImm_reg[3]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[24]' (FDE) to 'nekoRvInst/jtImm_reg[4]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[25]' (FDE) to 'nekoRvInst/btImm_reg[5]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[26]' (FDE) to 'nekoRvInst/btImm_reg[6]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[27]' (FDE) to 'nekoRvInst/stImm_reg[7]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[28]' (FDE) to 'nekoRvInst/btImm_reg[8]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[29]' (FDE) to 'nekoRvInst/btImm_reg[9]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[30]' (FDE) to 'nekoRvInst/stImm_reg[10]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[31]' (FDE) to 'nekoRvInst/stImm_reg[11]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[8]' (FDE) to 'nekoRvInst/utImm_reg[0]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[9]' (FDE) to 'nekoRvInst/utImm_reg[0]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[10]' (FDE) to 'nekoRvInst/utImm_reg[0]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[11]' (FDE) to 'nekoRvInst/utImm_reg[0]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[12]' (FDE) to 'nekoRvInst/jtImm_reg[12]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[13]' (FDE) to 'nekoRvInst/jtImm_reg[13]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[14]' (FDE) to 'nekoRvInst/jtImm_reg[14]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[15]' (FDE) to 'nekoRvInst/jtImm_reg[15]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[0]' (FDE) to 'nekoRvInst/utImm_reg[1]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[1]' (FDE) to 'nekoRvInst/utImm_reg[2]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[2]' (FDE) to 'nekoRvInst/utImm_reg[3]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[3]' (FDE) to 'nekoRvInst/utImm_reg[4]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[4]' (FDE) to 'nekoRvInst/utImm_reg[5]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[5]' (FDE) to 'nekoRvInst/utImm_reg[6]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[6]' (FDE) to 'nekoRvInst/utImm_reg[7]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/utImm_reg[7]' (FDE) to 'nekoRvInst/jtImm_reg[0]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/rdNum_reg[3]' (FDE) to 'nekoRvInst/btImm_reg[3]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/rdNum_reg[4]' (FDE) to 'nekoRvInst/btImm_reg[4]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/rdNum_reg[2]' (FDE) to 'nekoRvInst/btImm_reg[2]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/rdNum_reg[1]' (FDE) to 'nekoRvInst/btImm_reg[1]'
+INFO: [Synth 8-3886] merging instance 'nekoRvInst/rdNum_reg[0]' (FDE) to 'nekoRvInst/btImm_reg[11]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[8]' (FDE) to 'SPIInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[8]' (FDE) to 'UARTInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'ps2HostInst/dout_reg[8]' (FDE) to 'ps2HostInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[9]' (FDE) to 'SPIInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[9]' (FDE) to 'UARTInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[10]' (FDE) to 'SPIInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[10]' (FDE) to 'UARTInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'ps2HostInst/dout_reg[10]' (FDE) to 'ps2HostInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[11]' (FDE) to 'SPIInst/dout_reg[18]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[11]' (FDE) to 'UARTInst/dout_reg[18]'
+INFO: [Synth 8-3886] merging instance 'ps2HostInst/dout_reg[11]' (FDE) to 'ps2HostInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[15]' (FDE) to 'SPIInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[15]' (FDE) to 'UARTInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'ps2HostInst/dout_reg[15]' (FDE) to 'ps2HostInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[16]' (FDE) to 'SPIInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[16]' (FDE) to 'UARTInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[17]' (FDE) to 'SPIInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[17]' (FDE) to 'UARTInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'ps2HostInst/dout_reg[17]' (FDE) to 'ps2HostInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/dout_reg[17]' (FDE) to 'vgaInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[18]' (FDE) to 'SPIInst/dout_reg[29]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[18]' (FDE) to 'UARTInst/dout_reg[29]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[19]' (FDE) to 'SPIInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[19]' (FDE) to 'UARTInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'ps2HostInst/dout_reg[19]' (FDE) to 'ps2HostInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/dout_reg[19]' (FDE) to 'vgaInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[25]' (FDE) to 'SPIInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[25]' (FDE) to 'UARTInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'ps2HostInst/dout_reg[25]' (FDE) to 'ps2HostInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/dout_reg[25]' (FDE) to 'vgaInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[26]' (FDE) to 'SPIInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[26]' (FDE) to 'UARTInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'ps2HostInst/dout_reg[26]' (FDE) to 'ps2HostInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/dout_reg[26]' (FDE) to 'vgaInst/dout_reg[30]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[30]' (FDE) to 'SPIInst/dout_reg[28]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[30]' (FDE) to 'UARTInst/dout_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ps2HostInst/dout_reg[30]' (FDE) to 'ps2HostInst/dout_reg[28]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/dout_reg[30]' (FDE) to 'vgaInst/dout_reg[28]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[27]' (FDE) to 'SPIInst/dout_reg[28]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[27]' (FDE) to 'UARTInst/dout_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ps2HostInst/dout_reg[27]' (FDE) to 'ps2HostInst/dout_reg[28]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/dout_reg[27]' (FDE) to 'vgaInst/dout_reg[28]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[28]' (FDE) to 'SPIInst/dout_reg[24]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[28]' (FDE) to 'UARTInst/dout_reg[24]'
+INFO: [Synth 8-3886] merging instance 'ps2HostInst/dout_reg[28]' (FDE) to 'ps2HostInst/dout_reg[24]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/dout_reg[28]' (FDE) to 'vgaInst/dout_reg[24]'
+INFO: [Synth 8-3886] merging instance 'SPIInst/dout_reg[29]' (FDE) to 'SPIInst/dout_reg[21]'
+INFO: [Synth 8-3886] merging instance 'UARTInst/dout_reg[29]' (FDE) to 'UARTInst/dout_reg[21]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutLetterColor_reg[4]' (FD) to 'vgaInst/pixelGenInst/pgLutLetterColor_reg[3]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[4]' (FD) to 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[3]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutLetterColor_reg[3]' (FD) to 'vgaInst/pixelGenInst/pgLutLetterColor_reg[2]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[3]' (FD) to 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[2]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutLetterColor_reg[2]' (FD) to 'vgaInst/pixelGenInst/pgLutLetterColor_reg[1]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[2]' (FD) to 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[1]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutLetterColor_reg[1]' (FD) to 'vgaInst/pixelGenInst/pgLutLetterColor_reg[0]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[1]' (FD) to 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[0]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutLetterColor_reg[20]' (FD) to 'vgaInst/pixelGenInst/pgLutLetterColor_reg[19]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[20]' (FD) to 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[19]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutLetterColor_reg[19]' (FD) to 'vgaInst/pixelGenInst/pgLutLetterColor_reg[18]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[19]' (FD) to 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[18]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutLetterColor_reg[18]' (FD) to 'vgaInst/pixelGenInst/pgLutLetterColor_reg[17]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[18]' (FD) to 'vgaInst/pixelGenInst/pgLutBackgroundColor_reg[17]'
+INFO: [Synth 8-3886] merging instance 'vgaInst/pixelGenInst/pgLutLetterColor_reg[17]' (FD) to 'vgaInst/pixelGenInst/pgLutLetterColor_reg[16]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (vgaInst/\dout_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\btImm_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (SPIInst/\dout_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (UARTInst/\dout_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (ps2HostInst/\dout_reg[14] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (vgaInst/\pixelGenInst/pgVSStart_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (vgaInst/\pixelGenInst/pgVSStart_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (vgaInst/\pixelGenGfxInst/pggR_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (ps2HostInst/\ps2bControllerInst/ps2Data_tristate_oe_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (ps2HostInst/\ps2bControllerInst/ps2Clock_tristate_oe_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (ps2HostInst/\ps2aControllerInst/ps2Data_tristate_oe_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (ps2HostInst/\ps2aControllerInst/ps2Clock_tristate_oe_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (vgaInst/\videoMuxInst/vgaR_reg[1] )
 WARNING: [Synth 8-3332] Sequential element (resultMuluu_reg[47]) is unused and will be removed from module nekoRv.
 WARNING: [Synth 8-3332] Sequential element (resultMuluu_reg[46]) is unused and will be removed from module nekoRv.
 WARNING: [Synth 8-3332] Sequential element (resultMuluu_reg[45]) is unused and will be removed from module nekoRv.
@@ -1627,26 +1903,121 @@ WARNING: [Synth 8-3332] Sequential element (resultMulsu_reg[47]) is unused and w
 WARNING: [Synth 8-3332] Sequential element (resultMulsu_reg[46]) is unused and will be removed from module nekoRv.
 WARNING: [Synth 8-3332] Sequential element (resultMulsu_reg[45]) is unused and will be removed from module nekoRv.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (nekoRvInst/\regs_reg[0][7] )
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/shift_reg1_reg[1023] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/shift_reg0_reg[1023] )
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_trig/shift_cap_strg_qual_reg )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/slaveRegDo_ff7_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[6].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[1].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[15].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/reg_4 /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[30].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[29].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[31].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[11].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[9].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[8].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[7].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[0].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[3].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[2].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[2].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[28].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[27].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[24].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[21].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[20].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[18].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[17].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[16].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[12].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[7].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[6].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[5].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[4].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[4].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[3].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[23].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[19].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[13].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[11].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[10].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[9].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[8].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[5].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[15].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[14].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE.PROBE_STATUS[14].probe_width_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[13].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[12].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[29].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[28].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[31].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[30].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (system_ila_0/inst/ila_lib/inst/ila_core_inst/\u_ila_regs/N_DDR_MODE_MU1.MU_STATUS[27].mu_tpid_reg /\I_EN_STAT_EQ1.U_STAT/xsdb_reg_reg[4] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:10 ; elapsed = 00:01:13 . Memory (MB): peak = 2993.410 ; gain = 996.027
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:00 ; elapsed = 00:01:19 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 2993.410 ; gain = 996.027
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:07 ; elapsed = 00:01:26 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:18 ; elapsed = 00:01:20 . Memory (MB): peak = 2993.410 ; gain = 996.027
+Finished Timing Optimization : Time (s): cpu = 00:01:10 ; elapsed = 00:01:29 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:374]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:374]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:373]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:373]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:372]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd:372]
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 2993.410 ; gain = 996.027
+Finished Technology Mapping : Time (s): cpu = 00:01:14 ; elapsed = 00:01:41 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1704,37 +2075,37 @@ WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[0] to constant 0
 WARNING: [Synth 8-3295] tying undriven pin inst:trig_in to constant 0
 WARNING: [Synth 8-3295] tying undriven pin inst:trig_out_ack to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:25 ; elapsed = 00:01:28 . Memory (MB): peak = 2993.410 ; gain = 996.027
+Finished IO Insertion : Time (s): cpu = 00:01:19 ; elapsed = 00:01:45 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:25 ; elapsed = 00:01:28 . Memory (MB): peak = 2993.410 ; gain = 996.027
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:19 ; elapsed = 00:01:45 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:26 ; elapsed = 00:01:29 . Memory (MB): peak = 2993.410 ; gain = 996.027
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:20 ; elapsed = 00:01:47 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:26 ; elapsed = 00:01:29 . Memory (MB): peak = 2993.410 ; gain = 996.027
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:20 ; elapsed = 00:01:47 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:27 ; elapsed = 00:01:30 . Memory (MB): peak = 2993.410 ; gain = 996.027
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:21 ; elapsed = 00:01:47 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:27 ; elapsed = 00:01:30 . Memory (MB): peak = 2993.410 ; gain = 996.027
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:21 ; elapsed = 00:01:47 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1765,13 +2136,17 @@ Report BlackBoxes:
 +------+----------------------+----------+
 |1     |systemRam             |         2|
 |2     |fastRam               |         1|
-|3     |uartFiFo              |         1|
-|4     |dmaCh1BufRam          |         1|
-|5     |cacheDataRam          |         4|
-|6     |cacheTagRam           |         4|
-|7     |ps2ControllerFifo     |         2|
-|8     |fontPROM              |         1|
-|9     |mig_7series_tangerine |         1|
+|3     |dmaCh2BufRam          |         1|
+|4     |fpAddSub              |         1|
+|5     |fpMul                 |         1|
+|6     |fpDiv                 |         1|
+|7     |uartFiFo              |         1|
+|8     |dmaCh1BufRam          |         1|
+|9     |cacheDataRam          |         4|
+|10    |cacheTagRam           |         4|
+|11    |ps2ControllerFifo     |         2|
+|12    |fontPROM              |         1|
+|13    |mig_7series_tangerine |         1|
 +------+----------------------+----------+
 
 Report Cell Usage: 
@@ -1781,49 +2156,53 @@ Report Cell Usage:
 |1     |cacheDataRam          |     4|
 |5     |cacheTagRam           |     4|
 |9     |dmaCh1BufRam          |     1|
-|10    |fastRam               |     1|
-|11    |fontPROM              |     1|
-|12    |mig_7series_tangerine |     1|
-|13    |ps2ControllerFifo     |     2|
-|15    |systemRam             |     2|
-|17    |uartFiFo              |     1|
-|18    |BUFG                  |    13|
-|19    |CARRY4                |   429|
-|20    |CFGLUT5               |   352|
-|21    |DSP48E1               |    12|
-|23    |LUT1                  |   467|
-|24    |LUT2                  |  1198|
-|25    |LUT3                  |   623|
-|26    |LUT4                  |  1081|
-|27    |LUT5                  |  1629|
-|28    |LUT6                  |  5615|
-|29    |MMCME2_ADV            |     3|
-|30    |MUXF7                 |   574|
-|31    |MUXF8                 |    43|
-|32    |ODDR2                 |     4|
-|33    |RAM256X1S             |     2|
-|34    |RAMB36E1              |    12|
-|35    |SRL16E                |   428|
-|36    |SRLC16E               |     2|
-|37    |SRLC32E               |    17|
-|38    |FDCE                  |   505|
-|39    |FDPE                  |    22|
-|40    |FDRE                  |  8770|
-|41    |FDSE                  |    92|
-|42    |IBUF                  |     6|
-|43    |IOBUF                 |     4|
-|44    |OBUF                  |     6|
-|45    |OBUFDS                |     4|
+|10    |dmaCh2BufRam          |     1|
+|11    |fastRam               |     1|
+|12    |fontPROM              |     1|
+|13    |fpAddSub              |     1|
+|14    |fpDiv                 |     1|
+|15    |fpMul                 |     1|
+|16    |mig_7series_tangerine |     1|
+|17    |ps2ControllerFifo     |     2|
+|19    |systemRam             |     2|
+|21    |uartFiFo              |     1|
+|22    |BUFG                  |    13|
+|23    |CARRY4                |   445|
+|24    |CFGLUT5               |   352|
+|25    |DSP48E1               |    12|
+|27    |LUT1                  |   450|
+|28    |LUT2                  |  1315|
+|29    |LUT3                  |   811|
+|30    |LUT4                  |  2250|
+|31    |LUT5                  |  1835|
+|32    |LUT6                  |  6094|
+|33    |MMCME2_ADV            |     3|
+|34    |MUXF7                 |   609|
+|35    |MUXF8                 |    67|
+|36    |ODDR2                 |     4|
+|37    |RAM256X1S             |     2|
+|38    |RAMB36E1              |    12|
+|39    |SRL16E                |   430|
+|40    |SRLC16E               |     2|
+|41    |SRLC32E               |    17|
+|42    |FDCE                  |   505|
+|43    |FDPE                  |    22|
+|44    |FDRE                  |  9541|
+|45    |FDSE                  |   118|
+|46    |IBUF                  |     6|
+|47    |IOBUF                 |     4|
+|48    |OBUF                  |     6|
+|49    |OBUFDS                |     4|
 +------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:27 ; elapsed = 00:01:30 . Memory (MB): peak = 2993.410 ; gain = 996.027
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:21 ; elapsed = 00:01:47 . Memory (MB): peak = 2965.816 ; gain = 967.672
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 319 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:56 ; elapsed = 00:01:24 . Memory (MB): peak = 2993.410 ; gain = 977.348
-Synthesis Optimization Complete : Time (s): cpu = 00:01:27 ; elapsed = 00:01:30 . Memory (MB): peak = 2993.410 ; gain = 996.027
+Synthesis finished with 0 errors, 0 critical warnings and 354 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:49 ; elapsed = 00:01:42 . Memory (MB): peak = 2965.816 ; gain = 967.672
+Synthesis Optimization Complete : Time (s): cpu = 00:01:21 ; elapsed = 00:01:48 . Memory (MB): peak = 2965.816 ; gain = 967.672
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.144 . Memory (MB): peak = 2993.410 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1439 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.166 . Memory (MB): peak = 2965.816 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1514 Unisim elements for replacement
 WARNING: [Netlist 29-151] Pin 'C1' on instance 'tangerineA7_100_i/hdmiOut_0/inst/dvidInst/ODDR2_blue' of cell type 'ODDR2' does not have an equivalent function on the new cell type 'ODDR'. Net 'pixelClkx5Ps' that is connected to this pin will not be connected to the replacement instance.
 WARNING: [Netlist 29-151] Pin 'C1' on instance 'tangerineA7_100_i/hdmiOut_0/inst/dvidInst/ODDR2_clock' of cell type 'ODDR2' does not have an equivalent function on the new cell type 'ODDR'. Net 'pixelClkx5Ps' that is connected to this pin will not be connected to the replacement instance.
 WARNING: [Netlist 29-151] Pin 'C1' on instance 'tangerineA7_100_i/hdmiOut_0/inst/dvidInst/ODDR2_green' of cell type 'ODDR2' does not have an equivalent function on the new cell type 'ODDR'. Net 'pixelClkx5Ps' that is connected to this pin will not be connected to the replacement instance.
@@ -1832,7 +2211,7 @@ INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Chipscope 16-324] Core: tangerineA7_100_i/system_ila_0/inst/ila_lib UUID: 92a07a35-3e4a-5b39-922d-86a009e2f8a5 
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2993.410 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2965.816 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 366 instances were transformed.
   CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 316 instances
@@ -1842,12 +2221,12 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   ODDR2 => ODDR: 4 instances
   RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 2 instances
 
-Synth Design complete | Checksum: 8042c147
+Synth Design complete | Checksum: f87177cc
 INFO: [Common 17-83] Releasing license: Synthesis
-431 Infos, 406 Warnings, 4 Critical Warnings and 0 Errors encountered.
+684 Infos, 411 Warnings, 4 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:34 ; elapsed = 00:01:37 . Memory (MB): peak = 2993.410 ; gain = 1403.027
+synth_design: Time (s): cpu = 00:01:27 ; elapsed = 00:01:56 . Memory (MB): peak = 2965.816 ; gain = 1374.520
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/tangerineA7_100_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file tangerineA7_100_wrapper_utilization_synth.rpt -pb tangerineA7_100_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Feb 17 15:28:57 2025...
+INFO: [Common 17-206] Exiting Vivado at Fri Feb 21 12:12:38 2025...

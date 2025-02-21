@@ -1683,6 +1683,13 @@
           "tangerineSOC_0/ps2bData"
         ]
       },
+      "Net9": {
+        "ports": [
+          "clk_wiz_2/locked",
+          "tangerineSOC_0/resetn",
+          "tangerineSOC_0/m00_axi_aresetn"
+        ]
+      },
       "button0_1": {
         "ports": [
           "button0",
@@ -1733,9 +1740,7 @@
           "clk_wiz_1/locked",
           "system_ila_0/resetn",
           "tangerineMIGWrapper_0/aresetn",
-          "tangerineMIGWrapper_0/sys_rst",
-          "tangerineSOC_0/resetn",
-          "tangerineSOC_0/m00_axi_aresetn"
+          "tangerineMIGWrapper_0/sys_rst"
         ]
       },
       "clk_wiz_2_clk162_5": {

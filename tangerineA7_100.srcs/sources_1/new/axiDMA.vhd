@@ -36,9 +36,20 @@ port (
    ch1DmaRequest:       in    std_logic_vector( 1 downto 0 );
    ch1DmaPointerReset:  in    std_logic;
    
-   ch1BufClock:         in    std_logic;
-   ch1BufA:             in    std_logic_vector( 10 downto 0 );
-   ch1BufDOut:          out   std_logic_vector( 31 downto 0 );
+   --block ram interface - line buffer
+   ch1BufClock:      in    std_logic;
+   ch1BufA:          in    std_logic_vector( 10 downto 0 );
+   ch1BufDOut:       out   std_logic_vector( 31 downto 0 );
+
+   --ch2 - block transfers triggered via registers
+   
+   --block ram interface - transfer buffer
+   ch2BufClock:      out   std_logic;
+   ch2BufWE:         out   std_logic_vector( 15 downto 0 );
+   ch2BufA:          out   std_logic_vector( 7 downto 0 );
+   ch2BufDin:        in    std_logic_vector( 127 downto 0 );
+   ch2BufDOut:       out   std_logic_vector( 127 downto 0 );
+
 
    --axi master bus
    m00_axi_aclk:     in  std_logic;
@@ -94,15 +105,15 @@ architecture Behavioral of axiDMA is
 component dmaCh1BufRam is
 port(
     clka:   in    std_logic;
-    wea:    IN    std_logic_vector( 0 downto 0 );
-    addra:  IN    std_logic_vector( 8 downto 0 );
-    dina:   IN    std_logic_vector( 127 downto 0 );
+    wea:    in    std_logic_vector( 0 downto 0 );
+    addra:  in    std_logic_vector( 8 downto 0 );
+    dina:   in    std_logic_vector( 127 downto 0 );
     douta:  OUT   std_logic_vector( 127 downto 0 );
 
-    clkb:   IN    std_logic;
-    web:    IN    std_logic_vector( 0 downto 0 );
-    addrb:  IN    std_logic_vector( 10 downto 0 );
-    dinb:   IN    std_logic_vector( 31 downto 0 );
+    clkb:   in    std_logic;
+    web:    in    std_logic_vector( 0 downto 0 );
+    addrb:  in    std_logic_vector( 10 downto 0 );
+    dinb:   in    std_logic_vector( 31 downto 0 );
     doutb:  OUT   std_logic_vector( 31 downto 0 )
 );
 end component;
@@ -112,30 +123,31 @@ component cacheDataRam is
 port(
 
    --cpu side
-   clka : IN STD_LOGIC;
-   wea : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-   addra : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-   dina : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-   douta : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+   clka:    in    std_logic;
+   wea:     in    std_logic_vector( 3 downto 0 );
+   addra:   in    std_logic_vector( 11 downto 0 );
+   dina:    in    std_logic_vector( 31 downto 0 );
+   douta:   out   std_logic_vector( 31 downto 0 );
    
    --ddr side
-   clkb : IN STD_LOGIC;
-   web : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-   addrb : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-   dinb : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
-   doutb : OUT STD_LOGIC_VECTOR(127 DOWNTO 0)
+   clkb:    in    std_logic;
+   web:     in    std_logic_vector( 15 downto 0 );
+   addrb:   in    std_logic_vector( 9 downto 0 );
+   dinb:    in    std_logic_vector( 127 downto 0 );
+   doutb:   out   std_logic_vector( 127 downto 0 )
 );
 end component;
 
 component cacheTagRam is
 port(
-   clka : IN STD_LOGIC;
-   wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-   addra : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-   dina : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-   douta : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+   clka:    in    std_logic;
+   wea:     in    std_logic_vector( 0 downto 0 );
+   addra:   in    std_logic_vector( 7 downto 0 );
+   dina:    in    std_logic_vector( 15 downto 0 );
+   douta:   out   std_logic_vector( 15 downto 0 )
 );
 end component;
+
 
 --signals
 signal resetn:          std_logic;
@@ -149,11 +161,17 @@ signal registerState:       regState_T;
 type   axiState_T is ( asIdle, asCh0Read0, asCh0Read1, 
                                asCh0Write0, asCh0Write1, asCh0Write2,
                                asCh0Cache0, 
-                               asCh0CacheFill0, asCh0CacheFill1, asCh0CacheFill2, asCh0CacheFill3, asCh0CacheFill4, asCh0CacheFill5,  
+                               asCh0CacheFill0, asCh0CacheFill1, asCh0CacheFill2, asCh0CacheFill3, asCh0CacheFill4, asCh0CacheFill5,   
                                asCh0TransactionDone,
-                               asCh1Read0, asCh1Read1, asCh1Read2, asCh1Read3 );
+                               asCh1Read0, asCh1Read1, asCh1Read2, asCh1Read3,
+                               asCh2Fill0, asCh2Fill1, asCh2Fill2,
+                               asCh2Read0, asCh2Read1, asCh2Read2,
+                               asCh2Write0, asCh2Write1, asCh2Write2,
+                               asCh2ReadShift0, asCh2ReadShift1, asCh2ReadShift2, asCh2ReadShift3
+                               );
 
 signal axiState:       axiState_T;
+signal axiStateDebug:   std_logic_vector( 7 downto 0 );
 
 --ch1 buf dma side
 
@@ -258,10 +276,43 @@ signal cacheHitWay1:       std_logic;
 signal cacheHitWay2:       std_logic;
 signal cacheHitWay3:       std_logic;
 
+--ch2 fast, block transfer
+
+signal ch2TransferLength:     std_logic_vector( 7 downto 0 );
+signal ch2TransferCounter:    std_logic_vector( 7 downto 0 );
+signal ch2BufPointer:         std_logic_vector( 7 downto 0 );
+signal ch2Input0:             std_logic_vector( 127 downto 0 );
+signal ch2SaAddress:          std_logic_vector( 31 downto 0 );
+signal ch2SaPointer:          std_logic_vector( 31 downto 0 );
+signal ch2SaRowWidth:         std_logic_vector( 15 downto 0 );
+signal ch2DaAddress:          std_logic_vector( 31 downto 0 );
+signal ch2DaPointer:          std_logic_vector( 31 downto 0 );
+signal ch2DaRowWidth:         std_logic_vector( 15 downto 0 );
+signal ch2DaFirstWriteMask:   std_logic_vector( 15 downto 0 );
+signal ch2DaLastWriteMask:    std_logic_vector( 15 downto 0 );
+signal ch2FirstDataBeat:      std_logic;
+signal ch2PreviousData:       std_logic_vector( 127 downto 0 );
+
+-- 00 - fill da with value in ch2Input0
+-- 01 - read sa to buffer
+-- 02 - read sa to buffer and shift right
+-- 03 - write buffer to da
+
+signal ch2Command:            std_logic_vector( 7 downto 0 );
+signal ch2DmaRequest:         std_logic;
+signal ch2DmaRequestLatched:  std_logic;
+signal ch2Ready:              std_logic;
+
+
 begin
 
 -- negative reset
 resetn   <= not reset;
+
+--clock for ch2 buffer ram
+ch2BufClock    <= clock;
+
+
 
 --set unused signals, ports
 
@@ -530,7 +581,19 @@ begin
          cacheHitWay1         <= '0';
          cacheHitWay2         <= '0';
          cacheHitWay3         <= '0';
-         
+
+--       ch2 signals
+
+         ch2DmaRequestLatched <= '0';
+         ch2Ready             <= '1';
+               
+         ch2BufWE             <= ( others => '0' );
+         ch2BufA              <= ( others => '0' );
+         ch2BufDOut           <= ( others => '0' );
+
+
+         axiStateDebug        <= x"00";   
+
       else
 
          --latch ch1 dma requests
@@ -552,6 +615,12 @@ begin
         
          end if;
       
+         if ch2DmaRequest = '1' then
+         
+            ch2DmaRequestLatched <= '1';
+         
+         end if;
+         
          --check cache flush trigger
          if triggerCacheFlush = '1' then
 
@@ -566,8 +635,16 @@ begin
          case axiState is
          
             when asIdle =>
+
+               
+               m00_axi_awid         <= x"0";
+
             
+               axiStateDebug        <= x"01";   
+
                ch0Ready <= '0';
+
+               ch2Ready <= '1';                     
 
                --check ch1 access
                if ch1DmaRequestLatched( 0 ) = '1' then
@@ -582,6 +659,46 @@ begin
             
                   axiState    <= asCh1Read0;
             
+               --check ch2 access
+               elsif ch2DmaRequestLatched = '1' then
+
+
+                  -- 00 - fill da with value in ch2Input0
+                  -- 01 - read sa to buffer
+                  -- 02 - write buffer to da
+                  -- 03 - read sa to buffer with shift right
+                  
+                  case ch2Command is
+
+                     when x"00" =>
+
+                        ch2Ready <= '0';                     
+                        axiState <= asCh2Fill0;
+
+                     when x"01" =>
+
+                        ch2Ready <= '0';                     
+                        axiState <= asCh2Read0;
+
+                     when x"02" =>
+
+                        ch2Ready <= '0';                     
+                        axiState <= asCh2Write0;
+
+                     when x"03" =>
+                     
+                        ch2Ready <= '0';
+                        axiState <= asCh2ReadShift0;
+                  
+                     when others =>
+                     
+                        ch2DmaRequestLatched <= '0';
+                  
+                  end case;
+                              
+          
+            
+               --check ch0 access
                elsif ch0CE = '1' then
           
                   --clear cache hits     
@@ -615,6 +732,8 @@ begin
                end if;               
             
             when asCh0Cache0 =>
+
+               axiStateDebug        <= x"01";   
             
                --check hits
                if cacheValidWay0( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) ) = '1' and  cacheTagWay0DOut( 13 downto 0 ) = ch0A( 27 downto 14 ) then
@@ -625,7 +744,6 @@ begin
                
                    if ch0Wr = '0' then
                    
---                     axiState    <= asCh0TransactionDone;
                         ch0Ready <= '1';
                         
                         if ch0CE = '0' then
@@ -796,6 +914,7 @@ begin
                
                      m00_axi_wvalid    <= '0';
                      m00_axi_bready    <= '0';
+                     m00_axi_wlast     <= '1';
                      
                      if m00_axi_awready = '1' then
                         
@@ -830,6 +949,7 @@ begin
                
                      m00_axi_wvalid    <= '0';
                      m00_axi_bready    <= '0';
+                     m00_axi_wlast     <= '1';
                      
                      if m00_axi_awready = '1' then
                         
@@ -848,6 +968,8 @@ begin
             
             when asCh0CacheFill0 =>
             
+               axiStateDebug        <= x"02";   
+
                --save tag, set cache line valid
                --cacheTagWay1DOut( 13 downto 0 ) = ch0A( 27 downto 14 )
                
@@ -893,6 +1015,8 @@ begin
 
             when asCh0CacheFill1 =>
             
+               axiStateDebug        <= x"03";   
+
                cacheTagWay0We <= '0';      
                cacheTagWay1We <= '0';      
                cacheTagWay2We <= '0';                  
@@ -905,7 +1029,34 @@ begin
                if m00_axi_rvalid = '1' then
                   
                   --we've got data
-   
+
+                  --check if data requested by cpu are within this 128-bit word                                    
+                  if ch0A( 5 downto 4 ) = "00" then
+                  
+                     case ch0A( 3 downto 2 ) is
+                     
+                        when "00" =>
+                           
+                           ch0DOut  <= m00_axi_rdata( 31 downto 0 );
+                           
+                        when "01" =>
+
+                           ch0DOut  <= m00_axi_rdata( 63 downto 32 );
+                        
+                        when "10" =>
+
+                           ch0DOut  <= m00_axi_rdata( 95 downto 64 );
+                        
+                           
+                        when "11" => 
+                       
+                           ch0DOut  <= m00_axi_rdata( 127 downto 96 );
+                     
+                     end case;
+                        
+                     
+                  end if;
+                  
                   --check way number for current page
                   
                   --                        page address
@@ -947,9 +1098,38 @@ begin
             
             when asCh0CacheFill2 =>
 
+               axiStateDebug        <= x"04";   
+
                if m00_axi_rvalid = '1' then
                   
                   --we've got data
+
+                  --check if data requested by cpu are within this 128-bit word                                    
+                  if ch0A( 5 downto 4 ) = "01" then
+                  
+                     case ch0A( 3 downto 2 ) is
+                     
+                        when "00" =>
+                           
+                           ch0DOut  <= m00_axi_rdata( 31 downto 0 );
+                           
+                        when "01" =>
+
+                           ch0DOut  <= m00_axi_rdata( 63 downto 32 );
+                        
+                        when "10" =>
+
+                           ch0DOut  <= m00_axi_rdata( 95 downto 64 );
+                        
+                           
+                        when "11" => 
+                       
+                           ch0DOut  <= m00_axi_rdata( 127 downto 96 );
+                     
+                     end case;
+                        
+                     
+                  end if;
                   
                   --check way number for current page
                   
@@ -992,9 +1172,38 @@ begin
 
             when asCh0CacheFill3 =>
 
+               axiStateDebug        <= x"05";   
+
                if m00_axi_rvalid = '1' then
                   
                   --we've got data
+
+                  --check if data requested by cpu are within this 128-bit word                                    
+                  if ch0A( 5 downto 4 ) = "10" then
+                  
+                     case ch0A( 3 downto 2 ) is
+                     
+                        when "00" =>
+                           
+                           ch0DOut  <= m00_axi_rdata( 31 downto 0 );
+                           
+                        when "01" =>
+
+                           ch0DOut  <= m00_axi_rdata( 63 downto 32 );
+                        
+                        when "10" =>
+
+                           ch0DOut  <= m00_axi_rdata( 95 downto 64 );
+                        
+                           
+                        when "11" => 
+                       
+                           ch0DOut  <= m00_axi_rdata( 127 downto 96 );
+                     
+                     end case;
+                        
+                     
+                  end if;
                   
                   --check way number for current page
                   
@@ -1037,9 +1246,38 @@ begin
 
             when asCh0CacheFill4 =>
 
+               axiStateDebug        <= x"06";   
+
                if m00_axi_rvalid = '1' then
                   
                   --we've got data
+
+                  --check if data requested by cpu are within this 128-bit word                                    
+                  if ch0A( 5 downto 4 ) = "11" then
+                  
+                     case ch0A( 3 downto 2 ) is
+                     
+                        when "00" =>
+                           
+                           ch0DOut  <= m00_axi_rdata( 31 downto 0 );
+                           
+                        when "01" =>
+
+                           ch0DOut  <= m00_axi_rdata( 63 downto 32 );
+                        
+                        when "10" =>
+
+                           ch0DOut  <= m00_axi_rdata( 95 downto 64 );
+                        
+                           
+                        when "11" => 
+                       
+                           ch0DOut  <= m00_axi_rdata( 127 downto 96 );
+                     
+                     end case;
+                        
+                     
+                  end if;
                   
                   --check way number for current page
                   
@@ -1090,18 +1328,27 @@ begin
 
             when asCh0CacheFill5 =>
 
+               axiStateDebug        <= x"07";   
+
                cacheWay0Web   <= ( others => '0' );                                 
                cacheWay1Web   <= ( others => '0' );                                 
                cacheWay2Web   <= ( others => '0' );                                 
                cacheWay3Web   <= ( others => '0' );                                 
             
-               
-            
-               --re-check updated cache
-               axiState       <= asCh0Cache0;
+               --data in ch0dout, finish bus cycle
 
+               ch0Ready <= '1';
+               
+               if ch0CE = '0' then
+               
+                  ch0Ready <= '0';
+                  axiState <= asIdle;
+               
+               end if;
+                           
             when asCh0Read0 =>
             
+               axiStateDebug        <= x"08";   
                                                       
                --read
                m00_axi_araddr    <= x"0" & ch0A( 27 downto 4 ) & x"0";    --128 bit adr
@@ -1116,6 +1363,8 @@ begin
                end if;
 
             when asCh0Read1 =>
+
+               axiStateDebug        <= x"09";   
 
                m00_axi_arvalid   <= '0';
                m00_axi_rready    <= '1';
@@ -1152,18 +1401,10 @@ begin
                   --end if;
                end if;
                
---             when asCh0Read2 =>
-             
---               ch0Ready <= '1';
-               
---               if ch0CE = '0' then
-               
---                  ch0Ready <= '0';
---                  axiState <= asIdle;
-                  
---              end if;
             
             when asCh0Write0 =>
+
+               axiStateDebug        <= x"0a";   
 
                --deassert cache write
                cacheWay0WEa      <= ( others => '0' );                     
@@ -1185,6 +1426,8 @@ begin
                end if;
 
             when asCh0Write1 =>
+
+               axiStateDebug        <= x"0b";   
 
                --deassert cache write
                cacheWay0WEa      <= ( others => '0' );                     
@@ -1234,6 +1477,8 @@ begin
             
             when asCh0Write2 =>
             
+               axiStateDebug        <= x"0c";   
+
                m00_axi_wvalid <= '0';
                m00_axi_bready <= '1';
                       
@@ -1247,6 +1492,8 @@ begin
                
             when asCh0TransactionDone =>
             
+               axiStateDebug        <= x"0d";   
+
                ch0Ready <= '1';
                
                if ch0CE = '0' then
@@ -1258,6 +1505,8 @@ begin
 
             when asCh1Read0 =>
             
+               axiStateDebug        <= x"0e";   
+
                m00_axi_araddr <= ch1DmaPointer;
                
                m00_axi_arlen  <= ch1DmaRequestLength;
@@ -1274,6 +1523,8 @@ begin
             
             when asCh1Read1 =>
             
+               axiStateDebug        <= x"0f";   
+
                m00_axi_arvalid   <= '0';
                m00_axi_rready    <= '1';
                
@@ -1295,6 +1546,8 @@ begin
                
             when asCh1Read2 =>
             
+               axiStateDebug        <= x"10";   
+
                ch1BufAWr         <= "0";
                m00_axi_rready    <= '0';
                m00_axi_arvalid   <= '0';
@@ -1304,8 +1557,390 @@ begin
                ch1DmaPointer  <= std_logic_vector( unsigned( ch1DmaPointer ) + unsigned( ch1DmaRequestPtrAdd ) );
 
                axiState <= asIdle;
+            
+            when asCh2Fill0 =>
+
+               axiStateDebug        <= x"11";   
                
+               m00_axi_awaddr    <= ch2DaPointer;
+               m00_axi_awvalid   <= '1';
+               m00_axi_awlen     <= ch2TransferLength;
+               ch2TransferCounter   <= ch2TransferLength;
+               
+               m00_axi_wvalid    <= '0';
+               m00_axi_bready    <= '0';
+               m00_axi_wlast     <= '0';
+               
+               ch2FirstDataBeat  <= '1';
+               
+               if m00_axi_awready = '1' then
+                 
+
+                  axiState <= asCh2Fill1;
+                  
+               end if;
+
+            when asCh2Fill1 =>
+            
+               axiStateDebug        <= x"12";   
+
+               m00_axi_awvalid   <= '0';               
+               m00_axi_bready    <= '0';
+               
+               if m00_axi_wready = '1' then
+               
+                  if ch2FirstDataBeat = '1' then
+                 
+                     m00_axi_wstrb     <= ch2DaFirstWriteMask;                     
+                     ch2FirstDataBeat  <= '0';
+                     
+                  elsif ch2TransferCounter = x"00" then
+
+                     m00_axi_wstrb     <= ch2DaLastWriteMask;                     
+                  
+                  else
+
+                     m00_axi_wstrb     <= ( others => '1' );                     
+                  
+                  end if;
+                 
+                  m00_axi_wdata     <= ch2Input0;
+                                          
+                  m00_axi_wvalid    <= '1';
+
+                  ch2TransferCounter <= std_logic_vector( unsigned( ch2TransferCounter ) - 1 );
+
+                  if ch2TransferCounter = x"00" then
+                  
+                     m00_axi_wlast  <= '1';
+                     
+                     
+                     axiState <= asCh2Fill2;
+                  
+                  else
+
+                     m00_axi_wlast  <= '0';
+                  
+                  
+                  end if;
+                  
+               end if;                          
+
+            when asCh2Fill2 =>
+            
+               axiStateDebug        <= x"13";   
+
+               if m00_axi_wready = '1' then --last beat accepted
+               
+                  m00_axi_wlast  <= '0';
+                  m00_axi_wvalid <= '0';
+                  m00_axi_bready <= '1';
+                                    
+               end if;
+                              
+
+               if m00_axi_bvalid = '1' then
+               
+                  m00_axi_bready <= '0';
+
+                  ch2DmaRequestLatched <= '0';                  
+                  axiState <= asIdle;
+              
+              end if;
+
+            when asCh2Read0 =>
+            
+               axiStateDebug        <= x"14";   
+
+
+               ch2BufPointer        <= ( others => '0' );
+
+               m00_axi_araddr       <= ch2SaPointer;               
+               m00_axi_arlen        <= ch2TransferLength;              
+               m00_axi_rready       <= '0';               
+               m00_axi_arvalid      <= '1';
+               
+               if m00_axi_arready = '1' then
+               
+                  axiState <= asCh2Read1;
+               
+               end if;
+            
+            when asCh2Read1 =>
+            
+               axiStateDebug     <= x"15";   
+
+               m00_axi_arvalid   <= '0';
+               m00_axi_rready    <= '1';
+               
+               if m00_axi_rvalid = '1' then
+               
+                  ch2BufA     <= ch2BufPointer;
+                  ch2BufDOut  <= m00_axi_rdata;
+                  ch2BufWE    <= ( others => '1' );
+                  
+                  ch2BufPointer  <= std_logic_vector( unsigned( ch2BufPointer ) + 1 );
+                  
+                  if m00_axi_rlast = '1' then
+                  
+                     axiState <= asCh2Read2;
+                  
+                  end if;
+                  
+               end if; 
+               
+            when asCh2Read2 =>
+            
+               axiStateDebug        <= x"16";   
+
+               ch2BufWE             <= ( others => '0' );
+               m00_axi_rready       <= '0';
+               m00_axi_arvalid      <= '0';
+               
+               ch2DmaRequestLatched <= '0';               
+               axiState <= asIdle;
+
+            when asCh2Write0 =>
+
+               axiStateDebug        <= x"17";   
+               
+               m00_axi_awaddr    <= ch2DaPointer;
+               m00_axi_awvalid   <= '1';
+               m00_axi_awlen     <= ch2TransferLength;
+               m00_axi_wvalid    <= '0';
+               m00_axi_bready    <= '0';
+               m00_axi_wlast     <= '0';
+
+               ch2TransferCounter   <= ch2TransferLength;
+               ch2FirstDataBeat     <= '1';
+               
+               ch2BufPointer        <= x"01";  
+               ch2BufA              <= x"00";
+               
+               ch2BufWE             <= ( others => '0' );
+               
+               if m00_axi_awready = '1' then
+                  
+                  axiState <= asCh2Write1;
+                  
+               end if;
+
+            when asCh2Write1 =>
+            
+               axiStateDebug        <= x"18";   
+
+               m00_axi_awvalid   <= '0';               
+               m00_axi_bready    <= '0';
+               
+               if m00_axi_wready = '1' then
+               
+                  ch2BufA           <= ch2BufPointer;
+                  ch2BufPointer     <= std_logic_vector( unsigned( ch2BufPointer ) + 1 );
+
+                  if ch2FirstDataBeat = '1' then
+                 
+                     m00_axi_wstrb     <= ch2DaFirstWriteMask;                     
+                     ch2FirstDataBeat  <= '0';
+                     
+                  elsif ch2TransferCounter = x"00" then
+
+                     m00_axi_wstrb     <= ch2DaLastWriteMask;                     
+                  
+                  else
+
+                     m00_axi_wstrb     <= ( others => '1' );                     
+                  
+                  end if;
+
+                  m00_axi_wdata     <= ch2BufDin;
+                                          
+                  m00_axi_wvalid    <= '1';
+
+                  ch2TransferCounter <= std_logic_vector( unsigned( ch2TransferCounter ) - 1 );
+
+                  if ch2TransferCounter = x"00" then
+                  
+                     m00_axi_wlast  <= '1';
+                     
+                     axiState <= asCh2Write2;
+                  
+                  else
+
+                     m00_axi_wlast  <= '0';
+                                    
+                  end if;
+                  
+               end if;                          
+
+            when asCh2Write2 =>
+            
+               axiStateDebug        <= x"19";   
+
+               if m00_axi_wready = '1' then --last beat accepted
+               
+                  m00_axi_wlast  <= '0';
+                  m00_axi_wvalid <= '0';
+                  m00_axi_bready <= '1';
+                                    
+               end if;
+                              
+
+               if m00_axi_bvalid = '1' then
+               
+                  m00_axi_bready <= '0';
+
+                  ch2DmaRequestLatched <= '0';                  
+                  axiState <= asIdle;
+              
+              end if;
+
+
+            when asCh2ReadShift0 =>
+            
+               axiStateDebug        <= x"1a";   
+
+               ch2BufPointer        <= ( others => '0' );
+               ch2PreviousData      <= ( others => '0' );
+               
+               m00_axi_araddr       <= ch2SaPointer;               
+               m00_axi_arlen        <= ch2TransferLength;              
+               m00_axi_rready       <= '0';               
+               m00_axi_arvalid      <= '1';
+               
+               if m00_axi_arready = '1' then
+               
+                  axiState <= asCh2ReadShift1;
+               
+               end if;
+            
+            when asCh2ReadShift1 =>
+            
+               axiStateDebug     <= x"1b";   
+
+               m00_axi_arvalid   <= '0';
+               m00_axi_rready    <= '1';
+               
+               if m00_axi_rvalid = '1' then
+               
+                  ch2BufA     <= ch2BufPointer;
+                  ch2BufWE    <= ( others => '1' );
+
+                  case ch2Input0( 2 downto 0 ) is
+                  
+                     when "000"  =>
+                     --0 
+                        ch2BufDOut  <= m00_axi_rdata;
+                  
+                     when "001" =>
+                     --1
+
+                        ch2BufDOut                       <= m00_axi_rdata( 111 downto 0 ) & ch2PreviousData( 15 downto 0 );
+                        ch2PreviousData( 15 downto 0 )   <= m00_axi_rdata( 127 downto 112 );
+                     
+                     when "010" =>
+                     --2
+                        ch2BufDOut                       <= m00_axi_rdata( 95 downto 0 ) & ch2PreviousData( 31 downto 0 );
+                        ch2PreviousData( 31 downto 0 )   <= m00_axi_rdata( 127 downto 96 );
+                     
+                     when "011" =>
+                     --3
+                        ch2BufDOut                       <= m00_axi_rdata( 79 downto 0 ) & ch2PreviousData( 47 downto 0 ); 
+                        ch2PreviousData( 47 downto 0 )   <= m00_axi_rdata( 127 downto 80 );
+ 
+                     when "100" =>
+                     --4
+                        ch2BufDOut                       <= m00_axi_rdata( 63 downto 0 ) & ch2PreviousData( 63 downto 0 );
+                        ch2PreviousData( 63 downto 0 )   <= m00_axi_rdata( 127 downto 64 );
+
+                     when "101" =>
+                     --5
+                        ch2BufDOut                       <= m00_axi_rdata( 47 downto 0 ) & ch2PreviousData( 79 downto 0 );
+                        ch2PreviousData( 79 downto 0 )   <= m00_axi_rdata( 127 downto 48 );
+
+                     when "110" =>
+                     --6
+                        ch2BufDOut                       <= m00_axi_rdata( 31 downto 0 ) & ch2PreviousData( 95 downto 0 );
+                        ch2PreviousData( 95 downto 0 )   <= m00_axi_rdata( 127 downto 32 );
+
+                     when "111" =>
+                     --7
+                        ch2BufDOut                        <= m00_axi_rdata( 15 downto 0 ) & ch2PreviousData( 111 downto 0 );
+                        ch2PreviousData( 111 downto 0 )   <= m00_axi_rdata( 127 downto 16 );
+                     
+                  end case;
+                  
+                  ch2BufPointer  <= std_logic_vector( unsigned( ch2BufPointer ) + 1 );
+                  
+                  if m00_axi_rlast = '1' then
+                  
+                     axiState <= asCh2ReadShift2;
+                  
+                  end if;
+                  
+               end if; 
+               
+            when asCh2ReadShift2 =>
+            
+               axiStateDebug        <= x"1c";   
+
+               m00_axi_rready       <= '0';
+               m00_axi_arvalid      <= '0';
+
+
+               ch2BufA     <= ch2BufPointer;
+               ch2BufWE    <= ( others => '1' );
+
+               case ch2Input0( 2 downto 0 ) is
+               
+                  when "000"  =>
+                  --0 
+                     ch2BufDOut  <= ( others => '0' );
+               
+                  when "001" =>
+                  --1
+                     ch2BufDOut( 15 downto 0 )  <= ch2PreviousData( 15 downto 0 );
+                  
+                  when "010" =>
+                  --2
+                     ch2BufDOut( 31 downto 0 )   <= ch2PreviousData( 31 downto 0 );
+                  
+                  when "011" =>
+                  --3
+                     ch2BufDOut( 47 downto 0 )   <= ch2PreviousData( 47 downto 0 );
+                     
+                  when "100" =>
+                  --4
+                     ch2BufDOut( 63 downto 0 )   <= ch2PreviousData( 63 downto 0 );
+
+                  when "101" =>
+                  --5
+                     ch2BufDOut( 79 downto 0 )   <= ch2PreviousData( 79 downto 0 );
+
+                  when "110" =>
+                  --6
+                     ch2BufDOut( 95 downto 0 )   <= ch2PreviousData( 95 downto 0 );
+
+                  when "111" =>
+                  --7
+                     ch2BufDOut( 111 downto 0 )   <= ch2PreviousData( 111 downto 0 );
+                  
+               end case;
+
+               
+               axiState             <= asCh2ReadShift3;
+               
+
+            when asCh2ReadShift3 =>
+            
+               ch2BufWE             <= ( others => '0' );
+               ch2DmaRequestLatched <= '0';               
+               axiState <= asIdle;
+
+                                    
+                
             when others =>
+
+               axiStateDebug        <= x"ff";   
             
                axiState <= asIdle;
                
@@ -1337,6 +1972,15 @@ begin
                   
          ch1DmaPointerStart   <= ( others => '0' );
          
+         ch2SaAddress         <= ( others => '0' );
+         ch2SaPointer         <= ( others => '0' );
+         ch2SaRowWidth        <= ( others => '0' );
+         ch2DaAddress         <= ( others => '0' );
+         ch2DaPointer         <= ( others => '0' );
+         ch2DaRowWidth        <= ( others => '0' );
+         ch2DaFirstWriteMask  <= ( others => '1' );
+         ch2DaLastWriteMask   <= ( others => '1' );
+         
          --cpu cache enabled by default
          
          cacheEnabled      <= '1';
@@ -1344,27 +1988,30 @@ begin
          --clear triggers
          
          triggerCacheFlush <= '0';
+         ch2DmaRequest     <= '0';     
          
       else
             
          --clear triggers
          
-         triggerCacheFlush <= '0';
-            
-            
+         if ch2DmaRequestLatched = '1' then
+         
+            ch2DmaRequest     <= '0';     
+      
+         end if;
+                  
          case registerState is
          
             when rsWaitForRegAccess =>
                
                --clear triggers
-            
-            
+      
+               triggerCacheFlush <= '0';            
+           
                ready <= '0';
                
                if ce = '1' then
                
-                  --no waitstates
-                  ready <= '1';
                   
                   case a( 7 downto 0 ) is 
                
@@ -1376,7 +2023,7 @@ begin
                      --0x04 r- component version                       
                      when x"01" =>
                      
-                        dout  <= x"20250217";
+                        dout  <= x"20250221";
 
                      --0x08 rw ch1DmaPointerStart                       
                      when x"02" =>
@@ -1428,6 +2075,178 @@ begin
                            
                         end if;
 
+                    --0x18 rw ch2TransferLength                       
+                     when x"06" =>
+                     
+                        dout  <= x"000000" & ch2TransferLength;
+                        
+                        if wr = '1' then
+
+                           ch2TransferLength <= din( 7 downto 0 );                        
+                           
+                        end if;
+
+                    --0x1c rw ch2DaWriteMask
+                    when x"07" =>
+                    
+                        dout <= ch2DaFirstWriteMask & ch2DaLastWriteMask;
+                        
+                        if wr = '1' then
+         
+                           ch2DaFirstWriteMask  <= din( 31 downto 16 );
+                           ch2DaLastWriteMask   <= din( 15 downto 0 );
+
+                        end if;
+                    
+                    --0x20 rw ch2Input0_0                       
+                     when x"08" =>
+                     
+                        dout  <= ch2Input0( 31 downto 0 );
+                        
+                        if wr = '1' then
+
+                           ch2Input0( 31 downto 0 ) <= din;                        
+                           
+                        end if;
+
+                    --0x24 rw ch2Input0_1                       
+                     when x"09" =>
+                     
+                        dout  <= ch2Input0( 63 downto 32 );
+                        
+                        if wr = '1' then
+
+                           ch2Input0( 63 downto 32 ) <= din;                        
+                           
+                        end if;
+
+                    --0x28 rw ch2Input0_2                       
+                     when x"0a" =>
+                     
+                        dout  <= ch2Input0( 95 downto 64 );
+                        
+                        if wr = '1' then
+
+                           ch2Input0( 95 downto 64 ) <= din;                        
+                           
+                        end if;
+
+                    --0x2c rw ch2Input0_3                       
+                     when x"0b" =>
+                     
+                        dout  <= ch2Input0( 127 downto 96 );
+                        
+                        if wr = '1' then
+
+                           ch2Input0( 127 downto 96 ) <= din;                        
+                           
+                        end if;
+
+                    --0x30 rw ch2SaAddress                       
+                     when x"0c" =>
+                     
+                        dout  <= ch2SaAddress;
+                        
+                        if wr = '1' then
+
+                           ch2SaAddress <= din;                        
+                           
+                        end if;
+
+                    --0x34 rw ch2SaRowWidth                       
+                     when x"0d" =>
+                     
+                        dout  <= x"0000" & ch2SaRowWidth;
+                        
+                        if wr = '1' then
+
+                           ch2SaRowWidth <= din( 15 downto 0 );                        
+                           
+                        end if;
+
+                    --0x38 rw ch2DaAddress                       
+                     when x"0e" =>
+                     
+                        dout  <= ch2DaAddress;
+                        
+                        if wr = '1' then
+
+                           ch2DaAddress <= din;                        
+                           
+                        end if;
+
+                    --0x3c rw ch2DaRowWidth                       
+                     when x"0f" =>
+                     
+                        dout  <= x"0000" & ch2DaRowWidth;
+                        
+                        if wr = '1' then
+
+                           ch2DaRowWidth <= din( 15 downto 0 );                        
+                           
+                        end if;
+
+                     --0x40 rw ch2Command / status                       
+                     
+                     --commands ( write )
+                     ---- 00 - fill da with value in ch2Input0
+                     ---- 01 - read sa to buffer
+                     ---- 02 - write buffer to da
+                     
+                     --status ( read )
+                     --b0 - ch2Ready
+                     
+                     when x"10" =>
+                     
+                        dout  <= x"0000000" & "000" & not ch2DmaRequestLatched;
+                        
+                        if wr = '1' then
+
+                           --advance address regs according to command
+                           
+                           case din( 7 downto 0 ) is 
+                           
+                              when x"00" =>
+
+                                 --fill
+                                 ch2DaPointer   <= ch2DaAddress;
+                                 ch2DaAddress   <= std_logic_vector( unsigned( ch2DaAddress ) + unsigned( ch2DaRowWidth ) );
+
+                              when x"01" =>
+
+                                 --read
+                                 ch2SaPointer   <= ch2SaAddress;
+                                 ch2SaAddress   <= std_logic_vector( unsigned( ch2SaAddress ) + unsigned( ch2SaRowWidth ) );
+
+                              when x"02" =>
+
+                                 --write
+                                 ch2DaPointer   <= ch2DaAddress;
+                                 ch2DaAddress   <= std_logic_vector( unsigned( ch2DaAddress ) + unsigned( ch2DaRowWidth ) );
+
+                              when x"03" =>
+                              
+                                 --read with shift right
+                                 ch2SaPointer   <= ch2SaAddress;
+                                 ch2SaAddress   <= std_logic_vector( unsigned( ch2SaAddress ) + unsigned( ch2SaRowWidth ) );
+                                 
+                                                                  
+                              when others =>
+                              
+                                 ch2SaPointer   <= ch2SaAddress;
+                                 ch2DaPointer   <= ch2DaAddress;
+                              
+                           end case;
+
+                           ch2Command     <= din( 7 downto 0 );                        
+                           ch2DmaRequest  <= '1';     
+
+                        end if;
+
+                     when x"11" =>
+                     
+                        dout <= x"000000" & axiStateDebug;
+
                      when others =>
                      
                         dout  <= ( others => '0' );
@@ -1441,6 +2260,7 @@ begin
             when rsWaitForBusCycleEnd =>
             
                --wait for the bus cycle to end
+               ready <= '1';
                
                if ce = '0' then
                

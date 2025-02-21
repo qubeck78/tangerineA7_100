@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Mon Feb 17 15:27:00 2025
+//Date        : Fri Feb 21 12:10:15 2025
 //Host        : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 //Command     : generate_target tangerineA7_100.bd
 //Design      : tangerineA7_100
@@ -86,6 +86,7 @@ module tangerineA7_100
   wire Net6;
   wire Net7;
   wire Net8;
+  wire Net9;
   wire button0_1;
   wire button1_1;
   wire clk_wiz_0_clk25;
@@ -204,6 +205,7 @@ module tangerineA7_100
         .clk162_5ps(clk_wiz_2_clk162_5ps),
         .clk40_625(clk_wiz_2_clk40_625),
         .clk_in1(tangerineMIGWrapper_0_ui_clk),
+        .locked(Net9),
         .resetn(button0_1));
   tangerineA7_100_hdmiOut_0_0 hdmiOut_0
        (.hdmiClkN(hdmiOut_0_hdmiClkN),
@@ -324,7 +326,7 @@ module tangerineA7_100
         .m00_axi_araddr(tangerineSOC_0_m00_axi_ARADDR),
         .m00_axi_arburst(tangerineSOC_0_m00_axi_ARBURST),
         .m00_axi_arcache(tangerineSOC_0_m00_axi_ARCACHE),
-        .m00_axi_aresetn(clk_wiz_1_locked),
+        .m00_axi_aresetn(Net9),
         .m00_axi_arid(tangerineSOC_0_m00_axi_ARID),
         .m00_axi_arlen(tangerineSOC_0_m00_axi_ARLEN),
         .m00_axi_arlock(tangerineSOC_0_m00_axi_ARLOCK),
@@ -364,7 +366,7 @@ module tangerineA7_100
         .ps2aData(ps2aData),
         .ps2bClock(ps2bClock),
         .ps2bData(ps2bData),
-        .resetn(clk_wiz_1_locked),
+        .resetn(Net9),
         .sdMciClk(tangerineSOC_0_sdMciClk),
         .sdMciCmd(tangerineSOC_0_sdMciCmd),
         .sdMciDat(sdMciDat[3:0]),

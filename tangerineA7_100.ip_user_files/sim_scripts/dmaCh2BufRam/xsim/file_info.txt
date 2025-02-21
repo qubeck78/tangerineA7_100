@@ -1,0 +1,2 @@
+dmaCh2BufRam.v,verilog,xil_defaultlib,../../../../tangerineA7_100.gen/sources_1/ip/dmaCh2BufRam/sim/dmaCh2BufRam.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

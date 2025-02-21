@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="dmaCh2BufRam_synth_1" LaunchPart="xc7a100tfgg676-1" LaunchTime="1739991026">
+  <File Type="PA-TCL" Name="dmaCh2BufRam.tcl"/>
+  <File Type="REPORTS-TCL" Name="dmaCh2BufRam_reports.tcl"/>
+  <File Type="RDS-RDS" Name="dmaCh2BufRam.vds"/>
+  <File Type="RDS-UTIL" Name="dmaCh2BufRam_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="dmaCh2BufRam_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="dmaCh2BufRam.dcp"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/dmaCh2BufRam" RelGenDir="$PGENDIR/dmaCh2BufRam">
+    <File Path="$PSRCDIR/sources_1/ip/dmaCh2BufRam/dmaCh2BufRam.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="dmaCh2BufRam"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/dmaCh2BufRam" RelGenDir="$PGENDIR/dmaCh2BufRam">
+    <File Path="$PSRCDIR/sources_1/ip/dmaCh2BufRam/dmaCh2BufRam.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="dmaCh2BufRam"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
+    <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/tangerineA7_100_wrapper.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_2"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

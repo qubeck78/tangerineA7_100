@@ -95,8 +95,8 @@ uint32_t init()
       }while( 1 );      
    }
 
-   // rv = gfLoadBitmapFS( &texture, (char*)"0:demos/tunnel.gbm" );
-   rv = gfLoadBitmapFS( &texture, (char*)"0:obj/deftexture.gbm" );
+   rv = gfLoadBitmapFS( &texture, (char*)"0:demos/tunnel.gbm" );
+   //rv = gfLoadBitmapFS( &texture, (char*)"0:obj/deftexture.gbm" );
 
    if( rv )
    {
@@ -241,6 +241,11 @@ int main()
          {
             switch( event.arg1 )
             {
+               case _KEYCODE_F1:
+
+                  axidma->cacheControl ^= 1;       //enable / disable cache
+                  break;
+                  
                case _KEYCODE_PAUSE:
 
                   reboot();

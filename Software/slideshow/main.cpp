@@ -32,6 +32,9 @@ tosDirItem                   dirItem;
 
 uint32_t                     numDirEntries;
 
+uint16_t                    *ch2Buf;
+uint32_t                    *ch2BufL;
+
 
 uint32_t getNumEntries()
 {
@@ -222,6 +225,17 @@ uint32_t slideshow()
 
                                     case _KEYCODE_F1:
 
+                                        axidma->cacheControl ^= 1;       //toggle i/d cache                                            
+
+                                        if( axidma->cacheControl & 1)
+                                        {
+                                            printf( "cache enabled\n" );
+                                        }
+                                        else
+                                        {
+                                            printf( "cache disabled\n" );
+                                        }
+
                                         break;
 
                                     default:
@@ -246,13 +260,17 @@ uint32_t slideshow()
 int main()
 {
     uint32_t    i;
+    uint32_t    j;
+
     uint32_t    rv;
     tosUIEvent      event;
 
 
     bspInit();
 
-    //axidma->cacheControl = 0;       //disable cache
+
+    ch2Buf = (uint16_t*)0x40000000;
+    ch2BufL = (uint32_t*)0x40000000;
 
     setVideoMode( _VIDEOMODE_1280_TEXT160_OVER_GFX );
     
@@ -261,12 +279,13 @@ int main()
     screen.rowWidth         = 2048;
     screen.height           = 720;
 
-
+    con.textAttributes = 0x0f;
     toCls( &con );
+    con.textAttributes = 0x8f;
     
     con.flags   |= GF_TEXT_OVERLAY_FLAG_SHOW_CURSOR;
 
-    printf( "tangerineRISC-V SOC Slideshow B20250215\n\n" );
+    printf( "tangerineRISC-V SOC Slideshow B20250220\n\n" );
 
     
     screen.flags            = 0;
@@ -286,11 +305,34 @@ int main()
     
     gfDisplayBitmap( &screen );
 
-    gfFillRect( &screen, 0, 0, screen.width - 1, screen.height - 1 , gfColor( 0, 0, 0 ) ); 
+//    gfFillRect( &screen, 0, 0, screen.width - 1, screen.height - 1 , gfColor( 255, 255, 255 ) ); 
+
+    axidma->ch2DaAddress        = (uint32_t)screen.buffer;
+    axidma->ch2DaRowWidth       = 4096;
+    axidma->ch2TransferLength   = 159; 
+    axidma->ch2DaWriteMask      = 0xffffffff;
+
+    for( i = 0; i < 4; i++ )
+    {
+        axidma->ch2Input0[i] = gfColor( 32, 32, 32) | ( gfColor( 32, 32, 32) << 16 );
+    }
+
+    //https://www.youtube.com/watch?v=lI5Gh-1zk-s
+    
+    for( i = 0; i < 768; i++ )
+    {
+        axidma->ch2Command = 0x00;
+        do{
+        }while( ! ( axidma->ch2Command & 1 ) );   
+    }
+
+    
 
 
     //init events queue
     osUIEventsInit();  
+
+//    toPrintF( &con, "$%02x", axidma->debug );
 
     //init filesystem
     rv = osFInit();
@@ -326,6 +368,8 @@ int main()
 
     usbHIDSetMousePointerVisibility( 1 );        
 */
+
+
     printf( "Scanning /img directory\n" );
 
     numDirEntries = getNumEntries();

@@ -280,7 +280,16 @@ typedef struct __AXI_DMA_REGISTERS_T
     volatile uint32_t ch1DmaRequestLength;
     volatile uint32_t ch1DmaRequestPtrAdd;
     volatile uint32_t cacheControl;
-    
+    volatile uint32_t ch2TransferLength;
+    volatile uint32_t ch2DaWriteMask;
+    volatile uint32_t ch2Input0[4];
+    volatile uint32_t ch2SaAddress;
+    volatile uint32_t ch2SaRowWidth;
+    volatile uint32_t ch2DaAddress;
+    volatile uint32_t ch2DaRowWidth;
+    volatile uint32_t ch2Command;
+    volatile uint32_t debug;
+
 }_AXI_DMA_REGISTERS_T;
 
 extern _AXI_DMA_REGISTERS_T *axidma;

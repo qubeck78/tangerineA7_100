@@ -23,7 +23,7 @@
     <Object name="xc7a100t_0" gui_info="">
       <Properties Property="FULL_PROBES.FILE" value="$_project_name_.runs/impl_2/$_project_name__wrapper.ltx"/>
       <Properties Property="PROBES.FILE" value="$_project_name_.runs/impl_2/$_project_name__wrapper.ltx"/>
-      <Properties Property="PROGRAM.HW_BITSTREAM" value=""/>
+      <Properties Property="PROGRAM.HW_BITSTREAM" value="D:/Xilinx2023.1/Vivado/2023.1/data/xicom/cfgmem/bitfile/spi_xc7a100t_pullnone.bit"/>
       <Properties Property="PROGRAM.HW_CFGMEM_PART" value="n25q64-3.3v-spi-x1_x2_x4"/>
       <Properties Property="SLR.COUNT" value="1"/>
     </Object>
@@ -35,12 +35,14 @@
     </Object>
     <Object name="tangerineA7_100_i/system_ila_0/inst/ila_lib" gui_info="">
       <Properties Property="CONTROL.TRIGGER_CONDITION" value="AND"/>
-      <Properties Property="CONTROL.TRIGGER_POSITION" value="16"/>
+      <Properties Property="CONTROL.TRIGGER_POSITION" value="950"/>
       <Properties Property="CORE_REFRESH_RATE_MS" value="500"/>
     </Object>
   </ObjectList>
   <ObjectList object_type="hw_probe" gui_info="">
-    <Object name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arvalid" gui_info="Trigger Setup=0"/>
+    <Object name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_arvalid" gui_info=""/>
+    <Object name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awid[3:0]" gui_info=""/>
+    <Object name="tangerineA7_100_i/system_ila_0/inst/net_slot_0_axi_awlen[7:0]" gui_info=""/>
   </ObjectList>
   <ObjectList object_type="hw_sysmon" gui_info="">
     <Object name="XADC" gui_info="dashboard_1=[TEMPERATURE=-65281;SCAN_RATE=1000;TRACK_TIME=1;]"/>
