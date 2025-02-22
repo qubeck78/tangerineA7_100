@@ -13,6 +13,8 @@ Risc-V based system for Qmtech Artix Wukong board.
 - double PS-2 host controller for keyboard and mouse ( USB keyboards can be used in legacy PS2 mode )
 - bsp, libraries, software examples in Software directory
 
+![shell](./Doc/Shell.jpg)
+
 
 ## System diagram
 
