@@ -45,6 +45,7 @@ uint32_t gfLine( tgfBitmap *bmp, int16_t x1, int16_t y1, int16_t x2, int16_t y2,
 uint32_t gfCircle( tgfBitmap *bmp, int16_t xm, int16_t ym, int16_t r, uint16_t color );
 uint32_t gfEllipse( tgfBitmap *bmp, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color );
 uint32_t gfFillRect( tgfBitmap *bmp, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color );
+uint32_t gfFillRect128( tgfBitmap *bmp, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color );
 
 #ifdef __cplusplus
 }

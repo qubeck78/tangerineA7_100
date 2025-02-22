@@ -271,7 +271,8 @@ uint32_t gfFillRect( tgfBitmap *bmp, int16_t x1, int16_t y1, int16_t x2, int16_t
    uint16_t   *fb;
    int16_t     bw;
    int16_t     bh;
-   
+   uint32_t    adWriteMask;
+
    if( !bmp ) return 1;
 
    if( x1 < 0 ) x1 = 0;
@@ -298,14 +299,14 @@ uint32_t gfFillRect( tgfBitmap *bmp, int16_t x1, int16_t y1, int16_t x2, int16_t
       x1 = x;
    }
 
-   
+   bw = x2 - x1 + 1;
+   bh = y2 - y1 + 1;
 
-   #if defined ( _GFXLIB_RISCV_FATFS ) && defined ( _GFXLIB_HW_BLITTER_2D )
+
+   #if defined ( _GFXLIB_HW_BLITTER_2D )
    
       //use blitter
       
-      bw = x2 - x1 + 1;
-      bh = y2 - y1 + 1;
       
       blt->daAddress       = (uint32_t)bmp->buffer + ( y1 * ( bmp->rowWidth << 1 ) + ( x1 << 1 ) );
       blt->daRowWidth      = bmp->rowWidth;
@@ -331,5 +332,125 @@ uint32_t gfFillRect( tgfBitmap *bmp, int16_t x1, int16_t y1, int16_t x2, int16_t
    
    #endif
    return 0;
+}
+
+
+uint32_t gfFillRect128( tgfBitmap *bmp, int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color )
+{
+   int16_t     x;
+   int16_t     y;
+   uint16_t    bh;
+   uint16_t    bw;
+   uint16_t   *fb;
+
+   uint32_t    dStartMask;
+   uint32_t    dEndMask;
+   
+   uint32_t    dStartAddr;
+   uint32_t    dEndAddr;
+   uint32_t    dStartWordAddr;
+   uint32_t    dEndWordAddr;
+
+   uint32_t    transferLength;
+
+   if( !bmp ) return 1;
+
+   #if defined ( _GFXLIB_AXI_DMA_BLOCK_TRANSFER )
+
+      if( x1 < 0 ) x1 = 0;
+      if( y1 < 0 ) y1 = 0;
+      if( x2 < 0 ) x2 = 0;
+      if( y2 < 0 ) y2 = 0;
+
+      if( x1 >= bmp->width ) x1 = bmp->width - 1;
+      if( y1 >= bmp->height ) y1 = bmp->height - 1;
+      if( x2 >= bmp->width ) x2 = bmp->width - 1;
+      if( y2 >= bmp->height ) y2 = bmp->height - 1;
+
+      if( y1 > y2 )
+      {
+         x = y2;
+         y2 = y1;
+         y1 = x;
+      }
+
+      if( x1 > x2 )
+      {
+         x = x2;
+         x2 = x1;
+         x1 = x;
+      }
+
+      bw = x2 - x1 + 1;
+      bh = y2 - y1 + 1;
+
+   
+      if( bw > 15 )
+      {
+         for( x = 0; x < 4; x++ )
+         {
+            axidma->ch2Input0[x] = ( color << 16 ) | color;
+         }
+
+         axidma->ch2DaRowWidth   = bmp->rowWidth << 1;
+
+         dStartAddr     = (uint32_t)bmp->buffer + ( y1 * ( bmp->rowWidth << 1 ) + ( x1 << 1) );
+         dStartWordAddr = dStartAddr & 0xf;
+         dStartAddr     = dStartAddr & 0xfffffff0;
+
+         dEndAddr       = (uint32_t)bmp->buffer + ( y1 * ( bmp->rowWidth << 1 ) + ( x2 << 1) );
+         dEndWordAddr   = dEndAddr & 0xf;
+         dEndAddr       = dEndAddr & 0xfffffff0;
+
+         transferLength = ( dEndAddr >> 4 ) - ( dStartAddr >> 4 );   //axi dma adds 1 to transfer length
+
+         //start transfer mask
+         dStartMask = 0xffff;
+         dStartMask <<= dStartWordAddr;
+         dStartMask &= 0xffff;
+
+         //end transfer mask
+         dEndMask = 0xffff;
+         dEndMask >>= ( dEndWordAddr ^ 14 );
+         dEndMask &= 0xffff;
+
+
+         axidma->ch2DaAddress       = dStartAddr;
+         axidma->ch2TransferLength  = transferLength;
+         axidma->ch2DaWriteMask     = dStartMask << 16 | dEndMask;
+
+         for( y = 0; y < bh; y++ )
+         {
+
+            axidma->ch2Command = 0x00; //fill
+
+            do{}while( ! ( axidma->ch2Command & 1) );
+
+         }
+      }
+      else
+      {
+         //too small for axi dma block transfer
+
+         for( y = y1; y <= y2; y++ )
+         {
+            fb = &((uint16_t*)bmp->buffer)[ y * bmp->rowWidth + x1 ];
+
+            for( x = x1; x <= x2; x++ )
+            {
+               *fb++ = color;
+            }
+         }
+
+      }
+
+   #else
+
+      return gfFillRect( bmp, x1, y1, x2, y2, color );
+
+   #endif
+
+   return 0;
+
 }
 
