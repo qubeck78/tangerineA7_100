@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Feb 22 13:27:39 2025" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Feb 22 18:34:54 2025" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a100t" NAME="bd_2af6" PACKAGE="fgg676" SPEEDGRADE="-1"/>
 
@@ -15,9 +15,54 @@
         <CONNECTION INSTANCE="g_inst" PORT="aresetn"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="3" NAME="SLOT_0_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awid">
+    <PORT DIR="I" LEFT="31" NAME="SLOT_0_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_araddr">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awid"/>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_araddr"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="1" NAME="SLOT_0_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arburst">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arburst"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="3" NAME="SLOT_0_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arcache">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arcache"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="3" NAME="SLOT_0_AXI_arid" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arid">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arid"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="7" NAME="SLOT_0_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arlen">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arlen"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="0" NAME="SLOT_0_AXI_arlock" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arlock">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arlock"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="2" NAME="SLOT_0_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arprot">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arprot"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="SLOT_0_AXI_arready" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arready">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arready"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="2" NAME="SLOT_0_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arsize">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arsize"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="SLOT_0_AXI_arvalid" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arvalid">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arvalid"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="31" NAME="SLOT_0_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awaddr">
@@ -25,24 +70,9 @@
         <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awaddr"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="7" NAME="SLOT_0_AXI_awlen" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awlen">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awlen"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="2" NAME="SLOT_0_AXI_awsize" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awsize">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awsize"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="I" LEFT="1" NAME="SLOT_0_AXI_awburst" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awburst">
       <CONNECTIONS>
         <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awburst"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="0" NAME="SLOT_0_AXI_awlock" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awlock">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awlock"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="3" NAME="SLOT_0_AXI_awcache" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awcache">
@@ -50,14 +80,24 @@
         <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awcache"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="I" LEFT="3" NAME="SLOT_0_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awid">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awid"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="7" NAME="SLOT_0_AXI_awlen" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awlen">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awlen"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="0" NAME="SLOT_0_AXI_awlock" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awlock">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awlock"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="I" LEFT="2" NAME="SLOT_0_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awprot">
       <CONNECTIONS>
         <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awprot"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="SLOT_0_AXI_awvalid" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awvalid">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awvalid"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="SLOT_0_AXI_awready" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awready">
@@ -65,34 +105,24 @@
         <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awready"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="127" NAME="SLOT_0_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_wdata">
+    <PORT DIR="I" LEFT="2" NAME="SLOT_0_AXI_awsize" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awsize">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_wdata"/>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awsize"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="15" NAME="SLOT_0_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_wstrb">
+    <PORT DIR="I" NAME="SLOT_0_AXI_awvalid" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_awvalid">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_wstrb"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="SLOT_0_AXI_wlast" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_wlast">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_wlast"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="SLOT_0_AXI_wvalid" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_wvalid">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_wvalid"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="SLOT_0_AXI_wready" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_wready">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_wready"/>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_awvalid"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="3" NAME="SLOT_0_AXI_bid" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_bid">
       <CONNECTIONS>
         <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_bid"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="SLOT_0_AXI_bready" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_bready">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_bready"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="1" NAME="SLOT_0_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_bresp">
@@ -105,59 +135,9 @@
         <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_bvalid"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="SLOT_0_AXI_bready" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_bready">
+    <PORT DIR="I" LEFT="127" NAME="SLOT_0_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_rdata">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_bready"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="3" NAME="SLOT_0_AXI_arid" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arid">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arid"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="31" NAME="SLOT_0_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_araddr">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_araddr"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="7" NAME="SLOT_0_AXI_arlen" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arlen">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arlen"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="2" NAME="SLOT_0_AXI_arsize" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arsize">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arsize"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="1" NAME="SLOT_0_AXI_arburst" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arburst">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arburst"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="0" NAME="SLOT_0_AXI_arlock" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arlock">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arlock"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="3" NAME="SLOT_0_AXI_arcache" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arcache">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arcache"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="2" NAME="SLOT_0_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arprot">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arprot"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="SLOT_0_AXI_arvalid" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arvalid">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arvalid"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="SLOT_0_AXI_arready" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_arready">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_arready"/>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_rdata"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="3" NAME="SLOT_0_AXI_rid" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_rid">
@@ -165,9 +145,14 @@
         <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_rid"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="127" NAME="SLOT_0_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_rdata">
+    <PORT DIR="I" NAME="SLOT_0_AXI_rlast" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_rlast">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_rdata"/>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_rlast"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="SLOT_0_AXI_rready" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_rready">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_rready"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="1" NAME="SLOT_0_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_rresp">
@@ -175,19 +160,34 @@
         <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_rresp"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="SLOT_0_AXI_rlast" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_rlast">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_rlast"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="I" NAME="SLOT_0_AXI_rvalid" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_rvalid">
       <CONNECTIONS>
         <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_rvalid"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="SLOT_0_AXI_rready" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_rready">
+    <PORT DIR="I" LEFT="127" NAME="SLOT_0_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_wdata">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_rready"/>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_wdata"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="SLOT_0_AXI_wlast" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_wlast">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_wlast"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="SLOT_0_AXI_wready" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_wready">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_wready"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="15" NAME="SLOT_0_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_wstrb">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_wstrb"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="SLOT_0_AXI_wvalid" SIGIS="undef" SIGNAME="g_inst_slot_0_axi_wvalid">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="g_inst" PORT="slot_0_axi_wvalid"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -226,41 +226,41 @@
       <PARAMETER NAME="WUSER_BITS_PER_BYTE" VALUE="0"/>
       <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
       <PORTMAPS>
-        <PORTMAP LOGICAL="AWID" PHYSICAL="SLOT_0_AXI_awid"/>
+        <PORTMAP LOGICAL="ARADDR" PHYSICAL="SLOT_0_AXI_araddr"/>
+        <PORTMAP LOGICAL="ARBURST" PHYSICAL="SLOT_0_AXI_arburst"/>
+        <PORTMAP LOGICAL="ARCACHE" PHYSICAL="SLOT_0_AXI_arcache"/>
+        <PORTMAP LOGICAL="ARID" PHYSICAL="SLOT_0_AXI_arid"/>
+        <PORTMAP LOGICAL="ARLEN" PHYSICAL="SLOT_0_AXI_arlen"/>
+        <PORTMAP LOGICAL="ARLOCK" PHYSICAL="SLOT_0_AXI_arlock"/>
+        <PORTMAP LOGICAL="ARPROT" PHYSICAL="SLOT_0_AXI_arprot"/>
+        <PORTMAP LOGICAL="ARREADY" PHYSICAL="SLOT_0_AXI_arready"/>
+        <PORTMAP LOGICAL="ARSIZE" PHYSICAL="SLOT_0_AXI_arsize"/>
+        <PORTMAP LOGICAL="ARVALID" PHYSICAL="SLOT_0_AXI_arvalid"/>
         <PORTMAP LOGICAL="AWADDR" PHYSICAL="SLOT_0_AXI_awaddr"/>
-        <PORTMAP LOGICAL="AWLEN" PHYSICAL="SLOT_0_AXI_awlen"/>
-        <PORTMAP LOGICAL="AWSIZE" PHYSICAL="SLOT_0_AXI_awsize"/>
         <PORTMAP LOGICAL="AWBURST" PHYSICAL="SLOT_0_AXI_awburst"/>
-        <PORTMAP LOGICAL="AWLOCK" PHYSICAL="SLOT_0_AXI_awlock"/>
         <PORTMAP LOGICAL="AWCACHE" PHYSICAL="SLOT_0_AXI_awcache"/>
+        <PORTMAP LOGICAL="AWID" PHYSICAL="SLOT_0_AXI_awid"/>
+        <PORTMAP LOGICAL="AWLEN" PHYSICAL="SLOT_0_AXI_awlen"/>
+        <PORTMAP LOGICAL="AWLOCK" PHYSICAL="SLOT_0_AXI_awlock"/>
         <PORTMAP LOGICAL="AWPROT" PHYSICAL="SLOT_0_AXI_awprot"/>
-        <PORTMAP LOGICAL="AWVALID" PHYSICAL="SLOT_0_AXI_awvalid"/>
         <PORTMAP LOGICAL="AWREADY" PHYSICAL="SLOT_0_AXI_awready"/>
-        <PORTMAP LOGICAL="WDATA" PHYSICAL="SLOT_0_AXI_wdata"/>
-        <PORTMAP LOGICAL="WSTRB" PHYSICAL="SLOT_0_AXI_wstrb"/>
-        <PORTMAP LOGICAL="WLAST" PHYSICAL="SLOT_0_AXI_wlast"/>
-        <PORTMAP LOGICAL="WVALID" PHYSICAL="SLOT_0_AXI_wvalid"/>
-        <PORTMAP LOGICAL="WREADY" PHYSICAL="SLOT_0_AXI_wready"/>
+        <PORTMAP LOGICAL="AWSIZE" PHYSICAL="SLOT_0_AXI_awsize"/>
+        <PORTMAP LOGICAL="AWVALID" PHYSICAL="SLOT_0_AXI_awvalid"/>
         <PORTMAP LOGICAL="BID" PHYSICAL="SLOT_0_AXI_bid"/>
+        <PORTMAP LOGICAL="BREADY" PHYSICAL="SLOT_0_AXI_bready"/>
         <PORTMAP LOGICAL="BRESP" PHYSICAL="SLOT_0_AXI_bresp"/>
         <PORTMAP LOGICAL="BVALID" PHYSICAL="SLOT_0_AXI_bvalid"/>
-        <PORTMAP LOGICAL="BREADY" PHYSICAL="SLOT_0_AXI_bready"/>
-        <PORTMAP LOGICAL="ARID" PHYSICAL="SLOT_0_AXI_arid"/>
-        <PORTMAP LOGICAL="ARADDR" PHYSICAL="SLOT_0_AXI_araddr"/>
-        <PORTMAP LOGICAL="ARLEN" PHYSICAL="SLOT_0_AXI_arlen"/>
-        <PORTMAP LOGICAL="ARSIZE" PHYSICAL="SLOT_0_AXI_arsize"/>
-        <PORTMAP LOGICAL="ARBURST" PHYSICAL="SLOT_0_AXI_arburst"/>
-        <PORTMAP LOGICAL="ARLOCK" PHYSICAL="SLOT_0_AXI_arlock"/>
-        <PORTMAP LOGICAL="ARCACHE" PHYSICAL="SLOT_0_AXI_arcache"/>
-        <PORTMAP LOGICAL="ARPROT" PHYSICAL="SLOT_0_AXI_arprot"/>
-        <PORTMAP LOGICAL="ARVALID" PHYSICAL="SLOT_0_AXI_arvalid"/>
-        <PORTMAP LOGICAL="ARREADY" PHYSICAL="SLOT_0_AXI_arready"/>
-        <PORTMAP LOGICAL="RID" PHYSICAL="SLOT_0_AXI_rid"/>
         <PORTMAP LOGICAL="RDATA" PHYSICAL="SLOT_0_AXI_rdata"/>
-        <PORTMAP LOGICAL="RRESP" PHYSICAL="SLOT_0_AXI_rresp"/>
+        <PORTMAP LOGICAL="RID" PHYSICAL="SLOT_0_AXI_rid"/>
         <PORTMAP LOGICAL="RLAST" PHYSICAL="SLOT_0_AXI_rlast"/>
-        <PORTMAP LOGICAL="RVALID" PHYSICAL="SLOT_0_AXI_rvalid"/>
         <PORTMAP LOGICAL="RREADY" PHYSICAL="SLOT_0_AXI_rready"/>
+        <PORTMAP LOGICAL="RRESP" PHYSICAL="SLOT_0_AXI_rresp"/>
+        <PORTMAP LOGICAL="RVALID" PHYSICAL="SLOT_0_AXI_rvalid"/>
+        <PORTMAP LOGICAL="WDATA" PHYSICAL="SLOT_0_AXI_wdata"/>
+        <PORTMAP LOGICAL="WLAST" PHYSICAL="SLOT_0_AXI_wlast"/>
+        <PORTMAP LOGICAL="WREADY" PHYSICAL="SLOT_0_AXI_wready"/>
+        <PORTMAP LOGICAL="WSTRB" PHYSICAL="SLOT_0_AXI_wstrb"/>
+        <PORTMAP LOGICAL="WVALID" PHYSICAL="SLOT_0_AXI_wvalid"/>
       </PORTMAPS>
     </BUSINTERFACE>
   </EXTERNALINTERFACES>
