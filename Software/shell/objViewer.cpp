@@ -487,46 +487,44 @@ int objvCalc3d( tgfBitmap *pscr )
 
 int objvDisplayObj( tgfBitmap *pscr )
 {
-   int             i;
-   tgfTriangle3D  *triangle;
-
+   int               i;
+   uint32_t          j;
+   tgfTriangle3D    *triangle;
+   uint32_t         *zBufferL;
    
 
    //copy background to screen buffer
-      
-   
-
+         
+   gfBlitBitmap128( pscr, &background426, 0, 0 );
    //gfBlitBitmap( pscr, &background426, 0, 0 );
-
-   axidma->ch2TransferLength = 0x35;
-   axidma->ch2SaAddress    = (uint32_t)background426.buffer;
-   axidma->ch2SaRowWidth   = 2560;
-   axidma->ch2DaAddress = (uint32_t)pscr->buffer;
-   axidma->ch2DaRowWidth   = 1024;
-   axidma->ch2DaWriteMask  = 0xffffffff;
-      
-   for( i = 0; i < 240; i++ )
-   {
-
-      //read row
-      axidma->ch2Command = 0x01;
-      do{}while( ! ( axidma->ch2Command & 1 ) );
-
-      //write row
-      axidma->ch2Command = 0x02;
-      do{}while( ! ( axidma->ch2Command & 1 ) );
-
-   }
 
    //calc point cloud
    objvCalc3d( pscr );
 
    //clear zbuffer
 
-   gfFillRect( &zBuffer, 0, 0, zBuffer.width - 1, zBuffer.height - 1, 0xffff );
+ 
+/* zBuffer.width              = 426;
+   zBuffer.rowWidth           = 512;
+   zBuffer.height             = 240;
+*/
 
-   /*
+//   gfFillRect( &zBuffer, 0, 0, zBuffer.width - 1, zBuffer.height - 1, 0xffff );
 
+   zBufferL = ( uint32_t * )zBuffer.buffer;
+
+   for( i = 0; i < 240; i++ )
+   {
+            
+      for( j = 0; j < 214; j++ )
+      {
+         *zBufferL++ = 0xffffffff;
+      }
+
+      zBufferL += 42;
+   }
+   
+/*
    //clearing z-buffer via axi dma requires flushing cpu cache, and this gives a huge performance drop
 
    axidma->ch2Input0[0] = 0xffffffff;

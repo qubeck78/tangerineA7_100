@@ -278,6 +278,157 @@ uint32_t gfBlitBitmap( tgfBitmap *dest, tgfBitmap *src, int16_t x, int16_t y )
     return 0;
 }
 
+uint32_t gfBlitBitmap128( tgfBitmap *dest, tgfBitmap *src, int16_t x, int16_t y )
+{
+   int16_t cx,cy,bw,bh,sx,sy;
+
+   uint32_t    dStartMask;
+   uint32_t    dEndMask;
+   
+   uint32_t    dStartAddr;
+   uint32_t    dStartWordAddr;
+
+   uint32_t    dEndAddr;
+   uint32_t    dEndWordAddr;
+
+   uint32_t    sStartAddr;
+   uint32_t    sStartWordAddr;
+
+   uint32_t    transferLength;
+
+
+   if(( dest == NULL) || ( src == NULL ))
+   {
+      return 1;
+   }
+
+   #ifdef _GFXLIB_AXI_DMA_BLOCK_TRANSFER
+
+      bw = src->width;
+      bh = src->height;
+      sx = 0;
+      sy = 0;
+
+
+      //clip src bitmap if coordinates are negative
+      if( x < 0 )
+      {
+         sx = -x;
+         bw -= sx;
+         x = 0;
+      }
+
+      if( y < 0 )
+      {
+         sy = -y;
+         bh -= sy;
+         y = 0;
+      }
+
+
+      //clip src width if exceeds sise of dest bitmap
+      if( ( bw + x ) >= dest->width )
+      {
+         bw = dest->width - x;
+      }
+
+      if( bw <= 0 )
+      {
+         return 0;
+      }
+
+      if( ( bh + y ) >= dest->height )
+      {
+         bh = dest->height - y;
+      }
+
+      if( bh <= 0 )
+      {
+         return 0;
+      }
+
+      sStartAddr     = (uint32_t)src->buffer + ( sy * ( src->rowWidth << 1 ) + ( sx << 1) );
+      sStartWordAddr = sStartAddr & 0xf;
+      sStartAddr     = sStartAddr & 0xfffffff0;
+
+      dStartAddr     = (uint32_t)dest->buffer + ( y * ( dest->rowWidth << 1 ) + ( x << 1) );
+      dStartWordAddr = dStartAddr & 0xf;
+      dStartAddr     = dStartAddr & 0xfffffff0;
+
+      dEndAddr       = (uint32_t)dest->buffer + ( y * ( dest->rowWidth << 1 ) + ( ( x + bw - 1 ) << 1) );
+      dEndWordAddr   = dEndAddr & 0xf;
+      dEndAddr       = dEndAddr & 0xfffffff0;
+
+      transferLength = ( dEndAddr >> 4 ) - ( dStartAddr >> 4 );   //axi dma adds 1 to transfer length
+
+      //start transfer mask
+      dStartMask = 0xffff;
+      dStartMask <<= dStartWordAddr;
+      dStartMask &= 0xffff;
+
+      //end transfer mask
+      dEndMask = 0xffff;
+      dEndMask >>= ( dEndWordAddr ^ 14 );
+      dEndMask &= 0xffff;
+
+      axidma->ch2TransferLength   = transferLength;
+
+      axidma->ch2SaAddress    = sStartAddr;
+      axidma->ch2SaRowWidth   = src->rowWidth << 1;
+      axidma->ch2Input0[0]    = dStartWordAddr / 2;     //source shift right
+
+      axidma->ch2DaAddress    = dStartAddr;
+      axidma->ch2DaRowWidth   = dest->rowWidth << 1;
+      axidma->ch2DaWriteMask  = dStartMask << 16 | dEndMask;
+
+      
+      if( src->flags & GF_BITMAP_FLAG_TRANSPARENT )
+      {
+
+         axidma->ch2Input0[1] = src->transparentColor;
+
+         for( y = 0; y < bh; y++ )
+         {
+
+            axidma->ch2Command = 0x03; //read sa with shift
+            do{
+            }while( ! ( axidma->ch2Command & 1 ) );   
+
+            axidma->ch2Command = 0x04; //write da with color mask
+            do{
+            }while( ! ( axidma->ch2Command & 1 ) );   
+
+         }
+
+      }
+      else
+      {
+         for( y = 0; y < bh; y++ )
+         {
+
+            axidma->ch2Command = 0x03; //read sa with shift
+            do{
+            }while( ! ( axidma->ch2Command & 1 ) );   
+
+            axidma->ch2Command = 0x02; //write da
+            do{
+            }while( ! ( axidma->ch2Command & 1 ) );   
+
+         }
+      }
+
+      return 0;
+
+   #else
+
+      return gfBlitBitmap( dest, src, x, y );
+
+   #endif
+
+}
+
+
+
 uint32_t gfBlitBitmapSrcRect( tgfBitmap *dest, tgfBitmap *src, int16_t sx, int16_t sy, int16_t bw, int16_t bh, int16_t x, int16_t y )
 {
    int16_t cx,cy;

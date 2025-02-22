@@ -87,7 +87,7 @@ uint32_t init()
    gfDisplayBitmap( &screen );
 
    //clear screen buffer
-   gfFillRect( &screen, 0, 0, screen.width - 1, screen.height - 1 , gfColor( 0, 0, 0 ) ); 
+   gfFillRect128( &screen, 0, 0, screen.width - 1, screen.height - 1 , gfColor( 0, 0, 0 ) ); 
    
    //alloc second screen for doublebuffered 3d viewer
    screen2.width              = 426;
@@ -123,7 +123,7 @@ uint32_t init()
 
    rv = gfLoadBitmapFS( &background, ( char* )"0:/shell/background1280.gbm" );
 
-   gfBlitBitmap( &screen, &background, 0, 0 );
+   gfBlitBitmap128( &screen, &background, 0, 0 );
 
 
 /*   gfLoadBitmapFS( &mousePointer, (char*)"0:/sys/cursor.gbm" );
@@ -630,7 +630,7 @@ int main()
       }else if( refreshScreen == 2 )
       {
 
-         gfBlitBitmap( &screen, &background, 0, 0 );
+         gfBlitBitmap128( &screen, &background, 0, 0 );
 
          con.textAttributes = 0x0f;
 

@@ -274,7 +274,7 @@ int main()
     //display first buffer
     gfDisplayBitmap( &screen );
 
-    gfFillRect( &screen, 0, 0, screen.width - 1, screen.height - 1 , gfColor( 0, 0, 0 ) ); 
+    gfFillRect128( &screen, 0, 0, screen.width - 1, screen.height - 1 , gfColor( 0, 0, 0 ) ); 
     
     
     toPrintF( &con, (char*)"Mandelbrot set example\n" );

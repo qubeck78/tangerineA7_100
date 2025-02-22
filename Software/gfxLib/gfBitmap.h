@@ -40,6 +40,7 @@ uint32_t gfDisplayBitmap( tgfBitmap *bmp );
 uint32_t gfLoadBitmapFS( tgfBitmap *dest, char *fileName );
 
 uint32_t gfBlitBitmap( tgfBitmap *dest, tgfBitmap *src, int16_t x, int16_t y );
+uint32_t gfBlitBitmap128( tgfBitmap *dest, tgfBitmap *src, int16_t x, int16_t y );
 uint32_t gfBlitBitmapSrcRect( tgfBitmap *dest, tgfBitmap *src, int16_t sx, int16_t sy, int16_t bw, int16_t bh, int16_t x, int16_t y );
 uint32_t gfBlitBitmapA( tgfBitmap *dest, tgfBitmap *src, int16_t x, int16_t y, uint8_t alpha );
 uint32_t gfBlitBitmapA2Src( tgfBitmap *dest, tgfBitmap *src1, tgfBitmap *src2, int16_t x, int16_t y, uint8_t alpha );

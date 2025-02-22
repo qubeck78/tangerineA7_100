@@ -167,7 +167,8 @@ type   axiState_T is ( asIdle, asCh0Read0, asCh0Read1,
                                asCh2Fill0, asCh2Fill1, asCh2Fill2,
                                asCh2Read0, asCh2Read1, asCh2Read2,
                                asCh2Write0, asCh2Write1, asCh2Write2,
-                               asCh2ReadShift0, asCh2ReadShift1, asCh2ReadShift2, asCh2ReadShift3
+                               asCh2ReadShift0, asCh2ReadShift1, asCh2ReadShift2, asCh2ReadShift3,
+                               asCh2MaskWrite0, asCh2MaskWrite1, asCh2MaskWrite2
                                );
 
 signal axiState:       axiState_T;
@@ -292,6 +293,7 @@ signal ch2DaFirstWriteMask:   std_logic_vector( 15 downto 0 );
 signal ch2DaLastWriteMask:    std_logic_vector( 15 downto 0 );
 signal ch2FirstDataBeat:      std_logic;
 signal ch2PreviousData:       std_logic_vector( 127 downto 0 );
+signal ch2ColorWriteMask:     std_logic_vector( 15 downto 0 );
 
 -- 00 - fill da with value in ch2Input0
 -- 01 - read sa to buffer
@@ -301,7 +303,6 @@ signal ch2PreviousData:       std_logic_vector( 127 downto 0 );
 signal ch2Command:            std_logic_vector( 7 downto 0 );
 signal ch2DmaRequest:         std_logic;
 signal ch2DmaRequestLatched:  std_logic;
-signal ch2Ready:              std_logic;
 
 
 begin
@@ -476,6 +477,17 @@ port map(
    douta    => cacheTagWay3DOut
 );
 
+--ch2 buf write color mask
+
+ch2ColorWriteMask( 1 downto 0 ) <= "00" when ch2BufDin( 15 downto 0 ) = ch2Input0( 47 downto 32 ) else "11";
+ch2ColorWriteMask( 3 downto 2 ) <= "00" when ch2BufDin( 31 downto 16 ) = ch2Input0( 47 downto 32 ) else "11";
+ch2ColorWriteMask( 5 downto 4 ) <= "00" when ch2BufDin( 47 downto 32 ) = ch2Input0( 47 downto 32 ) else "11";
+ch2ColorWriteMask( 7 downto 6 ) <= "00" when ch2BufDin( 63 downto 48 ) = ch2Input0( 47 downto 32 ) else "11";
+ch2ColorWriteMask( 9 downto 8 ) <= "00" when ch2BufDin( 79 downto 64 ) = ch2Input0( 47 downto 32 ) else "11";
+ch2ColorWriteMask( 11 downto 10 ) <= "00" when ch2BufDin( 95 downto 80 ) = ch2Input0( 47 downto 32 ) else "11";
+ch2ColorWriteMask( 13 downto 12 ) <= "00" when ch2BufDin( 111 downto 96 ) = ch2Input0( 47 downto 32 ) else "11";
+ch2ColorWriteMask( 15 downto 14 ) <= "00" when ch2BufDin( 127 downto 112 ) = ch2Input0( 47 downto 32 ) else "11";
+ 
 axiDMAMaster: process( m00_axi_aclk )
 begin
 
@@ -585,7 +597,6 @@ begin
 --       ch2 signals
 
          ch2DmaRequestLatched <= '0';
-         ch2Ready             <= '1';
                
          ch2BufWE             <= ( others => '0' );
          ch2BufA              <= ( others => '0' );
@@ -644,7 +655,6 @@ begin
 
                ch0Ready <= '0';
 
-               ch2Ready <= '1';                     
 
                --check ch1 access
                if ch1DmaRequestLatched( 0 ) = '1' then
@@ -667,29 +677,30 @@ begin
                   -- 01 - read sa to buffer
                   -- 02 - write buffer to da
                   -- 03 - read sa to buffer with shift right
-                  
+                  -- 04 - write buffer to da with 16-bit color mask
+                                    
                   case ch2Command is
 
                      when x"00" =>
 
-                        ch2Ready <= '0';                     
                         axiState <= asCh2Fill0;
 
                      when x"01" =>
 
-                        ch2Ready <= '0';                     
                         axiState <= asCh2Read0;
 
                      when x"02" =>
 
-                        ch2Ready <= '0';                     
                         axiState <= asCh2Write0;
 
                      when x"03" =>
                      
-                        ch2Ready <= '0';
                         axiState <= asCh2ReadShift0;
+
+                     when x"04" =>
                   
+                        axiState <= asCh2MaskWrite0;
+                        
                      when others =>
                      
                         ch2DmaRequestLatched <= '0';
@@ -1937,6 +1948,99 @@ begin
                axiState <= asIdle;
 
                                     
+            when asCh2MaskWrite0 =>
+
+               axiStateDebug        <= x"17";   
+               
+               m00_axi_awaddr    <= ch2DaPointer;
+               m00_axi_awvalid   <= '1';
+               m00_axi_awlen     <= ch2TransferLength;
+               m00_axi_wvalid    <= '0';
+               m00_axi_bready    <= '0';
+               m00_axi_wlast     <= '0';
+
+               ch2TransferCounter   <= ch2TransferLength;
+               ch2FirstDataBeat     <= '1';
+               
+               ch2BufPointer        <= x"01";  
+               ch2BufA              <= x"00";
+               
+               ch2BufWE             <= ( others => '0' );
+               
+               if m00_axi_awready = '1' then
+                  
+                  axiState <= asCh2MaskWrite1;
+                  
+               end if;
+
+            when asCh2MaskWrite1 =>
+            
+               axiStateDebug        <= x"18";   
+
+               m00_axi_awvalid   <= '0';               
+               m00_axi_bready    <= '0';
+               
+               if m00_axi_wready = '1' then
+               
+                  ch2BufA           <= ch2BufPointer;
+                  ch2BufPointer     <= std_logic_vector( unsigned( ch2BufPointer ) + 1 );
+
+                  if ch2FirstDataBeat = '1' then
+                 
+                     m00_axi_wstrb     <= ch2DaFirstWriteMask and ch2ColorWriteMask;                     
+                     ch2FirstDataBeat  <= '0';
+                     
+                  elsif ch2TransferCounter = x"00" then
+
+                     m00_axi_wstrb     <= ch2DaLastWriteMask and ch2ColorWriteMask;                     
+                  
+                  else
+
+                     m00_axi_wstrb     <= ch2ColorWriteMask;                     
+                  
+                  end if;
+
+                  m00_axi_wdata     <= ch2BufDin;
+                                          
+                  m00_axi_wvalid    <= '1';
+
+                  ch2TransferCounter <= std_logic_vector( unsigned( ch2TransferCounter ) - 1 );
+
+                  if ch2TransferCounter = x"00" then
+                  
+                     m00_axi_wlast  <= '1';
+                     
+                     axiState <= asCh2MaskWrite2;
+                  
+                  else
+
+                     m00_axi_wlast  <= '0';
+                                    
+                  end if;
+                  
+               end if;                          
+
+            when asCh2MaskWrite2 =>
+            
+               axiStateDebug        <= x"19";   
+
+               if m00_axi_wready = '1' then --last beat accepted
+               
+                  m00_axi_wlast  <= '0';
+                  m00_axi_wvalid <= '0';
+                  m00_axi_bready <= '1';
+                                    
+               end if;
+                              
+
+               if m00_axi_bvalid = '1' then
+               
+                  m00_axi_bready <= '0';
+
+                  ch2DmaRequestLatched <= '0';                  
+                  axiState <= asIdle;
+              
+              end if;
                 
             when others =>
 
@@ -2023,7 +2127,7 @@ begin
                      --0x04 r- component version                       
                      when x"01" =>
                      
-                        dout  <= x"20250221";
+                        dout  <= x"20250222";
 
                      --0x08 rw ch1DmaPointerStart                       
                      when x"02" =>
@@ -2189,10 +2293,12 @@ begin
                      --0x40 rw ch2Command / status                       
                      
                      --commands ( write )
-                     ---- 00 - fill da with value in ch2Input0
-                     ---- 01 - read sa to buffer
-                     ---- 02 - write buffer to da
-                     
+                     -- 00 - fill da with value in ch2Input0
+                     -- 01 - read sa to buffer
+                     -- 02 - write buffer to da
+                     -- 03 - read sa to buffer, shift data right 
+                     -- 04 - write buffer to da with 16-bit color mask
+                                       
                      --status ( read )
                      --b0 - ch2Ready
                      
@@ -2230,6 +2336,11 @@ begin
                                  ch2SaPointer   <= ch2SaAddress;
                                  ch2SaAddress   <= std_logic_vector( unsigned( ch2SaAddress ) + unsigned( ch2SaRowWidth ) );
                                  
+                              when x"04" =>
+
+                                 --write with 16-bit color mask
+                                 ch2DaPointer   <= ch2DaAddress;
+                                 ch2DaAddress   <= std_logic_vector( unsigned( ch2DaAddress ) + unsigned( ch2DaRowWidth ) );
                                                                   
                               when others =>
                               

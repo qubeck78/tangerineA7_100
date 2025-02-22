@@ -22,7 +22,7 @@
 //#define _GFXLIB_USB_HOST
 #define _GFXLIB_FPALU
 #define _GFXLIB_PS2_HOST
-#define _GFXLIB_AXI_DMA
+#define _GFXLIB_AXI_DMA_BLOCK_TRANSFER
 
 #ifndef NULL
 #define NULL 0
