@@ -16,11 +16,11 @@ Features:
 
 System diagram
 
-![blockdiagram](./doc/BlockDiagram.jpg)
+![blockdiagram](./Doc/BlockDiagram.jpg)
 
 
 Wukong board documentation:
 https://github.com/ChinaQMTECH/QM_XC7A100T_WUKONG_BOARD/tree/master/V3
 
-![wukongboard](./doc/WukongBoard.jpg)
+![wukongboard](./Doc/WukongBoard.jpg)
 
