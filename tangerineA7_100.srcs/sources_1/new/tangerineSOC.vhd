@@ -284,7 +284,7 @@ end component;
 
 
 --dma ch2 buffer ( block transfer )
-
+--try to optimize this, 4KB buffer takes 16KB of block ram ( data width requirements ? )
 component dmaCh2BufRam is
 port(
     

@@ -101,7 +101,7 @@ end axiDMA;
 architecture Behavioral of axiDMA is
 
 --components
-
+--try to optimize this, 8KB buffer takes 16KB of block ram ( data width requirements? )
 component dmaCh1BufRam is
 port(
     clka:   in    std_logic;

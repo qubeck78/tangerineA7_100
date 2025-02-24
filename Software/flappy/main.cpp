@@ -427,6 +427,29 @@ uint32_t game()
 
         }while( !ctx.gameOver );
 
+        //display current screen to show exact bird location
+
+        if( ctx.screenNo & 1 )
+        {
+
+            gfDisplayBitmap( &screen2Shifted );
+
+            waitVSync();
+
+            drawPlayfield( &screen1 );
+
+        }
+        else
+        {
+
+            gfDisplayBitmap( &screen1Shifted );
+
+            waitVSync();
+
+            drawPlayfield( &screen2 );
+
+        }
+
 
         con.textAttributes = 0x0f;
         toCls( &con );        
