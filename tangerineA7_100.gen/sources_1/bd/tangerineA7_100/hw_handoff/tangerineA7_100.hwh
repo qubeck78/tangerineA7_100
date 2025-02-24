@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Feb 22 18:34:55 2025" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Feb 24 15:25:56 2025" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a100t" NAME="tangerineA7_100" PACKAGE="fgg676" SPEEDGRADE="-1"/>
 
@@ -24,7 +24,6 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz_0" PORT="resetn"/>
         <CONNECTION INSTANCE="clk_wiz_1" PORT="resetn"/>
-        <CONNECTION INSTANCE="clk_wiz_2" PORT="resetn"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="button1" SIGIS="undef" SIGNAME="External_Ports_button1">
@@ -1971,9 +1970,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_button0">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="tangerineMIGWrapper_0_mmcm_locked">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="button0"/>
+            <CONNECTION INSTANCE="tangerineMIGWrapper_0" PORT="mmcm_locked"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="81250000" DIR="I" NAME="clk_in1" SIGIS="clk" SIGNAME="tangerineMIGWrapper_0_ui_clk">
@@ -6134,7 +6133,11 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="ui_clk_sync_rst" POLARITY="ACTIVE_LOW" SIGIS="rst"/>
-        <PORT DIR="O" NAME="mmcm_locked" SIGIS="undef"/>
+        <PORT DIR="O" NAME="mmcm_locked" SIGIS="undef" SIGNAME="tangerineMIGWrapper_0_mmcm_locked">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_2" PORT="resetn"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="clk_wiz_1_locked">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clk_wiz_1" PORT="locked"/>

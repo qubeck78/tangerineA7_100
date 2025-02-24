@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Sat Feb 22 18:34:53 2025
+//Date        : Mon Feb 24 15:25:54 2025
 //Host        : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 //Command     : generate_target tangerineA7_100.bd
 //Design      : tangerineA7_100
@@ -114,6 +114,7 @@ module tangerineA7_100
   wire tangerineMIGWrapper_0_ddr3_ras_n;
   wire tangerineMIGWrapper_0_ddr3_reset_n;
   wire tangerineMIGWrapper_0_ddr3_we_n;
+  wire tangerineMIGWrapper_0_mmcm_locked;
   wire tangerineMIGWrapper_0_ui_clk;
   wire [1:0]tangerineSOC_0_leds;
   (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 ARADDR" *) (* DONT_TOUCH *) wire [31:0]tangerineSOC_0_m00_axi_ARADDR;
@@ -206,7 +207,7 @@ module tangerineA7_100
         .clk40_625(clk_wiz_2_clk40_625),
         .clk_in1(tangerineMIGWrapper_0_ui_clk),
         .locked(Net9),
-        .resetn(button0_1));
+        .resetn(tangerineMIGWrapper_0_mmcm_locked));
   tangerineA7_100_hdmiOut_0_0 hdmiOut_0
        (.hdmiClkN(hdmiOut_0_hdmiClkN),
         .hdmiClkP(hdmiOut_0_hdmiClkP),
@@ -279,6 +280,7 @@ module tangerineA7_100
         .ddr3_ras_n(tangerineMIGWrapper_0_ddr3_ras_n),
         .ddr3_reset_n(tangerineMIGWrapper_0_ddr3_reset_n),
         .ddr3_we_n(tangerineMIGWrapper_0_ddr3_we_n),
+        .mmcm_locked(tangerineMIGWrapper_0_mmcm_locked),
         .s_axi_araddr(tangerineSOC_0_m00_axi_ARADDR[27:0]),
         .s_axi_arburst(tangerineSOC_0_m00_axi_ARBURST),
         .s_axi_arcache(tangerineSOC_0_m00_axi_ARCACHE),

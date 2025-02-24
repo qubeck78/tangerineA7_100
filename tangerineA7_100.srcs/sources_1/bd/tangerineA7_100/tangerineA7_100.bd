@@ -1694,8 +1694,7 @@
         "ports": [
           "button0",
           "clk_wiz_0/resetn",
-          "clk_wiz_1/resetn",
-          "clk_wiz_2/resetn"
+          "clk_wiz_1/resetn"
         ]
       },
       "button1_1": {
@@ -1856,6 +1855,12 @@
         "ports": [
           "tangerineMIGWrapper_0/ddr3_we_n",
           "ddr3_we_n"
+        ]
+      },
+      "tangerineMIGWrapper_0_mmcm_locked": {
+        "ports": [
+          "tangerineMIGWrapper_0/mmcm_locked",
+          "clk_wiz_2/resetn"
         ]
       },
       "tangerineMIGWrapper_0_ui_clk": {
