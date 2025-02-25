@@ -235,6 +235,17 @@ port (
    ch2BufDin:        in    std_logic_vector( 127 downto 0 );
    ch2BufDOut:       out   std_logic_vector( 127 downto 0 );
 
+   --ch3 blitter 
+   ch3A:             in    std_logic_vector( 31 downto 0 );
+   ch3DIn:           in    std_logic_vector( 31 downto 0 );
+   ch3DOut:          out   std_logic_vector( 31 downto 0 );
+   
+   ch3CE:            in    std_logic;
+   ch3Wr:            in    std_logic;
+   ch3DataMask:      in    std_logic_vector( 3 downto 0 );
+   
+   ch3Ready:         out   std_logic;
+
    --axi master bus
    m00_axi_aclk:     in  std_logic;
    m00_axi_aresetn:  in  std_logic;
@@ -988,6 +999,17 @@ port map(
    ch2BufA              => ch2BufAB,
    ch2BufDin            => ch2BufDInB,
    ch2BufDOut           => ch2BufDOutB,
+
+   --ch3 blitter
+   ch3A                 => ( others => '0' ),
+   ch3DIn               => ( others => '0' ),
+   --ch3DOut:          out   std_logic_vector( 31 downto 0 );
+   
+   ch3CE                => '0',
+   ch3Wr                => '0',
+   ch3DataMask          => ( others => '0' ),
+   
+   --ch3Ready:         out   std_logic;
 
    --axi master bus
    m00_axi_aclk      => m00_axi_aclk,
