@@ -1,6 +1,7 @@
 #include "main.h"
 #include <cstring>
 #include <climits>
+#include <cstdio>
 #include <math.h>
 
 #include "bsp.h"
@@ -223,10 +224,17 @@ int main()
    
    tosUIEvent  event; 
    float       animation;
-   
+   uint32_t    startTicks;
+   uint32_t    frames;
+
    init();
 
+   con.textAttributes = 0x0f;
+
    animation = 0.0f;
+
+   startTicks  = getTicks();
+   frames      = 0;
 
    do
    {
@@ -234,6 +242,18 @@ int main()
       animation += 1.0f / 60.0f;
 
       tunnel( &screen1, animation );
+      frames++;
+
+      if( getTicks() >= ( startTicks + 10000 ) )
+      {
+         toSetCursorPos( &con, 0, 0 );
+         printf( "%.1f fps  \n", (float)frames/10.0f );
+
+
+         startTicks  = getTicks();
+         frames   = 0;
+
+      }
 
       if( !osGetUIEvent( &event ) )
       { 
