@@ -1,0 +1,799 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sc",
+				"screen1"
+			],
+			[
+				"gf",
+				"gfBlitBitmap128"
+			],
+			[
+				"s",
+				"score"
+			],
+			[
+				"pi",
+				"pipesDown"
+			],
+			[
+				"g",
+				"gameOver"
+			],
+			[
+				"e",
+				"event"
+			],
+			[
+				"p",
+				"pipesUp"
+			],
+			[
+				"bi",
+				"birdCollisionDetection"
+			],
+			[
+				"b",
+				"birdY"
+			],
+			[
+				"bird",
+				"birdVelocity"
+			],
+			[
+				"bir",
+				"birdY"
+			],
+			[
+				"r",
+				"randomNumber"
+			],
+			[
+				"draw",
+				"drawPlayfield"
+			],
+			[
+				"dr",
+				"drawPipeDown"
+			],
+			[
+				"bmp",
+				"bmpPipeUp"
+			],
+			[
+				"bmpP",
+				"bmpPipeDown"
+			],
+			[
+				"bmpPipe",
+				"bmpPipeDown"
+			],
+			[
+				"scr",
+				"screen1"
+			],
+			[
+				"fl",
+				"flappyCtx_t"
+			],
+			[
+				"fla",
+				"flappyCtx_t"
+			],
+			[
+				"bm",
+				"bmpPipeUp"
+			],
+			[
+				"un",
+				"unused0"
+			],
+			[
+				"def",
+				"default"
+			],
+			[
+				"_",
+				"__cplusplus"
+			],
+			[
+				"c",
+				"command"
+			],
+			[
+				"ui",
+				"uint64_t"
+			],
+			[
+				"size",
+				"sizeSmaller"
+			],
+			[
+				"siz",
+				"sizeOld"
+			],
+			[
+				"si",
+				"sizeNew"
+			],
+			[
+				"memFla",
+				"memFlagsNew"
+			],
+			[
+				"sa",
+				"samplingRateDivisor"
+			],
+			[
+				"sam",
+				"samplingRateDivisor"
+			],
+			[
+				"mouse",
+				"mouseButtons"
+			],
+			[
+				"mo",
+				"mouseButtons"
+			],
+			[
+				"m",
+				"mouseButtons"
+			],
+			[
+				"v",
+				"visible"
+			],
+			[
+				"mou",
+				"mouseY"
+			],
+			[
+				"po",
+				"pointerBitmap"
+			],
+			[
+				"osSer",
+				"osSerialPutC"
+			],
+			[
+				"las",
+				"lastPressedKeyCode"
+			],
+			[
+				"last",
+				"lastPressedKeyTime"
+			],
+			[
+				"mem",
+				"memFlags"
+			],
+			[
+				"node",
+				"nodeFound"
+			],
+			[
+				"allo",
+				"allocMemPtr"
+			],
+			[
+				"_OS",
+				"_OS_ALLOC_NUM_NODES"
+			],
+			[
+				"osA",
+				"osAllocMemoryNode"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 3384,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/tangerine.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					""
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make clean"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make run"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make send"
+				]
+			],
+			[
+				"Packages/User/tangerine.sublime-build",
+				"make"
+			]
+		],
+		[
+			[
+				[
+					"Packages/C++/C Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					""
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make clean"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make run"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make send"
+				]
+			],
+			[
+				"Packages/User/tangerine.sublime-build",
+				"make clean"
+			]
+		],
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Packages/Makefile/Make.sublime-build",
+				"Clean"
+			]
+		],
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/User/make send.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/make send.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					""
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make clean"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make run"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make send"
+				]
+			],
+			[
+				"Packages/User/tangerine.sublime-build",
+				"make send"
+			]
+		],
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/User/make send.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/make send.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					""
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make clean"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make run"
+				],
+				[
+					"Packages/User/tangerine.sublime-build",
+					"make send"
+				]
+			],
+			[
+				"Packages/User/tangerine.sublime-build",
+				"make"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Enable Package"
+			],
+			[
+				"package control: install package",
+				"Package Control: Install Package"
+			],
+			[
+				"install package control",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 141.0,
+		"history":
+		[
+			"help",
+			"dir",
+			"dire"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/flappy"
+	],
+	"file_history":
+	[
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/flappy/main.cpp",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/flappy/startup.S",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/bsp.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/gfBitmap.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/gfBitmap.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/gfDrawing.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/bsp.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/gfDrawing.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/gfTypes.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/ps2Host.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/gfFont.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/Makefile",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/osUIEvents.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/ps2Host.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/usbHID.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib/diskio.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/asteroids/asteroids.sublime-workspace",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/asteroids/asteroids.sublime-project",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osSerial.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/diskio.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/diskio.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/usbHID.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osUIEvents.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osUIEvents.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/ccsbcs.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/usbHID.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/bsp.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfTypes.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/bsp.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfGouraud.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfGouraud.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfBitmap.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osAlloc.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osAlloc.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfFont.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfJPEG.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfJPEG.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osFile.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osSerial.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfDrawing.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfDrawing.c",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfAudio.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfBitmap.h",
+		"/C/Users/qubeck/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osFile.c",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfGouraud.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/usbHID.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfAudio.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfAudio.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/bsp.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfFont.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osUIEvents.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/usbHID.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osUIEvents.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfTypes.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osAlloc.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osAlloc.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osFile.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osFile.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfBitmap.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfBitmap.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfDrawing.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfDrawing.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfJPEG.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfJPEG.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfFont.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/gfGouraud.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/bsp.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osSerial.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/osSerial.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/A7BaseBoard/tangerineA7_200/Software/gfxLib/diskio.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/TangNano20K/tangyRiscVSOC/tangyRiscVSOC/src/software/gfxLib/osFile.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/TangNano20K/tangyRiscVSOC/tangyRiscVSOC/src/software/gfxLib/usbHID.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/TangNano20K/tangyRiscVSOC/tangyRiscVSOC/src/software/gfxLib/usbHID.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/TangNano20K/tangyRiscVSOC/tangyRiscVSOC/src/software/gfxLib/gfTypes.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/TangNano20K/tangyRiscVSOC/tangyRiscVSOC/src/software/gfxLib/gfGouraud.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/TangNano20K/tangyRiscVSOC/tangyRiscVSOC/src/software/gfxLib/osFile.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/TangNano20K/tangyRiscVSOC/tangyRiscVSOC/src/software/gfxLib/bsp.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/TangNano20K/tangyRiscVSOC/tangyRiscVSOC/src/software/gfxLib/bsp.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/TangNano20K/tangyRiscVSOC/tangyRiscVSOC/src/software/gfxLib/gfBitmap.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscVSOCQ13/software/gfxLib/gfDrawing.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscVSOCQ13/software/gfxLib/gfGouraud.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLib/osAlloc.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLib/gfBitmap.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLib/gfFont.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLib/gfJPEG.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLib/bsp.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLib/osAlloc.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLib/gfTypes.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLib/osFile.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLib/gfGouraud.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLib/gfBitmap.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLib/usbHID.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLib/usbHID.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLibSlideshow/main.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLibSlideshow/ram.ld",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLibSlideshow/startup.S",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLibSlideshow/main.h",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLib/picojpeg.cpp",
+		"/C/Users/qubec/AppData/Roaming/Sublime Text/Packages/User/make send.sublime-build",
+		"/C/Users/qubec/AppData/Roaming/Sublime Text/Packages/User/Preferences.sublime-settings",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLibSlideshow/slideshowProject.sublime-project",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/gfxLibSlideshow/Makefile",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscV/usbHidTest/main.cpp",
+		"/C/Users/qubec/Documents/Development/ProjektyVHDL/C4BaseBoard/RiscVSOCQ13/C4RiscVSOCTop.vhd"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"bigBackground",
+			"bigGround",
+			"select",
+			"ffdiv",
+			"ffadd",
+			"gfGouraudDrawTriangle",
+			"FPALU",
+			"fpalu",
+			"gfGouraudEdge",
+			"gets",
+			"uchar",
+			"short",
+			"long",
+			"ushort",
+			"ulong",
+			";\n",
+			"\n    ",
+			"spi",
+			"wind",
+			"allocend",
+			"osallo",
+			"osalloc",
+			"float"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"bmpBigBackground",
+			"bmpBigGround",
+			"uint8_t",
+			"int16_t",
+			"int32_t",
+			"uint16_t",
+			"uint32_t"
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Makefile",
+					"selected": true,
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3384,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2603,
+								2603
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 810.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 191.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "flappy.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\qubeck\\Documents\\Development\\ProjektyVHDL\\WukongBoard\\tangerineA7_100\\Software\\slideshow\\slideshowProject.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 201.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

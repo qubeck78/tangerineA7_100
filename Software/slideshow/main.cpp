@@ -325,7 +325,7 @@ int main()
     }
 
 
-    printf( ">" );
+/*    printf( ">" );
     fflush( stdout );
 
     do
@@ -340,7 +340,7 @@ int main()
         }
 
     }while( event.arg1 != 27 );
-
+*/
 /*
     gfLoadBitmapFS( &cursor, (char*)"0:/sys/cursor.gbm" );
     usbHIDSetMousePointerShape( &cursor );

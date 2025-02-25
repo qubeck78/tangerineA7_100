@@ -13,7 +13,7 @@ MEMORY
 */
 
 /*system ram*/
-/*		ram 	: ORIGIN = 0x00002000, LENGTH = 0x00005fff
+/*		ram 	: ORIGIN = 0x00003000, LENGTH = 0x00004fff
 		eram   	: ORIGIN = 0x00008000, LENGTH = 0 
 */
 

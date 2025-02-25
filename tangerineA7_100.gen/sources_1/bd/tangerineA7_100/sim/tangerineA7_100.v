@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Sat Feb 22 13:27:36 2025
+//Date        : Mon Feb 24 23:23:48 2025
 //Host        : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 //Command     : generate_target tangerineA7_100.bd
 //Design      : tangerineA7_100
@@ -10,7 +10,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "tangerineA7_100,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=tangerineA7_100,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=10,numReposBlks=10,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=3,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_board_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "tangerineA7_100.hwdef" *) 
+(* CORE_GENERATION_INFO = "tangerineA7_100,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=tangerineA7_100,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=9,numReposBlks=9,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=3,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_board_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "tangerineA7_100.hwdef" *) 
 module tangerineA7_100
    (button0,
     button1,
@@ -114,43 +114,43 @@ module tangerineA7_100
   wire tangerineMIGWrapper_0_ddr3_ras_n;
   wire tangerineMIGWrapper_0_ddr3_reset_n;
   wire tangerineMIGWrapper_0_ddr3_we_n;
+  wire tangerineMIGWrapper_0_mmcm_locked;
   wire tangerineMIGWrapper_0_ui_clk;
   wire [1:0]tangerineSOC_0_leds;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 ARADDR" *) (* DONT_TOUCH *) wire [31:0]tangerineSOC_0_m00_axi_ARADDR;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 ARBURST" *) (* DONT_TOUCH *) wire [1:0]tangerineSOC_0_m00_axi_ARBURST;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 ARCACHE" *) (* DONT_TOUCH *) wire [3:0]tangerineSOC_0_m00_axi_ARCACHE;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 ARID" *) (* DONT_TOUCH *) wire [3:0]tangerineSOC_0_m00_axi_ARID;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 ARLEN" *) (* DONT_TOUCH *) wire [7:0]tangerineSOC_0_m00_axi_ARLEN;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 ARLOCK" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_ARLOCK;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 ARPROT" *) (* DONT_TOUCH *) wire [2:0]tangerineSOC_0_m00_axi_ARPROT;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 ARREADY" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_ARREADY;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 ARSIZE" *) (* DONT_TOUCH *) wire [2:0]tangerineSOC_0_m00_axi_ARSIZE;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 ARVALID" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_ARVALID;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 AWADDR" *) (* DONT_TOUCH *) wire [31:0]tangerineSOC_0_m00_axi_AWADDR;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 AWBURST" *) (* DONT_TOUCH *) wire [1:0]tangerineSOC_0_m00_axi_AWBURST;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 AWCACHE" *) (* DONT_TOUCH *) wire [3:0]tangerineSOC_0_m00_axi_AWCACHE;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 AWID" *) (* DONT_TOUCH *) wire [3:0]tangerineSOC_0_m00_axi_AWID;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 AWLEN" *) (* DONT_TOUCH *) wire [7:0]tangerineSOC_0_m00_axi_AWLEN;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 AWLOCK" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_AWLOCK;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 AWPROT" *) (* DONT_TOUCH *) wire [2:0]tangerineSOC_0_m00_axi_AWPROT;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 AWREADY" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_AWREADY;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 AWSIZE" *) (* DONT_TOUCH *) wire [2:0]tangerineSOC_0_m00_axi_AWSIZE;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 AWVALID" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_AWVALID;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 BID" *) (* DONT_TOUCH *) wire [3:0]tangerineSOC_0_m00_axi_BID;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 BREADY" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_BREADY;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 BRESP" *) (* DONT_TOUCH *) wire [1:0]tangerineSOC_0_m00_axi_BRESP;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 BVALID" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_BVALID;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 RDATA" *) (* DONT_TOUCH *) wire [127:0]tangerineSOC_0_m00_axi_RDATA;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 RID" *) (* DONT_TOUCH *) wire [3:0]tangerineSOC_0_m00_axi_RID;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 RLAST" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_RLAST;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 RREADY" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_RREADY;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 RRESP" *) (* DONT_TOUCH *) wire [1:0]tangerineSOC_0_m00_axi_RRESP;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 RVALID" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_RVALID;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 WDATA" *) (* DONT_TOUCH *) wire [127:0]tangerineSOC_0_m00_axi_WDATA;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 WLAST" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_WLAST;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 WREADY" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_WREADY;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 WSTRB" *) (* DONT_TOUCH *) wire [15:0]tangerineSOC_0_m00_axi_WSTRB;
-  (* CONN_BUS_INFO = "tangerineSOC_0_m00_axi xilinx.com:interface:aximm:1.0 AXI4 WVALID" *) (* DONT_TOUCH *) wire tangerineSOC_0_m00_axi_WVALID;
+  wire [31:0]tangerineSOC_0_m00_axi_ARADDR;
+  wire [1:0]tangerineSOC_0_m00_axi_ARBURST;
+  wire [3:0]tangerineSOC_0_m00_axi_ARCACHE;
+  wire [3:0]tangerineSOC_0_m00_axi_ARID;
+  wire [7:0]tangerineSOC_0_m00_axi_ARLEN;
+  wire tangerineSOC_0_m00_axi_ARLOCK;
+  wire [2:0]tangerineSOC_0_m00_axi_ARPROT;
+  wire tangerineSOC_0_m00_axi_ARREADY;
+  wire [2:0]tangerineSOC_0_m00_axi_ARSIZE;
+  wire tangerineSOC_0_m00_axi_ARVALID;
+  wire [31:0]tangerineSOC_0_m00_axi_AWADDR;
+  wire [1:0]tangerineSOC_0_m00_axi_AWBURST;
+  wire [3:0]tangerineSOC_0_m00_axi_AWCACHE;
+  wire [3:0]tangerineSOC_0_m00_axi_AWID;
+  wire [7:0]tangerineSOC_0_m00_axi_AWLEN;
+  wire tangerineSOC_0_m00_axi_AWLOCK;
+  wire [2:0]tangerineSOC_0_m00_axi_AWPROT;
+  wire tangerineSOC_0_m00_axi_AWREADY;
+  wire [2:0]tangerineSOC_0_m00_axi_AWSIZE;
+  wire tangerineSOC_0_m00_axi_AWVALID;
+  wire tangerineSOC_0_m00_axi_BREADY;
+  wire [1:0]tangerineSOC_0_m00_axi_BRESP;
+  wire tangerineSOC_0_m00_axi_BVALID;
+  wire [127:0]tangerineSOC_0_m00_axi_RDATA;
+  wire [3:0]tangerineSOC_0_m00_axi_RID;
+  wire tangerineSOC_0_m00_axi_RLAST;
+  wire tangerineSOC_0_m00_axi_RREADY;
+  wire [1:0]tangerineSOC_0_m00_axi_RRESP;
+  wire tangerineSOC_0_m00_axi_RVALID;
+  wire [127:0]tangerineSOC_0_m00_axi_WDATA;
+  wire tangerineSOC_0_m00_axi_WLAST;
+  wire tangerineSOC_0_m00_axi_WREADY;
+  wire [15:0]tangerineSOC_0_m00_axi_WSTRB;
+  wire tangerineSOC_0_m00_axi_WVALID;
   wire tangerineSOC_0_sdMciClk;
   wire tangerineSOC_0_sdMciCmd;
   wire tangerineSOC_0_uartTX;
@@ -206,7 +206,7 @@ module tangerineA7_100
         .clk40_625(clk_wiz_2_clk40_625),
         .clk_in1(tangerineMIGWrapper_0_ui_clk),
         .locked(Net9),
-        .resetn(button0_1));
+        .resetn(tangerineMIGWrapper_0_mmcm_locked));
   tangerineA7_100_hdmiOut_0_0 hdmiOut_0
        (.hdmiClkN(hdmiOut_0_hdmiClkN),
         .hdmiClkP(hdmiOut_0_hdmiClkP),
@@ -222,44 +222,6 @@ module tangerineA7_100
         .vgaHS(tangerineSOC_0_vgaHS),
         .vgaRed(tangerineSOC_0_vgaRed),
         .vgaVS(tangerineSOC_0_vgaVS));
-  tangerineA7_100_system_ila_0_0 system_ila_0
-       (.SLOT_0_AXI_araddr(tangerineSOC_0_m00_axi_ARADDR),
-        .SLOT_0_AXI_arburst(tangerineSOC_0_m00_axi_ARBURST),
-        .SLOT_0_AXI_arcache(tangerineSOC_0_m00_axi_ARCACHE),
-        .SLOT_0_AXI_arid(tangerineSOC_0_m00_axi_ARID),
-        .SLOT_0_AXI_arlen(tangerineSOC_0_m00_axi_ARLEN),
-        .SLOT_0_AXI_arlock(tangerineSOC_0_m00_axi_ARLOCK),
-        .SLOT_0_AXI_arprot(tangerineSOC_0_m00_axi_ARPROT),
-        .SLOT_0_AXI_arready(tangerineSOC_0_m00_axi_ARREADY),
-        .SLOT_0_AXI_arsize(tangerineSOC_0_m00_axi_ARSIZE),
-        .SLOT_0_AXI_arvalid(tangerineSOC_0_m00_axi_ARVALID),
-        .SLOT_0_AXI_awaddr(tangerineSOC_0_m00_axi_AWADDR),
-        .SLOT_0_AXI_awburst(tangerineSOC_0_m00_axi_AWBURST),
-        .SLOT_0_AXI_awcache(tangerineSOC_0_m00_axi_AWCACHE),
-        .SLOT_0_AXI_awid(tangerineSOC_0_m00_axi_AWID),
-        .SLOT_0_AXI_awlen(tangerineSOC_0_m00_axi_AWLEN),
-        .SLOT_0_AXI_awlock(tangerineSOC_0_m00_axi_AWLOCK),
-        .SLOT_0_AXI_awprot(tangerineSOC_0_m00_axi_AWPROT),
-        .SLOT_0_AXI_awready(tangerineSOC_0_m00_axi_AWREADY),
-        .SLOT_0_AXI_awsize(tangerineSOC_0_m00_axi_AWSIZE),
-        .SLOT_0_AXI_awvalid(tangerineSOC_0_m00_axi_AWVALID),
-        .SLOT_0_AXI_bid(tangerineSOC_0_m00_axi_BID),
-        .SLOT_0_AXI_bready(tangerineSOC_0_m00_axi_BREADY),
-        .SLOT_0_AXI_bresp(tangerineSOC_0_m00_axi_BRESP),
-        .SLOT_0_AXI_bvalid(tangerineSOC_0_m00_axi_BVALID),
-        .SLOT_0_AXI_rdata(tangerineSOC_0_m00_axi_RDATA),
-        .SLOT_0_AXI_rid(tangerineSOC_0_m00_axi_RID),
-        .SLOT_0_AXI_rlast(tangerineSOC_0_m00_axi_RLAST),
-        .SLOT_0_AXI_rready(tangerineSOC_0_m00_axi_RREADY),
-        .SLOT_0_AXI_rresp(tangerineSOC_0_m00_axi_RRESP),
-        .SLOT_0_AXI_rvalid(tangerineSOC_0_m00_axi_RVALID),
-        .SLOT_0_AXI_wdata(tangerineSOC_0_m00_axi_WDATA),
-        .SLOT_0_AXI_wlast(tangerineSOC_0_m00_axi_WLAST),
-        .SLOT_0_AXI_wready(tangerineSOC_0_m00_axi_WREADY),
-        .SLOT_0_AXI_wstrb(tangerineSOC_0_m00_axi_WSTRB),
-        .SLOT_0_AXI_wvalid(tangerineSOC_0_m00_axi_WVALID),
-        .clk(tangerineMIGWrapper_0_ui_clk),
-        .resetn(clk_wiz_1_locked));
   tangerineA7_100_tangerineMIGWrapper_0_0 tangerineMIGWrapper_0
        (.app_ref_req(Net1),
         .app_sr_req(Net1),
@@ -279,6 +241,7 @@ module tangerineA7_100
         .ddr3_ras_n(tangerineMIGWrapper_0_ddr3_ras_n),
         .ddr3_reset_n(tangerineMIGWrapper_0_ddr3_reset_n),
         .ddr3_we_n(tangerineMIGWrapper_0_ddr3_we_n),
+        .mmcm_locked(tangerineMIGWrapper_0_mmcm_locked),
         .s_axi_araddr(tangerineSOC_0_m00_axi_ARADDR[27:0]),
         .s_axi_arburst(tangerineSOC_0_m00_axi_ARBURST),
         .s_axi_arcache(tangerineSOC_0_m00_axi_ARCACHE),
@@ -301,7 +264,6 @@ module tangerineA7_100
         .s_axi_awready(tangerineSOC_0_m00_axi_AWREADY),
         .s_axi_awsize(tangerineSOC_0_m00_axi_AWSIZE),
         .s_axi_awvalid(tangerineSOC_0_m00_axi_AWVALID),
-        .s_axi_bid(tangerineSOC_0_m00_axi_BID),
         .s_axi_bready(tangerineSOC_0_m00_axi_BREADY),
         .s_axi_bresp(tangerineSOC_0_m00_axi_BRESP),
         .s_axi_bvalid(tangerineSOC_0_m00_axi_BVALID),
