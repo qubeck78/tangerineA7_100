@@ -5,7 +5,7 @@ Risc-V based system for Qmtech Artix Wukong board.
 ## Features:
 - nekoRv: Risc-V 32 IM Zicsr core running at 162.5MHz
 - VGA controller with 720p output, 16-bit graphics + hardware text overlay
-- axiDma controller with 64KB I/D 4-way cache connected to AMD MIG via axi4-full bus
+- axiDma controller with 128KB I/D 4-way cache connected to AMD MIG via axi4-full bus
 - fast block data transfer engine within axiDma controller ( fast data copy, fill, shift )
 - memory mapped floating point ALU
 - serial interface for program upload / data transfer

@@ -125,14 +125,14 @@ port(
    --cpu side
    clka:    in    std_logic;
    wea:     in    std_logic_vector( 3 downto 0 );
-   addra:   in    std_logic_vector( 11 downto 0 );
+   addra:   in    std_logic_vector( 12 downto 0 );
    dina:    in    std_logic_vector( 31 downto 0 );
    douta:   out   std_logic_vector( 31 downto 0 );
    
    --ddr side
    clkb:    in    std_logic;
    web:     in    std_logic_vector( 15 downto 0 );
-   addrb:   in    std_logic_vector( 9 downto 0 );
+   addrb:   in    std_logic_vector( 10 downto 0 );
    dinb:    in    std_logic_vector( 127 downto 0 );
    doutb:   out   std_logic_vector( 127 downto 0 )
 );
@@ -142,7 +142,7 @@ component cacheTagRam is
 port(
    clka:    in    std_logic;
    wea:     in    std_logic_vector( 0 downto 0 );
-   addra:   in    std_logic_vector( 7 downto 0 );
+   addra:   in    std_logic_vector( 8 downto 0 );
    dina:    in    std_logic_vector( 15 downto 0 );
    douta:   out   std_logic_vector( 15 downto 0 )
 );
@@ -198,77 +198,77 @@ signal triggerCacheFlush:  std_logic;
 --cache ram
 --way0
 signal cacheWay0WEa:       std_logic_vector( 3 downto 0 );
-signal cacheWay0Aa:        std_logic_vector( 11 downto 0 );
+signal cacheWay0Aa:        std_logic_vector( 12 downto 0 );
 signal cacheWay0DIna:      std_logic_vector( 31 downto 0 );
 signal cacheWay0DOuta:     std_logic_vector( 31 downto 0 );
    
 signal cacheWay0WEb:       std_logic_vector( 15 downto 0 );
-signal cacheWay0Ab:        std_logic_vector( 9 downto 0 );
+signal cacheWay0Ab:        std_logic_vector( 10 downto 0 );
 signal cacheWay0DInb:      std_logic_vector( 127 downto 0);
 signal cacheWay0DOutb:     std_logic_vector( 127 downto 0 );
 
 --way1
 signal cacheWay1WEa:       std_logic_vector( 3 downto 0 );
-signal cacheWay1Aa:        std_logic_vector( 11 downto 0 );
+signal cacheWay1Aa:        std_logic_vector( 12 downto 0 );
 signal cacheWay1DIna:      std_logic_vector( 31 downto 0 );
 signal cacheWay1DOuta:     std_logic_vector( 31 downto 0 );
    
 signal cacheWay1WEb:       std_logic_vector( 15 downto 0 );
-signal cacheWay1Ab:        std_logic_vector( 9 downto 0 );
+signal cacheWay1Ab:        std_logic_vector( 10 downto 0 );
 signal cacheWay1DInb:      std_logic_vector( 127 downto 0);
 signal cacheWay1DOutb:     std_logic_vector( 127 downto 0 );
 
 --way2
 signal cacheWay2WEa:       std_logic_vector( 3 downto 0 );
-signal cacheWay2Aa:        std_logic_vector( 11 downto 0 );
+signal cacheWay2Aa:        std_logic_vector( 12 downto 0 );
 signal cacheWay2DIna:      std_logic_vector( 31 downto 0 );
 signal cacheWay2DOuta:     std_logic_vector( 31 downto 0 );
    
 signal cacheWay2WEb:       std_logic_vector( 15 downto 0 );
-signal cacheWay2Ab:        std_logic_vector( 9 downto 0 );
+signal cacheWay2Ab:        std_logic_vector( 10 downto 0 );
 signal cacheWay2DInb:      std_logic_vector( 127 downto 0);
 signal cacheWay2DOutb:     std_logic_vector( 127 downto 0 );
 
 --way3
 signal cacheWay3WEa:       std_logic_vector( 3 downto 0 );
-signal cacheWay3Aa:        std_logic_vector( 11 downto 0 );
+signal cacheWay3Aa:        std_logic_vector( 12 downto 0 );
 signal cacheWay3DIna:      std_logic_vector( 31 downto 0 );
 signal cacheWay3DOuta:     std_logic_vector( 31 downto 0 );
    
 signal cacheWay3WEb:       std_logic_vector( 15 downto 0 );
-signal cacheWay3Ab:        std_logic_vector( 9 downto 0 );
+signal cacheWay3Ab:        std_logic_vector( 10 downto 0 );
 signal cacheWay3DInb:      std_logic_vector( 127 downto 0);
 signal cacheWay3DOutb:     std_logic_vector( 127 downto 0 );
 
 --tag ram
 signal cacheTagWay0We:     std_logic;
-signal cacheTagWay0A:      std_logic_vector( 7 downto 0 );
+signal cacheTagWay0A:      std_logic_vector( 8 downto 0 );
 signal cacheTagWay0DIn:    std_logic_vector( 15 downto 0 );
 signal cacheTagWay0DOut:   std_logic_vector( 15 downto 0 );
 
 signal cacheTagWay1We:     std_logic;
-signal cacheTagWay1A:      std_logic_vector( 7 downto 0 );
+signal cacheTagWay1A:      std_logic_vector( 8 downto 0 );
 signal cacheTagWay1DIn:    std_logic_vector( 15 downto 0 );
 signal cacheTagWay1DOut:   std_logic_vector( 15 downto 0 );
 
 signal cacheTagWay2We:     std_logic;
-signal cacheTagWay2A:      std_logic_vector( 7 downto 0 );
+signal cacheTagWay2A:      std_logic_vector( 8 downto 0 );
 signal cacheTagWay2DIn:    std_logic_vector( 15 downto 0 );
 signal cacheTagWay2DOut:   std_logic_vector( 15 downto 0 );
 
 signal cacheTagWay3We:     std_logic;
-signal cacheTagWay3A:      std_logic_vector( 7 downto 0 );
+signal cacheTagWay3A:      std_logic_vector( 8 downto 0 );
 signal cacheTagWay3DIn:    std_logic_vector( 15 downto 0 );
 signal cacheTagWay3DOut:   std_logic_vector( 15 downto 0 );
 
 --cache valid per page/way
 
-signal cacheValidWay0:     std_logic_vector( 255 downto 0 );
-signal cacheValidWay1:     std_logic_vector( 255 downto 0 );
-signal cacheValidWay2:     std_logic_vector( 255 downto 0 );
-signal cacheValidWay3:     std_logic_vector( 255 downto 0 );
+signal cacheValidWay0:     std_logic_vector( 511 downto 0 );
+signal cacheValidWay1:     std_logic_vector( 511 downto 0 );
+signal cacheValidWay2:     std_logic_vector( 511 downto 0 );
+signal cacheValidWay3:     std_logic_vector( 511 downto 0 );
 
-type cachePageWayCnt_t  is array( 255 downto 0 ) of std_logic_vector( 1 downto 0 );
+type cachePageWayCnt_t  is array( 511 downto 0 ) of std_logic_vector( 1 downto 0 );
 signal cachePageWayCounter: cachePageWayCnt_t;
    
 --cache hit
@@ -338,10 +338,10 @@ port map(
 --way0
 
 --             page address          --entry address in cache line
-cacheWay0Aa <= ch0A( 13 downto 6 ) & ch0A( 5 downto 2 );
-cacheWay1Aa <= ch0A( 13 downto 6 ) & ch0A( 5 downto 2 );
-cacheWay2Aa <= ch0A( 13 downto 6 ) & ch0A( 5 downto 2 );
-cacheWay3Aa <= ch0A( 13 downto 6 ) & ch0A( 5 downto 2 );
+cacheWay0Aa <= ch0A( 14 downto 6 ) & ch0A( 5 downto 2 );
+cacheWay1Aa <= ch0A( 14 downto 6 ) & ch0A( 5 downto 2 );
+cacheWay2Aa <= ch0A( 14 downto 6 ) & ch0A( 5 downto 2 );
+cacheWay3Aa <= ch0A( 14 downto 6 ) & ch0A( 5 downto 2 );
 
 cacheWay0DIna  <= ch0DIn;
 cacheWay1DIna  <= ch0DIn;
@@ -426,16 +426,16 @@ port map(
 --tag ram
 
 --             page address          
-cacheTagWay0A     <= ch0A( 13 downto 6 );
-cacheTagWay1A     <= ch0A( 13 downto 6 );
-cacheTagWay2A     <= ch0A( 13 downto 6 );
-cacheTagWay3A     <= ch0A( 13 downto 6 );
+cacheTagWay0A     <= ch0A( 14 downto 6 );
+cacheTagWay1A     <= ch0A( 14 downto 6 );
+cacheTagWay2A     <= ch0A( 14 downto 6 );
+cacheTagWay3A     <= ch0A( 14 downto 6 );
 
 --tag stores high address bits + flags ( now 0's )
-cacheTagWay0DIn   <= "00" & ch0A( 27 downto 14 );
-cacheTagWay1DIn   <= "00" & ch0A( 27 downto 14 );
-cacheTagWay2DIn   <= "00" & ch0A( 27 downto 14 );
-cacheTagWay3DIn   <= "00" & ch0A( 27 downto 14 );
+cacheTagWay0DIn   <= "000" & ch0A( 27 downto 15 );
+cacheTagWay1DIn   <= "000" & ch0A( 27 downto 15 );
+cacheTagWay2DIn   <= "000" & ch0A( 27 downto 15 );
+cacheTagWay3DIn   <= "000" & ch0A( 27 downto 15 );
 
 --way0
 cacheTagRamW0Inst:cacheTagRam
@@ -747,7 +747,7 @@ begin
                axiStateDebug        <= x"01";   
             
                --check hits
-               if cacheValidWay0( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) ) = '1' and  cacheTagWay0DOut( 13 downto 0 ) = ch0A( 27 downto 14 ) then
+               if cacheValidWay0( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) ) = '1' and  cacheTagWay0DOut( 12 downto 0 ) = ch0A( 27 downto 15 ) then
                
                    cacheHitWay0  <= '1';
                
@@ -794,7 +794,7 @@ begin
                    
                    end if;
                    
-               elsif cacheValidWay1( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) ) = '1' and  cacheTagWay1DOut( 13 downto 0 ) = ch0A( 27 downto 14 ) then
+               elsif cacheValidWay1( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) ) = '1' and  cacheTagWay1DOut( 12 downto 0 ) = ch0A( 27 downto 15 ) then
  
                    cacheHitWay1  <= '1';
 
@@ -842,7 +842,7 @@ begin
                    
                    end if;
             
-               elsif cacheValidWay2( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) ) = '1' and  cacheTagWay2DOut( 13 downto 0 ) = ch0A( 27 downto 14 ) then
+               elsif cacheValidWay2( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) ) = '1' and  cacheTagWay2DOut( 12 downto 0 ) = ch0A( 27 downto 15 ) then
 
                    cacheHitWay2  <= '1';
          
@@ -891,7 +891,7 @@ begin
                    end if;
 
 
-               elsif cacheValidWay3( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) ) = '1' and  cacheTagWay3DOut( 13 downto 0 ) = ch0A( 27 downto 14 ) then
+               elsif cacheValidWay3( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) ) = '1' and  cacheTagWay3DOut( 12 downto 0 ) = ch0A( 27 downto 15 ) then
          
                    cacheHitWay3  <= '1';
 
@@ -982,33 +982,33 @@ begin
                axiStateDebug        <= x"02";   
 
                --save tag, set cache line valid
-               --cacheTagWay1DOut( 13 downto 0 ) = ch0A( 27 downto 14 )
+               --cacheTagWay1DOut( 12 downto 0 ) = ch0A( 27 downto 15 )
                
                --check way number for current page
                
                --                        page address
-               case cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )  is
+               case cachePageWayCounter( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) )  is
                
                   when "00" =>
                      
                      cacheTagWay0We                                                    <= '1';      
-                     cacheValidWay0( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )   <= '1';
+                     cacheValidWay0( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) )   <= '1';
                      
                   when "01" =>
                   
                      cacheTagWay1We                                                    <= '1';      
-                     cacheValidWay1( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )   <= '1';
+                     cacheValidWay1( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) )   <= '1';
                   
                   when "10" =>
 
                      cacheTagWay2We                                                    <= '1';      
-                     cacheValidWay2( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )   <= '1';
+                     cacheValidWay2( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) )   <= '1';
                   
                   
                   when "11" =>
                   
                      cacheTagWay3We                                                    <= '1';      
-                     cacheValidWay3( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )   <= '1';
+                     cacheValidWay3( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) )   <= '1';
                
                end case;
 
@@ -1071,33 +1071,33 @@ begin
                   --check way number for current page
                   
                   --                        page address
-                  case cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )  is
+                  case cachePageWayCounter( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) )  is
                   
                      when "00" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay0Ab    <= ch0A( 13 downto 6 ) & "00";
+                        cacheWay0Ab    <= ch0A( 14 downto 6 ) & "00";
                         cacheWay0Dinb  <= m00_axi_rdata;
                         cacheWay0Web   <= ( others => '1' );                                 
 
                      when "01" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay1Ab    <= ch0A( 13 downto 6 ) & "00";
+                        cacheWay1Ab    <= ch0A( 14 downto 6 ) & "00";
                         cacheWay1Dinb  <= m00_axi_rdata;
                         cacheWay1Web   <= ( others => '1' );
 
                      when "10" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay2Ab    <= ch0A( 13 downto 6 ) & "00";
+                        cacheWay2Ab    <= ch0A( 14 downto 6 ) & "00";
                         cacheWay2Dinb  <= m00_axi_rdata;
                         cacheWay2Web   <= ( others => '1' );
 
                      when "11" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay3Ab    <= ch0A( 13 downto 6 ) & "00";
+                        cacheWay3Ab    <= ch0A( 14 downto 6 ) & "00";
                         cacheWay3Dinb  <= m00_axi_rdata;
                         cacheWay3Web   <= ( others => '1' );
                               
@@ -1145,33 +1145,33 @@ begin
                   --check way number for current page
                   
                   --                        page address
-                  case cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )  is
+                  case cachePageWayCounter( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) )  is
                   
                      when "00" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay0Ab    <= ch0A( 13 downto 6 ) & "01";
+                        cacheWay0Ab    <= ch0A( 14 downto 6 ) & "01";
                         cacheWay0Dinb  <= m00_axi_rdata;
                         cacheWay0Web   <= ( others => '1' );                                 
 
                      when "01" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay1Ab    <= ch0A( 13 downto 6 ) & "01";
+                        cacheWay1Ab    <= ch0A( 14 downto 6 ) & "01";
                         cacheWay1Dinb  <= m00_axi_rdata;
                         cacheWay1Web   <= ( others => '1' );
 
                      when "10" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay2Ab    <= ch0A( 13 downto 6 ) & "01";
+                        cacheWay2Ab    <= ch0A( 14 downto 6 ) & "01";
                         cacheWay2Dinb  <= m00_axi_rdata;
                         cacheWay2Web   <= ( others => '1' );
 
                      when "11" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay3Ab    <= ch0A( 13 downto 6 ) & "01";
+                        cacheWay3Ab    <= ch0A( 14 downto 6 ) & "01";
                         cacheWay3Dinb  <= m00_axi_rdata;
                         cacheWay3Web   <= ( others => '1' );
                               
@@ -1219,33 +1219,33 @@ begin
                   --check way number for current page
                   
                   --                        page address
-                  case cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )  is
+                  case cachePageWayCounter( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) )  is
                   
                      when "00" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay0Ab    <= ch0A( 13 downto 6 ) & "10";
+                        cacheWay0Ab    <= ch0A( 14 downto 6 ) & "10";
                         cacheWay0Dinb  <= m00_axi_rdata;
                         cacheWay0Web   <= ( others => '1' );                                 
 
                      when "01" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay1Ab    <= ch0A( 13 downto 6 ) & "10";
+                        cacheWay1Ab    <= ch0A( 14 downto 6 ) & "10";
                         cacheWay1Dinb  <= m00_axi_rdata;
                         cacheWay1Web   <= ( others => '1' );
 
                      when "10" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay2Ab    <= ch0A( 13 downto 6 ) & "10";
+                        cacheWay2Ab    <= ch0A( 14 downto 6 ) & "10";
                         cacheWay2Dinb  <= m00_axi_rdata;
                         cacheWay2Web   <= ( others => '1' );
 
                      when "11" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay3Ab    <= ch0A( 13 downto 6 ) & "10";
+                        cacheWay3Ab    <= ch0A( 14 downto 6 ) & "10";
                         cacheWay3Dinb  <= m00_axi_rdata;
                         cacheWay3Web   <= ( others => '1' );
                               
@@ -1293,40 +1293,40 @@ begin
                   --check way number for current page
                   
                   --                        page address
-                  case cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) )  is
+                  case cachePageWayCounter( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) )  is
                   
                      when "00" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay0Ab    <= ch0A( 13 downto 6 ) & "11";
+                        cacheWay0Ab    <= ch0A( 14 downto 6 ) & "11";
                         cacheWay0Dinb  <= m00_axi_rdata;
                         cacheWay0Web   <= ( others => '1' );                                 
                
                      when "01" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay1Ab    <= ch0A( 13 downto 6 ) & "11";
+                        cacheWay1Ab    <= ch0A( 14 downto 6 ) & "11";
                         cacheWay1Dinb  <= m00_axi_rdata;
                         cacheWay1Web   <= ( others => '1' );
 
                      when "10" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay2Ab    <= ch0A( 13 downto 6 ) & "11";
+                        cacheWay2Ab    <= ch0A( 14 downto 6 ) & "11";
                         cacheWay2Dinb  <= m00_axi_rdata;
                         cacheWay2Web   <= ( others => '1' );
 
                      when "11" =>
                      
                         --             page address          --entry address in cache line
-                        cacheWay3Ab    <= ch0A( 13 downto 6 ) & "11";
+                        cacheWay3Ab    <= ch0A( 14 downto 6 ) & "11";
                         cacheWay3Dinb  <= m00_axi_rdata;
                         cacheWay3Web   <= ( others => '1' );
                               
                   end case;
 
                   --increase way counter for current page
-                  cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) ) <= std_logic_vector( unsigned( cachePageWayCounter( to_integer( unsigned( ch0A( 13 downto 6 ) ) ) ) ) + 1 );
+                  cachePageWayCounter( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) ) <= std_logic_vector( unsigned( cachePageWayCounter( to_integer( unsigned( ch0A( 14 downto 6 ) ) ) ) ) + 1 );
 
                   --finish axi read
                   m00_axi_rready    <= '0';                   
