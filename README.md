@@ -11,7 +11,7 @@ Risc-V based system for Qmtech Artix Wukong board.
 - serial interface for program upload / data transfer
 - SPI interface ( SD-Card support )
 - double PS-2 host controller for keyboard and mouse ( USB keyboards can be used in legacy PS2 mode )
-- bsp, libraries, software examples in Software directory
+- bsp, libraries, games, software examples in Software directory
 
 System designed in VHDL, project maintained in Vivado 2023.1
 
