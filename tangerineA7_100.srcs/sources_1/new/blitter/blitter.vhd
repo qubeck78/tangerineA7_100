@@ -1340,12 +1340,7 @@ begin
                 
                 if counterX /= x"0000" then
 
-                    --early write
---                    bltA            <= dpDa;
---                    bltDOut         <= input0Reg;
-
---                    bltWr           <= '1';
---                    bltDmaRequest   <= '1';
+                    --write
 
                      dmaWriteAddr   <= dpDa;
                      dmaWriteData   <= input0Reg;
@@ -1383,10 +1378,7 @@ begin
                 
                     bltReturnState  <= bsCopy1;
 
-                    --early read
---                    bltA            <= dpSa;
---                    bltWr           <= '0';
---                    bltDmaRequest   <= '1';
+                    --read
 
                      dmaReadAddr    <= dpSa;
                      bltState       <= bsSubRead0;
@@ -1420,12 +1412,8 @@ begin
                     when x"00" =>
                     
 
-                        --early write
---                        bltA            <= dpDa;
---                        bltDOut         <= dmaReadData;
+                        --write
 
---                        bltWr           <= '1';
---                        bltDmaRequest   <= '1';
                         dmaWriteAddr      <= dpDa;
                         dmaWriteData      <= dmaReadData;
 
@@ -1443,15 +1431,10 @@ begin
                             
                         else
 
-                            --early write
---                            bltA            <= dpDa;
---                            bltDOut         <= dmaReadData;
+                            --write
 
---                            bltWr           <= '1';
---                            bltDmaRequest   <= '1';
-
-                              dmaWriteAddr   <= dpDa;
-                              dmaWriteData   <= dmaReadData;
+                            dmaWriteAddr   <= dpDa;
+                            dmaWriteData   <= dmaReadData;
                                   
                             bltReturnState  <= bsCopy2;
                             bltState        <= bsSubWrite0;
@@ -1460,12 +1443,7 @@ begin
                                         
                     when others =>
 
-                        --early write
---                        bltA            <= dpDa;
---                        bltDOut         <= dmaReadData;
-
---                        bltWr           <= '1';
---                        bltDmaRequest   <= '1';
+                        --write
 
                         dmaWriteAddr      <= dpDa;
                         dmaWriteData      <= dmaReadData;
@@ -1549,12 +1527,7 @@ begin
                     when x"00" =>
                     
 
-                        --early write
---                        bltA            <= dpDa;
---                        bltDOut         <= dmaReadData;
-
---                        bltWr           <= '1';
---                        bltDmaRequest   <= '1';
+                        --write
 
                         dmaWriteAddr      <= dpDa;
                         dmaWriteData      <= dmaReadData;
@@ -1573,13 +1546,8 @@ begin
                             
                         else
 
-                            --early write
+                            -- write
                             
---                            bltA            <= dpDa;
---                            bltDOut         <= dmaReadData;
-    
---                            bltWr           <= '1';
---                            bltDmaRequest   <= '1';
                            dmaWriteAddr      <= dpDa;
                            dmaWriteData      <= dmaReadData;
     
@@ -1590,14 +1558,8 @@ begin
                     
                     when others =>
 
-                        --early write
+                        --write
                             
---                        bltA            <= dpDa;
---                        bltDOut         <= dmaReadData;
-    
---                        bltWr           <= '1';
---                        bltDmaRequest   <= '1';
-
                         dmaWriteData   <= dmaReadData;
                         dmaWriteAddr   <= dpDa;
                             
@@ -1618,10 +1580,7 @@ begin
             
                 if counterX /= x"0000" then
                 
-                    --early read
---                    bltA            <= dpSa;
---                    bltWr           <= '0';
---                    bltDmaRequest   <= '1';
+                    --read
 
                      dmaReadAddr    <= dpSa;
                      bltState       <= bsSubRead0;
@@ -1658,10 +1617,7 @@ begin
                     --alpha copy
                     when x"00" =>
                         
-                        --early read
---                        bltA            <= dpSb;
---                        bltWr           <= '0';
---                        bltDmaRequest   <= '1';
+                        --read
 
                         dmaReadAddr    <= dpSb;
                         bltState       <= bsSubRead0;
@@ -1680,28 +1636,22 @@ begin
 
                             --continue with reading second source                            
                                                         
-                            --early read
---                            bltA            <= dpSb;
---                            bltWr           <= '0';
---                            bltDmaRequest   <= '1';
+                            --read
 
-                           dmaReadAddr       <= dpSb;
-                           bltState          <= bsSubRead0;
-                           bltReturnState    <= bsAlphaCopy2;
+                            dmaReadAddr       <= dpSb;
+                            bltState          <= bsSubRead0;
+                            bltReturnState    <= bsAlphaCopy2;
                                         
                         end if;       
                                         
                     when others =>
 
-                        --early read
---                        bltA            <= dpSb;
---                        bltWr           <= '0';
---                        bltDmaRequest   <= '1';
+                        -- read
 
-                     dmaReadAddr    <= dpSb;
-                     bltState       <= bsSubRead0;
+                        dmaReadAddr    <= dpSb;
+                        bltState       <= bsSubRead0;
                      
-                     bltReturnState <= bsAlphaCopy2;
+                        bltReturnState <= bsAlphaCopy2;
                     
                 end case;          
                 
@@ -1716,12 +1666,7 @@ begin
 
             when bsAlphaCopy4 =>
 
-                --early write
---                bltA            <= dpDa;
---                bltDOut         <= x"0000" & paColorOut;
-
---                bltWr           <= '1';
---                bltDmaRequest   <= '1';
+                --write
 
                dmaWriteAddr   <= dpDa;
                dmaWriteData   <= x"0000" & paColorOut;
@@ -1828,11 +1773,6 @@ begin
             when bsTriangleZBuffer0 =>
             
                 --read z buffer
-                --dpDb
-                --early read
---                bltA            <= std_logic_vector( unsigned( dpDb )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) );
---                bltWr           <= '0';
---                bltDmaRequest   <= '1';
                
                dmaReadAddr <= std_logic_vector( unsigned( dpDb )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) );
                
@@ -1849,11 +1789,6 @@ begin
                  
                         --write new depth to z-buffer and draw pixel
                         
-                        --early write
---                        bltDOut         <= x"0000" &  triangleIt3Out;
-        
---                        bltWr           <= '1';
---                        bltDmaRequest   <= '1';
 
                         --write z-buffer data to read location
                         
@@ -1910,12 +1845,7 @@ begin
                     --CX/CY to iterator value counter
                     triangleITCounter   <= x"7";
                     
-                    --early write
---                    bltA            <= std_logic_vector( unsigned( dpDa )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) );
---                    bltDOut         <= x"0000" &  triangleIt0Out( 7 downto 3 ) & triangleIt1Out( 7 downto 2 ) & triangleIt2Out( 7 downto 3 );
-    
---                    bltWr           <= '1';
---                    bltDmaRequest   <= '1';
+                    --write
     
                   dmaWriteAddr   <= std_logic_vector( unsigned( dpDa )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) );
                   dmaWriteData   <= x"0000" &  triangleIt0Out( 7 downto 3 ) & triangleIt1Out( 7 downto 2 ) & triangleIt2Out( 7 downto 3 );
@@ -1930,11 +1860,6 @@ begin
                 if triangleITCounter = x"0" then
             
                     --read texture
-                    --dpSa
-                    --early read
---                    bltA            <= std_logic_vector( unsigned( dpSa )  + unsigned( triangleIt1Out( 7 downto 0 ) & triangleIt0Out( 7 downto 0 ) ) );
---                    bltWr           <= '0';
---                    bltDmaRequest   <= '1';
 
                   dmaReadAddr <= std_logic_vector( unsigned( dpSa )  + unsigned( triangleIt1Out( 7 downto 0 ) & triangleIt0Out( 7 downto 0 ) ) );
                   bltReturnState  <= bsTriangleTextured1;                
@@ -1953,12 +1878,7 @@ begin
                 --CX/CY to iterator value counter
                 triangleITCounter   <= x"7";
                 
-                --early write
---                bltA            <= std_logic_vector( unsigned( dpDa )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) );
---                bltDOut         <= x"0000" & tsColorOut;    --dmaReadData( 15 downto 0 );
-    
---                bltWr           <= '1';
---                bltDmaRequest   <= '1';
+                --write
                
                dmaWriteAddr   <= std_logic_vector( unsigned( dpDa )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) ); 
                dmaWriteData   <= x"0000" & tsColorOut;    

@@ -1,6 +1,6 @@
 
 
-	.equ		stackPointer, 		0x00005a80 
+	.equ		stackPointer, 		0x00008000 
 
 	.org 0x0
 
