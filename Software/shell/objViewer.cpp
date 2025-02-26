@@ -559,7 +559,7 @@ int objvDisplayObj( tgfBitmap *pscr )
          blt->daAddress  = (uint32_t)pscr->buffer;
          blt->dbAddress  = (uint32_t)zBuffer.buffer;
          blt->bbXMin = 0;
-         blt->bbXMax = 319;
+         blt->bbXMax = 425;
          blt->bbYMin = 0;
          blt->bbYMax = 239;
 
@@ -630,7 +630,7 @@ int objvDisplayObj( tgfBitmap *pscr )
          blt->daAddress  = (uint32_t)pscr->buffer;
          blt->dbAddress  = (uint32_t)zBuffer.buffer;
          blt->bbXMin = 0;
-         blt->bbXMax = 319;
+         blt->bbXMax = 425;
          blt->bbYMin = 0;
          blt->bbYMax = 239;
 

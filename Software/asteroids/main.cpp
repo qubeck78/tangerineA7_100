@@ -144,7 +144,7 @@ uint32_t anim( tgfBitmap *pscr )
 
 
    //copy background to screen buffer
-   gfBlitBitmap( pscr, &background, 0, 0 );
+   gfBlitBitmap128( pscr, &background, 0, 0 );
 
 
    for( i = 0; i < NUM_OF_ASTEROIDS; i++ )

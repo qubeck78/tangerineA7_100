@@ -2011,7 +2011,7 @@ Disassembly of section .text:
 30001ee4:	02e7ae23          	sw	a4,60(a5)
 30001ee8:	0537a623          	sw	s3,76(a5)
 30001eec:	04079a23          	sh	zero,84(a5)
-30001ef0:	13f00713          	li	a4,319
+30001ef0:	1a900713          	li	a4,425
 30001ef4:	04e79c23          	sh	a4,88(a5)
 30001ef8:	30034737          	lui	a4,0x30034
 30001efc:	e6c72683          	lw	a3,-404(a4) # 30033e6c <numTriangles>
@@ -2071,7 +2071,7 @@ Disassembly of section .text:
 30001fd4:	02e7ae23          	sw	a4,60(a5)
 30001fd8:	0537a623          	sw	s3,76(a5)
 30001fdc:	04079a23          	sh	zero,84(a5)
-30001fe0:	13f00713          	li	a4,319
+30001fe0:	1a900713          	li	a4,425
 30001fe4:	04e79c23          	sh	a4,88(a5)
 30001fe8:	30034737          	lui	a4,0x30034
 30001fec:	e6c72603          	lw	a2,-404(a4) # 30033e6c <numTriangles>
