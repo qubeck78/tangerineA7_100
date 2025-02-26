@@ -2,13 +2,13 @@
 #include <cstring>
 #include <climits>
 
-#include "../gfxLib/bsp.h"
-#include "../gfxLib/osAlloc.h"
-#include "../gfxLib/osFile.h"
-#include "../gfxLib/osUIEvents.h"
-#include "../gfxLib/gfBitmap.h"
-#include "../gfxLib/gfDrawing.h"
-#include "../gfxLib/gfFont.h"
+#include "bsp.h"
+#include "osAlloc.h"
+#include "osFile.h"
+#include "osUIEvents.h"
+#include "gfBitmap.h"
+#include "gfDrawing.h"
+#include "gfFont.h"
 
 
 /* -------------------------------------------------------- */

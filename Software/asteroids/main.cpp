@@ -2,18 +2,15 @@
 #include <cstring>
 #include <climits>
 
-#include "../gfxLib/bsp.h"
-#include "../gfxLib/osAlloc.h"
-#include "../gfxLib/osFile.h"
-#include "../gfxLib/gfBitmap.h"
-#include "../gfxLib/gfDrawing.h"
-#include "../gfxLib/gfFont.h"
-#include "../gfxLib/gfGouraud.h"
-#include "../gfxLib/gfJPEG.h"
-#include "../gfxLib/osUIEvents.h"
-#include "../gfxLib/usbHID.h"  
-
-#include "../gfxLib/ff.h" 
+#include "bsp.h"
+#include "osAlloc.h"
+#include "osFile.h"
+#include "gfBitmap.h"
+#include "gfDrawing.h"
+#include "gfFont.h"
+#include "gfGouraud.h"
+#include "gfJPEG.h"
+#include "osUIEvents.h"
 
 
 extern tgfTextOverlay   con;

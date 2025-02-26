@@ -10,8 +10,7 @@
 
 TARGET = fractal
 PORT = auto
-#CC = riscv-none-embed-gcc -march=rv32im -mno-div -c -O3 
-CC = riscv-none-embed-gcc -march=rv32im -c -O2 
+CC = riscv-none-embed-gcc -march=rv32im -c -O2 -I../gfxLib/
 LD = riscv-none-embed-ld -T ram.ld
 OBJCOPY = riscv-none-embed-objcopy
 OBJDUMP = riscv-none-embed-objdump 

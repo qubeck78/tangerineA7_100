@@ -1,0 +1,56 @@
+{
+	"folders": [
+		{
+			"name": "gfxLib",
+			"path": "gfxLib"
+		},
+		{
+			"name": "balls",
+			"path": "balls"
+		},
+		{
+			"name": "asteroids",
+			"path": "asteroids"
+		},
+		{
+			"name": "bootloader",
+			"path": "bootloader"
+		},
+		{
+			"name": "commanche",
+			"path": "commanche"
+		},
+		{
+			"name": "flappy",
+			"path": "flappy"
+		},
+		{
+			"name": "fractal",
+			"path": "fractal"
+		},
+		{
+			"name": "freeRTOSTest",
+			"path": "freeRTOSTest"
+		},
+		{
+			"name": "raytrace",
+			"path": "raytrace"
+		},
+		{
+			"name": "shell",
+			"path": "shell"
+		},
+		{
+			"name": "slideshow",
+			"path": "slideshow"
+		},
+		{
+			"name": "tunnel",
+			"path": "tunnel"
+		},
+		{
+			"path": "../tangerineA7_100.srcs/sources_1/new"
+		}
+	],
+	"settings": {}
+}

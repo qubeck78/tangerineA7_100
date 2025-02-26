@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Tue Feb 25 18:51:34 2025
+| Date         : Tue Feb 25 21:48:29 2025
 | Host         : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file tangerineA7_100_wrapper_timing_summary_routed.rpt -pb tangerineA7_100_wrapper_timing_summary_routed.pb -rpx tangerineA7_100_wrapper_timing_summary_routed.rpx -warn_on_violation
 | Design       : tangerineA7_100_wrapper
