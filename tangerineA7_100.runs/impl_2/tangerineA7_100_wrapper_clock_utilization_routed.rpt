@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Tue Feb 25 21:48:29 2025
+| Date         : Wed Feb 26 12:07:40 2025
 | Host         : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file tangerineA7_100_wrapper_clock_utilization_routed.rpt
 | Design       : tangerineA7_100_wrapper
@@ -63,11 +63,11 @@ Table of Contents
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site           | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                                 | Driver Pin                                                                                                                        | Net                                                                                                                      |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
-| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 5 |        8588 |               0 |       12.308 | clk_pll_i                             | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/u_bufg_clkdiv0/O  | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK      |
-| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y2  | n/a          |                 8 |        5916 |               0 |        6.154 | clk162_5_tangerineA7_100_clk_wiz_2_0  | tangerineA7_100_i/clk_wiz_2/inst/clkout1_buf/O                                                                                    | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                                                                |
-| g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y3  | n/a          |                 4 |         399 |               0 |       15.625 | clk64_tangerineA7_100_clk_wiz_0_0     | tangerineA7_100_i/clk_wiz_0/inst/clkout1_buf/O                                                                                    | tangerineA7_100_i/clk_wiz_0/inst/clk64                                                                                   |
-| g3        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 2 |          63 |               0 |        5.000 | clk200_tangerineA7_100_clk_wiz_1_0    | tangerineA7_100_i/clk_wiz_1/inst/clkout1_buf/O                                                                                    | tangerineA7_100_i/clk_wiz_1/inst/clk200                                                                                  |
-| g4        | src4      | BUFG/O          | None       | BUFGCTRL_X0Y4  | n/a          |                 2 |          52 |               0 |       24.615 | clk40_625_tangerineA7_100_clk_wiz_2_0 | tangerineA7_100_i/clk_wiz_2/inst/clkout4_buf/O                                                                                    | tangerineA7_100_i/clk_wiz_2/inst/clk40_625                                                                               |
+| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 6 |        8796 |               0 |       12.308 | clk_pll_i                             | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/u_bufg_clkdiv0/O  | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK      |
+| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y2  | n/a          |                 8 |        7927 |               0 |        6.154 | clk162_5_tangerineA7_100_clk_wiz_2_0  | tangerineA7_100_i/clk_wiz_2/inst/clkout1_buf/O                                                                                    | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                                                                |
+| g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y3  | n/a          |                 5 |         492 |               0 |       15.625 | clk64_tangerineA7_100_clk_wiz_0_0     | tangerineA7_100_i/clk_wiz_0/inst/clkout1_buf/O                                                                                    | tangerineA7_100_i/clk_wiz_0/inst/clk64                                                                                   |
+| g3        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y4  | n/a          |                 2 |          69 |               0 |       24.615 | clk40_625_tangerineA7_100_clk_wiz_2_0 | tangerineA7_100_i/clk_wiz_2/inst/clkout4_buf/O                                                                                    | tangerineA7_100_i/clk_wiz_2/inst/clk40_625                                                                               |
+| g4        | src4      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 2 |          63 |               0 |        5.000 | clk200_tangerineA7_100_clk_wiz_1_0    | tangerineA7_100_i/clk_wiz_1/inst/clkout1_buf/O                                                                                    | tangerineA7_100_i/clk_wiz_1/inst/clk200                                                                                  |
 | g5        | src5      | BUFG/O          | None       | BUFGCTRL_X0Y1  | n/a          |                 1 |          46 |               0 |        3.125 | clk320_tangerineA7_100_clk_wiz_0_0    | tangerineA7_100_i/clk_wiz_0/inst/clkout2_buf/O                                                                                    | tangerineA7_100_i/clk_wiz_0/inst/clk320                                                                                  |
 | g6        | src6      | BUFG/O          | None       | BUFGCTRL_X0Y6  | n/a          |                 1 |           1 |               0 |       20.000 | sysClk50                              | tangerineA7_100_i/clk_wiz_0/inst/clkin1_bufg/O                                                                                    | tangerineA7_100_i/clk_wiz_0/inst/clk_in1_tangerineA7_100_clk_wiz_0_0                                                     |
 | g7        | src6      | BUFG/O          | None       | BUFGCTRL_X0Y8  | n/a          |                 1 |           1 |               0 |       20.000 | sysClk50                              | tangerineA7_100_i/clk_wiz_1/inst/clkin1_bufg/O                                                                                    | tangerineA7_100_i/clk_wiz_1/inst/clk_in1_tangerineA7_100_clk_wiz_1_0                                                     |
@@ -89,8 +89,8 @@ Table of Contents
 | src0      | g0        | MMCME2_ADV/CLKFBOUT | MMCME2_ADV_X0Y3 | MMCME2_ADV_X0Y3 | X0Y3         |           1 |               0 |              12.308 | clk_pll_i                             | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/clk_pll_i    |
 | src1      | g1        | MMCME2_ADV/CLKOUT0  | None            | MMCME2_ADV_X0Y0 | X0Y0         |           1 |               0 |               6.154 | clk162_5_tangerineA7_100_clk_wiz_2_0  | tangerineA7_100_i/clk_wiz_2/inst/mmcm_adv_inst/CLKOUT0                                                                                   | tangerineA7_100_i/clk_wiz_2/inst/clk162_5_tangerineA7_100_clk_wiz_2_0                                                        |
 | src2      | g2        | MMCME2_ADV/CLKOUT0  | None            | MMCME2_ADV_X1Y1 | X1Y1         |           1 |               0 |              15.625 | clk64_tangerineA7_100_clk_wiz_0_0     | tangerineA7_100_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT0                                                                                   | tangerineA7_100_i/clk_wiz_0/inst/clk64_tangerineA7_100_clk_wiz_0_0                                                           |
-| src3      | g3        | MMCME2_ADV/CLKOUT0  | None            | MMCME2_ADV_X0Y1 | X0Y1         |           1 |               0 |               5.000 | clk200_tangerineA7_100_clk_wiz_1_0    | tangerineA7_100_i/clk_wiz_1/inst/mmcm_adv_inst/CLKOUT0                                                                                   | tangerineA7_100_i/clk_wiz_1/inst/clk200_tangerineA7_100_clk_wiz_1_0                                                          |
-| src4      | g4        | MMCME2_ADV/CLKOUT3  | None            | MMCME2_ADV_X0Y0 | X0Y0         |           1 |               0 |              24.615 | clk40_625_tangerineA7_100_clk_wiz_2_0 | tangerineA7_100_i/clk_wiz_2/inst/mmcm_adv_inst/CLKOUT3                                                                                   | tangerineA7_100_i/clk_wiz_2/inst/clk40_625_tangerineA7_100_clk_wiz_2_0                                                       |
+| src3      | g3        | MMCME2_ADV/CLKOUT3  | None            | MMCME2_ADV_X0Y0 | X0Y0         |           1 |               0 |              24.615 | clk40_625_tangerineA7_100_clk_wiz_2_0 | tangerineA7_100_i/clk_wiz_2/inst/mmcm_adv_inst/CLKOUT3                                                                                   | tangerineA7_100_i/clk_wiz_2/inst/clk40_625_tangerineA7_100_clk_wiz_2_0                                                       |
+| src4      | g4        | MMCME2_ADV/CLKOUT0  | None            | MMCME2_ADV_X0Y1 | X0Y1         |           1 |               0 |               5.000 | clk200_tangerineA7_100_clk_wiz_1_0    | tangerineA7_100_i/clk_wiz_1/inst/mmcm_adv_inst/CLKOUT0                                                                                   | tangerineA7_100_i/clk_wiz_1/inst/clk200_tangerineA7_100_clk_wiz_1_0                                                          |
 | src5      | g5        | MMCME2_ADV/CLKOUT1  | None            | MMCME2_ADV_X1Y1 | X1Y1         |           1 |               0 |               3.125 | clk320_tangerineA7_100_clk_wiz_0_0    | tangerineA7_100_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT1                                                                                   | tangerineA7_100_i/clk_wiz_0/inst/clk320_tangerineA7_100_clk_wiz_0_0                                                          |
 | src6      | g6        | IBUF/O              | IOB_X0Y76       | IOB_X0Y76       | X0Y1         |           2 |               0 |              20.000 | sysClk50                              | sysClk50_IBUF_inst/O                                                                                                                     | sysClk50_IBUF                                                                                                                |
 | src6      | g7        | IBUF/O              | IOB_X0Y76       | IOB_X0Y76       | X0Y1         |           2 |               0 |              20.000 | sysClk50                              | sysClk50_IBUF_inst/O                                                                                                                     | sysClk50_IBUF                                                                                                                |
@@ -127,14 +127,14 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
-| X0Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    8 |  2600 |    7 |   600 |    0 |    20 |    9 |    10 |    0 |    20 |
-| X1Y0              |    1 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     4 |    0 |     0 |    0 |     0 |    0 |     0 |   16 |  1500 |    7 |   550 |    0 |    40 |   20 |    20 |    0 |    40 |
-| X0Y1              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 3435 |  2000 | 1006 |   600 |    0 |    20 |    7 |    10 |   14 |    20 |
-| X1Y1              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1346 |  1900 |  493 |   650 |    0 |    60 |   30 |    30 |    3 |    40 |
-| X0Y2              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 2435 |  2000 |  838 |   600 |    0 |    20 |    9 |    10 |    0 |    20 |
-| X1Y2              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    4 |    50 | 1697 |  1900 |  596 |   650 |    1 |    60 |   25 |    30 |    0 |    40 |
-| X0Y3              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    1 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    4 |    50 | 4515 |  2600 |  944 |   600 |    0 |    20 |   10 |    10 |    0 |    20 |
-| X1Y3              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     4 |    0 |     1 |    0 |     0 |    0 |     0 | 1063 |  1350 |  398 |   500 |    0 |    30 |   10 |    15 |    0 |    40 |
+| X0Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1501 |  2600 |  249 |   600 |    0 |    20 |   10 |    10 |    8 |    20 |
+| X1Y0              |    1 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     4 |    0 |     0 |    0 |     0 |    0 |     0 |    8 |  1500 |    8 |   550 |    0 |    40 |   18 |    20 |    0 |    40 |
+| X0Y1              |    6 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1959 |  2000 |  570 |   600 |    0 |    20 |   10 |    10 |    6 |    20 |
+| X1Y1              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  247 |  1900 |  105 |   650 |    0 |    60 |   30 |    30 |    6 |    40 |
+| X0Y2              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 4998 |  2000 | 1640 |   600 |    2 |    20 |    8 |    10 |   14 |    20 |
+| X1Y2              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    4 |    50 | 1934 |  1900 |  737 |   650 |    1 |    60 |   25 |    30 |   11 |    40 |
+| X0Y3              |    5 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    1 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    4 |    50 | 5106 |  2600 | 1096 |   600 |    0 |    20 |    7 |    10 |    2 |    20 |
+| X1Y3              |    2 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     4 |    0 |     1 |    0 |     0 |    0 |     0 | 1069 |  1350 |  362 |   500 |    0 |    30 |   12 |    15 |    0 |    40 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 * Global Clock column represents track count; while other columns represents cell counts
 
@@ -159,7 +159,7 @@ All Modules
 +-----------+-----------------+-------------------+-----------+-------------+---------------+-------------+----------+----------------+----------+---------------------------------------------------------------------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock     | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                                                                                 |
 +-----------+-----------------+-------------------+-----------+-------------+---------------+-------------+----------+----------------+----------+---------------------------------------------------------------------------------------------------------------------+
-| g0        | BUFG/O          | n/a               | clk_pll_i |      12.308 | {0.000 6.154} |        8492 |        0 |              2 |        0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK |
+| g0        | BUFG/O          | n/a               | clk_pll_i |      12.308 | {0.000 6.154} |        8700 |        0 |              2 |        0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK |
 +-----------+-----------------+-------------------+-----------+-------------+---------------+-------------+----------+----------------+----------+---------------------------------------------------------------------------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -170,9 +170,9 @@ All Modules
 +----+-------+-------+-----------------------+
 |    | X0    | X1    | HORIZONTAL PROG DELAY |
 +----+-------+-------+-----------------------+
-| Y3 |  4636 |  1054 |                     0 |
-| Y2 |  2217 |   586 |                     0 |
-| Y1 |     0 |     0 |                     - |
+| Y3 |  4974 |  1055 |                     0 |
+| Y2 |  1942 |   722 |                     0 |
+| Y1 |     8 |     0 |                     0 |
 | Y0 |     1 |     0 |                     0 |
 +----+-------+-------+-----------------------+
 
@@ -183,7 +183,7 @@ All Modules
 +-----------+-----------------+-------------------+--------------------------------------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock                                | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                       |
 +-----------+-----------------+-------------------+--------------------------------------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------------+
-| g1        | BUFG/O          | n/a               | clk162_5_tangerineA7_100_clk_wiz_2_0 |       6.154 | {0.000 3.077} |        5916 |        0 |              0 |        0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5 |
+| g1        | BUFG/O          | n/a               | clk162_5_tangerineA7_100_clk_wiz_2_0 |       6.154 | {0.000 3.077} |        7927 |        0 |              0 |        0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5 |
 +-----------+-----------------+-------------------+--------------------------------------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -194,10 +194,10 @@ All Modules
 +----+-------+-------+-----------------------+
 |    | X0    | X1    | HORIZONTAL PROG DELAY |
 +----+-------+-------+-----------------------+
-| Y3 |    40 |    20 |                     0 |
-| Y2 |   190 |   764 |                     0 |
-| Y1 |  3464 |  1385 |                     0 |
-| Y0 |    17 |    36 |                     0 |
+| Y3 |   311 |    26 |                     0 |
+| Y2 |  2674 |  1185 |                     0 |
+| Y1 |  1903 |   283 |                     0 |
+| Y0 |  1519 |    26 |                     0 |
 +----+-------+-------+-----------------------+
 
 
@@ -207,7 +207,7 @@ All Modules
 +-----------+-----------------+-------------------+-----------------------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock                             | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                    |
 +-----------+-----------------+-------------------+-----------------------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------+
-| g2        | BUFG/O          | n/a               | clk64_tangerineA7_100_clk_wiz_0_0 |      15.625 | {0.000 7.812} |         399 |        0 |              0 |        0 | tangerineA7_100_i/clk_wiz_0/inst/clk64 |
+| g2        | BUFG/O          | n/a               | clk64_tangerineA7_100_clk_wiz_0_0 |      15.625 | {0.000 7.812} |         492 |        0 |              0 |        0 | tangerineA7_100_i/clk_wiz_0/inst/clk64 |
 +-----------+-----------------+-------------------+-----------------------------------+-------------+---------------+-------------+----------+----------------+----------+----------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -215,23 +215,47 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+-----+------+-----------------------+
-|    | X0  | X1   | HORIZONTAL PROG DELAY |
-+----+-----+------+-----------------------+
-| Y3 |   0 |    1 |                     0 |
-| Y2 |  43 |  353 |                     0 |
-| Y1 |   2 |    0 |                     0 |
-| Y0 |   0 |    0 |                     - |
-+----+-----+------+-----------------------+
++----+------+-----+-----------------------+
+|    | X0   | X1  | HORIZONTAL PROG DELAY |
++----+------+-----+-----------------------+
+| Y3 |    2 |   0 |                     0 |
+| Y2 |  459 |  26 |                     0 |
+| Y1 |    3 |   2 |                     0 |
+| Y0 |    0 |   0 |                     - |
++----+------+-----+-----------------------+
 
 
 10. Device Cell Placement Summary for Global Clock g3
 -----------------------------------------------------
 
++-----------+-----------------+-------------------+---------------------------------------+-------------+----------------+-------------+----------+----------------+----------+--------------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock                                 | Period (ns) | Waveform (ns)  | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                        |
++-----------+-----------------+-------------------+---------------------------------------+-------------+----------------+-------------+----------+----------------+----------+--------------------------------------------+
+| g3        | BUFG/O          | n/a               | clk40_625_tangerineA7_100_clk_wiz_2_0 |      24.615 | {0.000 12.308} |          69 |        0 |              0 |        0 | tangerineA7_100_i/clk_wiz_2/inst/clk40_625 |
++-----------+-----------------+-------------------+---------------------------------------+-------------+----------------+-------------+----------+----------------+----------+--------------------------------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+-----+----+-----------------------+
+|    | X0  | X1 | HORIZONTAL PROG DELAY |
++----+-----+----+-----------------------+
+| Y3 |   0 |  0 |                     - |
+| Y2 |   6 |  0 |                     0 |
+| Y1 |  63 |  0 |                     0 |
+| Y0 |   0 |  0 |                     - |
++----+-----+----+-----------------------+
+
+
+11. Device Cell Placement Summary for Global Clock g4
+-----------------------------------------------------
+
 +-----------+-----------------+-------------------+------------------------------------+-------------+---------------+-------------+----------+----------------+----------+-----------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock                              | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                     |
 +-----------+-----------------+-------------------+------------------------------------+-------------+---------------+-------------+----------+----------------+----------+-----------------------------------------+
-| g3        | BUFG/O          | n/a               | clk200_tangerineA7_100_clk_wiz_1_0 |       5.000 | {0.000 2.500} |          62 |        0 |              1 |        0 | tangerineA7_100_i/clk_wiz_1/inst/clk200 |
+| g4        | BUFG/O          | n/a               | clk200_tangerineA7_100_clk_wiz_1_0 |       5.000 | {0.000 2.500} |          62 |        0 |              1 |        0 | tangerineA7_100_i/clk_wiz_1/inst/clk200 |
 +-----------+-----------------+-------------------+------------------------------------+-------------+---------------+-------------+----------+----------------+----------+-----------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -245,30 +269,6 @@ All Modules
 | Y3 |  17 |  0 |                     0 |
 | Y2 |  46 |  0 |                     0 |
 | Y1 |   0 |  0 |                     - |
-| Y0 |   0 |  0 |                     - |
-+----+-----+----+-----------------------+
-
-
-11. Device Cell Placement Summary for Global Clock g4
------------------------------------------------------
-
-+-----------+-----------------+-------------------+---------------------------------------+-------------+----------------+-------------+----------+----------------+----------+--------------------------------------------+
-| Global Id | Driver Type/Pin | Driver Region (D) | Clock                                 | Period (ns) | Waveform (ns)  | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                        |
-+-----------+-----------------+-------------------+---------------------------------------+-------------+----------------+-------------+----------+----------------+----------+--------------------------------------------+
-| g4        | BUFG/O          | n/a               | clk40_625_tangerineA7_100_clk_wiz_2_0 |      24.615 | {0.000 12.308} |          52 |        0 |              0 |        0 | tangerineA7_100_i/clk_wiz_2/inst/clk40_625 |
-+-----------+-----------------+-------------------+---------------------------------------+-------------+----------------+-------------+----------+----------------+----------+--------------------------------------------+
-* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
-** IO Loads column represents load cell count of IO types
-*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
-**** GT Loads column represents load cell count of GT types
-
-
-+----+-----+----+-----------------------+
-|    | X0  | X1 | HORIZONTAL PROG DELAY |
-+----+-----+----+-----------------------+
-| Y3 |   0 |  0 |                     - |
-| Y2 |  14 |  0 |                     0 |
-| Y1 |  38 |  0 |                     0 |
 | Y0 |   0 |  0 |                     - |
 +----+-----+----+-----------------------+
 
@@ -444,13 +444,13 @@ All Modules
 19. Clock Region Cell Placement per Global Clock: Region X0Y0
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                                 |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |           1 |               0 |  0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK |
-| g1        | n/a   | BUFG/O          | None       |          17 |               0 |  8 |           0 |    9 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                                                           |
-| g10       | n/a   | BUFG/O          | None       |           1 |               0 |  0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clkfbout_buf_tangerineA7_100_clk_wiz_2_0                                           |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                                 |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
+| g0        | n/a   | BUFG/O          | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK |
+| g1        | n/a   | BUFG/O          | None       |        1519 |               0 | 1501 |           0 |   10 |   8 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                                                           |
+| g10       | n/a   | BUFG/O          | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clkfbout_buf_tangerineA7_100_clk_wiz_2_0                                           |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -462,7 +462,7 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+-------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                       |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+-------------------------------------------+
-| g1        | n/a   | BUFG/O          | None       |          36 |               0 | 16 |           0 |   20 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5 |
+| g1        | n/a   | BUFG/O          | None       |          26 |               0 |  8 |           0 |   18 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5 |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+-------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -472,15 +472,16 @@ All Modules
 21. Clock Region Cell Placement per Global Clock: Region X0Y1
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                       |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------+
-| g1        | n/a   | BUFG/O          | None       |        3464 |               0 | 3397 |          45 |    7 |  14 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                 |
-| g2        | n/a   | BUFG/O          | None       |           2 |               0 |    0 |           0 |    2 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clk64                                    |
-| g4        | n/a   | BUFG/O          | None       |          38 |               0 |   38 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk40_625                                |
-| g7        | n/a   | BUFG/O          | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/clk_wiz_1/inst/clk_in1_tangerineA7_100_clk_wiz_1_0      |
-| g9        | n/a   | BUFG/O          | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/clk_wiz_1/inst/clkfbout_buf_tangerineA7_100_clk_wiz_1_0 |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                                 |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
+| g0        | n/a   | BUFG/O          | None       |           8 |               0 |    8 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK |
+| g1        | n/a   | BUFG/O          | None       |        1903 |               0 | 1887 |           0 |   10 |   6 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                                                           |
+| g2        | n/a   | BUFG/O          | None       |           3 |               0 |    1 |           0 |    2 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clk64                                                                              |
+| g3        | n/a   | BUFG/O          | None       |          63 |               0 |   63 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk40_625                                                                          |
+| g7        | n/a   | BUFG/O          | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/clk_wiz_1/inst/clk_in1_tangerineA7_100_clk_wiz_1_0                                                |
+| g9        | n/a   | BUFG/O          | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/clk_wiz_1/inst/clkfbout_buf_tangerineA7_100_clk_wiz_1_0                                           |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -489,13 +490,14 @@ All Modules
 22. Clock Region Cell Placement per Global Clock: Region X1Y1
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                       |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------+
-| g1        | n/a   | BUFG/O          | None       |        1385 |               0 | 1346 |           6 |   30 |   3 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                 |
-| g6        | n/a   | BUFG/O          | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clk_in1_tangerineA7_100_clk_wiz_0_0      |
-| g8        | n/a   | BUFG/O          | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clkfbout_buf_tangerineA7_100_clk_wiz_0_0 |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                       |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------+
+| g1        | n/a   | BUFG/O          | None       |         283 |               0 | 247 |           0 |   30 |   6 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                 |
+| g2        | n/a   | BUFG/O          | None       |           2 |               0 |   0 |           0 |    2 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clk64                                    |
+| g6        | n/a   | BUFG/O          | None       |           1 |               0 |   0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clk_in1_tangerineA7_100_clk_wiz_0_0      |
+| g8        | n/a   | BUFG/O          | None       |           1 |               0 |   0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clkfbout_buf_tangerineA7_100_clk_wiz_0_0 |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -507,11 +509,11 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                                 |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        2217 |               0 | 2154 |          63 |    0 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK |
-| g1        | n/a   | BUFG/O          | None       |         190 |               0 |  181 |           0 |    9 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                                                           |
-| g2        | n/a   | BUFG/O          | None       |          43 |               0 |   41 |           0 |    1 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clk64                                                                              |
-| g3        | n/a   | BUFG/O          | None       |          46 |               0 |   45 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_1/inst/clk200                                                                             |
-| g4        | n/a   | BUFG/O          | None       |          14 |               0 |   14 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk40_625                                                                          |
+| g0        | n/a   | BUFG/O          | None       |        1942 |               0 | 1888 |          53 |    1 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK |
+| g1        | n/a   | BUFG/O          | None       |        2674 |               0 | 2606 |          44 |    8 |  14 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                                                           |
+| g2        | n/a   | BUFG/O          | None       |         459 |               0 |  453 |           0 |    6 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clk64                                                                              |
+| g3        | n/a   | BUFG/O          | None       |           6 |               0 |    6 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk40_625                                                                          |
+| g4        | n/a   | BUFG/O          | None       |          46 |               0 |   45 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_1/inst/clk200                                                                             |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -521,14 +523,14 @@ All Modules
 24. Clock Region Cell Placement per Global Clock: Region X1Y2
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                                 |
-+-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |         586 |               0 | 583 |           0 |    3 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK |
-| g1        | n/a   | BUFG/O          | None       |         764 |               0 | 727 |          10 |   23 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                                                           |
-| g2        | n/a   | BUFG/O          | None       |         353 |               0 | 345 |           0 |    8 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clk64                                                                              |
-| g5        | n/a   | BUFG/O          | None       |          46 |               0 |  42 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clk320                                                                             |
-+-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                                 |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
+| g0        | n/a   | BUFG/O          | None       |         722 |               0 |  721 |           0 |    1 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK |
+| g1        | n/a   | BUFG/O          | None       |        1185 |               0 | 1146 |           0 |   25 |  11 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                                                           |
+| g2        | n/a   | BUFG/O          | None       |          26 |               0 |   25 |           0 |    1 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clk64                                                                              |
+| g5        | n/a   | BUFG/O          | None       |          46 |               0 |   42 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clk320                                                                             |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -540,9 +542,10 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                                      |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        4636 |               0 | 4470 |         136 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK      |
-| g1        | n/a   | BUFG/O          | None       |          40 |               0 |   30 |           0 |   10 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                                                                |
-| g3        | n/a   | BUFG/O          | None       |          17 |               0 |   15 |           0 |    0 |   0 |  0 |    0 |   1 |       0 | tangerineA7_100_i/clk_wiz_1/inst/clk200                                                                                  |
+| g0        | n/a   | BUFG/O          | None       |        4974 |               0 | 4796 |         146 |    2 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK      |
+| g1        | n/a   | BUFG/O          | None       |         311 |               0 |  295 |           9 |    5 |   2 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                                                                |
+| g2        | n/a   | BUFG/O          | None       |           2 |               0 |    0 |           0 |    2 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clk64                                                                                   |
+| g4        | n/a   | BUFG/O          | None       |          17 |               0 |   15 |           0 |    0 |   0 |  0 |    0 |   1 |       0 | tangerineA7_100_i/clk_wiz_1/inst/clk200                                                                                  |
 | g11       | n/a   | BUFH/O          | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/pll_clk3 |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+--------------------------------------------------------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
@@ -556,9 +559,8 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                                                                 |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        1054 |               0 | 1053 |           0 |    1 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK |
-| g1        | n/a   | BUFG/O          | None       |          20 |               0 |   10 |           0 |    9 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                                                           |
-| g2        | n/a   | BUFG/O          | None       |           1 |               0 |    0 |           0 |    1 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_0/inst/clk64                                                                              |
+| g0        | n/a   | BUFG/O          | None       |        1055 |               0 | 1055 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK |
+| g1        | n/a   | BUFG/O          | None       |          26 |               0 |   14 |           0 |   12 |   0 |  0 |    0 |   0 |       0 | tangerineA7_100_i/clk_wiz_2/inst/clk162_5                                                                           |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -591,7 +593,7 @@ set_property LOC IOB_X0Y76 [get_ports sysClk50]
 #startgroup
 create_pblock {CLKAG_tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK}
 add_cells_to_pblock [get_pblocks  {CLKAG_tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL && NAME!=tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/gen_mmcm.mmcm_i && NAME!=tangerineA7_100_i/clk_wiz_2/inst/mmcm_adv_inst} -of_object [get_pins -leaf -filter {DIRECTION==IN} -of_objects [get_nets {tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK}]]]
-resize_pblock [get_pblocks {CLKAG_tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK}] -add {CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X0Y3:CLOCKREGION_X0Y3 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2 CLOCKREGION_X1Y3:CLOCKREGION_X1Y3}
+resize_pblock [get_pblocks {CLKAG_tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/CLK}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X0Y3:CLOCKREGION_X0Y3 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2 CLOCKREGION_X1Y3:CLOCKREGION_X1Y3}
 #endgroup
 
 # Clock net "tangerineA7_100_i/clk_wiz_2/inst/clk40_625" driven by instance "tangerineA7_100_i/clk_wiz_2/inst/clkout4_buf" located at site "BUFGCTRL_X0Y4"
@@ -619,7 +621,7 @@ resize_pblock [get_pblocks {CLKAG_tangerineA7_100_i/clk_wiz_1/inst/clk200}] -add
 #startgroup
 create_pblock {CLKAG_tangerineA7_100_i/clk_wiz_0/inst/clk64}
 add_cells_to_pblock [get_pblocks  {CLKAG_tangerineA7_100_i/clk_wiz_0/inst/clk64}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -leaf -filter {DIRECTION==IN} -of_objects [get_nets {tangerineA7_100_i/clk_wiz_0/inst/clk64}]]]
-resize_pblock [get_pblocks {CLKAG_tangerineA7_100_i/clk_wiz_0/inst/clk64}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2 CLOCKREGION_X1Y3:CLOCKREGION_X1Y3}
+resize_pblock [get_pblocks {CLKAG_tangerineA7_100_i/clk_wiz_0/inst/clk64}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X0Y3:CLOCKREGION_X0Y3 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
 #endgroup
 
 # Clock net "tangerineA7_100_i/clk_wiz_0/inst/clk320" driven by instance "tangerineA7_100_i/clk_wiz_0/inst/clkout2_buf" located at site "BUFGCTRL_X0Y1"

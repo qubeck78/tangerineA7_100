@@ -48,11 +48,11 @@ port(
     
     bltDmaRequest:      out     std_logic;
     bltDmaReady:        in      std_logic;
-    bltDmaWordSize:     out     std_logic;
-    bltA:               out     std_logic_vector( 24 downto 0 );
-    bltDin:             in      std_logic_vector( 31 downto 0 );
-    bltDout:            out     std_logic_vector( 31 downto 0 );
-    bltWr:              out     std_logic
+    bltDmaDataMask:     out     std_logic_vector( 3 downto 0 );
+    bltDmaA:            out     std_logic_vector( 31 downto 0 );
+    bltDmaDin:          in      std_logic_vector( 31 downto 0 );
+    bltDmaDout:         out     std_logic_vector( 31 downto 0 );
+    bltDmaWr:           out     std_logic
     
 );
 end blitter;
@@ -277,6 +277,9 @@ signal  bltReturnState: bltState_t;
 
 signal  bltRun:         std_logic;
 signal  bltReady:       std_logic;
+
+--subRead/subWrite common
+signal  bltDmaWordSize: std_logic;
 
 --subRead
 signal  dmaReadAddr:    std_logic_vector( 24 downto 0 );
@@ -513,7 +516,7 @@ begin
 
                             ready   <= '1';
                  
-                            dout    <= x"20241225";
+                            dout    <= x"20250226";
                     
                         --0x08 rw commandReg
                         when x"02" =>
@@ -1101,10 +1104,10 @@ begin
 
         --dma    
         bltDmaRequest   <= '0';
-        bltDmaWordSize  <= '0';
-        bltA            <= ( others => '0' );
-        bltDout         <= ( others => '0' );
-        bltWr           <= '0';            
+        bltDmaDataMask  <= ( others => '1' );
+        bltDmaA         <= ( others => '0' );
+        bltDmaDout      <= ( others => '0' );
+        bltDmaWr        <= '0';            
 
         --subRead
         dmaReadAddr     <= ( others => '0' );
@@ -1338,14 +1341,17 @@ begin
                 if counterX /= x"0000" then
 
                     --early write
-                    bltA            <= dpDa;
-                    bltDOut         <= input0Reg;
+--                    bltA            <= dpDa;
+--                    bltDOut         <= input0Reg;
 
-                    bltWr           <= '1';
-                    bltDmaRequest   <= '1';
+--                    bltWr           <= '1';
+--                    bltDmaRequest   <= '1';
 
+                     dmaWriteAddr   <= dpDa;
+                     dmaWriteData   <= input0Reg;
+                     
                     bltReturnState  <= bsFill1;
-                    bltState        <= bsSubWrite1;
+                    bltState        <= bsSubWrite0;
             
                 else
                 
@@ -1378,10 +1384,12 @@ begin
                     bltReturnState  <= bsCopy1;
 
                     --early read
-                    bltA            <= dpSa;
-                    bltWr           <= '0';
-                    bltDmaRequest   <= '1';
-                    bltState        <= bsSubRead1;
+--                    bltA            <= dpSa;
+--                    bltWr           <= '0';
+--                    bltDmaRequest   <= '1';
+
+                     dmaReadAddr    <= dpSa;
+                     bltState       <= bsSubRead0;
                     
                     
                 else
@@ -1413,14 +1421,16 @@ begin
                     
 
                         --early write
-                        bltA            <= dpDa;
-                        bltDOut         <= dmaReadData;
+--                        bltA            <= dpDa;
+--                        bltDOut         <= dmaReadData;
 
-                        bltWr           <= '1';
-                        bltDmaRequest   <= '1';
+--                        bltWr           <= '1';
+--                        bltDmaRequest   <= '1';
+                        dmaWriteAddr      <= dpDa;
+                        dmaWriteData      <= dmaReadData;
 
                         bltReturnState  <= bsCopy2;
-                        bltState        <= bsSubWrite1;
+                        bltState        <= bsSubWrite0;
                         
                     --mask copy
                     when x"01" =>
@@ -1434,28 +1444,34 @@ begin
                         else
 
                             --early write
-                            bltA            <= dpDa;
-                            bltDOut         <= dmaReadData;
+--                            bltA            <= dpDa;
+--                            bltDOut         <= dmaReadData;
 
-                            bltWr           <= '1';
-                            bltDmaRequest   <= '1';
-    
+--                            bltWr           <= '1';
+--                            bltDmaRequest   <= '1';
+
+                              dmaWriteAddr   <= dpDa;
+                              dmaWriteData   <= dmaReadData;
+                                  
                             bltReturnState  <= bsCopy2;
-                            bltState        <= bsSubWrite1;
+                            bltState        <= bsSubWrite0;
                                                         
                         end if;       
                                         
                     when others =>
 
                         --early write
-                        bltA            <= dpDa;
-                        bltDOut         <= dmaReadData;
+--                        bltA            <= dpDa;
+--                        bltDOut         <= dmaReadData;
 
-                        bltWr           <= '1';
-                        bltDmaRequest   <= '1';
+--                        bltWr           <= '1';
+--                        bltDmaRequest   <= '1';
 
+                        dmaWriteAddr      <= dpDa;
+                        dmaWriteData      <= dmaReadData;
+                        
                         bltReturnState  <= bsCopy2;
-                        bltState        <= bsSubWrite1;
+                        bltState        <= bsSubWrite0;
                                 
                 
                 end case;
@@ -1534,14 +1550,17 @@ begin
                     
 
                         --early write
-                        bltA            <= dpDa;
-                        bltDOut         <= dmaReadData;
+--                        bltA            <= dpDa;
+--                        bltDOut         <= dmaReadData;
 
-                        bltWr           <= '1';
-                        bltDmaRequest   <= '1';
+--                        bltWr           <= '1';
+--                        bltDmaRequest   <= '1';
+
+                        dmaWriteAddr      <= dpDa;
+                        dmaWriteData      <= dmaReadData;
 
                         bltReturnState  <= bsScaleCopy5;
-                        bltState        <= bsSubWrite1;
+                        bltState        <= bsSubWrite0;
                                             
                     --masked scale copy
                     when x"01" =>
@@ -1556,14 +1575,16 @@ begin
 
                             --early write
                             
-                            bltA            <= dpDa;
-                            bltDOut         <= dmaReadData;
+--                            bltA            <= dpDa;
+--                            bltDOut         <= dmaReadData;
     
-                            bltWr           <= '1';
-                            bltDmaRequest   <= '1';
+--                            bltWr           <= '1';
+--                            bltDmaRequest   <= '1';
+                           dmaWriteAddr      <= dpDa;
+                           dmaWriteData      <= dmaReadData;
     
                             bltReturnState  <= bsScaleCopy5;
-                            bltState        <= bsSubWrite1;
+                            bltState        <= bsSubWrite0;
                                 
                         end if;       
                     
@@ -1571,14 +1592,17 @@ begin
 
                         --early write
                             
-                        bltA            <= dpDa;
-                        bltDOut         <= dmaReadData;
+--                        bltA            <= dpDa;
+--                        bltDOut         <= dmaReadData;
     
-                        bltWr           <= '1';
-                        bltDmaRequest   <= '1';
-    
+--                        bltWr           <= '1';
+--                        bltDmaRequest   <= '1';
+
+                        dmaWriteData   <= dmaReadData;
+                        dmaWriteAddr   <= dpDa;
+                            
                         bltReturnState  <= bsScaleCopy5;
-                        bltState        <= bsSubWrite1;                    
+                        bltState        <= bsSubWrite0;                    
                 
                 end case;
                                       
@@ -1595,11 +1619,13 @@ begin
                 if counterX /= x"0000" then
                 
                     --early read
-                    bltA            <= dpSa;
-                    bltWr           <= '0';
-                    bltDmaRequest   <= '1';
-                    bltState        <= bsSubRead1;
-                    bltReturnState  <= bsAlphaCopy1;
+--                    bltA            <= dpSa;
+--                    bltWr           <= '0';
+--                    bltDmaRequest   <= '1';
+
+                     dmaReadAddr    <= dpSa;
+                     bltState       <= bsSubRead0;
+                     bltReturnState <= bsAlphaCopy1;
                     
                 else
                 
@@ -1633,11 +1659,13 @@ begin
                     when x"00" =>
                         
                         --early read
-                        bltA            <= dpSb;
-                        bltWr           <= '0';
-                        bltDmaRequest   <= '1';
-                        bltState        <= bsSubRead1;
-                        bltReturnState  <= bsAlphaCopy2;
+--                        bltA            <= dpSb;
+--                        bltWr           <= '0';
+--                        bltDmaRequest   <= '1';
+
+                        dmaReadAddr    <= dpSb;
+                        bltState       <= bsSubRead0;
+                        bltReturnState <= bsAlphaCopy2;
                                     
                     --alpha mask copy
                     when x"01" =>
@@ -1653,22 +1681,27 @@ begin
                             --continue with reading second source                            
                                                         
                             --early read
-                            bltA            <= dpSb;
-                            bltWr           <= '0';
-                            bltDmaRequest   <= '1';
-                            bltState        <= bsSubRead1;
-                            bltReturnState  <= bsAlphaCopy2;
+--                            bltA            <= dpSb;
+--                            bltWr           <= '0';
+--                            bltDmaRequest   <= '1';
+
+                           dmaReadAddr       <= dpSb;
+                           bltState          <= bsSubRead0;
+                           bltReturnState    <= bsAlphaCopy2;
                                         
                         end if;       
                                         
                     when others =>
 
                         --early read
-                        bltA            <= dpSb;
-                        bltWr           <= '0';
-                        bltDmaRequest   <= '1';
-                        bltState        <= bsSubRead1;
-                        bltReturnState  <= bsAlphaCopy2;
+--                        bltA            <= dpSb;
+--                        bltWr           <= '0';
+--                        bltDmaRequest   <= '1';
+
+                     dmaReadAddr    <= dpSb;
+                     bltState       <= bsSubRead0;
+                     
+                     bltReturnState <= bsAlphaCopy2;
                     
                 end case;          
                 
@@ -1684,14 +1717,17 @@ begin
             when bsAlphaCopy4 =>
 
                 --early write
-                bltA            <= dpDa;
-                bltDOut         <= x"0000" & paColorOut;
+--                bltA            <= dpDa;
+--                bltDOut         <= x"0000" & paColorOut;
 
-                bltWr           <= '1';
-                bltDmaRequest   <= '1';
+--                bltWr           <= '1';
+--                bltDmaRequest   <= '1';
 
-                bltReturnState  <= bsAlphaCopy5;
-                bltState        <= bsSubWrite1;
+               dmaWriteAddr   <= dpDa;
+               dmaWriteData   <= x"0000" & paColorOut;
+               
+               bltReturnState  <= bsAlphaCopy5;
+               bltState        <= bsSubWrite0;
 
                 
             when bsAlphaCopy5 =>
@@ -1794,12 +1830,15 @@ begin
                 --read z buffer
                 --dpDb
                 --early read
-                bltA            <= std_logic_vector( unsigned( dpDb )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) );
-                bltWr           <= '0';
-                bltDmaRequest   <= '1';
-                bltReturnState  <= bsTriangleZBuffer1;                
+--                bltA            <= std_logic_vector( unsigned( dpDb )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) );
+--                bltWr           <= '0';
+--                bltDmaRequest   <= '1';
+               
+               dmaReadAddr <= std_logic_vector( unsigned( dpDb )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) );
+               
+               bltReturnState  <= bsTriangleZBuffer1;                
 
-                bltState        <= bsSubRead1;
+               bltState        <= bsSubRead0;
 
 
             when bsTriangleZBuffer1 =>
@@ -1811,11 +1850,16 @@ begin
                         --write new depth to z-buffer and draw pixel
                         
                         --early write
-                        bltDOut         <= x"0000" &  triangleIt3Out;
+--                        bltDOut         <= x"0000" &  triangleIt3Out;
         
-                        bltWr           <= '1';
-                        bltDmaRequest   <= '1';
-        
+--                        bltWr           <= '1';
+--                        bltDmaRequest   <= '1';
+
+                        --write z-buffer data to read location
+                        
+                        dmaWriteData   <= x"0000" &  triangleIt3Out;
+                        dmaWriteAddr   <= dmaReadAddr;
+                                
                         --check what kind of triangle we are drawing
                         
                         if commandReg( 7 downto 4 ) = x"1" then
@@ -1831,7 +1875,7 @@ begin
                         
                         end if;
                         
-                        bltState        <= bsSubWrite1;
+                        bltState        <= bsSubWrite0;
                      
                                     
                     else
@@ -1867,14 +1911,17 @@ begin
                     triangleITCounter   <= x"7";
                     
                     --early write
-                    bltA            <= std_logic_vector( unsigned( dpDa )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) );
-                    bltDOut         <= x"0000" &  triangleIt0Out( 7 downto 3 ) & triangleIt1Out( 7 downto 2 ) & triangleIt2Out( 7 downto 3 );
+--                    bltA            <= std_logic_vector( unsigned( dpDa )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) );
+--                    bltDOut         <= x"0000" &  triangleIt0Out( 7 downto 3 ) & triangleIt1Out( 7 downto 2 ) & triangleIt2Out( 7 downto 3 );
     
-                    bltWr           <= '1';
-                    bltDmaRequest   <= '1';
+--                    bltWr           <= '1';
+--                    bltDmaRequest   <= '1';
     
-                    bltReturnState  <= bsTriangle0;
-                    bltState        <= bsSubWrite1;
+                  dmaWriteAddr   <= std_logic_vector( unsigned( dpDa )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) );
+                  dmaWriteData   <= x"0000" &  triangleIt0Out( 7 downto 3 ) & triangleIt1Out( 7 downto 2 ) & triangleIt2Out( 7 downto 3 );
+                  
+                  bltReturnState  <= bsTriangle0;
+                  bltState        <= bsSubWrite0;
                     
                 end if;
                       
@@ -1885,12 +1932,13 @@ begin
                     --read texture
                     --dpSa
                     --early read
-                    bltA            <= std_logic_vector( unsigned( dpSa )  + unsigned( triangleIt1Out( 7 downto 0 ) & triangleIt0Out( 7 downto 0 ) ) );
-                    bltWr           <= '0';
-                    bltDmaRequest   <= '1';
-                    bltReturnState  <= bsTriangleTextured1;                
-    
-                    bltState        <= bsSubRead1;
+--                    bltA            <= std_logic_vector( unsigned( dpSa )  + unsigned( triangleIt1Out( 7 downto 0 ) & triangleIt0Out( 7 downto 0 ) ) );
+--                    bltWr           <= '0';
+--                    bltDmaRequest   <= '1';
+
+                  dmaReadAddr <= std_logic_vector( unsigned( dpSa )  + unsigned( triangleIt1Out( 7 downto 0 ) & triangleIt0Out( 7 downto 0 ) ) );
+                  bltReturnState  <= bsTriangleTextured1;                
+                  bltState        <= bsSubRead0;
                     
                 end if;
 
@@ -1906,23 +1954,41 @@ begin
                 triangleITCounter   <= x"7";
                 
                 --early write
-                bltA            <= std_logic_vector( unsigned( dpDa )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) );
-                bltDOut         <= x"0000" & tsColorOut;    --dmaReadData( 15 downto 0 );
+--                bltA            <= std_logic_vector( unsigned( dpDa )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) );
+--                bltDOut         <= x"0000" & tsColorOut;    --dmaReadData( 15 downto 0 );
     
-                bltWr           <= '1';
-                bltDmaRequest   <= '1';
-    
-                bltReturnState  <= bsTriangle0;
-                bltState        <= bsSubWrite1;
+--                bltWr           <= '1';
+--                bltDmaRequest   <= '1';
+               
+               dmaWriteAddr   <= std_logic_vector( unsigned( dpDa )  + unsigned( triangleCY & triangleCX( 8 downto 0 ) ) ); 
+               dmaWriteData   <= x"0000" & tsColorOut;    
+                
+               bltReturnState  <= bsTriangle0;
+               bltState        <= bsSubWrite0;
                 
                             
             -- subroutines
             
             -- read subroutine
             when bsSubRead0 =>
-                            
-                bltA            <= dmaReadAddr;
-                bltWr           <= '0';
+                   
+                if bltDmaWordSize = '0' then
+                
+                  --address in words ( 16bit )
+                           
+                  bltDmaA            <= "000000" & dmaReadAddr & "0";
+                   
+                else
+                  --address in long words
+
+                  bltDmaA            <= "00000" & dmaReadAddr & "00";
+                
+                end if;
+               
+                bltDmaDataMask     <= ( others => '1' );             
+                bltDmaWr           <= '0';
+                
+                
                 bltDmaRequest   <= '1';
 
                 bltState        <= bsSubRead1;
@@ -1932,7 +1998,26 @@ begin
             
                 if bltDmaReady = '1' then
                 
-                    dmaReadData <= bltDin;
+                   if bltDmaWordSize = '0' then
+                   
+                     --address in words ( 16bit )
+                     if dmaReadAddr(0) = '0' then
+
+                        dmaReadData       <= bltDmaDin( 15 downto 0 ) & bltDmaDin( 15 downto 0 );
+                     
+                     else
+
+                        dmaReadData       <= bltDmaDin( 31 downto 16 ) & bltDmaDin( 31 downto 16 );
+                     
+                     end if;
+                                                   
+                      
+                   else
+                     --address in long words
+   
+                     dmaReadData       <= bltDmaDin;
+                   
+                   end if;
 
                     bltDmaRequest   <= '0';
                     bltState        <= bltReturnState;
@@ -1943,10 +2028,34 @@ begin
             -- write subroutine       
             when bsSubWrite0 =>
 
-                bltA            <= dmaWriteAddr;
-                bltDOut         <= dmaWriteData;
+                if bltDmaWordSize = '0' then
+                
+                  --address in words ( 16bit )
+                           
+                  bltDmaA            <= "000000" & dmaWriteAddr & "0";
+                  bltDmaDOut         <= dmaWriteData( 15 downto 0 ) & dmaWriteData( 15 downto 0 );
+                  
+                  if dmaWriteAddr(0) = '0' then
 
-                bltWr           <= '1';
+                     bltDmaDataMask     <= "0011";             
+                  
+                  else
+
+                     bltDmaDataMask     <= "1100";             
+                  
+                  end if;
+                   
+                else
+                  --address in long words
+
+                  bltDmaA            <= "00000" & dmaWriteAddr & "00";
+                  bltDmaDOut         <= dmaWriteData;
+
+                  bltDmaDataMask     <= ( others => '1' );             
+                                  
+                end if;
+               
+                bltDmaWr        <= '1';
                 bltDmaRequest   <= '1';
     
                 bltState        <= bsSubWrite1;                     

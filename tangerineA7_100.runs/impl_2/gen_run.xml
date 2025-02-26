@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_2" LaunchPart="xc7a100tfgg676-1" LaunchTime="1740516038">
+<GenRun Id="impl_2" LaunchPart="xc7a100tfgg676-1" LaunchTime="1740566901">
   <File Type="ROUTE-PWR" Name="tangerineA7_100_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="tangerineA7_100_wrapper.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="tangerineA7_100_wrapper_power_summary_routed.pb"/>
@@ -129,13 +129,55 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/blitter.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/boundingBox.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/fpalu/fpAlu.vhd">
       <FileInfo SFType="VHDL2019">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/gouraudEdge.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/gouraudIterator.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/gouraudIterator16.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/gouraudWeight.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/nekoRv/nekoRv.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/pixelAlpha.vhd">
       <FileInfo SFType="VHDL2019">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -172,6 +214,18 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/spi/spi.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/textureShader.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/triangleAreaDivisor.vhd">
       <FileInfo SFType="VHDL2019">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -265,15 +319,23 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023"/>
+    <StratHandle Name="Performance_NetDelay_high" Flow="Vivado Implementation 2023">
+      <Desc>To compensate for optimistic delay estimation, add extra delay cost to long distance and high fanout connections. (high setting, most pessimistic)</Desc>
+    </StratHandle>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
-    <Step Id="place_design"/>
+    <Step Id="place_design">
+      <Option Id="Directive">2</Option>
+    </Step>
     <Step Id="post_place_power_opt_design"/>
-    <Step Id="phys_opt_design"/>
-    <Step Id="route_design"/>
-    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="phys_opt_design">
+      <Option Id="Directive">2</Option>
+    </Step>
+    <Step Id="route_design">
+      <Option Id="Directive">1</Option>
+    </Step>
+    <Step Id="post_route_phys_opt_design" EnableStepBool="1"/>
     <Step Id="write_bitstream"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="ps2ControllerFifo"/>

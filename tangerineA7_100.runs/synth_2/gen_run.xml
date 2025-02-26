@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_2" LaunchPart="xc7a100tfgg676-1" LaunchTime="1740516038" LaunchWriteIncrSynthDcp="true">
+<GenRun Id="synth_2" LaunchPart="xc7a100tfgg676-1" LaunchTime="1740566901" LaunchWriteIncrSynthDcp="true">
   <File Type="PA-TCL" Name="tangerineA7_100_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="tangerineA7_100_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="tangerineA7_100_wrapper_reports.tcl"/>
@@ -54,13 +54,55 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/blitter.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/boundingBox.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/fpalu/fpAlu.vhd">
       <FileInfo SFType="VHDL2019">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/gouraudEdge.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/gouraudIterator.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/gouraudIterator16.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/gouraudWeight.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/nekoRv/nekoRv.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/pixelAlpha.vhd">
       <FileInfo SFType="VHDL2019">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -97,6 +139,18 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/spi/spi.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/textureShader.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/blitter/triangleAreaDivisor.vhd">
       <FileInfo SFType="VHDL2019">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -190,8 +244,18 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
-    <Step Id="synth_design"/>
+    <StratHandle Name="Flow_PerfOptimized_high" Flow="Vivado Synthesis 2023">
+      <Desc>Higher performance designs, resource sharing is turned off, the global fanout guide is set to a lower number, FSM extraction forced to one-hot, LUT combining is disabled, equivalent registers are preserved, SRL are inferred  with a larger threshold</Desc>
+    </StratHandle>
+    <Step Id="synth_design">
+      <Option Id="FsmExtraction">1</Option>
+      <Option Id="ResourceSharing">2</Option>
+      <Option Id="Directive">7</Option>
+      <Option Id="NoCombineLuts">1</Option>
+      <Option Id="ShregMinSize">5</Option>
+      <Option Id="KeepEquivalentRegisters">1</Option>
+      <Option Id="FlattenHierarchy">0</Option>
+    </Step>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="ps2ControllerFifo"/>
   <BlockFileSet Type="BlockSrcs" Name="dmaCh1BufRam"/>
