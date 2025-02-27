@@ -77,11 +77,12 @@ begin
    
             when rsWaitForRegAccess =>
          
+               ready <= '0';
+
                if ce = '1' then
                
                   --cpu wants to access registers
                
-                  ready <= '0';
                   
                   case a( 7 downto 0 ) is
                   
@@ -89,16 +90,12 @@ begin
                     when x"00" =>
                  
                         dout  <= x"80000002";   -- spi id
-                    
-                        ready <= '1';
-                    
+                                        
                     --0x04 r- component version                       
                     when x"01" =>
                  
                         dout  <= x"20240820";
                     
-                        ready <= '1';
-
                      --0x08 rw spiData                      
                      when x"02" =>
                      
@@ -111,19 +108,16 @@ begin
                            
                         end if;
 
-                        ready <= '1';
                         
                      --0x0c r- spiStatus                       
                      when x"03" =>
                      
                         dout  <= x"0000" & "000000000000000" & spiReady;
                         
-                        ready <= '1';
 
                      when others =>
                      
                         dout  <= ( others =>'0' );
-                        ready <= '1';
                   
                   end case; --a
                
@@ -134,6 +128,8 @@ begin
             
             when rsWaitForBusCycleEnd =>
             
+               ready <= '1';
+
                --wait for bus cycle to end
                if ce = '0' then
                

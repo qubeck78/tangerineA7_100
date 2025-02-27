@@ -242,8 +242,6 @@ begin
                
                if ce = '1' then
                
-                  --no waitstates
-                  ready <= '1';
                   
                   case a( 7 downto 0 ) is 
                
@@ -309,6 +307,8 @@ begin
                
             when rsWaitForBusCycleEnd =>
             
+               ready <= '1';
+
                --wait for the bus cycle to end
                
                if ce = '0' then

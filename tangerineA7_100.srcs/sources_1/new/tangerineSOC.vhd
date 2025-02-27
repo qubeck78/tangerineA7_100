@@ -315,6 +315,39 @@ port(
 );
 end component;
 
+--blitter
+component blitter is
+port( 
+    
+    --reset, clocks
+
+    reset:          in      std_logic;
+    clock:          in      std_logic;
+
+   --bus interface ( registers )
+
+    a:                  in      std_logic_vector( 15 downto 0 );
+    din:                in      std_logic_vector( 31 downto 0 );
+    dout:               out     std_logic_vector( 31 downto 0 );
+    ce:                 in      std_logic;
+    wr:                 in      std_logic;
+    dataMask:           in      std_logic_vector( 3 downto 0 );
+    ready:              out     std_logic;
+
+    --dma interface
+    
+    bltDmaRequest:      out     std_logic;
+    bltDmaReady:        in      std_logic;
+    bltDmaDataMask:     out     std_logic_vector( 3 downto 0 );
+    bltDmaA:            out     std_logic_vector( 31 downto 0 );
+    bltDmaDin:          in      std_logic_vector( 31 downto 0 );
+    bltDmaDout:         out     std_logic_vector( 31 downto 0 );
+    bltDmaWr:           out     std_logic
+    
+);
+end component;
+
+
 
 --risc-v cpu :)
 component nekoRv is
@@ -570,6 +603,20 @@ signal ch2BufWEB:          std_logic_vector( 15 downto 0 );
 signal ch2BufAB:           std_logic_vector( 7 downto 0 );
 signal ch2BufDInB:         std_logic_vector( 127 downto 0 );
 signal ch2BufDOutB:        std_logic_vector( 127 downto 0 );
+
+
+--blitter signals
+signal blitterRegsDoutForCPU:  std_logic_vector( 31 downto 0 );
+signal blitterRegsCE:          std_logic;
+signal blitterRegsReady:       std_logic;
+
+signal bltDmaRequest:          std_logic;
+signal bltDmaReady:            std_logic;
+signal bltDmaDataMask:         std_logic_vector( 3 downto 0 );
+signal bltDmaA:                std_logic_vector( 31 downto 0 );
+signal bltDmaDin:              std_logic_vector( 31 downto 0 );
+signal bltDmaDout:             std_logic_vector( 31 downto 0 );
+signal bltDmaWr:               std_logic;
 
 
 --fast RAM signals
@@ -854,7 +901,7 @@ port map(
    uartCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f04" else '0';
    spiCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f05" else '0';
    fpAluCE        <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f06" else '0';
---    blitterRegsCE   <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0f" else '0';
+   blitterRegsCE  <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f07" else '0';
 --    i2sCE           <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0f" else '0';  
     
   
@@ -871,8 +918,8 @@ port map(
                         else uartReady when uartCE = '1' 
                         else spiReady when spiCE = '1' 
                         else fpAluReady when fpAluCE = '1' 
+                        else blitterRegsReady when blitterRegsCE = '1' 
 --                        else fastRamReady when fastRamCE = '1' 
---                        else blitterRegsReady when blitterRegsCE = '1' 
 --                        else usbHostReady when usbHostCE = '1' 
 --                        else i2sReady when i2sCE = '1' 
                         else '1';
@@ -891,8 +938,7 @@ port map(
                         uartDoutForCPU                            when cpuAOutFull( 31 downto 20 ) = x"f04" else
                         spiDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f05" else
                         fpAluDoutForCPU                           when cpuAOutFull( 31 downto 20 ) = x"f06" else  
-
---                        blitterRegsDoutForCPU                     when cpuAOutFull( 31 downto 20 ) = x"f02" else
+                        blitterRegsDoutForCPU                     when cpuAOutFull( 31 downto 20 ) = x"f07" else
 --                        i2sDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f06" else 
 
                         x"00000000";
@@ -1001,15 +1047,15 @@ port map(
    ch2BufDOut           => ch2BufDOutB,
 
    --ch3 blitter
-   ch3A                 => ( others => '0' ),
-   ch3DIn               => ( others => '0' ),
-   --ch3DOut:          out   std_logic_vector( 31 downto 0 );
+   ch3A                 => bltDmaA,
+   ch3DIn               => bltDmaDout,
+   ch3DOut              => bltDmaDin,
    
-   ch3CE                => '0',
-   ch3Wr                => '0',
-   ch3DataMask          => ( others => '0' ),
+   ch3CE                => bltDmaRequest,
+   ch3Wr                => bltDmaWr,
+   ch3DataMask          => bltDmaDataMask,
    
-   --ch3Ready:         out   std_logic;
+   ch3Ready             => bltDmaReady,
 
    --axi master bus
    m00_axi_aclk      => m00_axi_aclk,
@@ -1056,6 +1102,36 @@ port map(
    
 );
 
+-- place blitter
+blitterInst:blitter
+port map( 
+    
+    --reset, clocks
+
+    reset         => reset,
+    clock         => mainClock,
+
+   --bus interface ( registers )
+
+    a             => cpuAOut( 15 downto 0 ),
+    din           => cpuDOut,
+    dout          => blitterRegsDoutForCPU,
+    ce            => blitterRegsCE,
+    wr            => cpuWr,
+    dataMask      => cpuDataMask,
+    ready         => blitterRegsReady,
+
+    --dma interface
+    
+    bltDmaRequest    => bltDmaRequest,
+    bltDmaReady      => bltDmaReady,
+    bltDmaDataMask   => bltDmaDataMask,
+    bltDmaA          => bltDmaA,
+    bltDmaDin        => bltDmaDin,  --in      std_logic_vector( 31 downto 0 );
+    bltDmaDout       => bltDmaDout, --out     std_logic_vector( 31 downto 0 );
+    bltDmaWr         => bltDmaWr
+    
+);
 
 
 

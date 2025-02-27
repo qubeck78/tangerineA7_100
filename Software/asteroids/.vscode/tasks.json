@@ -1,0 +1,57 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: make ",
+            "command": "make",
+            "args": [
+            ],
+            "options": {
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": ""
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: make send",
+            "command": "make send",
+            "args": [
+            ],
+            "options": {
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": ""
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: make clean",
+            "command": "make clean",
+            "args": [
+            ],
+            "options": {
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": ""
+        }
+ 
+    ],
+    "version": "2.0.0"
+}

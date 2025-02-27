@@ -142,12 +142,13 @@ begin
          case uartRegState is
    
             when urWaitForRegAccess =>
+
+               ready <= '0';
          
                if ce = '1' then
                
                   --cpu wants to access registers
                
-                  ready <= '0';
                   
                   case a( 7 downto 0 ) is
                  
@@ -156,14 +157,12 @@ begin
                  
                       dout  <= x"80000001";   -- serial id
                     
-                      ready <= '1';
                     
                     --0x04 r- component version                       
                   when x"01" =>
                  
                       dout  <= x"20240829";
                     
-                      ready <= '1';
               
                   --0x08 rw - uartData
                   when x"02" =>
@@ -182,19 +181,16 @@ begin
                            
                         end if;
 
-                        ready <= '1';
 
                      --0x0c r- uartStatus                   
                      when x"03" =>
                      
                         dout                 <= x"000000" & "000000" & dataSenderReady & dataReceivedReady;
 
-                        ready                <= '1';                       
                      
                      when others =>
                      
                         dout  <= ( others => '0' );
-                        ready <= '1';
                         
                   end case; -- a( 7 downto 0 ) is
                   
@@ -204,6 +200,8 @@ begin
                
             when urWaitForBusCycleEnd =>
             
+               ready <= '1';
+               
                --wait for bus cycle to end
                if ce = '0' then
                

@@ -69,12 +69,6 @@ uint32_t init()
    toCls( &con );
    toPrintF( &con, (char*)"Shell init\n" );
 
-   // setVideoMode( _VIDEOMODE_426_TEXT160_OVER_GFX );
-   //alloc screen buffer
-   // screen.width            = 426;
-   // screen.rowWidth         = 512;
-   // screen.height           = 240;
-
    screen.width            = 1280;
    screen.rowWidth         = 2048;
    screen.height           = 720;

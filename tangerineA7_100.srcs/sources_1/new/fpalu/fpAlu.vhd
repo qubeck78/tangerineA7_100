@@ -245,19 +245,8 @@ registers: process( all )
                         --0x18 r- fResult                       
                         when x"06" =>
                      
-                            if fpReady = '1' then
+                            regState <= rsWaitForResult;
                             
-                                dout  <= fResult;
-                                                    
-                                ready <= '1';
-                            
-                                regState <= rsWaitForBusCycleEnd;
-
-                            else
-                            
-                                regState <= rsWaitForResult;
-                            
-                            end if;
                             
                         when others =>
                         
@@ -275,7 +264,26 @@ registers: process( all )
                 
                     if fpReady = '1' then
                     
-                        dout  <= fResult;
+                        case command( 7 downto 0 ) is 
+                        
+                           when x"01" =>
+                              
+                              dout  <= fpAddSubDout;
+                        
+                           when x"02" =>   
+                        
+                              dout <= fpMulDout;
+                              
+                           when x"03" =>
+                           
+                              dout <= fpDivDout;
+                    
+                           when others =>
+                           
+                              dout <= ( others => '0' );
+                                     
+                        end case;
+                        
                                             
                         ready <= '1';
                     
@@ -306,11 +314,6 @@ registers: process( all )
    end process;
 
 
-fresult <= fpAddSubDout when command( 7 downto 0 ) = x"01" else 
-           fpMulDout    when command( 7 downto 0 ) = x"02" else 
-           fpDivDout    when command( 7 downto 0 ) = x"03" else 
-            
-           ( others => '0' );
 
 fpAddSubInst:fpAddSub
 port map(

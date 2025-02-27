@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/freeRTOStest",
+                "C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/freeRTOS/include",
+                "c:/Users/qubeck/Documents/Development/ProjektyVSCode/tangerine/freeRTOS/portable/GCC/RISC-V",
+                "C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "c:\\Program Files\\riscv-none-gcc\\bin\\riscv-none-embed-gcc.exe",
+            "cStandard": "c17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "windows-gcc-x64",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
+}

@@ -4,14 +4,14 @@
 #include <climits>
 #include <cstdio>
 
-#include "../gfxLib/bsp.h"
-#include "../gfxLib/osAlloc.h"
-#include "../gfxLib/osFile.h"
-#include "../gfxLib/gfBitmap.h"
-#include "../gfxLib/gfDrawing.h"
-#include "../gfxLib/gfFont.h"
+#include "bsp.h"
+#include "osAlloc.h"
+#include "osFile.h"
+#include "gfBitmap.h"
+#include "gfDrawing.h"
+#include "gfFont.h"
 
-#include "../gfxLib/osUIEvents.h"
+#include "osUIEvents.h"
 
 
 extern tgfTextOverlay   con;

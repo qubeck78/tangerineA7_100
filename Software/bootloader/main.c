@@ -365,6 +365,7 @@ int main()
    volatile uint32_t j;
    FRESULT           frv;
    uint32_t          startMs;
+   uint32_t          enableKeyboardCheck;
 
    //160x45 txt mode only
    vga->vmMode    = _VIDEOMODE_TEXT160_ONLY;
@@ -395,7 +396,7 @@ int main()
    print( (char*) ".---- ((---- ((------------.\n" );
    print( (char*) "| tangerineA7_100 Wukong   |\n" );
    print( (char*) "| Powered by nekoRV        |\n" );
-   print( (char*) "| Bootloader32IM B20250224 |\n" );
+   print( (char*) "| Bootloader32IM B20250226 |\n" );
    print( (char*) "| SOC B" );
    print( buf);
    print( (char*)"            |\n" );
@@ -412,20 +413,6 @@ int main()
    spriteGen->spriteY = 0;
   */ 
    
-   //clear ps2 keyboard fifo
-
-   startMs = bsp->tickTimerCounter;
-
-   while( !( ps2Host->keyboardStatus & 1 ))
-   {
-      i = ps2Host->keyboardData;
-
-      if( bsp->tickTimerCounter > ( startMs + 1000 ) )
-      {
-         break;
-      }
-   }
-
 
    //clear uart rx fifo
    while( uartGetC() != -1 );
@@ -453,6 +440,7 @@ int main()
    uartData = -1;
    fileBoot = 0;
 
+   enableKeyboardCheck  = 0;
 
    do
    {
@@ -493,6 +481,22 @@ int main()
       if( k >= 120 )
       {
          k = 0;
+
+          //clear ps2 keyboard fifo
+
+         startMs = bsp->tickTimerCounter;
+
+         while( ! ( ps2Host->keyboardStatus & 1 ) )
+         {
+            i = ps2Host->keyboardData;
+
+            if( bsp->tickTimerCounter > ( startMs + 1000 ) )
+            {
+               break;
+            }
+         }
+
+         enableKeyboardCheck = 1;
       }
 
       for( j = 0; j < 100000; j++ )
@@ -501,7 +505,7 @@ int main()
          if( uartData == 'S' ) break;  
       }
 
-      if( !( ps2Host->keyboardStatus & 1 ) )
+      if( enableKeyboardCheck && ( ! ( ps2Host->keyboardStatus & 1 ) ) )
       {
          i        = ps2Host->keyboardData;
          fileBoot = 1;
