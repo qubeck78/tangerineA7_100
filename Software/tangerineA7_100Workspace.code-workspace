@@ -50,6 +50,9 @@
 		},
 		{
 			"path": "../tangerineA7_100.srcs/sources_1/new"
+		},
+		{
+			"path": "secondStageBoot"
 		}
 	],
 	"settings": {}

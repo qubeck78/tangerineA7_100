@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Wed Feb 26 16:02:35 2025
+| Date             : Wed Feb 26 22:53:15 2025
 | Host             : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 | Command          : report_power -file tangerineA7_100_wrapper_power_routed.rpt -pb tangerineA7_100_wrapper_power_summary_routed.pb -rpx tangerineA7_100_wrapper_power_routed.rpx
 | Design           : tangerineA7_100_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.593        |
+| Total On-Chip Power (W)  | 1.585        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.482        |
+| Dynamic (W)              | 1.474        |
 | Device Static (W)        | 0.112        |
 | Effective TJA (C/W)      | 2.6          |
-| Max Ambient (C)          | 80.8         |
-| Junction Temperature (C) | 29.2         |
+| Max Ambient (C)          | 80.9         |
+| Junction Temperature (C) | 29.1         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,25 +52,25 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.110 |       29 |       --- |             --- |
-| Slice Logic              |     0.063 |    48321 |       --- |             --- |
-|   LUT as Logic           |     0.056 |    24857 |     63400 |           39.21 |
+| Clocks                   |     0.107 |       29 |       --- |             --- |
+| Slice Logic              |     0.064 |    48216 |       --- |             --- |
+|   LUT as Logic           |     0.058 |    24823 |     63400 |           39.15 |
 |   CARRY4                 |     0.004 |     1021 |     15850 |            6.44 |
-|   Register               |     0.002 |    16822 |    126800 |           13.27 |
+|   Register               |     0.002 |    16779 |    126800 |           13.23 |
 |   LUT as Distributed RAM |    <0.001 |      370 |     19000 |            1.95 |
 |   F7/F8 Muxes            |    <0.001 |      851 |     63400 |            1.34 |
 |   LUT as Shift Register  |    <0.001 |      247 |     19000 |            1.30 |
 |   Others                 |    <0.001 |     1287 |       --- |             --- |
-| Signals                  |     0.086 |    39431 |       --- |             --- |
-| Block RAM                |     0.189 |      124 |       135 |           91.85 |
+| Signals                  |     0.080 |    39347 |       --- |             --- |
+| Block RAM                |     0.188 |      124 |       135 |           91.85 |
 | MMCM                     |     0.376 |        4 |         6 |           66.67 |
 | PLL                      |     0.115 |        1 |         6 |           16.67 |
-| DSPs                     |     0.030 |       47 |       240 |           19.58 |
+| DSPs                     |     0.031 |       47 |       240 |           19.58 |
 | I/O                      |     0.398 |       69 |       300 |           23.00 |
 | PHASER                   |     0.110 |       14 |       --- |             --- |
 | XADC                     |     0.004 |        1 |       --- |             --- |
 | Static Power             |     0.112 |          |           |                 |
-| Total                    |     1.593 |          |           |                 |
+| Total                    |     1.585 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -80,7 +80,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.522 |       0.502 |      0.021 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.514 |       0.494 |      0.021 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.388 |       0.370 |      0.018 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.046 |       0.042 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -175,24 +175,24 @@ Table of Contents
 +-----------------------------------------------------------+-----------+
 | Name                                                      | Power (W) |
 +-----------------------------------------------------------+-----------+
-| tangerineA7_100_wrapper                                   |     1.482 |
-|   tangerineA7_100_i                                       |     1.477 |
+| tangerineA7_100_wrapper                                   |     1.474 |
+|   tangerineA7_100_i                                       |     1.470 |
 |     clk_wiz_0                                             |     0.087 |
 |       inst                                                |     0.087 |
 |     clk_wiz_1                                             |     0.106 |
 |       inst                                                |     0.106 |
 |     clk_wiz_2                                             |     0.097 |
 |       inst                                                |     0.097 |
-|     hdmiOut_0                                             |     0.143 |
-|     tangerineMIGWrapper_0                                 |     0.624 |
-|       inst/tangerineMIGInst                               |     0.624 |
-|     tangerineSOC_0                                        |     0.420 |
+|     hdmiOut_0                                             |     0.142 |
+|     tangerineMIGWrapper_0                                 |     0.622 |
+|       inst/tangerineMIGInst                               |     0.622 |
+|     tangerineSOC_0                                        |     0.415 |
 |       inst/axiDMAInst/cacheDataRamW0Inst                  |     0.026 |
 |       inst/axiDMAInst/cacheDataRamW1Inst                  |     0.026 |
 |       inst/axiDMAInst/cacheDataRamW2Inst                  |     0.026 |
 |       inst/axiDMAInst/cacheDataRamW3Inst                  |     0.025 |
 |       inst/axiDMAInst/cachePageWayCounter_reg_0_255_0_0   |     0.005 |
-|       inst/axiDMAInst/cachePageWayCounter_reg_256_511_0_0 |     0.005 |
+|       inst/axiDMAInst/cachePageWayCounter_reg_256_511_0_0 |     0.004 |
 |       inst/axiDMAInst/cacheTagRamW0Inst                   |     0.004 |
 |       inst/axiDMAInst/cacheTagRamW1Inst                   |     0.004 |
 |       inst/axiDMAInst/cacheTagRamW2Inst                   |     0.004 |

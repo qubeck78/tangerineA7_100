@@ -507,22 +507,16 @@ begin
                         --0x00 r- id                      
                         when x"00" =>
                  
-                            ready   <= '1';
-
                             dout    <= x"80000005";   -- blitter id
                                         
                         --0x04 r- component version                       
                         when x"01" =>
 
-                            ready   <= '1';
-                 
                             dout    <= x"20250226";
                     
                         --0x08 rw commandReg
                         when x"02" =>
 
-                            ready   <= '1';
-                            
                             dout    <= x"0000000" & "000" & bltReady;
                             
                             if wr = '1' then
@@ -538,8 +532,6 @@ begin
                         --0x0c rw input0Reg
                         when x"03" =>
 
-                            ready   <= '1';
-
                             dout    <= input0Reg;
                             
                             if wr = '1' then
@@ -550,8 +542,6 @@ begin
                             
                         --0x10 rw input1Reg
                         when x"04" =>
-
-                            ready   <= '1';
 
                             dout    <= input1Reg;
                             
@@ -564,7 +554,6 @@ begin
                         --0x14 rw input2Reg
                         when x"05" =>
 
-                            ready   <= '1';
 
                             dout    <= input2Reg;
                             
@@ -577,7 +566,6 @@ begin
                         --0x18 rw input3Reg
                         when x"06" =>
 
-                            ready   <= '1';
 
                             dout    <= input3Reg;
                             
@@ -590,7 +578,6 @@ begin
                         --0x1c rw saAddressReg
                         when x"07" =>
                         
-                            ready   <= '1';
 
                             dout    <= saAddressReg;
                             
@@ -604,7 +591,6 @@ begin
                         --0x20 rw saRowWidthReg
                         when x"08" =>
                         
-                            ready   <= '1';
 
                             dout    <= x"0000" & saRowWidthReg;
                             
@@ -618,7 +604,6 @@ begin
                         --0x24 rw saWidthReg
                         when x"09" =>
                         
-                            ready   <= '1';
 
                             dout    <= x"0000" & saWidthReg;
                             
@@ -632,7 +617,6 @@ begin
                         --0x28 rw saHeightReg
                         when x"0a" =>
                         
-                            ready   <= '1';
 
                             dout    <= x"0000" & saHeightReg;
                             
@@ -646,7 +630,6 @@ begin
                         --0x2c rw sbAddressReg
                         when x"0b" =>
                         
-                            ready   <= '1';
 
                             dout    <= sbAddressReg;
                             
@@ -660,7 +643,6 @@ begin
                         --0x30 rw sbRowWidthReg
                         when x"0c" =>
                         
-                            ready   <= '1';
 
                             dout    <= x"0000" & sbRowWidthReg;
                             
@@ -674,7 +656,6 @@ begin
                         --0x34 rw scAddressReg
                         when x"0d" =>
                         
-                            ready   <= '1';
 
                             dout    <= scAddressReg;
                                                         
@@ -687,7 +668,6 @@ begin
                         --0x38 rw scRowWidthReg
                         when x"0e" =>
                         
-                            ready   <= '1';
 
                             dout    <= x"0000" & scRowWidthReg;
                                                         
@@ -700,7 +680,6 @@ begin
                         --0x3c rw daAddressReg
                         when x"0f" =>
                         
-                            ready   <= '1';
 
                             dout    <= daAddressReg;
                                                        
@@ -715,7 +694,6 @@ begin
                         
                             dout    <= x"0000" & daRowWidthReg;
                             
-                            ready   <= '1';
                             
                             if wr = '1' then
                             
@@ -726,7 +704,6 @@ begin
                         --0x44 rw daWidthReg
                         when x"11" =>
                         
-                            ready   <= '1';
 
                             dout    <= x"0000" & daWidthReg;
                                                         
@@ -739,7 +716,6 @@ begin
                         --0x48 rw daHeightReg
                         when x"12" =>
                         
-                            ready   <= '1';
 
                             dout    <= x"0000" & daHeightReg;
                                                         
@@ -752,7 +728,6 @@ begin
                         --0x4c rw daHeightReg
                         when x"13" =>
                         
-                            ready   <= '1';
 
                             dout    <= dbAddressReg;
                                                         
@@ -765,7 +740,6 @@ begin
                         --0x50 rw dbRowWidthReg
                         when x"14" =>
                         
-                            ready   <= '1';
 
                             dout    <= x"0000" & dbRowWidthReg;
                                                         
@@ -778,7 +752,6 @@ begin
                        --0x54 rw bbXMinReg
                        when x"15" =>
                        
-                            ready   <= '1';
                             dout    <= x"0000" & bbXMinReg;
                             
                             if wr = '1' then
@@ -790,7 +763,6 @@ begin
                        --0x58 rw bbXMaxReg
                        when x"16" =>
                        
-                            ready   <= '1';
                             dout    <= x"0000" & bbXMaxReg;
                             
                             if wr = '1' then
@@ -802,7 +774,6 @@ begin
                        --0x5c rw bbYMinReg
                        when x"17" =>
                        
-                            ready   <= '1';
                             dout    <= x"0000" & bbYMinReg;
                             
                             if wr = '1' then
@@ -814,7 +785,6 @@ begin
                        --0x60 rw bbYMaxReg
                        when x"18" =>
                        
-                            ready   <= '1';
                             dout    <= x"0000" & bbYMaxReg;
                             
                             if wr = '1' then
@@ -826,7 +796,6 @@ begin
                        --0x64 rw aXReg
                        when x"19" =>
                        
-                            ready   <= '1';
                             dout    <= x"0000" & aXReg;
                             
                             if wr = '1' then
@@ -838,7 +807,6 @@ begin
                        --0x68 rw aYReg
                        when x"1a" =>
                        
-                            ready   <= '1';
                             dout    <= x"0000" & aYReg;
                             
                             if wr = '1' then
@@ -850,7 +818,6 @@ begin
                        --0x6c rw aZReg
                        when x"1b" =>
                        
-                            ready   <= '1';
                             dout    <= x"0000" & aZReg;
                             
                             if wr = '1' then
@@ -862,7 +829,6 @@ begin
                        --0x70 rw aIt0
                        when x"1c" =>
                        
-                            ready   <= '1';
                             dout    <= x"000000" & aIt0Reg;
                             
                             if wr = '1' then
@@ -874,7 +840,6 @@ begin
                        --0x74 rw aIt1
                        when x"1d" =>
                        
-                            ready   <= '1';
                             dout    <= x"000000" & aIt1Reg;
                             
                             if wr = '1' then
@@ -886,7 +851,6 @@ begin
                        --0x78 rw aIt2
                        when x"1e" =>
                        
-                            ready   <= '1';
                             dout    <= x"000000" & aIt2Reg;
                             
                             if wr = '1' then
@@ -898,7 +862,6 @@ begin
                        --0x7c rw bXReg
                        when x"1f" =>
                        
-                            ready   <= '1';
                             dout    <= x"0000" & bXReg;
                             
                             if wr = '1' then
@@ -910,7 +873,6 @@ begin
                        --0x80 rw bYReg
                        when x"20" =>
                        
-                            ready   <= '1';
                             dout    <= x"0000" & bYReg;
                             
                             if wr = '1' then
@@ -922,7 +884,6 @@ begin
                        --0x84 rw bZReg
                        when x"21" =>
                        
-                            ready   <= '1';
                             dout    <= x"0000" & bZReg;
                             
                             if wr = '1' then
@@ -934,7 +895,6 @@ begin
                        --0x88 rw bIt0
                        when x"22" =>
                        
-                            ready   <= '1';
                             dout    <= x"000000" & bIt0Reg;
                             
                             if wr = '1' then
@@ -946,7 +906,6 @@ begin
                        --0x8c rw bIt1
                        when x"23" =>
                        
-                            ready   <= '1';
                             dout    <= x"000000" & bIt1Reg;
                             
                             if wr = '1' then
@@ -958,7 +917,6 @@ begin
                        --0x90 rw bIt2
                        when x"24" =>
                        
-                            ready   <= '1';
                             dout    <= x"000000" & bIt2Reg;
                             
                             if wr = '1' then
@@ -970,7 +928,6 @@ begin
                        --0x94 rw cXReg
                        when x"25" =>
                        
-                            ready   <= '1';
                             dout    <= x"0000" & cXReg;
                             
                             if wr = '1' then
@@ -982,7 +939,6 @@ begin
                        --0x98 rw cYReg
                        when x"26" =>
                        
-                            ready   <= '1';
                             dout    <= x"0000" & cYReg;
                             
                             if wr = '1' then
@@ -994,7 +950,6 @@ begin
                        --0x9c rw cZReg
                        when x"27" =>
                        
-                            ready   <= '1';
                             dout    <= x"0000" & cZReg;
                             
                             if wr = '1' then
@@ -1013,7 +968,6 @@ begin
                        --0xa0 rw cIt0
                        when x"28" =>
                        
-                            ready   <= '1';
                             dout    <= x"000000" & cIt0Reg;
                             
                             if wr = '1' then
@@ -1025,7 +979,6 @@ begin
                        --0xa4 rw cIt1
                        when x"29" =>
                        
-                            ready   <= '1';
                             dout    <= x"000000" & cIt1Reg;
                             
                             if wr = '1' then
@@ -1037,7 +990,6 @@ begin
                        --0xa8 rw cIt2
                        when x"2a" =>
                        
-                            ready   <= '1';
                             dout    <= x"000000" & cIt2Reg;
                             
                             if wr = '1' then
@@ -1049,18 +1001,15 @@ begin
                        --0xac r- triangleArea
                        when x"2b" =>
 
-                            ready   <= '1';
                             dout    <= triangleArea;
      
                        --0xb0 r- triangleAreaInv
                        when x"2c" =>
 
-                            ready   <= '1';
                             dout    <= triangleAreaInv;
                                               
                        when others =>
                        
-                            ready <= '1';
                             
                     end case;
                                          
@@ -1070,6 +1019,8 @@ begin
               
             when rsWaitForBusCycleEnd =>
            
+                ready <= '1';
+
                 --wait for bus cycle to end
                 if ce = '0' then
               

@@ -38,7 +38,8 @@ port(
    -- 720p sync:
    -- 00 : 426x240x16
    -- 01 : 640x360x16
-
+   -- 10 : 1280x720x16
+   
    pgVideoMode:      in  std_logic_vector( 1 downto 0 );
    
    pgEnabled:        in  std_logic
