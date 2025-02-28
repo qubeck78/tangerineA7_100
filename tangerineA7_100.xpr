@@ -581,11 +581,11 @@
         <Step Id="synth_design">
           <Option Id="FlattenHierarchy">0</Option>
           <Option Id="KeepEquivalentRegisters">1</Option>
-          <Option Id="ResourceSharing">2</Option>
           <Option Id="Directive">7</Option>
-          <Option Id="ShregMinSize">5</Option>
+          <Option Id="ResourceSharing">2</Option>
           <Option Id="FsmExtraction">1</Option>
           <Option Id="NoCombineLuts">1</Option>
+          <Option Id="ShregMinSize">5</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -699,11 +699,11 @@
         <Step Id="synth_design">
           <Option Id="FlattenHierarchy">0</Option>
           <Option Id="KeepEquivalentRegisters">1</Option>
-          <Option Id="ResourceSharing">2</Option>
           <Option Id="Directive">7</Option>
-          <Option Id="ShregMinSize">5</Option>
+          <Option Id="ResourceSharing">2</Option>
           <Option Id="FsmExtraction">1</Option>
           <Option Id="NoCombineLuts">1</Option>
+          <Option Id="ShregMinSize">5</Option>
         </Step>
       </Strategy>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2023"/>
@@ -754,7 +754,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="impl_2" Type="Ft2:EntireDesign" Part="xc7a100tfgg676-1" ConstrsSet="constrs_1" Description="To compensate for optimistic delay estimation, add extra delay cost to long distance and high fanout connections. (high setting, most pessimistic)" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_2" SynthRun="synth_2" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_2" LaunchOptions="-jobs 16 " AutoRQSDir="$PSRCDIR/utils_1/imports/impl_2">
+    <Run Id="impl_2" Type="Ft2:EntireDesign" Part="xc7a100tfgg676-1" ConstrsSet="constrs_1" Description="To compensate for optimistic delay estimation, add extra delay cost to long distance and high fanout connections. (high setting, most pessimistic)" AutoIncrementalCheckpoint="true" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_2" SynthRun="synth_2" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_2" LaunchOptions="-jobs 16 " AutoRQSDir="$PSRCDIR/utils_1/imports/impl_2">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Performance_NetDelay_high" Flow="Vivado Implementation 2023"/>
         <Step Id="init_design"/>

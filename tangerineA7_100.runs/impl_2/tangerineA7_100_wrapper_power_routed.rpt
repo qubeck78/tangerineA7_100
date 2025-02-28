@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Fri Feb 28 14:39:26 2025
+| Date             : Fri Feb 28 18:10:06 2025
 | Host             : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 | Command          : report_power -file tangerineA7_100_wrapper_power_routed.rpt -pb tangerineA7_100_wrapper_power_summary_routed.pb -rpx tangerineA7_100_wrapper_power_routed.rpx
 | Design           : tangerineA7_100_wrapper
@@ -53,14 +53,14 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.108 |       29 |       --- |             --- |
-| Slice Logic              |     0.059 |    48861 |       --- |             --- |
+| Slice Logic              |     0.059 |    48859 |       --- |             --- |
 |   LUT as Logic           |     0.054 |    25004 |     63400 |           39.44 |
 |   CARRY4                 |     0.003 |     1040 |     15850 |            6.56 |
 |   Register               |    <0.001 |    17145 |    126800 |           13.52 |
 |   LUT as Distributed RAM |    <0.001 |      370 |     19000 |            1.95 |
 |   F7/F8 Muxes            |    <0.001 |      855 |     63400 |            1.35 |
 |   LUT as Shift Register  |    <0.001 |      248 |     19000 |            1.31 |
-|   Others                 |    <0.001 |     1329 |       --- |             --- |
+|   Others                 |    <0.001 |     1327 |       --- |             --- |
 |   BUFG                   |     0.000 |        1 |        32 |            3.13 |
 | Signals                  |     0.082 |    39809 |       --- |             --- |
 | Block RAM                |     0.190 |      126 |       135 |           93.33 |

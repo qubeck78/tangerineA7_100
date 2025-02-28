@@ -98,7 +98,7 @@ begin
 
 --assign unused ports/signals
 
-i2sSClk     <= 'Z';
+i2sSClk     <= '0';
 
 
 -- place audio fifo
