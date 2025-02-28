@@ -396,7 +396,7 @@ int main()
    print( (char*) ".---- ((---- ((------------.\n" );
    print( (char*) "| tangerineA7_100 Wukong   |\n" );
    print( (char*) "| Powered by nekoRV        |\n" );
-   print( (char*) "| Bootloader32IM B20250226 |\n" );
+   print( (char*) "| Bootloader32IM B20250228 |\n" );
    print( (char*) "| SOC B" );
    print( buf);
    print( (char*)"            |\n" );
@@ -442,9 +442,30 @@ int main()
 
    enableKeyboardCheck  = 0;
 
+   startMs = bsp->tickTimerCounter;
+
    do
    {
       
+      if( ( bsp->tickTimerCounter > ( startMs + 1000 ) ) && ( !enableKeyboardCheck ) ) 
+      {
+          //clear ps2 keyboard fifo
+
+          startMs = bsp->tickTimerCounter;
+
+          while( ! ( ps2Host->keyboardStatus & 1 ) )
+          {
+             i = ps2Host->keyboardData;
+ 
+             if( bsp->tickTimerCounter > ( startMs + 1000 ) )
+             {
+                break;
+             }
+          }
+ 
+          enableKeyboardCheck = 1;
+      }
+
       screenIndex = 160 * 22 + 50;
 
       for( i = 0; i < 60; i++ )
@@ -481,22 +502,6 @@ int main()
       if( k >= 120 )
       {
          k = 0;
-
-          //clear ps2 keyboard fifo
-
-         startMs = bsp->tickTimerCounter;
-
-         while( ! ( ps2Host->keyboardStatus & 1 ) )
-         {
-            i = ps2Host->keyboardData;
-
-            if( bsp->tickTimerCounter > ( startMs + 1000 ) )
-            {
-               break;
-            }
-         }
-
-         enableKeyboardCheck = 1;
       }
 
       for( j = 0; j < 100000; j++ )

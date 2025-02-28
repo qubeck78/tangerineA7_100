@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB061696FF737302E",
+      "boundary_crc": "0x12F2D02E23AC0DAA",
       "device": "xc7a100tfgg676-1",
       "gen_directory": "../../../../tangerineA7_100.gen/sources_1/bd/tangerineA7_100",
       "name": "tangerineA7_100",
@@ -180,6 +180,18 @@
       },
       "ps2bData": {
         "direction": "IO"
+      },
+      "i2sSClk": {
+        "direction": "O"
+      },
+      "i2sBClk": {
+        "direction": "O"
+      },
+      "i2sLRCk": {
+        "direction": "O"
+      },
+      "i2sDOut": {
+        "direction": "O"
       }
     },
     "components": {
@@ -1446,23 +1458,6 @@
               }
             }
           },
-          "mainClockPs": {
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "162500000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "190.0",
-                "value_src": "ip_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "tangerineA7_100_tangerineMIGWrapper_0_0_ui_clk",
-                "value_src": "ip_prop"
-              }
-            }
-          },
           "mainClockD2": {
             "direction": "I",
             "parameters": {
@@ -1581,6 +1576,18 @@
           },
           "ps2bData": {
             "direction": "IO"
+          },
+          "i2sSClk": {
+            "direction": "O"
+          },
+          "i2sBClk": {
+            "direction": "O"
+          },
+          "i2sLRCk": {
+            "direction": "O"
+          },
+          "i2sDOut": {
+            "direction": "O"
           },
           "buttons": {
             "direction": "I",
@@ -1732,12 +1739,6 @@
           "tangerineSOC_0/mainClock"
         ]
       },
-      "clk_wiz_2_clk162_5ps": {
-        "ports": [
-          "clk_wiz_2/clk162_5ps",
-          "tangerineSOC_0/mainClockPs"
-        ]
-      },
       "clk_wiz_2_clk40_625": {
         "ports": [
           "clk_wiz_2/clk40_625",
@@ -1852,6 +1853,30 @@
           "tangerineMIGWrapper_0/ui_clk",
           "clk_wiz_2/clk_in1",
           "tangerineSOC_0/m00_axi_aclk"
+        ]
+      },
+      "tangerineSOC_0_i2sBClk": {
+        "ports": [
+          "tangerineSOC_0/i2sBClk",
+          "i2sBClk"
+        ]
+      },
+      "tangerineSOC_0_i2sDOut": {
+        "ports": [
+          "tangerineSOC_0/i2sDOut",
+          "i2sDOut"
+        ]
+      },
+      "tangerineSOC_0_i2sLRCk": {
+        "ports": [
+          "tangerineSOC_0/i2sLRCk",
+          "i2sLRCk"
+        ]
+      },
+      "tangerineSOC_0_i2sSClk": {
+        "ports": [
+          "tangerineSOC_0/i2sSClk",
+          "i2sSClk"
         ]
       },
       "tangerineSOC_0_leds": {

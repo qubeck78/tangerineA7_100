@@ -203,7 +203,7 @@ signal ch1DmaRequestLength:   std_logic_vector( 7 downto 0 );
 signal ch1DmaRequestPtrAdd:  std_logic_vector( 15 downto 0 );
 
 --cache signals
-
+signal cacheClock:         std_logic;
 signal cacheA:             std_logic_vector( 31 downto 0 );
 signal cacheDIn:           std_logic_vector( 31 downto 0 );
 signal cacheDataMask:      std_logic_vector( 3 downto 0 );
@@ -328,10 +328,14 @@ begin
 -- negative reset
 resetn   <= not reset;
 
+--assign clocks
+
 --clock for ch2 buffer ram
 ch2BufClock    <= clock;
 
-
+--cache clock
+--cacheClock     <= not m00_axi_aclk;
+cacheClock     <= clock;
 
 --set unused signals, ports
 
@@ -370,14 +374,14 @@ cacheDataRamW0Inst:cacheDataRam
 port map(
 
    --cpu side
-   clka     => clock,
+   clka     => cacheClock,
    wea      => cacheWay0WEa,
    addra    => cacheWay0Aa,
    dina     => cacheWay0DIna,
    douta    => cacheWay0DOuta,
    
    --ddr side
-   clkb     => clock,
+   clkb     => cacheClock,
    web      => cacheWay0WEb,
    addrb    => cacheWay0Ab,
    dinb     => cacheWay0DInb,
@@ -389,14 +393,14 @@ cacheDataRamW1Inst:cacheDataRam
 port map(
 
    --cpu side
-   clka     => clock,
+   clka     => cacheClock,
    wea      => cacheWay1WEa,
    addra    => cacheWay1Aa,
    dina     => cacheWay1DIna,
    douta    => cacheWay1DOuta,
    
    --ddr side
-   clkb     => clock,
+   clkb     => cacheClock,
    web      => cacheWay1WEb,
    addrb    => cacheWay1Ab,
    dinb     => cacheWay1DInb,
@@ -408,14 +412,14 @@ cacheDataRamW2Inst:cacheDataRam
 port map(
 
    --cpu side
-   clka     => clock,
+   clka     => cacheClock,
    wea      => cacheWay2WEa,
    addra    => cacheWay2Aa,
    dina     => cacheWay2DIna,
    douta    => cacheWay2DOuta,
    
    --ddr side
-   clkb     => clock,
+   clkb     => cacheClock,
    web      => cacheWay2WEb,
    addrb    => cacheWay2Ab,
    dinb     => cacheWay2DInb,
@@ -427,14 +431,14 @@ cacheDataRamW3Inst:cacheDataRam
 port map(
 
    --cpu side
-   clka     => clock,
+   clka     => cacheClock,
    wea      => cacheWay3WEa,
    addra    => cacheWay3Aa,
    dina     => cacheWay3DIna,
    douta    => cacheWay3DOuta,
    
    --ddr side
-   clkb     => clock,
+   clkb     => cacheClock,
    web      => cacheWay3WEb,
    addrb    => cacheWay3Ab,
    dinb     => cacheWay3DInb,
@@ -458,7 +462,7 @@ cacheTagWay3DIn   <= "000" & cacheA( 27 downto 15 );
 --way0
 cacheTagRamW0Inst:cacheTagRam
 port map(
-   clka     => clock,
+   clka     => cacheClock,
    wea(0)   => cacheTagWay0We,
    addra    => cacheTagWay0A,
    dina     => cacheTagWay0DIn,
@@ -468,7 +472,7 @@ port map(
 --way1
 cacheTagRamW1Inst:cacheTagRam
 port map(
-   clka     => clock,
+   clka     => cacheClock,
    wea(0)   => cacheTagWay1We,
    addra    => cacheTagWay1A,
    dina     => cacheTagWay1DIn,
@@ -478,7 +482,7 @@ port map(
 --way2
 cacheTagRamW2Inst:cacheTagRam
 port map(
-   clka     => clock,
+   clka     => cacheClock,
    wea(0)   => cacheTagWay2We,
    addra    => cacheTagWay2A,
    dina     => cacheTagWay2DIn,
@@ -488,7 +492,7 @@ port map(
 --way3
 cacheTagRamW3Inst:cacheTagRam
 port map(
-   clka     => clock,
+   clka     => cacheClock,
    wea(0)   => cacheTagWay3We,
    addra    => cacheTagWay3A,
    dina     => cacheTagWay3DIn,

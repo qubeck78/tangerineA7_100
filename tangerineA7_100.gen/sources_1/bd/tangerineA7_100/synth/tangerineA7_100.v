@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Wed Feb 26 22:29:09 2025
+//Date        : Fri Feb 28 18:29:28 2025
 //Host        : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 //Command     : generate_target tangerineA7_100.bd
 //Design      : tangerineA7_100
@@ -32,6 +32,10 @@ module tangerineA7_100
     hdmiClkP,
     hdmiDN,
     hdmiDP,
+    i2sBClk,
+    i2sDOut,
+    i2sLRCk,
+    i2sSClk,
     led0,
     led1,
     ps2aClock,
@@ -64,6 +68,10 @@ module tangerineA7_100
   output hdmiClkP;
   output [2:0]hdmiDN;
   output [2:0]hdmiDP;
+  output i2sBClk;
+  output i2sDOut;
+  output i2sLRCk;
+  output i2sSClk;
   output [0:0]led0;
   output [0:0]led1;
   inout ps2aClock;
@@ -96,7 +104,6 @@ module tangerineA7_100
   wire clk_wiz_1_clk200;
   wire clk_wiz_1_locked;
   wire clk_wiz_2_clk162_5;
-  wire clk_wiz_2_clk162_5ps;
   wire clk_wiz_2_clk40_625;
   wire hdmiOut_0_hdmiClkN;
   wire hdmiOut_0_hdmiClkP;
@@ -116,6 +123,10 @@ module tangerineA7_100
   wire tangerineMIGWrapper_0_ddr3_we_n;
   wire tangerineMIGWrapper_0_mmcm_locked;
   wire tangerineMIGWrapper_0_ui_clk;
+  wire tangerineSOC_0_i2sBClk;
+  wire tangerineSOC_0_i2sDOut;
+  wire tangerineSOC_0_i2sLRCk;
+  wire tangerineSOC_0_i2sSClk;
   wire [1:0]tangerineSOC_0_leds;
   wire [31:0]tangerineSOC_0_m00_axi_ARADDR;
   wire [1:0]tangerineSOC_0_m00_axi_ARBURST;
@@ -181,6 +192,10 @@ module tangerineA7_100
   assign hdmiClkP = hdmiOut_0_hdmiClkP;
   assign hdmiDN[2:0] = hdmiOut_0_hdmiDN;
   assign hdmiDP[2:0] = hdmiOut_0_hdmiDP;
+  assign i2sBClk = tangerineSOC_0_i2sBClk;
+  assign i2sDOut = tangerineSOC_0_i2sDOut;
+  assign i2sLRCk = tangerineSOC_0_i2sLRCk;
+  assign i2sSClk = tangerineSOC_0_i2sSClk;
   assign led0[0] = xlslice_1_Dout;
   assign led1[0] = xlslice_0_Dout;
   assign sdMciClk = tangerineSOC_0_sdMciClk;
@@ -202,7 +217,6 @@ module tangerineA7_100
         .resetn(button0_1));
   tangerineA7_100_clk_wiz_2_0 clk_wiz_2
        (.clk162_5(clk_wiz_2_clk162_5),
-        .clk162_5ps(clk_wiz_2_clk162_5ps),
         .clk40_625(clk_wiz_2_clk40_625),
         .clk_in1(tangerineMIGWrapper_0_ui_clk),
         .locked(Net9),
@@ -283,6 +297,10 @@ module tangerineA7_100
         .ui_clk(tangerineMIGWrapper_0_ui_clk));
   tangerineA7_100_tangerineSOC_0_0 tangerineSOC_0
        (.buttons(button1_1),
+        .i2sBClk(tangerineSOC_0_i2sBClk),
+        .i2sDOut(tangerineSOC_0_i2sDOut),
+        .i2sLRCk(tangerineSOC_0_i2sLRCk),
+        .i2sSClk(tangerineSOC_0_i2sSClk),
         .leds(tangerineSOC_0_leds),
         .m00_axi_aclk(tangerineMIGWrapper_0_ui_clk),
         .m00_axi_araddr(tangerineSOC_0_m00_axi_ARADDR),
@@ -322,7 +340,6 @@ module tangerineA7_100
         .m00_axi_wvalid(tangerineSOC_0_m00_axi_WVALID),
         .mainClock(clk_wiz_2_clk162_5),
         .mainClockD2(clk_wiz_2_clk40_625),
-        .mainClockPs(clk_wiz_2_clk162_5ps),
         .pixelClock(clk_wiz_0_clk25),
         .ps2aClock(ps2aClock),
         .ps2aData(ps2aData),

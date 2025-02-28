@@ -101,6 +101,7 @@ read_vhdl -vhdl2019 -library xil_defaultlib {
   C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/blitter/gouraudIterator.vhd
   C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/blitter/gouraudIterator16.vhd
   C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/blitter/gouraudWeight.vhd
+  C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/i2s/is2Controller.vhd
   C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/nekoRv/nekoRv.vhd
   C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/blitter/pixelAlpha.vhd
   C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/new/vga/pixelGenGfx.vhd
@@ -123,6 +124,11 @@ read_vhdl -library xil_defaultlib {
 read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine.xci
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine/user_design/constraints/mig_7series_tangerine.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/mig_7series_tangerine/mig_7series_tangerine/user_design/constraints/mig_7series_tangerine_ooc.xdc]
+
+read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/i2sControllerFifo/i2sControllerFifo.xci
+set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/i2sControllerFifo/i2sControllerFifo.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/i2sControllerFifo/i2sControllerFifo_clocks.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/i2sControllerFifo/i2sControllerFifo_ooc.xdc]
 
 read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/fpDiv/fpDiv.xci
 set_property used_in_implementation false [get_files -all c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/ip/fpDiv/fpDiv_ooc.xdc]

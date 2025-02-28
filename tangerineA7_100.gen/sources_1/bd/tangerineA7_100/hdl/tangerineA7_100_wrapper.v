@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Wed Feb 26 22:29:09 2025
+//Date        : Fri Feb 28 18:29:28 2025
 //Host        : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
 //Command     : generate_target tangerineA7_100_wrapper.bd
 //Design      : tangerineA7_100_wrapper
@@ -31,6 +31,10 @@ module tangerineA7_100_wrapper
     hdmiClkP,
     hdmiDN,
     hdmiDP,
+    i2sBClk,
+    i2sDOut,
+    i2sLRCk,
+    i2sSClk,
     led0,
     led1,
     ps2aClock,
@@ -63,6 +67,10 @@ module tangerineA7_100_wrapper
   output hdmiClkP;
   output [2:0]hdmiDN;
   output [2:0]hdmiDP;
+  output i2sBClk;
+  output i2sDOut;
+  output i2sLRCk;
+  output i2sSClk;
   output [0:0]led0;
   output [0:0]led1;
   inout ps2aClock;
@@ -96,6 +104,10 @@ module tangerineA7_100_wrapper
   wire hdmiClkP;
   wire [2:0]hdmiDN;
   wire [2:0]hdmiDP;
+  wire i2sBClk;
+  wire i2sDOut;
+  wire i2sLRCk;
+  wire i2sSClk;
   wire [0:0]led0;
   wire [0:0]led1;
   wire ps2aClock;
@@ -130,6 +142,10 @@ module tangerineA7_100_wrapper
         .hdmiClkP(hdmiClkP),
         .hdmiDN(hdmiDN),
         .hdmiDP(hdmiDP),
+        .i2sBClk(i2sBClk),
+        .i2sDOut(i2sDOut),
+        .i2sLRCk(i2sLRCk),
+        .i2sSClk(i2sSClk),
         .led0(led0),
         .led1(led1),
         .ps2aClock(ps2aClock),

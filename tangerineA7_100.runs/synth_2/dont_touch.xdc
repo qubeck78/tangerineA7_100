@@ -36,6 +36,9 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7
 # IP: bd/tangerineA7_100/ip/tangerineA7_100_tangerineSOC_0_0/tangerineA7_100_tangerineSOC_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7_100_tangerineSOC_0_0 || ORIG_REF_NAME==tangerineA7_100_tangerineSOC_0_0} -quiet] -quiet
 
+# IP: ip/i2sControllerFifo/i2sControllerFifo.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==i2sControllerFifo || ORIG_REF_NAME==i2sControllerFifo} -quiet] -quiet
+
 # IP: ip/fpDiv/fpDiv.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fpDiv || ORIG_REF_NAME==fpDiv} -quiet] -quiet
 

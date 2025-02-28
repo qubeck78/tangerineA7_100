@@ -25,10 +25,11 @@ uint32_t gfAudioInit( void );
 uint32_t gfAudioConfigure( uint32_t samplingRate, uint32_t samplingRateDivisor );
 uint32_t gfAudioStopDMA( void );
 uint32_t gfAudioPlayDMA( int16_t *buffer, uint32_t length, uint32_t format, uint32_t flags );
+uint32_t gfAudioPlayFifo( int16_t *buffer, uint32_t numSamples );
 
 uint32_t inline gfAudioDMAStatus( void )
 {
-      return aud->audioDmaStatus;
+      return 0;
 }
 
 #ifdef __cplusplus

@@ -9,7 +9,7 @@ uint32_t gfAudioInit()
    }
 
    //stop dma
-   aud->audioDmaConfig  = 0x00;
+   //aud->audioDmaConfig  = 0x00;
 
    return 0;
 }
@@ -31,15 +31,15 @@ uint32_t gfAudioConfigure( uint32_t samplingRate, uint32_t samplingRateDivisor )
 
       case GF_AUDIO_SAMPLING_RATE_48000:
 
-         //i2s freq 48kHz @ 100Mhz base clock ( base freq: 1536000 Hz )
-         aud->i2sClockConfig  = 0x00410020;
+         //i2s freq 48kHz @ 162.5 MHz base clock ( base freq: 1536000 Hz )
+         aud->i2sClockConfig  = 0x00690034;
 
          break;
 
       case GF_AUDIO_SAMPLING_RATE_44100:
 
-         //i2s freq 44.1kHz @ 100Mhz base clock ( base freq: 1411200 Hz )
-         aud->i2sClockConfig  = 0x00470023;
+         //i2s freq 44.1kHz @ 162.5 MHz base clock ( base freq: 1411200 Hz )
+         aud->i2sClockConfig  = 0x00730039;
 
          break;
 
@@ -53,13 +53,13 @@ uint32_t gfAudioConfigure( uint32_t samplingRate, uint32_t samplingRateDivisor )
 
 uint32_t gfAudioStopDMA()
 {
-   aud->audioDmaConfig  = 0;
+   //aud->audioDmaConfig  = 0;
    return 0;
 }
 
 uint32_t gfAudioPlayDMA( int16_t *buffer, uint32_t length, uint32_t format, uint32_t flags )
 {
-   uint32_t dmaConfig;
+/*   uint32_t dmaConfig;
 
    length = ( length >> 2 );   //32-bit transfer, 2 samples per count ( l + r for stereo, or 2 mono )
 
@@ -102,6 +102,32 @@ uint32_t gfAudioPlayDMA( int16_t *buffer, uint32_t length, uint32_t format, uint
 
    aud->audioDmaConfig = dmaConfig;
 
+
+   return 0;
+   */
+   return 1;
+}
+
+uint32_t gfAudioPlayFifo( int16_t *buffer, uint32_t numSamples )
+{
+   uint32_t *bufferL;
+   uint32_t  i;
+
+   if( !buffer )
+   {
+      return 1;
+   }
+
+
+   bufferL = (uint32_t*)buffer;
+   numSamples /= 2;
+
+   for( i = 0; i < numSamples; i++ )
+   {
+      while( aud->audioFiFoStatus & 4 );   //wait if queue full
+      aud->audioFiFoData = bufferL[i];
+
+   }
 
    return 0;
 }

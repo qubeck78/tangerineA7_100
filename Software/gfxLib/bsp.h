@@ -263,10 +263,6 @@ typedef struct __AUDIO_REGISTERS_T
     volatile uint32_t audioFiFoStatus;
     volatile uint32_t i2sClockConfig;
     volatile uint32_t fifoReadConfig;
-    volatile uint32_t audioDmaConfig;
-    volatile uint32_t audioDmaStatus;
-    volatile uint32_t audioDmaPointer;
-    volatile uint32_t audioDmaLength;
 
 }_AUDIO_REGISTERS_T;
 
