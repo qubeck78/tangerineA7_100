@@ -334,8 +334,8 @@ resetn   <= not reset;
 ch2BufClock    <= clock;
 
 --cache clock
-cacheClock     <= not m00_axi_aclk;
-
+--cacheClock     <= not m00_axi_aclk;
+cacheClock     <= clock;
 
 --set unused signals, ports
 
