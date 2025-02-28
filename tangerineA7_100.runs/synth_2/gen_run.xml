@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_2" LaunchPart="xc7a100tfgg676-1" LaunchTime="1740605351" LaunchWriteIncrSynthDcp="true">
+<GenRun Id="synth_2" LaunchPart="xc7a100tfgg676-1" LaunchTime="1740692755" LaunchWriteIncrSynthDcp="true">
   <File Type="PA-TCL" Name="tangerineA7_100_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="tangerineA7_100_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="tangerineA7_100_wrapper_reports.tcl"/>
@@ -32,6 +32,13 @@
     <File Path="$PSRCDIR/sources_1/new/tangerineMIGWrapper.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/systemRam/systemRam.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
@@ -84,6 +91,12 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/blitter/gouraudWeight.vhd">
+      <FileInfo SFType="VHDL2019">
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/i2s/is2Controller.vhd">
       <FileInfo SFType="VHDL2019">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -247,18 +260,17 @@
   <Strategy Version="1" Minor="2">
     <StratHandle Name="qbk flow perfoptimized high" Flow="Vivado Synthesis 2023"/>
     <Step Id="synth_design">
-      <Option Id="FsmExtraction">1</Option>
-      <Option Id="FlattenHierarchy">0</Option>
       <Option Id="ShregMinSize">5</Option>
       <Option Id="ResourceSharing">2</Option>
+      <Option Id="FlattenHierarchy">0</Option>
+      <Option Id="FsmExtraction">1</Option>
       <Option Id="KeepEquivalentRegisters">1</Option>
-      <Option Id="NoCombineLuts">1</Option>
       <Option Id="Directive">7</Option>
+      <Option Id="NoCombineLuts">1</Option>
     </Step>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="ps2ControllerFifo"/>
   <BlockFileSet Type="BlockSrcs" Name="dmaCh1BufRam"/>
-  <BlockFileSet Type="BlockSrcs" Name="systemRam"/>
   <BlockFileSet Type="BlockSrcs" Name="fontPROM"/>
   <BlockFileSet Type="BlockSrcs" Name="cacheDataRam"/>
   <BlockFileSet Type="BlockSrcs" Name="fastRam"/>
@@ -269,4 +281,5 @@
   <BlockFileSet Type="BlockSrcs" Name="fpAddSub"/>
   <BlockFileSet Type="BlockSrcs" Name="fpDiv"/>
   <BlockFileSet Type="BlockSrcs" Name="dmaCh2BufRam"/>
+  <BlockFileSet Type="BlockSrcs" Name="i2sControllerFifo"/>
 </GenRun>

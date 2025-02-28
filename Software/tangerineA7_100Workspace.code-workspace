@@ -49,10 +49,12 @@
 			"path": "tunnel"
 		},
 		{
-			"path": "../tangerineA7_100.srcs/sources_1/new"
+			"name": "secondStageBoot",
+			"path": "secondStageBoot"
 		},
 		{
-			"path": "secondStageBoot"
+			"name": "new",
+			"path": "../tangerineA7_100.srcs/sources_1/new"
 		}
 	],
 	"settings": {}

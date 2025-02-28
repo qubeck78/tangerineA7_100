@@ -58,7 +58,6 @@
 module tangerineA7_100_tangerineSOC_0_0 (
   resetn,
   mainClock,
-  mainClockPs,
   mainClockD2,
   pixelClock,
   m00_axi_aclk,
@@ -112,6 +111,10 @@ module tangerineA7_100_tangerineSOC_0_0 (
   ps2aData,
   ps2bClock,
   ps2bData,
+  i2sSClk,
+  i2sBClk,
+  i2sLRCk,
+  i2sDOut,
   buttons,
   leds
 );
@@ -120,7 +123,6 @@ module tangerineA7_100_tangerineSOC_0_0 (
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
 input wire resetn;
 input wire mainClock;
-input wire mainClockPs;
 input wire mainClockD2;
 input wire pixelClock;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m00_axi_aclk, ASSOCIATED_BUSIF m00_axi, ASSOCIATED_RESET m00_axi_aresetn, FREQ_HZ 81250000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN tangerineA7_100_tangerineMIGWrapper_0_0_ui_clk, INSERT_VIP 0" *)
@@ -214,13 +216,16 @@ inout wire ps2aClock;
 inout wire ps2aData;
 inout wire ps2bClock;
 inout wire ps2bData;
+output wire i2sSClk;
+output wire i2sBClk;
+output wire i2sLRCk;
+output wire i2sDOut;
 input wire [0 : 0] buttons;
 output wire [1 : 0] leds;
 
   tangerineSOC inst (
     .resetn(resetn),
     .mainClock(mainClock),
-    .mainClockPs(mainClockPs),
     .mainClockD2(mainClockD2),
     .pixelClock(pixelClock),
     .m00_axi_aclk(m00_axi_aclk),
@@ -274,6 +279,10 @@ output wire [1 : 0] leds;
     .ps2aData(ps2aData),
     .ps2bClock(ps2bClock),
     .ps2bData(ps2bData),
+    .i2sSClk(i2sSClk),
+    .i2sBClk(i2sBClk),
+    .i2sLRCk(i2sLRCk),
+    .i2sDOut(i2sDOut),
     .buttons(buttons),
     .leds(leds)
   );

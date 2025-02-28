@@ -14,7 +14,6 @@ port(
    resetn:        in    std_logic;
     
    mainClock:     in    std_logic;
-   mainClockPs:   in    std_logic;
    mainClockD2:   in    std_logic;    
    pixelClock:    in    std_logic;
    
@@ -88,6 +87,13 @@ port(
    
    ps2bClock:  inout    std_logic;
    ps2bData:   inout    std_logic;
+
+   --i2s audio output
+   i2sSClk:    out      std_logic;
+   i2sBClk:    out      std_logic;
+   i2sLRCk:    out      std_logic;
+   i2sDOut:    out      std_logic;
+
    
    --buttons
    buttons:       in    std_logic_vector( 0 downto 0 );
@@ -494,6 +500,33 @@ port(
 );
 end component;
 
+--i2s
+component is2Controller is
+port(
+   
+   --cpu interface
+   reset:      in  std_logic;
+   clock:      in  std_logic;
+   a:          in  std_logic_vector( 15 downto 0 );
+   din:        in  std_logic_vector( 31 downto 0 );
+   dout:       out std_logic_vector( 31 downto 0 );
+  
+   ce:         in  std_logic;
+   wr:         in  std_logic;
+   dataMask:   in  std_logic_vector( 3 downto 0 );
+  
+   ready:      out	std_logic;
+
+  
+   --i2s interface
+   i2sSClk:    out std_logic;
+   i2sBClk:    out std_logic;
+   i2sLRCk:    out std_logic;
+   i2sDOut:    out std_logic
+ 
+ );
+end component;
+
 
 --signals
 
@@ -629,6 +662,12 @@ signal fastRamWr:           std_logic_vector( 3 downto 0 );
 signal fpaluCE:                 std_logic;
 signal fpaluDoutForCPU:         std_logic_vector( 31 downto 0 );
 signal fpaluReady:              std_logic;
+
+--i2s signals
+signal i2sCE:                   std_logic;
+signal i2sDoutForCPU:           std_logic_vector( 31 downto 0 );
+signal i2sReady:                std_logic;
+
 
 begin
 
@@ -902,8 +941,8 @@ port map(
    spiCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f05" else '0';
    fpAluCE        <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f06" else '0';
    blitterRegsCE  <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f07" else '0';
---    i2sCE           <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f0f" else '0';  
-    
+   i2sCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f08" else '0';  
+     
   
 -- bus slaves ready signals mux
    cpuMemReady       <= systemRamReady when systemRAMCE = '1'
@@ -919,9 +958,8 @@ port map(
                         else spiReady when spiCE = '1' 
                         else fpAluReady when fpAluCE = '1' 
                         else blitterRegsReady when blitterRegsCE = '1' 
---                        else fastRamReady when fastRamCE = '1' 
+                        else i2sReady when i2sCE = '1' 
 --                        else usbHostReady when usbHostCE = '1' 
---                        else i2sReady when i2sCE = '1' 
                         else '1';
 
 
@@ -939,7 +977,7 @@ port map(
                         spiDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f05" else
                         fpAluDoutForCPU                           when cpuAOutFull( 31 downto 20 ) = x"f06" else  
                         blitterRegsDoutForCPU                     when cpuAOutFull( 31 downto 20 ) = x"f07" else
---                        i2sDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f06" else 
+                        i2sDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f08" else 
 
                         x"00000000";
 
@@ -1029,6 +1067,7 @@ port map(
    
    ch0Ready             => dmaRamReady,
    
+
    --ch1 - gfx display, highest priority: 0
    ch1DmaRequest        => ch1DmaRequestSynced,
    ch1DmaPointerReset   => vgaVSyncMainClock,
@@ -1256,5 +1295,32 @@ port map(
    ready            => fpAluReady
    
 );
+
+-- place i2s controller
+
+is2ControllerInst:is2Controller
+port map(
+   
+   --cpu interface
+   reset       => reset,
+   clock       => mainClock,
+   a           => cpuAOut( 15 downto 0 ),
+   din         => cpuDOut,
+   dout        => i2sDoutForCPU,
+  
+   ce          => i2sCE,
+   wr          => cpuWr,
+   dataMask    => cpuDataMask,
+  
+   ready       => i2sReady,
+  
+   --i2s interface
+   i2sSClk     => i2sSClk,
+   i2sBClk     => i2sBClk,
+   i2sLRCk     => i2sLRCk,
+   i2sDOut     => i2sDOut
+ 
+ );
+
 
 end Behavioral;

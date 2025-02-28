@@ -324,8 +324,19 @@ int main()
         }while( 1 );        
     }
 
+    
 
-/*    printf( ">" );
+    printf( "%08x %08x %08x\n", vga, vga->id, vga->version );
+    printf( "%08x %08x %08x\n", axidma, axidma->id, axidma->version );
+    printf( "%08x %08x %08x\n", ps2Host, ps2Host->id, ps2Host->version );
+    printf( "%08x %08x %08x\n", uart0, uart0->id, uart0->version );
+    printf( "%08x %08x %08x\n", spi0, spi0->id, spi0->version );
+    printf( "%08x %08x %08x\n", spi0, spi0->id, spi0->version );
+    printf( "%08x %08x %08x\n", fpalu, fpalu->id, fpalu->version );
+    printf( "%08x %08x %08x\n", blt, blt->id, blt->version );
+    printf( "%08x %08x %08x\n", aud, aud->id, aud->version );
+
+    printf( ">" );
     fflush( stdout );
 
     do
@@ -340,7 +351,7 @@ int main()
         }
 
     }while( event.arg1 != 27 );
-*/
+
 /*
     gfLoadBitmapFS( &cursor, (char*)"0:/sys/cursor.gbm" );
     usbHIDSetMousePointerShape( &cursor );

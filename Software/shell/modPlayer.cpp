@@ -133,13 +133,9 @@ uint32_t mpPlay( char *fileName )
    hxcmod_fillbuffer( &modctx, audioDataL, audioDataLength / 8, NULL ); 
 
  
-
-   //play audio buffer :)
-
-   gfAudioPlayDMA( audioData, audioDataLength, GF_AUDIO_FORMAT_STEREO_16BIT, GF_AUDIO_FLAG_DMA_LOOP );
-
    quitPlayer = 0;
 
+   //FIFO audio player
    do
    {
 
@@ -168,22 +164,15 @@ uint32_t mpPlay( char *fileName )
 
       uiDrawInfoWindow( fileName, buf, _UI_INFO_WINDOW_BUTTONS_NONE );
 
-      do{
-      }while( gfAudioDMAStatus() & GF_AUDIO_DMA_STATUS_SECOND_HALF );
+      //write samples to queue, length in samples
+      gfAudioPlayFifo( audioDataL, audioDataLength / 4 );
 
-
-      //lower part of buffer is played, fill upper
-      hxcmod_fillbuffer( &modctx, audioDataH, audioDataLength / 8, NULL );
-
-      do{
-      }while( ! ( gfAudioDMAStatus() & GF_AUDIO_DMA_STATUS_SECOND_HALF ) );
-
-      //upper part of buffer is played, fill lower
+      //re-fill buffer - length in 2x samples (l+r)
       hxcmod_fillbuffer( &modctx, audioDataL, audioDataLength / 8, NULL );
 
-   
+
       while( !osGetUIEvent( &event ) )
-      { 
+      {
          if( event.type == OS_EVENT_TYPE_KEYBOARD_KEYPRESS )
          {
 
@@ -194,7 +183,7 @@ uint32_t mpPlay( char *fileName )
       }
 
    }while( !quitPlayer );
-
+   
    osFree( audioModData );
    audioModData = NULL;
 

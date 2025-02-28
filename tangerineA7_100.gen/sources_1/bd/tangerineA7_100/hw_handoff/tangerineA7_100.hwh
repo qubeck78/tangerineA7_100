@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Feb 26 22:29:09 2025" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Feb 27 22:45:53 2025" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a100t" NAME="tangerineA7_100" PACKAGE="fgg676" SPEEDGRADE="-1"/>
 
@@ -164,6 +164,26 @@
     <PORT DIR="IO" NAME="ps2bData" SIGIS="undef" SIGNAME="External_Ports_ps2bData">
       <CONNECTIONS>
         <CONNECTION INSTANCE="tangerineSOC_0" PORT="ps2bData"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="i2sSClk" SIGIS="undef" SIGNAME="tangerineSOC_0_i2sSClk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tangerineSOC_0" PORT="i2sSClk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="i2sBClk" SIGIS="undef" SIGNAME="tangerineSOC_0_i2sBClk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tangerineSOC_0" PORT="i2sBClk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="i2sLRCk" SIGIS="undef" SIGNAME="tangerineSOC_0_i2sLRCk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tangerineSOC_0" PORT="i2sLRCk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="i2sDOut" SIGIS="undef" SIGNAME="tangerineSOC_0_i2sDOut">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tangerineSOC_0" PORT="i2sDOut"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -1985,11 +2005,7 @@
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="81250000" DIR="O" NAME="clk81_25" SIGIS="clk"/>
-        <PORT CLKFREQUENCY="162500000" DIR="O" NAME="clk162_5ps" SIGIS="clk" SIGNAME="clk_wiz_2_clk162_5ps">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="tangerineSOC_0" PORT="mainClockPs"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT CLKFREQUENCY="162500000" DIR="O" NAME="clk162_5ps" SIGIS="clk"/>
         <PORT CLKFREQUENCY="40625000" DIR="O" NAME="clk40_625" SIGIS="clk" SIGNAME="clk_wiz_2_clk40_625">
           <CONNECTIONS>
             <CONNECTION INSTANCE="tangerineSOC_0" PORT="mainClockD2"/>
@@ -2478,11 +2494,6 @@
             <CONNECTION INSTANCE="clk_wiz_2" PORT="clk162_5"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="mainClockPs" SIGIS="undef" SIGNAME="clk_wiz_2_clk162_5ps">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_2" PORT="clk162_5ps"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" NAME="mainClockD2" SIGIS="undef" SIGNAME="clk_wiz_2_clk40_625">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clk_wiz_2" PORT="clk40_625"/>
@@ -2746,6 +2757,26 @@
         <PORT DIR="IO" NAME="ps2bData" SIGIS="undef" SIGNAME="External_Ports_ps2bData">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="ps2bData"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="i2sSClk" SIGIS="undef" SIGNAME="tangerineSOC_0_i2sSClk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i2sSClk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="i2sBClk" SIGIS="undef" SIGNAME="tangerineSOC_0_i2sBClk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i2sBClk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="i2sLRCk" SIGIS="undef" SIGNAME="tangerineSOC_0_i2sLRCk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i2sLRCk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="i2sDOut" SIGIS="undef" SIGNAME="tangerineSOC_0_i2sDOut">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i2sDOut"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="0" NAME="buttons" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_button1">

@@ -3,6 +3,9 @@
 
 # XDC: new/tangerineA7_100.xdc
 
+# IP: ip/systemRam/systemRam.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==systemRam || ORIG_REF_NAME==systemRam} -quiet] -quiet
+
 # Block Designs: bd/tangerineA7_100/tangerineA7_100.bd
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7_100 || ORIG_REF_NAME==tangerineA7_100} -quiet] -quiet
 
@@ -35,6 +38,9 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7
 
 # IP: bd/tangerineA7_100/ip/tangerineA7_100_tangerineSOC_0_0/tangerineA7_100_tangerineSOC_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==tangerineA7_100_tangerineSOC_0_0 || ORIG_REF_NAME==tangerineA7_100_tangerineSOC_0_0} -quiet] -quiet
+
+# IP: ip/i2sControllerFifo/i2sControllerFifo.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==i2sControllerFifo || ORIG_REF_NAME==i2sControllerFifo} -quiet] -quiet
 
 # IP: ip/fpDiv/fpDiv.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fpDiv || ORIG_REF_NAME==fpDiv} -quiet] -quiet
@@ -70,7 +76,7 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==dmaCh2BufRa
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==fastRam || ORIG_REF_NAME==fastRam} -quiet] -quiet
 
 # IP: ip/systemRam/systemRam.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==systemRam || ORIG_REF_NAME==systemRam} -quiet] -quiet
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==systemRam || ORIG_REF_NAME==systemRam} -quiet] -quiet
 
 # XDC: c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.gen/sources_1/bd/tangerineA7_100/ip/tangerineA7_100_clk_wiz_0_0/tangerineA7_100_clk_wiz_0_0_board.xdc
 set_property KEEP_HIERARCHY SOFT [get_cells [split [join [get_cells -hier -filter {REF_NAME==tangerineA7_100_clk_wiz_0_0 || ORIG_REF_NAME==tangerineA7_100_clk_wiz_0_0} -quiet] {/inst } ]/inst ] -quiet] -quiet

@@ -140,6 +140,7 @@ OPTRACE "add files" START { }
   add_files -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.runs/synth_2/tangerineA7_100_wrapper.dcp
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
+  read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/systemRam/systemRam.xci
   add_files C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/bd/tangerineA7_100/tangerineA7_100.bd
   read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/fontPROM/fontPROM.xci
   read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/uartFiFo/uartFiFo.xci
@@ -153,7 +154,7 @@ OPTRACE "add files" START { }
   read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/fpMul/fpMul.xci
   read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/fpDiv/fpDiv.xci
   read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/dmaCh2BufRam/dmaCh2BufRam.xci
-  read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/systemRam/systemRam.xci
+  read_ip -quiet C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/sources_1/ip/i2sControllerFifo/i2sControllerFifo.xci
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
   read_xdc C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/tangerineA7_100.srcs/constrs_1/new/tangerineA7_100.xdc
