@@ -53,6 +53,10 @@
 			"path": "secondStageBoot"
 		},
 		{
+			"name": "mp3Player",
+			"path": "mp3Player"
+		},
+		{
 			"name": "new",
 			"path": "../tangerineA7_100.srcs/sources_1/new"
 		}
