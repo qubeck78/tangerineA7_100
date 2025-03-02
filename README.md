@@ -8,7 +8,8 @@ Risc-V based system for Qmtech Artix Wukong board.
 - axiDma controller with 128KB I/D 4-way cache connected to AMD MIG via axi4-full bus
 - fast block data transfer engine within axiDma controller ( fast data copy, fill, shift )
 - 2D Blitter graphics coprocessor - fast bitmap copy, scale, fade ( alpha channel )
-- 3D Blitter graphics coprocessor - triangle rasterization with texturing, light, Gouraud shading, hardware z-buffer
+- 3D Blitter graphics coprocessor - triangle rasterization with texturing, light, Gouraud shading, hardware Z-buffer
+- I2S audio DAC controller ( PCM5102 ) with fifo
 - memory mapped floating point ALU
 - serial interface for program upload / data transfer
 - SPI interface ( SD-Card support )

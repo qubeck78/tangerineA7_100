@@ -1,0 +1,85 @@
+-- place nekoRv
+      
+-- bus signals
+    cpuAOut           <= cpuAOutFull( 31 downto 2 );
+
+-- chip selects
+   systemRAMCE    <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"0" else '0';
+   txtfbRAMCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"1" else '0';
+   dmaRamCE       <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"2" else '0';
+   fastRamCE      <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"3" else '0';
+   ch2BufCE       <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 28 ) = x"4" else '0';
+   rootRegsCE     <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f00" else '0';   
+   vgaCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f01" else '0';   
+   dmaRegsCE      <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f02" else '0';
+   ps2HostCE      <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f03" else '0';
+   uartCE         <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f04" else '0';
+   spiCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f05" else '0';
+   fpAluCE        <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f06" else '0';
+   blitterRegsCE  <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f07" else '0';
+   i2sCE          <= '1' when ( cpuMemValid = '1' ) and cpuAOutFull( 31 downto 20 ) = x"f08" else '0';  
+     
+  
+-- bus slaves ready signals mux
+   cpuMemReady       <= systemRamReady when systemRAMCE = '1'
+                        else txtfbRamReady when txtfbRamCE = '1'
+                        else dmaRamReady when dmaRamCE = '1'
+                        else fastRamReady when fastRamCE = '1'
+                        else ch2BufReady when ch2BufCE = '1'  
+                        else rootRegsReady when rootRegsCE = '1' 
+                        else vgaReady  when vgaCE = '1'
+                        else dmaRegsReady when dmaRegsCE = '1'  
+                        else ps2HostReady when ps2HostCE = '1' 
+                        else uartReady when uartCE = '1' 
+                        else spiReady when spiCE = '1' 
+                        else fpAluReady when fpAluCE = '1' 
+                        else blitterRegsReady when blitterRegsCE = '1' 
+                        else i2sReady when i2sCE = '1' 
+--                        else usbHostReady when usbHostCE = '1' 
+                        else '1';
+
+
+-- bus slaves data outputs mux
+   cpuDin            <= systemRamDoutForCPU                       when cpuAOutFull( 31 downto 28 ) = x"0" else 
+                        txtfbRamDoutForCPU                        when cpuAOutFull( 31 downto 28 ) = x"1" else
+                        dmaRamDoutForCPU                          when cpuAOutFull( 31 downto 28 ) = x"2" else
+                        fastRamDoutForCPU                         when cpuAOutFull( 31 downto 28 ) = x"3" else
+                        ch2BufDoutForCPU                          when cpuAOutFull( 31 downto 28 ) = x"4" else
+                        rootRegsDoutForCPU                        when cpuAOutFull( 31 downto 20 ) = x"f00" else 
+                        vgaDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f01" else 
+                        dmaRegsDOutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f02" else
+                        ps2HostDOutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f03" else
+                        uartDoutForCPU                            when cpuAOutFull( 31 downto 20 ) = x"f04" else
+                        spiDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f05" else
+                        fpAluDoutForCPU                           when cpuAOutFull( 31 downto 20 ) = x"f06" else  
+                        blitterRegsDoutForCPU                     when cpuAOutFull( 31 downto 20 ) = x"f07" else
+                        i2sDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f08" else 
+
+                        x"00000000";
+
+-- the CPU
+  
+nekoRvInst:nekoRv 
+port map( 
+    
+    clk             => mainClock,
+    reset           => cpuReset,
+    
+    mtimeIrq        => cpuMtimeIrq,
+    
+    a               => cpuAOutFull,
+    din             => cpuDin,
+    dout            => cpuDOut,
+    
+    be              => cpuMemValid,
+    ready           => cpuMemReady,
+    wr              => cpuWr,
+    dataMask        => cpuDataMask,
+    
+    instrFetchCycle => cpuMemInstr
+);
+  
+--emulate cpuWrStrobe
+cpuWrStrobe       <=  cpuDataMask when cpuWr = '1' else "0000";
+
+

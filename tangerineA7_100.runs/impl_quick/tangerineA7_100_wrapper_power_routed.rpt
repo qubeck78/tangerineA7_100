@@ -1,0 +1,212 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date             : Sun Mar  2 12:05:29 2025
+| Host             : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
+| Command          : report_power -file tangerineA7_100_wrapper_power_routed.rpt -pb tangerineA7_100_wrapper_power_summary_routed.pb -rpx tangerineA7_100_wrapper_power_routed.rpx
+| Design           : tangerineA7_100_wrapper
+| Device           : xc7a100tfgg676-1
+| Design State     : routed
+| Grade            : commercial
+| Process          : typical
+| Characterization : Production
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+--------------+
+| Total On-Chip Power (W)  | 1.626        |
+| Design Power Budget (W)  | Unspecified* |
+| Power Budget Margin (W)  | NA           |
+| Dynamic (W)              | 1.515        |
+| Device Static (W)        | 0.112        |
+| Effective TJA (C/W)      | 2.6          |
+| Max Ambient (C)          | 80.8         |
+| Junction Temperature (C) | 29.2         |
+| Confidence Level         | Low          |
+| Setting File             | ---          |
+| Simulation Activity File | ---          |
+| Design Nets Matched      | NA           |
++--------------------------+--------------+
+* Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
+
+
+1.1 On-Chip Components
+----------------------
+
++--------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
++--------------------------+-----------+----------+-----------+-----------------+
+| Clocks                   |     0.109 |       29 |       --- |             --- |
+| Slice Logic              |     0.066 |    48274 |       --- |             --- |
+|   LUT as Logic           |     0.060 |    24449 |     63400 |           38.56 |
+|   CARRY4                 |     0.004 |     1040 |     15850 |            6.56 |
+|   Register               |     0.002 |    17159 |    126800 |           13.53 |
+|   LUT as Distributed RAM |    <0.001 |      370 |     19000 |            1.95 |
+|   F7/F8 Muxes            |    <0.001 |      855 |     63400 |            1.35 |
+|   LUT as Shift Register  |    <0.001 |      247 |     19000 |            1.30 |
+|   Others                 |    <0.001 |     1327 |       --- |             --- |
+|   BUFG                   |     0.000 |        1 |        32 |            3.13 |
+| Signals                  |     0.089 |    39207 |       --- |             --- |
+| Block RAM                |     0.211 |      126 |       135 |           93.33 |
+| MMCM                     |     0.376 |        4 |         6 |           66.67 |
+| PLL                      |     0.115 |        1 |         6 |           16.67 |
+| DSPs                     |     0.036 |       47 |       240 |           19.58 |
+| I/O                      |     0.399 |       73 |       300 |           24.33 |
+| PHASER                   |     0.110 |       14 |       --- |             --- |
+| XADC                     |     0.004 |        1 |       --- |             --- |
+| Static Power             |     0.112 |          |           |                 |
+| Total                    |     1.626 |          |           |                 |
++--------------------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Vccint    |       1.000 |     0.554 |       0.533 |      0.021 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.389 |       0.370 |      0.018 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.046 |       0.042 |      0.004 |       NA    | Unspecified | NA         |
+| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco135   |       1.350 |     0.120 |       0.116 |      0.004 |       NA    | Unspecified | NA         |
+| Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.021 |       0.017 |      0.004 |       NA    | Unspecified | NA         |
+| MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccadc    |       1.800 |     0.022 |       0.002 |      0.020 |       NA    | Unspecified | NA         |
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                     |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                            |
+| Clock nodes activity        | High       | User specified more than 95% of clocks                 |                                                                                                            |
+| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view   |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
+| Device models               | High       | Device models are Production                           |                                                                                                            |
+|                             |            |                                                        |                                                                                                            |
+| Overall confidence level    | Low        |                                                        |                                                                                                            |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+--------------------------+
+| Ambient Temp (C)      | 25.0                     |
+| ThetaJA (C/W)         | 2.6                      |
+| Airflow (LFM)         | 250                      |
+| Heat Sink             | medium (Medium Profile)  |
+| ThetaSA (C/W)         | 4.6                      |
+| Board Selection       | medium (10"x10")         |
+| # of Board Layers     | 12to15 (12 to 15 Layers) |
+| Board Temperature (C) | 25.0                     |
++-----------------------+--------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+| Clock                                                                                                                                                     | Domain                                                                                                                                                                                                                                                            | Constraint (ns) |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+| clk162_5_tangerineA7_100_clk_wiz_2_0                                                                                                                      | tangerineA7_100_i/clk_wiz_2/inst/clk162_5_tangerineA7_100_clk_wiz_2_0                                                                                                                                                                                             |             6.2 |
+| clk200_tangerineA7_100_clk_wiz_1_0                                                                                                                        | tangerineA7_100_i/clk_wiz_1/inst/clk200_tangerineA7_100_clk_wiz_1_0                                                                                                                                                                                               |             5.0 |
+| clk320_tangerineA7_100_clk_wiz_0_0                                                                                                                        | tangerineA7_100_i/clk_wiz_0/inst/clk320_tangerineA7_100_clk_wiz_0_0                                                                                                                                                                                               |             3.1 |
+| clk40_625_tangerineA7_100_clk_wiz_2_0                                                                                                                     | tangerineA7_100_i/clk_wiz_2/inst/clk40_625_tangerineA7_100_clk_wiz_2_0                                                                                                                                                                                            |            24.6 |
+| clk64_tangerineA7_100_clk_wiz_0_0                                                                                                                         | tangerineA7_100_i/clk_wiz_0/inst/clk64_tangerineA7_100_clk_wiz_0_0                                                                                                                                                                                                |            15.6 |
+| clk_pll_i                                                                                                                                                 | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/clk_pll_i                                                                                                                                         |            12.3 |
+| clkfbout_tangerineA7_100_clk_wiz_0_0                                                                                                                      | tangerineA7_100_i/clk_wiz_0/inst/clkfbout_tangerineA7_100_clk_wiz_0_0                                                                                                                                                                                             |           100.0 |
+| clkfbout_tangerineA7_100_clk_wiz_1_0                                                                                                                      | tangerineA7_100_i/clk_wiz_1/inst/clkfbout_tangerineA7_100_clk_wiz_1_0                                                                                                                                                                                             |            20.0 |
+| clkfbout_tangerineA7_100_clk_wiz_2_0                                                                                                                      | tangerineA7_100_i/clk_wiz_2/inst/clkfbout_tangerineA7_100_clk_wiz_2_0                                                                                                                                                                                             |            12.3 |
+| freq_refclk                                                                                                                                               | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/freq_refclk                                                                                                                                       |             1.5 |
+| iserdes_clkdiv                                                                                                                                            | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/iserdes_clkdiv            |            12.3 |
+| iserdes_clkdiv_1                                                                                                                                          | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/iserdes_clkdiv            |            12.3 |
+| mem_refclk                                                                                                                                                | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/mem_refclk                                                                                                                                        |             3.1 |
+| oserdes_clk                                                                                                                                               | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/oserdes_clk               |             3.1 |
+| oserdes_clk_1                                                                                                                                             | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/oserdes_clk               |             3.1 |
+| oserdes_clk_2                                                                                                                                             | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/oserdes_clk               |             3.1 |
+| oserdes_clk_3                                                                                                                                             | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/oserdes_clk               |             3.1 |
+| oserdes_clkdiv                                                                                                                                            | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/oserdes_clkdiv            |             6.2 |
+| oserdes_clkdiv_1                                                                                                                                          | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/oserdes_clkdiv            |             6.2 |
+| oserdes_clkdiv_2                                                                                                                                          | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/oserdes_clkdiv            |            12.3 |
+| oserdes_clkdiv_3                                                                                                                                          | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_D.ddr_byte_lane_D/oserdes_clkdiv            |            12.3 |
+| pll_clk3_out                                                                                                                                              | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/pll_clk3_out                                                                                                                                      |            12.3 |
+| pll_clkfbout                                                                                                                                              | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/pll_clkfbout                                                                                                                                      |            10.0 |
+| sync_pulse                                                                                                                                                | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/sync_pulse                                                                                                                                        |            49.2 |
+| sysClk50                                                                                                                                                  | sysClk50                                                                                                                                                                                                                                                          |            20.0 |
+| u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/iserdes_clk | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/phaser_in_gen.phaser_in_0 |             3.1 |
+| u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/iserdes_clk | tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_B.ddr_byte_lane_B/phaser_in_gen.phaser_in_0 |             3.1 |
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++-----------------------------------------------------------+-----------+
+| Name                                                      | Power (W) |
++-----------------------------------------------------------+-----------+
+| tangerineA7_100_wrapper                                   |     1.515 |
+|   tangerineA7_100_i                                       |     1.511 |
+|     clk_wiz_0                                             |     0.087 |
+|       inst                                                |     0.087 |
+|     clk_wiz_1                                             |     0.106 |
+|       inst                                                |     0.106 |
+|     clk_wiz_2                                             |     0.097 |
+|       inst                                                |     0.097 |
+|     hdmiOut_0                                             |     0.144 |
+|     tangerineMIGWrapper_0                                 |     0.623 |
+|       inst/tangerineMIGInst                               |     0.623 |
+|     tangerineSOC_0                                        |     0.453 |
+|       inst/axiDMAInst/cacheDataRamW0Inst                  |     0.028 |
+|       inst/axiDMAInst/cacheDataRamW1Inst                  |     0.028 |
+|       inst/axiDMAInst/cacheDataRamW2Inst                  |     0.027 |
+|       inst/axiDMAInst/cacheDataRamW3Inst                  |     0.026 |
+|       inst/axiDMAInst/cachePageWayCounter_reg_0_255_0_0   |     0.005 |
+|       inst/axiDMAInst/cachePageWayCounter_reg_256_511_0_0 |     0.005 |
+|       inst/axiDMAInst/cacheTagRamW0Inst                   |     0.004 |
+|       inst/axiDMAInst/cacheTagRamW1Inst                   |     0.004 |
+|       inst/axiDMAInst/cacheTagRamW2Inst                   |     0.004 |
+|       inst/axiDMAInst/cacheTagRamW3Inst                   |     0.004 |
+|       inst/axiDMAInst/dmaCh1BufRamInst                    |     0.011 |
+|       inst/dmaCh2BufRamInst                               |     0.025 |
+|       inst/fastRamInst                                    |     0.012 |
+|       inst/fpAluInst/fpAddSubInst                         |     0.005 |
+|       inst/fpAluInst/fpDivInst                            |     0.021 |
+|       inst/fpAluInst/fpMulinst                            |     0.005 |
+|       inst/is2ControllerInst/i2sControllerFifoInst        |     0.004 |
+|       inst/systemRamInst                                  |     0.024 |
+|       inst/txtfbRamInst                                   |     0.017 |
++-----------------------------------------------------------+-----------+
+
+

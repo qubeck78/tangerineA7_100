@@ -1,70 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_2" LaunchPart="xc7a100tfgg676-1" LaunchTime="1740763770">
+<GenRun Id="impl_2" LaunchPart="xc7a100tfgg676-1" LaunchTime="1740870467">
   <File Type="ROUTE-PWR" Name="tangerineA7_100_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="tangerineA7_100_wrapper.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="tangerineA7_100_wrapper_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="tangerineA7_100_wrapper_reports.tcl"/>
-  <File Type="OPT-RQA-PB" Name="tangerineA7_100_wrapper_rqa_opted.pb"/>
+  <File Type="BITSTR-MSK" Name="tangerineA7_100_wrapper.msk"/>
+  <File Type="ROUTE-CLK" Name="tangerineA7_100_wrapper_clock_utilization_routed.rpt"/>
+  <File Type="RDI-RDI" Name="tangerineA7_100_wrapper.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="tangerineA7_100_wrapper_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="tangerineA7_100_wrapper.bit"/>
+  <File Type="BG-DRC" Name="tangerineA7_100_wrapper.drc"/>
+  <File Type="BG-BGN" Name="tangerineA7_100_wrapper.bgn"/>
+  <File Type="BG-BIN" Name="tangerineA7_100_wrapper.bin"/>
+  <File Type="BITSTR-RBT" Name="tangerineA7_100_wrapper.rbt"/>
+  <File Type="BITSTR-NKY" Name="tangerineA7_100_wrapper.nky"/>
+  <File Type="BITSTR-BMM" Name="tangerineA7_100_wrapper_bd.bmm"/>
   <File Type="BITSTR-MMI" Name="tangerineA7_100_wrapper.mmi"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="tangerineA7_100_wrapper_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="tangerineA7_100_wrapper_timing_summary_init.rpt"/>
-  <File Type="OPT-TIMING" Name="tangerineA7_100_wrapper_timing_summary_opted.rpt"/>
-  <File Type="OPT-DCP" Name="tangerineA7_100_wrapper_opt.dcp"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="tangerineA7_100_wrapper_methodology_drc_routed.rpt"/>
+  <File Type="BITSTR-SYSDEF" Name="tangerineA7_100_wrapper.sysdef"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="tangerineA7_100_wrapper.ltx"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="OPT-DRC" Name="tangerineA7_100_wrapper_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="tangerineA7_100_wrapper.hwdef"/>
-  <File Type="PWROPT-DCP" Name="tangerineA7_100_wrapper_pwropt.dcp"/>
-  <File Type="PWROPT-DRC" Name="tangerineA7_100_wrapper_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="tangerineA7_100_wrapper_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="tangerineA7_100_wrapper_placed.dcp"/>
   <File Type="PLACE-IO" Name="tangerineA7_100_wrapper_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="tangerineA7_100_wrapper_clock_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="tangerineA7_100_wrapper_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="tangerineA7_100_wrapper_utilization_placed.pb"/>
   <File Type="PLACE-CTRL" Name="tangerineA7_100_wrapper_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="tangerineA7_100_wrapper_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="tangerineA7_100_wrapper_incremental_reuse_pre_placed.rpt"/>
-  <File Type="BG-BIN" Name="tangerineA7_100_wrapper.bin"/>
-  <File Type="PLACE-TIMING" Name="tangerineA7_100_wrapper_timing_summary_placed.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="tangerineA7_100_wrapper_power_routed.rpx"/>
-  <File Type="PLACE-RQA-PB" Name="tangerineA7_100_wrapper_rqa_placed.pb"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="tangerineA7_100_wrapper_postplace_pwropt.dcp"/>
-  <File Type="BITSTR-MSK" Name="tangerineA7_100_wrapper.msk"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="tangerineA7_100_wrapper_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="tangerineA7_100_wrapper_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="tangerineA7_100_wrapper_drc_physopted.rpt"/>
-  <File Type="BITSTR-RBT" Name="tangerineA7_100_wrapper.rbt"/>
-  <File Type="PHYSOPT-TIMING" Name="tangerineA7_100_wrapper_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="tangerineA7_100_wrapper_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="tangerineA7_100_wrapper_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="tangerineA7_100_wrapper_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="tangerineA7_100_wrapper_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="tangerineA7_100_wrapper_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="tangerineA7_100_wrapper_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="tangerineA7_100_wrapper_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="tangerineA7_100_wrapper_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="tangerineA7_100_wrapper_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-RQS-PB" Name="tangerineA7_100_wrapper_rqs_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="tangerineA7_100_wrapper_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="tangerineA7_100_wrapper_route_status.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="tangerineA7_100_wrapper_route_status.pb"/>
+  <File Type="ROUTE-DCP" Name="tangerineA7_100_wrapper_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="tangerineA7_100_wrapper_routed_error.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="tangerineA7_100_wrapper_routed_bb.dcp"/>
   <File Type="ROUTE-TIMINGSUMMARY" Name="tangerineA7_100_wrapper_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="tangerineA7_100_wrapper_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="tangerineA7_100_wrapper_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="tangerineA7_100_wrapper_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="tangerineA7_100_wrapper_clock_utilization_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW" Name="tangerineA7_100_wrapper_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="tangerineA7_100_wrapper_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="tangerineA7_100_wrapper_bus_skew_routed.rpx"/>
+  <File Type="OPT-DCP" Name="tangerineA7_100_wrapper_opt.dcp"/>
+  <File Type="PLACE-DCP" Name="tangerineA7_100_wrapper_placed.dcp"/>
+  <File Type="PWROPT-DCP" Name="tangerineA7_100_wrapper_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="tangerineA7_100_wrapper_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="tangerineA7_100_wrapper_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="tangerineA7_100_wrapper_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="tangerineA7_100_wrapper_postroute_physopt_bb.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING" Name="tangerineA7_100_wrapper_timing_summary_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="tangerineA7_100_wrapper_timing_summary_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="tangerineA7_100_wrapper_timing_summary_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="tangerineA7_100_wrapper_bus_skew_postroute_physopted.rpt"/>
-  <File Type="BG-BIT" Name="tangerineA7_100_wrapper.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="tangerineA7_100_wrapper_bus_skew_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="tangerineA7_100_wrapper_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BITSTR-NKY" Name="tangerineA7_100_wrapper.nky"/>
-  <File Type="BITSTR-BMM" Name="tangerineA7_100_wrapper_bd.bmm"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="tangerineA7_100_wrapper_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="tangerineA7_100_wrapper_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="tangerineA7_100_wrapper_methodology_drc_routed.rpx"/>
   <File Type="PDI-FILE" Name="tangerineA7_100_wrapper.pdi"/>
   <File Type="BOOT-PDI-FILE" Name="tangerineA7_100_wrapper_soc.pdi"/>
   <File Type="PL-PDI-FILE" Name="tangerineA7_100_wrapper_pld.pdi"/>
@@ -73,13 +66,6 @@
   <File Type="RNPI_FILE" Name="tangerineA7_100_wrapper.rnpi"/>
   <File Type="NPI_FILE" Name="tangerineA7_100_wrapper.npi"/>
   <File Type="RBD_FILE" Name="tangerineA7_100_wrapper.rbd"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="tangerineA7_100_wrapper.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="tangerineA7_100_wrapper.sysdef"/>
-  <File Type="BG-BGN" Name="tangerineA7_100_wrapper.bgn"/>
-  <File Type="BG-DRC" Name="tangerineA7_100_wrapper.drc"/>
-  <File Type="RDI-RDI" Name="tangerineA7_100_wrapper.vdi"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="ROUTE-RQS" Name="tangerineA7_100_wrapper_routed.rqs"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="tangerineA7_100_wrapper_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
@@ -107,6 +93,13 @@
     <File Path="$PSRCDIR/sources_1/new/tangerineMIGWrapper.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/systemRam/systemRam.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
@@ -326,9 +319,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Performance_NetDelay_high" Flow="Vivado Implementation 2023">
-      <Desc>To compensate for optimistic delay estimation, add extra delay cost to long distance and high fanout connections. (high setting, most pessimistic)</Desc>
-    </StratHandle>
+    <StratHandle Name="Performance_NetDelay_high" Flow="Vivado Implementation 2023"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
@@ -344,15 +335,15 @@
     </Step>
     <Step Id="post_route_phys_opt_design" EnableStepBool="1"/>
     <Step Id="write_bitstream"/>
+    <Step Id="write_device_image"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="ps2ControllerFifo"/>
-  <BlockFileSet Type="BlockSrcs" Name="dmaCh1BufRam"/>
-  <BlockFileSet Type="BlockSrcs" Name="systemRam"/>
   <BlockFileSet Type="BlockSrcs" Name="fontPROM"/>
-  <BlockFileSet Type="BlockSrcs" Name="cacheDataRam"/>
-  <BlockFileSet Type="BlockSrcs" Name="fastRam"/>
+  <BlockFileSet Type="BlockSrcs" Name="dmaCh1BufRam"/>
+  <BlockFileSet Type="BlockSrcs" Name="ps2ControllerFifo"/>
   <BlockFileSet Type="BlockSrcs" Name="fpMul"/>
   <BlockFileSet Type="BlockSrcs" Name="uartFiFo"/>
+  <BlockFileSet Type="BlockSrcs" Name="fastRam"/>
+  <BlockFileSet Type="BlockSrcs" Name="cacheDataRam"/>
   <BlockFileSet Type="BlockSrcs" Name="mig_7series_tangerine"/>
   <BlockFileSet Type="BlockSrcs" Name="cacheTagRam"/>
   <BlockFileSet Type="BlockSrcs" Name="fpAddSub"/>

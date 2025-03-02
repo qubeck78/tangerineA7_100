@@ -1,0 +1,1028 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sun Mar  2 12:05:08 2025
+| Host         : DESKTOP-T3E75FC running 64-bit major release  (build 9200)
+| Command      : report_drc -file tangerineA7_100_wrapper_drc_routed.rpt -pb tangerineA7_100_wrapper_drc_routed.pb -rpx tangerineA7_100_wrapper_drc_routed.rpx
+| Design       : tangerineA7_100_wrapper
+| Device       : xc7a100tfgg676-1
+| Speed File   : -1
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 193
++-----------+----------+-------------------------------------------------------------------+------------+
+| Rule      | Severity | Description                                                       | Violations |
++-----------+----------+-------------------------------------------------------------------+------------+
+| CHECK-3   | Warning  | Report rule limit reached                                         | 1          |
+| DPIP-1    | Warning  | Input pipelining                                                  | 56         |
+| DPOP-1    | Warning  | PREG Output pipelining                                            | 10         |
+| DPOP-2    | Warning  | MREG Output pipelining                                            | 22         |
+| DPOR-1    | Warning  | Asynchronous load check                                           | 70         |
+| PDCN-1569 | Warning  | LUT equation term check                                           | 4          |
+| REQP-1709 | Warning  | Clock output buffering                                            | 1          |
+| REQP-1839 | Warning  | RAMB36 async control check                                        | 20         |
+| RPBF-3    | Warning  | IO port buffering is incomplete                                   | 2          |
+| RTSTAT-10 | Warning  | No routable loads                                                 | 1          |
+| AVAL-4    | Advisory | enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND | 4          |
+| AVAL-5    | Advisory | enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND   | 1          |
+| REQP-1725 | Advisory | DSP_Abus_sign_bit_alert                                           | 1          |
++-----------+----------+-------------------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+CHECK-3#1 Warning
+Report rule limit reached  
+REQP-1839 rule limit reached: 20 violations have been found.
+Related violations: <none>
+
+DPIP-1#1 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/dpSa0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/dpSa0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#2 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/dpSa0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/dpSa0/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#3 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator0Inst/mul3_reg input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator0Inst/mul3_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#4 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator0Inst/mul3_reg input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator0Inst/mul3_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#5 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator0Inst/plusOp input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator0Inst/plusOp/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#6 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator0Inst/plusOp input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator0Inst/plusOp/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#7 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator0Inst/plusOp__0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator0Inst/plusOp__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#8 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator0Inst/plusOp__0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator0Inst/plusOp__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#9 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator1Inst/mul3_reg input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator1Inst/mul3_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#10 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator1Inst/mul3_reg input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator1Inst/mul3_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#11 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator1Inst/plusOp input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator1Inst/plusOp/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#12 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator1Inst/plusOp input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator1Inst/plusOp/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#13 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator1Inst/plusOp__0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator1Inst/plusOp__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#14 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator1Inst/plusOp__0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator1Inst/plusOp__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#15 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator2Inst/mul3_reg input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator2Inst/mul3_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#16 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator2Inst/mul3_reg input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator2Inst/mul3_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#17 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator2Inst/plusOp input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator2Inst/plusOp/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#18 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator2Inst/plusOp input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator2Inst/plusOp/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#19 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator2Inst/plusOp__0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator2Inst/plusOp__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#20 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator2Inst/plusOp__0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator2Inst/plusOp__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#21 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator3Inst/mul3_reg input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator3Inst/mul3_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#22 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator3Inst/mul3_reg input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator3Inst/mul3_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#23 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator3Inst/plusOp input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator3Inst/plusOp/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#24 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator3Inst/plusOp input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator3Inst/plusOp/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#25 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator3Inst/plusOp__0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator3Inst/plusOp__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#26 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator3Inst/plusOp__0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudIterator3Inst/plusOp__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#27 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightACInst/weight0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightACInst/weight0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#28 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightACInst/weight0__0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightACInst/weight0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#29 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightBAInst/weight0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightBAInst/weight0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#30 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightBAInst/weight0__0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightBAInst/weight0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#31 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightCBInst/weight0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightCBInst/weight0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#32 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightCBInst/weight0__0 input tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightCBInst/weight0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#33 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#34 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#35 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__0 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#36 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__0 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#37 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#38 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#39 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__2 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#40 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__2 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#41 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#42 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#43 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__0 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#44 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__0 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#45 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__1 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#46 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__1 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#47 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__2 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#48 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__2 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#49 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#50 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#51 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__0 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#52 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__0 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#53 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__1 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#54 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__1 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#55 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__2 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#56 Warning
+Input pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__2 input tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPOP-1#1 Warning
+PREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/dpSa0 output tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/dpSa0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#2 Warning
+PREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightACInst/weight0__0 output tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightACInst/weight0__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#3 Warning
+PREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightBAInst/weight0__0 output tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightBAInst/weight0__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#4 Warning
+PREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightCBInst/weight0__0 output tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightCBInst/weight0__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#5 Warning
+PREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#6 Warning
+PREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#7 Warning
+PREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#8 Warning
+PREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__1 output tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#9 Warning
+PREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#10 Warning
+PREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__1 output tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-2#1 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/dpSa0 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/dpSa0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#2 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightACInst/weight0 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightACInst/weight0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#3 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightACInst/weight0__0 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightACInst/weight0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#4 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightACInst/weight_reg multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightACInst/weight_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#5 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightBAInst/weight0 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightBAInst/weight0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#6 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightBAInst/weight0__0 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightBAInst/weight0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#7 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightBAInst/weight_reg multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightBAInst/weight_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#8 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightCBInst/weight0 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightCBInst/weight0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#9 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightCBInst/weight0__0 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightCBInst/weight0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#10 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightCBInst/weight_reg multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/blitterInst/gouraudWeightCBInst/weight_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#11 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#12 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__0 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#13 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#14 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__2 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#15 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#16 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__0 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#17 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__1 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#18 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__2 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#19 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#20 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__0 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#21 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__1 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#22 Warning
+MREG Output pipelining  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__2 multiplier stage tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOR-1#1 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[0]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#2 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[10]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#3 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[11]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#4 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[12]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#5 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[13]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#6 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[14]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#7 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[15]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#8 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[16]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#9 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[1]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#10 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[2]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#11 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[3]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#12 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[4]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#13 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[5]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#14 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[6]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#15 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[7]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#16 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[8]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#17 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[9]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#18 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[0]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#19 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[10]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#20 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[11]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#21 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[12]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#22 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[13]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#23 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[14]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#24 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[15]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#25 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[16]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#26 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[1]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#27 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[2]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#28 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[3]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#29 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[4]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#30 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[5]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#31 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[6]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#32 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[7]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#33 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[8]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#34 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMul_reg[9]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#35 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[0]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#36 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[10]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#37 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[11]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#38 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[12]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#39 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[13]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#40 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[14]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#41 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[15]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#42 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[16]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#43 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[1]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#44 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[2]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#45 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[3]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#46 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[4]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#47 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[5]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#48 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[6]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#49 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[7]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#50 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[8]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#51 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[9]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#52 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMulsu_reg[16]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#53 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[0]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#54 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[10]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#55 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[11]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#56 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[12]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#57 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[13]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#58 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[14]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#59 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[15]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#60 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[16]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#61 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[1]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#62 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[2]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#63 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[3]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#64 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[4]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#65 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[5]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#66 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[6]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#67 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[7]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#68 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[8]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#69 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[9]). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+DPOR-1#70 Warning
+Asynchronous load check  
+DSP tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu0__1 output is connected to registers with an asynchronous reset (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/resultMuluu_reg[16]__1). This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
+Related violations: <none>
+
+PDCN-1569#1 Warning
+LUT equation term check  
+Used physical LUT pin 'A2' of cell tangerineA7_100_i/tangerineSOC_0/inst/is2ControllerInst/i2sControllerFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin tangerineA7_100_i/tangerineSOC_0/inst/is2ControllerInst/i2sControllerFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A6)+((~A6)*(~A5)*A3)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Related violations: <none>
+
+PDCN-1569#2 Warning
+LUT equation term check  
+Used physical LUT pin 'A3' of cell tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2bFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2bFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A2)+((~A2)*(~A5)*A4)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Related violations: <none>
+
+PDCN-1569#3 Warning
+LUT equation term check  
+Used physical LUT pin 'A4' of cell tangerineA7_100_i/tangerineSOC_0/inst/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin tangerineA7_100_i/tangerineSOC_0/inst/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A3)+((~A3)*(~A1)*A5)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Related violations: <none>
+
+PDCN-1569#4 Warning
+LUT equation term check  
+Used physical LUT pin 'A4' of cell tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2aFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1 (pin tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2aFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_i_1/I1) is not included in the LUT equation: 'O6=(A6)+((~A6)*(~A5)*A3)'. If this cell is a user instantiated LUT in the design, please remove connectivity to the pin or change the equation and/or INIT string of the LUT to prevent this issue. If the cell is inferred or IP created LUT, please regenerate the IP and/or resynthesize the design to attempt to correct the issue.
+Related violations: <none>
+
+REQP-1709#1 Warning
+Clock output buffering  
+PLLE2_ADV connectivity violation. The signal tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/pll_clk3_out on the tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/plle2_i/CLKOUT3 pin of tangerineA7_100_i/tangerineMIGWrapper_0/inst/tangerineMIGInst/u_mig_7series_tangerine_mig/u_ddr3_infrastructure/plle2_i does not drive the same kind of BUFFER load as the other CLKOUT pins. Routing from the different buffer types will not be phase aligned.
+Related violations: <none>
+
+REQP-1839#1 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/be_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#2 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/wr_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#3 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/be_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#4 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/wr_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#5 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/be_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#6 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/wr_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#7 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/be_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#8 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.TRUE_DP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/dmaCh2BufRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/wr_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#9 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/be_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#10 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/wr_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#11 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/be_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#12 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[10].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/wr_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#13 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/be_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#14 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[11].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/wr_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#15 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/be_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#16 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[12].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/wr_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#17 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/be_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#18 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[13].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/wr_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#19 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/be_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#20 Warning
+RAMB36 async control check  
+The RAMB36E1 tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/WEA[0] (net: tangerineA7_100_i/tangerineSOC_0/inst/fastRamInst/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[14].ram.r/prim_noinit.ram/wea[0]) which is driven by a register (tangerineA7_100_i/tangerineSOC_0/inst/nekoRvInst/wr_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+RPBF-3#1 Warning
+IO port buffering is incomplete  
+Device port sdMciDat[0] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#2 Warning
+IO port buffering is incomplete  
+Device port sdMciDat[3] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RTSTAT-10#1 Warning
+No routable loads  
+43 net(s) have no routable loads. The problem bus(es) and/or net(s) are tangerineA7_100_i/tangerineSOC_0/inst/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i,
+tangerineA7_100_i/tangerineSOC_0/inst/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb,
+tangerineA7_100_i/tangerineSOC_0/inst/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg[2:0],
+tangerineA7_100_i/tangerineSOC_0/inst/UARTInst/rxFiFoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2:0],
+tangerineA7_100_i/tangerineSOC_0/inst/is2ControllerInst/i2sControllerFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i,
+tangerineA7_100_i/tangerineSOC_0/inst/is2ControllerInst/i2sControllerFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg[2:0],
+tangerineA7_100_i/tangerineSOC_0/inst/is2ControllerInst/i2sControllerFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2:0],
+tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2aFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i,
+tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2aFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb,
+tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2aFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg[2:0],
+tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2aFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2:0],
+tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2bFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i,
+tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2bFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb,
+tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2bFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.rd_rst_reg[2:0],
+tangerineA7_100_i/tangerineSOC_0/inst/ps2HostInst/ps2bFifoInst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.wr_rst_reg[2:0]
+ (the first 15 of 27 listed nets/buses).
+Related violations: <none>
+
+AVAL-4#1 Advisory
+enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
+tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpAddSubInst/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+Related violations: <none>
+
+AVAL-4#2 Advisory
+enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
+tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpMulinst/inst/i_synth/MULT.OP/i_non_prim.MULT/DSP48E1_SPD_SGL_VARIANT.FIX_MULT/DSP1/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+Related violations: <none>
+
+AVAL-4#3 Advisory
+enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
+tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpMulinst/inst/i_synth/MULT.OP/i_non_prim.MULT/DSP48E1_SPD_SGL_VARIANT.FIX_MULT/DSP2/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+Related violations: <none>
+
+AVAL-4#4 Advisory
+enum_USE_DPORT_FALSE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
+tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpMulinst/inst/i_synth/MULT.OP/i_non_prim.R_AND_R/LAT_OPT.FULL.R_AND_R/DSP48E1_SGL_EXP_IP.OLD_ADD.ADD/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the D port (USE_DPORT = FALSE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+Related violations: <none>
+
+AVAL-5#1 Advisory
+enum_USE_MULT_NONE_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
+tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpMulinst/inst/i_synth/MULT.OP/i_non_prim.R_AND_R/LAT_OPT.FULL.R_AND_R/DSP48E1_SGL_EXP_IP.OLD_ADD.ADD/i_no_versal_es1_workaround.DSP: DSP48E1 is not using the Multiplier (USE_MULT = NONE). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+Related violations: <none>
+
+REQP-1725#1 Advisory
+DSP_Abus_sign_bit_alert  
+tangerineA7_100_i/tangerineSOC_0/inst/fpAluInst/fpAddSubInst/inst/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.ALIGN_ADD/DSP2/i_no_versal_es1_workaround.DSP: When using the PreAdder and USE_DPORT is TRUE, the A operand should be restricted to 24 bit two's complement (and sign extended) to avoid over/underflow in the pre-add stage.
+Related violations: <none>
+
+

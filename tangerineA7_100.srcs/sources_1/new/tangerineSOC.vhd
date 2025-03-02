@@ -570,6 +570,10 @@ signal cpuDataMask:  std_logic_vector( 3 downto 0 );
 --cpu resetgen
 signal cpuResetGenCounter: std_logic_vector( 15 downto 0 ); 
 
+--cpu bus mux signals
+signal ramMuxDOut:         std_logic_vector( 31 downto 0 );
+signal regsMuxDOut:        std_logic_vector( 31 downto 0 );
+
 --root registers signals
 signal rootRegsCE:         std_logic;
 signal rootRegsDoutForCPU: std_logic_vector( 31 downto 0 );
@@ -964,22 +968,44 @@ port map(
 
 
 -- bus slaves data outputs mux
-   cpuDin            <= systemRamDoutForCPU                       when cpuAOutFull( 31 downto 28 ) = x"0" else 
-                        txtfbRamDoutForCPU                        when cpuAOutFull( 31 downto 28 ) = x"1" else
-                        dmaRamDoutForCPU                          when cpuAOutFull( 31 downto 28 ) = x"2" else
-                        fastRamDoutForCPU                         when cpuAOutFull( 31 downto 28 ) = x"3" else
-                        ch2BufDoutForCPU                          when cpuAOutFull( 31 downto 28 ) = x"4" else
-                        rootRegsDoutForCPU                        when cpuAOutFull( 31 downto 20 ) = x"f00" else 
-                        vgaDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f01" else 
-                        dmaRegsDOutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f02" else
-                        ps2HostDOutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f03" else
-                        uartDoutForCPU                            when cpuAOutFull( 31 downto 20 ) = x"f04" else
-                        spiDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f05" else
-                        fpAluDoutForCPU                           when cpuAOutFull( 31 downto 20 ) = x"f06" else  
-                        blitterRegsDoutForCPU                     when cpuAOutFull( 31 downto 20 ) = x"f07" else
-                        i2sDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f08" else 
+--   cpuDin            <= systemRamDoutForCPU                       when cpuAOutFull( 31 downto 28 ) = x"0" else 
+--                        txtfbRamDoutForCPU                        when cpuAOutFull( 31 downto 28 ) = x"1" else
+--                        dmaRamDoutForCPU                          when cpuAOutFull( 31 downto 28 ) = x"2" else
+--                        fastRamDoutForCPU                         when cpuAOutFull( 31 downto 28 ) = x"3" else
+--                        ch2BufDoutForCPU                          when cpuAOutFull( 31 downto 28 ) = x"4" else
+--                        rootRegsDoutForCPU                        when cpuAOutFull( 31 downto 20 ) = x"f00" else 
+--                        vgaDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f01" else 
+--                        dmaRegsDOutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f02" else
+--                        ps2HostDOutForCPU                         when cpuAOutFull( 31 downto 20 ) = x"f03" else
+--                        uartDoutForCPU                            when cpuAOutFull( 31 downto 20 ) = x"f04" else
+--                        spiDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f05" else
+--                        fpAluDoutForCPU                           when cpuAOutFull( 31 downto 20 ) = x"f06" else  
+--                        blitterRegsDoutForCPU                     when cpuAOutFull( 31 downto 20 ) = x"f07" else
+--                        i2sDoutForCPU                             when cpuAOutFull( 31 downto 20 ) = x"f08" else 
 
-                        x"00000000";
+--                        x"00000000";
+
+ramMuxDOut              <= systemRamDoutForCPU     when cpuAOutFull( 30 downto 28 ) = "000" else   -- 0 
+                           txtfbRamDoutForCPU      when cpuAOutFull( 30 downto 28 ) = "001" else   -- 1
+                           dmaRamDoutForCPU        when cpuAOutFull( 30 downto 28 ) = "010" else   -- 2
+                           fastRamDoutForCPU       when cpuAOutFull( 30 downto 28 ) = "011" else   -- 3
+                           ch2BufDoutForCPU        when cpuAOutFull( 30 downto 28 ) = "100" else   -- 4
+                           x"00000000";
+
+
+
+regsMuxDOut             <= rootRegsDoutForCPU      when cpuAOutFull( 23 downto 20 ) = x"0" else --f00
+                           vgaDoutForCPU           when cpuAOutFull( 23 downto 20 ) = x"1" else --f01
+                           dmaRegsDOutForCPU       when cpuAOutFull( 23 downto 20 ) = x"2" else --f02
+                           ps2HostDOutForCPU       when cpuAOutFull( 23 downto 20 ) = x"3" else --f03
+                           uartDoutForCPU          when cpuAOutFull( 23 downto 20 ) = x"4" else --f04
+                           spiDoutForCPU           when cpuAOutFull( 23 downto 20 ) = x"5" else --f05
+                           fpAluDoutForCPU         when cpuAOutFull( 23 downto 20 ) = x"6" else --f06
+                           blitterRegsDoutForCPU   when cpuAOutFull( 23 downto 20 ) = x"7" else --f07
+                           i2sDoutForCPU           when cpuAOutFull( 23 downto 20 ) = x"8" else --f08
+                           x"00000000";
+
+cpuDIn                  <= ramMuxDOut when cpuAOutFull( 31 ) = '0' else regsMuxDOut;
 
 -- the CPU
   
