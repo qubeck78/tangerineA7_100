@@ -5,6 +5,10 @@
 			"path": "gfxLib"
 		},
 		{
+			"name": "freeRTOS",
+			"path": "freeRTOS"
+		},
+		{
 			"name": "balls",
 			"path": "balls"
 		},

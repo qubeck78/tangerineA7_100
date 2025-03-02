@@ -25,8 +25,11 @@ LIBSTDCC = "c:\Program Files\riscv-none-gcc\riscv-none-embed\lib\rv32im\ilp32\li
 LIBC     = "c:\Program Files\riscv-none-gcc\riscv-none-embed\lib\rv32im\ilp32\libc.a"
 LIBM     = "c:\Program Files\riscv-none-gcc\riscv-none-embed\lib\rv32im\ilp32\libm.a" 
 LIBNOSYS = "c:\Program Files\riscv-none-gcc\riscv-none-embed\lib\rv32im\ilp32\libnosys.a"
+LIBTANGERINE 		= "../gfxLib/libTangerine.a"
+LIBTANGERINELITE 	= "../gfxLib/libTangerineLite.a"
 
 all: $(TARGET).bin $(TARGET).rec $(TARGET).disasm 
+	$(OBJSIZE) $(TARGET).elf
 
 $(TARGET).disasm: $(TARGET).elf
 	$(OBJDUMP) --disassemble -S $(TARGET).elf>$(TARGET).disasm
@@ -34,8 +37,8 @@ $(TARGET).disasm: $(TARGET).elf
 $(TARGET).rec: $(TARGET).elf $(TARGET).disasm 
 	$(OBJCOPY) -O srec $(TARGET).elf $(TARGET).rec
 
-$(TARGET).elf: main.o srec.o ui.o bsp.o startup.o osAlloc.o osFile.o gfBitmap.o gfDrawing.o gfFont.o diskio.o ccsbcs.o ff.o osUIEvents.o ps2Host.o
-	$(LD) startup.o main.o srec.o ui.o ../gfxLib/bsp.o ../gfxLib/diskio.o ../gfxLib/ccsbcs.o ../gfxLib/ff.o ../gfxLib/osAlloc.o ../gfxLib/osFile.o ../gfxLib/gfBitmap.o ../gfxLib/gfDrawing.o ../gfxLib/gfFont.o ../gfxLib/osUIEvents.o ../gfxLib/ps2Host.o  $(LIBC) $(LIBNOSYS) $(LIBM) $(LIBGCC)  -o $(TARGET).elf
+$(TARGET).elf: main.o srec.o ui.o startup.o 
+	$(LD) startup.o main.o srec.o ui.o $(LIBTANGERINELITE) $(LIBC) $(LIBNOSYS) $(LIBM) $(LIBGCC)  -o $(TARGET).elf
 	$(NM) $(TARGET).elf >$(TARGET).sym
 
 $(TARGET).bin: $(TARGET).elf
@@ -53,62 +56,16 @@ srec.o: srec.cpp
 ui.o: ui.cpp
 	$(CC) -o ui.o ui.cpp
 
-bsp.o: ../gfxLib/bsp.c
-	$(CC) -o ../gfxLib/bsp.o ../gfxLib/bsp.c
-
 startup.o: startup.S
 	$(CC) -o startup.o startup.S
 
-gfBitmap.o: ../gfxLib/gfBitmap.c
-	$(CC) -o ../gfxLib/gfBitmap.o ../gfxLib/gfBitmap.c
-	
-gfDrawing.o: ../gfxLib/gfDrawing.c
-	$(CC) -o ../gfxLib/gfDrawing.o ../gfxLib/gfDrawing.c
-
-gfGouraud.o: ../gfxLib/gfGouraud.c
-	$(CC) -o ../gfxLib/gfGouraud.o ../gfxLib/gfGouraud.c
-
-gfFont.o: ../gfxLib/gfFont.c
-	$(CC) -o ../gfxLib/gfFont.o ../gfxLib/gfFont.c
-	
-gfJPEG.o: ../gfxLib/gfJPEG.c
-	$(CC) -o ../gfxLib/gfJPEG.o ../gfxLib/gfJPEG.c
-
-picojpeg.o: ../gfxLib/picojpeg.c
-	$(CC) -o ../gfxLib/picojpeg.o ../gfxLib/picojpeg.c
-
-osAlloc.o: ../gfxLib/osAlloc.c
-	$(CC) -o ../gfxLib/osAlloc.o ../gfxLib/osAlloc.c
-
-osFile.o: ../gfxLib/osFile.c
-	$(CC) -o ../gfxLib/osFile.o ../gfxLib/osFile.c
-
-diskio.o: ../gfxLib/diskio.c
-	$(CC) -o ../gfxLib/diskio.o ../gfxLib/diskio.c
-
-ff.o: ../gfxLib/ff.c
-	$(CC) -o ../gfxLib/ff.o ../gfxLib/ff.c
-
-ccsbcs.o: ../gfxLib/ccsbcs.c
-	$(CC) -o ../gfxLib/ccsbcs.o ../gfxLib/ccsbcs.c
-
-osUIEvents.o: ../gfxLib/osUIEvents.c
-	$(CC) -o ../gfxLib/osUIEvents.o ../gfxLib/osUIEvents.c
-
-usbHID.o: ../gfxLib/usbHID.c
-	$(CC) -o ../gfxLib/usbHID.o ../gfxLib/usbHID.c
-
-ps2Host.o: ../gfxLib/ps2Host.c
-	$(CC) -o ../gfxLib/ps2Host.o ../gfxLib/ps2Host.c
-
 clean:
 	rm -f *.o *.rec *.disasm *.elf *.mif *.mi *.bin *.map
-	rm -f ../gfxLib/*.o
 
 send: $(TARGET).rec
 	$(SENDER) $(TARGET).rec $(PORT) 460800
 	$(OBJSIZE) $(TARGET).elf
 	
 run: $(TARGET).rec
-	cp $(TARGET).rec "/c/Users/qubeck/Documents/Development/ProjektyGCCWindows/tangerineSOCEmulator/bin"
-	cd "/c/Users/qubeck/Documents/Development/ProjektyGCCWindows/tangerineSOCEmulator/bin" && ./tangerine.exe $(TARGET).rec
+#	cp $(TARGET).rec "/c/Users/qubeck/Documents/Development/ProjektyGCCWindows/tangerineSOCEmulator/bin"
+#	cd "/c/Users/qubeck/Documents/Development/ProjektyGCCWindows/tangerineSOCEmulator/bin" && ./tangerine.exe $(TARGET).rec

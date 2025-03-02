@@ -15,7 +15,7 @@ MEMORY
 
 
 /* repurpose regular stack as FreeRTOS interrupt stack */
-__freertos_irq_stack_top = 0x00005a80 ;
+__freertos_irq_stack_top = 0x00008000 ;
 
 SECTIONS
 {

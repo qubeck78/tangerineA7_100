@@ -129,10 +129,10 @@ int main()
     gfAudioInit();
 
 
-//    strcpy( mp3FileName, "0:/snd/bloom1.mp3" );
+    strcpy( mp3FileName, "0:/snd/bloom1.mp3" );
 //    strcpy( mp3FileName, "0:/snd/bloom2.mp3" );
 //    strcpy( mp3FileName, "0:/snd/fauna.mp3" );
-   strcpy( mp3FileName, "0:/snd/starfish.mp3" );
+//   strcpy( mp3FileName, "0:/snd/starfish.mp3" );
 
     mp3Size = osFSize( mp3FileName );
 

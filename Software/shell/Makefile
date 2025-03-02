@@ -31,6 +31,7 @@ LIBNOSYS = "c:\Program Files\riscv-none-gcc\riscv-none-embed\lib\rv32im\ilp32\li
 SENDER = srecsend
 
 all: $(TARGET).bin $(TARGET).rec $(TARGET).disasm 
+	$(OBJSIZE) $(TARGET).elf
 
 $(TARGET).disasm: $(TARGET).elf
 	$(OBJDUMP) --disassemble -S $(TARGET).elf>$(TARGET).disasm
@@ -75,5 +76,5 @@ send: $(TARGET).rec
 	$(OBJSIZE) $(TARGET).elf
 
 run: $(TARGET).rec
-	cp $(TARGET).rec "/c/Users/qubeck/Documents/Development/ProjektyGCCWindows/tangerineSOCEmulator/bin"
-	cd "/c/Users/qubeck/Documents/Development/ProjektyGCCWindows/tangerineSOCEmulator/bin" && ./tangerine.exe $(TARGET).rec
+#	cp $(TARGET).rec "/c/Users/qubeck/Documents/Development/ProjektyGCCWindows/tangerineSOCEmulator/bin"
+#	cd "/c/Users/qubeck/Documents/Development/ProjektyGCCWindows/tangerineSOCEmulator/bin" && ./tangerine.exe $(TARGET).rec

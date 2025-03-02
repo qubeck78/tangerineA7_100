@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Sun Mar  2 12:09:40 2025">
+<application name="pa" timeStamp="Sun Mar  2 20:53:20 2025">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="f06505794636456bbd9bbfd07808a142" type="ProjectID"/>
-<property name="ProjectIteration" value="270" type="ProjectIteration"/>
+<property name="ProjectIteration" value="277" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -14,7 +14,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ConstraintSetCount" value="1" type="ConstraintSetCount"/>
 <property name="DesignMode" value="RTL" type="DesignMode"/>
 <property name="SynthesisStrategy" value="qbk flow perfoptimized high" type="SynthesisStrategy"/>
-<property name="ImplStrategy" value="Performance_NetDelay_high" type="ImplStrategy"/>
+<property name="ImplStrategy" value="Performance_ExplorePostRoutePhysOpt" type="ImplStrategy"/>
 </item>
 </section>
 </application>

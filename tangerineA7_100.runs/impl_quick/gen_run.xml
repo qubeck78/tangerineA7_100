@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_quick" LaunchPart="xc7a100tfgg676-1" LaunchTime="1740912659">
+<GenRun Id="impl_quick" LaunchPart="xc7a100tfgg676-1" LaunchTime="1740945200">
   <File Type="ROUTE-PWR" Name="tangerineA7_100_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="tangerineA7_100_wrapper.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="tangerineA7_100_wrapper_power_summary_routed.pb"/>
@@ -320,22 +320,12 @@
   </FileSet>
   <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
     <Filter Type="Utils"/>
-    <File Path="$PSRCDIR/utils_1/imports/synth_quick/tangerineA7_100_wrapper.dcp">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedInSteps" Val="synth_quick"/>
-        <Attr Name="AutoDcp" Val="1"/>
-      </FileInfo>
-    </File>
     <Config>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Performance_ExplorePostRoutePhysOpt" Flow="Vivado Implementation 2023">
-      <Desc>Similar to Peformance_Explore, but enables the physical optimization step (phys_opt_design) with the Explore directive after routing.</Desc>
-    </StratHandle>
+    <StratHandle Name="Performance_ExplorePostRoutePhysOpt" Flow="Vivado Implementation 2023"/>
     <Step Id="init_design"/>
     <Step Id="opt_design">
       <Option Id="Directive">0</Option>

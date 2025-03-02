@@ -204,7 +204,7 @@ int main()
 
    con.textAttributes = 0x0d;
 
-   printf( "freeRTOS test B20250220, FreeRTOSv202406.01-LTS\n\n" );
+   printf( "freeRTOS test B20250302, FreeRTOSv202406.01-LTS\n\n" );
    
 /*   usbHIDSetMousePointerVisibility( 1 );
    usbHidSetMouseReporting( 1 );

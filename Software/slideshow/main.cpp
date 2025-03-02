@@ -311,8 +311,6 @@ int main()
     //init events queue
     osUIEventsInit();  
 
-//    toPrintF( &con, "$%02x", axidma->debug );
-
     //init filesystem
     rv = osFInit();
 
@@ -325,7 +323,7 @@ int main()
     }
 
     
-
+/*
     printf( "%08x %08x %08x\n", vga, vga->id, vga->version );
     printf( "%08x %08x %08x\n", axidma, axidma->id, axidma->version );
     printf( "%08x %08x %08x\n", ps2Host, ps2Host->id, ps2Host->version );
@@ -351,6 +349,7 @@ int main()
         }
 
     }while( event.arg1 != 27 );
+*/
 
 /*
     gfLoadBitmapFS( &cursor, (char*)"0:/sys/cursor.gbm" );
