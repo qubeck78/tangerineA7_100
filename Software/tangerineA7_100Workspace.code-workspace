@@ -9,6 +9,10 @@
 			"path": "freeRTOS"
 		},
 		{
+			"name": "libHelix",
+			"path": "libHelix"
+		},
+		{
 			"name": "balls",
 			"path": "balls"
 		},

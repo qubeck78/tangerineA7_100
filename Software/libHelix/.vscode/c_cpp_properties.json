@@ -4,9 +4,10 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib",
-                "C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/libHelix/pub",
-                "C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/libHelix/real"
+                "C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/freeRTOStest",
+                "C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/freeRTOS/include",
+                "c:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/freeRTOS/portable/GCC/RISC-V",
+                "C:/Users/qubeck/Documents/Development/ProjektyVHDL/WukongBoard/tangerineA7_100/Software/gfxLib"
             ],
             "defines": [
                 "_DEBUG",

@@ -52,7 +52,7 @@ startup.o: startup.S
 	$(CC) -o startup.o startup.S
 
 clean:
-	rm -f *.o *.rec *.disasm *.elf *.mif *.mi *.bin *.map
+	rm -f *.o *.rec *.disasm *.elf *.mif *.mi *.bin *.map *.sym
 	
 
 send: $(TARGET).rec

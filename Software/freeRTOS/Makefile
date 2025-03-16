@@ -58,6 +58,6 @@ port.o:	portable/GCC/RISC-V/port.c
 	$(CC) -o portable/GCC/RISC-V/port.o portable/GCC/RISC-V/port.c 
 
 clean:
-	rm -f *.o *.rec *.disasm *.elf *.mif *.mi *.bin *.map
+	rm -f *.o *.a *.rec *.disasm *.elf *.mif *.mi *.bin *.map
 	rm -f portable/MemMang/*.o
 	rm -f portable/GCC/RISC-V/*.o

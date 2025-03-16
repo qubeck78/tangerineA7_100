@@ -12,7 +12,7 @@
 PORT = auto
 TARGET = mp3
 
-CC = riscv-none-embed-gcc -march=rv32im -c -O2 -I. -I../gfxLib/ -IlibHelix/pub/ -IlibHelix/real/ -DHELIX_CONFIG_FIXEDPOINT
+CC = riscv-none-embed-gcc -march=rv32im -c -O2 -I. -I../gfxLib/ -I../libHelix/pub/ -I../libHelix/real/ -DHELIX_CONFIG_FIXEDPOINT
 LD = riscv-none-embed-ld -T ram.ld
 NM = riscv-none-embed-nm -n 
 OBJCOPY = riscv-none-embed-objcopy
@@ -27,6 +27,7 @@ LIBM     = "c:\Program Files\riscv-none-gcc\riscv-none-embed\lib\rv32im\ilp32\li
 LIBNOSYS = "c:\Program Files\riscv-none-gcc\riscv-none-embed\lib\rv32im\ilp32\libnosys.a"
 LIBTANGERINE 		= "../gfxLib/libTangerine.a"
 LIBTANGERINELITE 	= "../gfxLib/libTangerineLite.a"
+LIBHELIX			= "../libHelix/libHelix.a"
 
 all: $(TARGET).bin $(TARGET).rec $(TARGET).disasm 
 	$(OBJSIZE) $(TARGET).elf
@@ -37,8 +38,8 @@ $(TARGET).disasm: $(TARGET).elf
 $(TARGET).rec: $(TARGET).elf $(TARGET).disasm 
 	$(OBJCOPY) -O srec $(TARGET).elf $(TARGET).rec
 
-$(TARGET).elf: main.o startup.o mp3dec.o mp3tabs.o buffers.o bitstream.o huffman.o hufftabs.o dequant.o scalfact.o dct32.o dqchan.o imdct.o polyphase.o stproc.o subband.o trigtabs.o 
-	$(LD) startup.o main.o libHelix/mp3dec.o libHelix/mp3tabs.o libHelix/real/buffers.o libHelix/real/bitstream.o libHelix/real/huffman.o libHelix/real/hufftabs.o libHelix/real/dequant.o libHelix/real/scalfact.o libHelix/real/dct32.o libHelix/real/dqchan.o libHelix/real/imdct.o libHelix/real/polyphase.o libHelix/real/stproc.o libHelix/real/subband.o libHelix/real/trigtabs.o $(LIBTANGERINE) $(LIBC) $(LIBNOSYS) $(LIBM) $(LIBGCC)  -o $(TARGET).elf
+$(TARGET).elf: main.o startup.o 
+	$(LD) startup.o main.o $(LIBHELIX) $(LIBTANGERINE) $(LIBC) $(LIBNOSYS) $(LIBM) $(LIBGCC)  -o $(TARGET).elf
 	$(NM) $(TARGET).elf >$(TARGET).sym
 
 $(TARGET).bin: $(TARGET).elf
@@ -52,54 +53,9 @@ startup.o: startup.S
 	$(CC) -o startup.o startup.S
 
 
-mp3dec.o: libHelix/mp3dec.c
-	$(CC) -o libHelix/mp3dec.o libHelix/mp3dec.c 
-
-mp3tabs.o: libHelix/mp3tabs.c
-	$(CC) -o libHelix/mp3tabs.o libHelix/mp3tabs.c 
-
-buffers.o: libHelix/real/buffers.c
-	$(CC) -o libHelix/real/buffers.o libHelix/real/buffers.c 
-
-bitstream.o: libHelix/real/bitstream.c
-	$(CC) -o libHelix/real/bitstream.o libHelix/real/bitstream.c 
-
-scalfact.o: libHelix/real/scalfact.c
-	$(CC) -o libHelix/real/scalfact.o libHelix/real/scalfact.c 
-
-huffman.o: libHelix/real/huffman.c
-	$(CC) -o libHelix/real/huffman.o libHelix/real/huffman.c 
-
-hufftabs.o: libHelix/real/hufftabs.c
-	$(CC) -o libHelix/real/hufftabs.o libHelix/real/hufftabs.c 
-
-dequant.o: libHelix/real/dequant.c
-	$(CC) -o libHelix/real/dequant.o libHelix/real/dequant.c 
-
-dqchan.o: libHelix/real/dqchan.c
-	$(CC) -o libHelix/real/dqchan.o libHelix/real/dqchan.c 
-
-dct32.o: libHelix/real/dct32.c
-	$(CC) -o libHelix/real/dct32.o libHelix/real/dct32.c 
-
-imdct.o: libHelix/real/dct32.c
-	$(CC) -o libHelix/real/imdct.o libHelix/real/imdct.c 
-
-polyphase.o: libHelix/real/polyphase.c
-	$(CC) -o libHelix/real/polyphase.o libHelix/real/polyphase.c 
-
-stproc.o: libHelix/real/stproc.c
-	$(CC) -o libHelix/real/stproc.o libHelix/real/stproc.c 
-
-subband.o: libHelix/real/subband.c
-	$(CC) -o libHelix/real/subband.o libHelix/real/subband.c 
-
-trigtabs.o: libHelix/real/trigtabs.c
-	$(CC) -o libHelix/real/trigtabs.o libHelix/real/trigtabs.c 
 
 clean:
 	rm -f *.o *.rec *.disasm *.elf *.mif *.mi *.bin *.map
-	rm -f libHelix/*.o libHelix/real/*.o
 	
 send: $(TARGET).rec
 	$(SENDER) $(TARGET).rec $(PORT) 460800
